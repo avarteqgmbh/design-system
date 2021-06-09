@@ -29,8 +29,7 @@ export function Button(props: ButtonProps) {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    borderRadius: theme.spacing(2),
-    display: 'flex',
+    borderRadius: theme.spacing(4),
     border:
       theme.palette.type === 'dark'
         ? `1px solid ${theme.palette.grey[700]}`
@@ -40,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
     '&.MuiButton-text': {
       border: 'none',
     },
+    display: 'flex',
   },
   label: {
     textTransform: 'none',
