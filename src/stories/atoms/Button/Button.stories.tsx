@@ -1,5 +1,5 @@
-import { Meta, Story } from '@storybook/react';
-// import { withDesign } from 'storybook-addon-designs';
+import { Story } from '@storybook/react';
+import { withDesign } from 'storybook-addon-designs';
 import { Wrapper } from '../../_helpers/Wrapper';
 import { ButtonProps } from '@material-ui/core';
 import { Button } from './Button';
@@ -25,6 +25,13 @@ export default {
       defaultValue: 'contained',
     },
     onClick: { action: { type: 'clicked' } },
+  },
+  decorators: [withDesign],
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/Tokens?node-id=43%3A235',
+    },
   },
 };
 

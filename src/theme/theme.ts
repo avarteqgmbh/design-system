@@ -48,7 +48,7 @@ export const GRADIENT_LIGHT =
   'linear-gradient(360deg, #e1e9f9 0.06%, #f3f7ff 99.2%)';
 export const GRADIENT_DARK =
   'linear-gradient(180deg, #293858 0%, #081123 100%)';
-export const GRADIENT_PRIMARY = `linear-gradient(-15.71deg, ${colors.primary600} 10.98%, ${colors.primary400} 89.02%)`;
+export const GRADIENT_PRIMARY = `linear-gradient(-15.71deg, ${colors.primaryMain} 10.98%, ${colors.primary400} 89.02%)`;
 
 /* --------------------------------------------------
 -- 💫 S P A C E

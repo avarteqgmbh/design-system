@@ -12,7 +12,5 @@ export function Home() {
 }
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    background: theme.palette.background.default,
-  }
+  root: {}
 }))

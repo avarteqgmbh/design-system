@@ -4,6 +4,8 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/preset-create-react-app',
+    '@react-theming/storybook-addon',
+    'storybook-addon-designs',
   ],
   typescript: {
     reactDocgen: 'none',
