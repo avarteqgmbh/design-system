@@ -1,7 +1,7 @@
 /* --------------------------------------------------
 -- 🎨 COLORS
 -------------------------------------------------- */
-export const palette = {
+export const colors = {
   black: '#000000',
   white: '#ffffff',
   transparent: '#00000000',
@@ -162,11 +162,11 @@ export const spacings = {
   spacing3: '8px',
   spacing4: '16px',
   spacing6: '32px',
-  spacing8: '63px',
-  spacing10: '126px',
   spacing5: '24px',
   spacing7: '40px',
+  spacing8: '63px',
   spacing9: '80px',
+  spacing10: '126px',
 };
 
 /* --------------------------------------------------

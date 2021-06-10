@@ -1,4 +1,4 @@
-import { colors } from './variables';
+import { colors, spacings, textStyles } from './variables';
 
 /* --------------------------------------------------
 -- 🎨 B A S E   C O L O R S
@@ -42,10 +42,8 @@ const COLOR_INFO_MAIN = colors.infoLight;
 const COLOR_INFO_DARK = colors.infoLight;
 const COLOR_INFO_CONTRAST = COLOR_WHITE;
 
-// const GRADIENT_PRIMARY =
-//   'linear-gradient(15.71deg, var(--color-primary-6) 10.98%, var(--color-primary-5) 89.02%)';
 export const GRADIENT_LIGHT =
-  'linear-gradient(360deg, #e1e9f9 0.06%, #f3f7ff 99.2%)';
+  'linear-gradient(360deg, #e1e9f9 100%, #f3f7ff 100%)';
 export const GRADIENT_DARK =
   'linear-gradient(180deg, #293858 0%, #081123 100%)';
 export const GRADIENT_PRIMARY = `linear-gradient(-15.71deg, ${colors.primaryMain} 10.98%, ${colors.primary400} 89.02%)`;
@@ -53,36 +51,21 @@ export const GRADIENT_PRIMARY = `linear-gradient(-15.71deg, ${colors.primaryMain
 /* --------------------------------------------------
 -- 💫 S P A C E
 -------------------------------------------------- */
-const SPACE_0 = 0;
-const SPACE_1 = 2;
-const SPACE_2 = 4;
-const SPACE_3 = 8;
-const SPACE_4 = 12;
-const SPACE_5 = 16;
-const SPACE_6 = 24;
-const SPACE_7 = 32;
-const SPACE_8 = 40;
-const SPACE_9 = 60;
-const SPACE_10 = 80;
-const SPACE_11 = 120;
+const SPACE_0 = spacings.spacing0;
+const SPACE_1 = spacings.spacing1;
+const SPACE_2 = spacings.spacing2;
+const SPACE_3 = spacings.spacing3;
+const SPACE_4 = spacings.spacing4;
+const SPACE_5 = spacings.spacing5;
+const SPACE_6 = spacings.spacing6;
+const SPACE_7 = spacings.spacing7;
+const SPACE_8 = spacings.spacing8;
+const SPACE_9 = spacings.spacing9;
+const SPACE_10 = spacings.spacing10;
 
 /* --------------------------------------------------
 -- 🖋 T Y P E
 -------------------------------------------------- */
-// const TYPE_1 = 10;
-const TYPE_2 = 12;
-const TYPE_3 = 16;
-const TYPE_4 = 20;
-const TYPE_5 = 24;
-const TYPE_6 = 32;
-const TYPE_7 = 40;
-const TYPE_8 = 60;
-
-const DEFAULT_HEADING_PROPS: React.CSSProperties = {
-  fontWeight: 700,
-  marginBottom: '0.35em',
-  marginTop: '0.35em',
-};
 
 export const palette = {
   grey: {
@@ -156,12 +139,11 @@ export const spacing = [
   SPACE_8,
   SPACE_9,
   SPACE_10,
-  SPACE_11,
 ];
 
 export const typography = {
   fontFamily: [
-    'Inter',
+    'Inter', // TODO get this one right from variables
     '-apple-system',
     'BlinkMacSystemFont',
     '"Segoe UI"',
@@ -173,56 +155,20 @@ export const typography = {
     '"Segoe UI Emoji"',
     '"Segoe UI Symbol"',
   ].join(','),
-  h1: {
-    ...DEFAULT_HEADING_PROPS,
-    fontSize: TYPE_8,
-  },
-  h2: {
-    ...DEFAULT_HEADING_PROPS,
-    fontSize: TYPE_7,
-  },
-  h3: {
-    ...DEFAULT_HEADING_PROPS,
-    fontSize: TYPE_6,
-  },
-  h4: {
-    ...DEFAULT_HEADING_PROPS,
-    fontSize: TYPE_5,
-  },
-  h5: {
-    ...DEFAULT_HEADING_PROPS,
-    fontSize: TYPE_4,
-  },
-  h6: {
-    ...DEFAULT_HEADING_PROPS,
-    fontSize: TYPE_3,
-  },
-  subtitle1: {
-    fontSize: TYPE_4,
-  },
-  subtitle2: {
-    fontSize: TYPE_3,
-  },
-  body1: {
-    fontSize: TYPE_3,
-  },
-  body2: {
-    fontWeight: 500,
-    fontSize: TYPE_2,
-  },
-  button: {
-    fontSize: TYPE_3,
-    fontWeight: 700,
-    borderRadius: SPACE_2,
-  },
-  caption: {
-    fontWeight: 500,
-    fontSize: TYPE_2,
-  },
-  overline: {
-    fontSize: TYPE_2,
-    color: COLOR_GREY_500,
-  },
+  h1: { ...textStyles.h1 },
+  h2: { ...textStyles.h2 },
+  h3: { ...textStyles.h3 },
+  h4: { ...textStyles.h4 },
+  h5: { ...textStyles.h5 },
+  h6: { ...textStyles.h6 },
+  subtitle1: { ...textStyles.subtitle1 },
+  subtitle2: { ...textStyles.subtitle2 },
+  body1: { ...textStyles.body },
+  body2: { ...textStyles.body2 },
+  button: { ...textStyles.button1 },
+  button2: { ...textStyles.button2 },
+  caption: { ...textStyles.caption },
+  overline: { ...textStyles.overline },
 };
 
 export const overrides = {
