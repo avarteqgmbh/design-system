@@ -1,4 +1,4 @@
-import { colors, spacings, textStyles } from './variables';
+import { colors, textStyles } from './variables/anynines';
 
 /* --------------------------------------------------
 -- 🎨 B A S E   C O L O R S
@@ -51,22 +51,22 @@ export const GRADIENT_PRIMARY = `linear-gradient(-15.71deg, ${colors.primaryMain
 /* --------------------------------------------------
 -- 💫 S P A C E
 -------------------------------------------------- */
-const SPACE_0 = spacings.spacing0;
-const SPACE_1 = spacings.spacing1;
-const SPACE_2 = spacings.spacing2;
-const SPACE_3 = spacings.spacing3;
-const SPACE_4 = spacings.spacing4;
-const SPACE_5 = spacings.spacing5;
-const SPACE_6 = spacings.spacing6;
-const SPACE_7 = spacings.spacing7;
-const SPACE_8 = spacings.spacing8;
-const SPACE_9 = spacings.spacing9;
-const SPACE_10 = spacings.spacing10;
+const SPACE_0 = 0;
+const SPACE_1 = 2;
+const SPACE_2 = 4;
+const SPACE_3 = 8;
+const SPACE_4 = 12;
+const SPACE_5 = 16;
+const SPACE_6 = 24;
+const SPACE_7 = 32;
+const SPACE_8 = 40;
+const SPACE_9 = 60;
+const SPACE_10 = 80;
+const SPACE_11 = 120;
 
 /* --------------------------------------------------
 -- 🖋 T Y P E
 -------------------------------------------------- */
-
 export const palette = {
   grey: {
     50: COLOR_GREY_50,
@@ -127,6 +127,9 @@ export const palette = {
   },
 };
 
+/* --------------------------------------------------
+-- 📐 S P A C I N G
+-------------------------------------------------- */
 export const spacing = [
   SPACE_0,
   SPACE_1,
@@ -139,8 +142,12 @@ export const spacing = [
   SPACE_8,
   SPACE_9,
   SPACE_10,
+  SPACE_10,
 ];
 
+/* --------------------------------------------------
+-- 📐 T Y P O G  R A P H Y
+-------------------------------------------------- */
 export const typography = {
   fontFamily: [
     'Inter', // TODO get this one right from variables
@@ -196,6 +203,6 @@ export const overrides = {
 export const theme = {
   palette: palette,
   overrides: { ...overrides },
-  typography: typography,
+  // typography: typography,
   spacing: spacing,
 };

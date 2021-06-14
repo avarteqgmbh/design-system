@@ -1,14 +1,17 @@
 import { Story } from '@storybook/react';
 import { withDesign } from 'storybook-addon-designs';
 import { Wrapper } from '../../_helpers/Wrapper';
-import { ButtonProps } from '@material-ui/core';
-import { Button } from './Button';
+import { ButtonExtended, ButtonProps } from './ButtonExtended';
 import WbSunnyIcon from '@material-ui/icons/WbSunny';
 
 export default {
-  title: '💧 Atoms/Button',
-  component: Button,
+  title: '💧 Atoms/ButtonExtended',
+  component: ButtonExtended,
   argTypes: {
+    bigBorder: {
+      control: 'boolean',
+      defaultValue: true,
+    },
     size: {
       control: 'select',
       options: ['small', 'medium', 'large'],
@@ -38,7 +41,7 @@ export default {
 
 const Template: Story<ButtonProps> = (args) => (
   <Wrapper>
-    <Button {...args}>Button</Button>
+    <ButtonExtended {...args}>Button</ButtonExtended>
   </Wrapper>
 );
 

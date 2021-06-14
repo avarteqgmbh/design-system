@@ -7,7 +7,4 @@ module.exports = {
     '@react-theming/storybook-addon',
     'storybook-addon-designs',
   ],
-  typescript: {
-    reactDocgen: 'none',
-  },
 };

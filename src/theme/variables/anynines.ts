@@ -153,23 +153,6 @@ export const textStyles = {
 };
 
 /* --------------------------------------------------
--- 📐 Spacing
--------------------------------------------------- */
-export const spacings = {
-  spacing0: '0px',
-  spacing1: '2px',
-  spacing2: '4px',
-  spacing3: '8px',
-  spacing4: '16px',
-  spacing6: '32px',
-  spacing5: '24px',
-  spacing7: '40px',
-  spacing8: '63px',
-  spacing9: '80px',
-  spacing10: '126px',
-};
-
-/* --------------------------------------------------
 -- 💫 Borders
 -------------------------------------------------- */
 export const borders = {

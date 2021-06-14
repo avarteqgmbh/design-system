@@ -1,12 +1,16 @@
 import {
-  Button as MuiButton,
   makeStyles,
-  ButtonProps,
+  Button as MuiButton,
+  ButtonProps as MuiButtonProps,
 } from '@material-ui/core';
 import { GRADIENT_PRIMARY } from '../../../theme/theme';
 
-export function Button(props: ButtonProps) {
-  const { variant = 'contained', color = 'primary' } = props;
+export interface ButtonProps extends MuiButtonProps {
+  bigBorder: boolean
+};
+
+export function ButtonExtended(props: ButtonProps) {
+  const { variant = 'contained', color = 'primary', bigBorder = true } = props;
   const classes = useStyles();
   return (
     <MuiButton
@@ -20,6 +24,7 @@ export function Button(props: ButtonProps) {
         contained: classes.contained,
         disabled: classes.disabled,
       }}
+      className={`${bigBorder && classes.bigBorder} ${props.className}`}
       variant={variant}
       color={color}
       {...props}
@@ -83,4 +88,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   disabled: {},
+  bigBorder: {
+    borderWidth: '5px !important',
+    boxShadow: 'none',
+  }
 }));
