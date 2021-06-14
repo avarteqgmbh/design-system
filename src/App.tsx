@@ -1,13 +1,14 @@
+import { MuiThemeProvider, createMuiTheme, CssBaseline } from '@material-ui/core';
+import { theme } from './theme/theme';
+import { Home } from './pages/Home';
+
 function App() {
+  const muiTheme = createMuiTheme(theme)
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>anynines Design System 2.0</h1>
-        <p>
-          The next level anynines Design System providing a new Storybook package powered by Material UI.
-        </p>
-      </header>
-    </div>
+    <MuiThemeProvider theme={muiTheme}>
+      <CssBaseline />
+      <Home />
+    </MuiThemeProvider>
   );
 }
 
