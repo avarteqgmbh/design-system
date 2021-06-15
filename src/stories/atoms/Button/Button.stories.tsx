@@ -30,7 +30,7 @@ export default {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/Tokens?node-id=43%3A235',
+      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/anynines-Design-System?node-id=102%3A10',
     },
   },
 };
@@ -43,7 +43,10 @@ const Template: Story<ButtonProps> = (args) => (
 );
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  color: 'default',
+  variant: 'contained',
+};
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -54,6 +57,12 @@ Primary.args = {
 export const Secondary = Template.bind({});
 Secondary.args = {
   color: 'secondary',
+  variant: 'contained',
+};
+
+export const Inherit = Template.bind({});
+Inherit.args = {
+  color: 'inherit',
   variant: 'contained',
 };
 
