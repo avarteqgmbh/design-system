@@ -68,19 +68,23 @@ const useStyles = makeStyles((theme) => ({
       background: GRADIENT_PRIMARY,
       border: `1px solid ${theme.palette.primary.light}`,
     },
-    '&$disabled': {
-      color: theme.palette.type === 'dark' && theme.palette.grey[500],
-      background: theme.palette.grey[300],
-      borderColor: theme.palette.grey[400],
-    },
   },
   containedSecondary: {
     background: theme.palette.background.default,
     border: `1px solid ${theme.palette.grey[200]}`,
     '&:hover': {
-      background: theme.palette.grey[300],
+      background: theme.palette.grey[50],
       border: `1px solid ${theme.palette.grey[200]}`,
     },
   },
-  disabled: {},
+  disabled: {
+    '&$disabled': {
+      color: theme.palette.text.disabled,
+      background: theme.palette.background.default,
+      borderColor:
+        theme.palette.type === 'dark'
+          ? theme.palette.grey[800]
+          : theme.palette.grey[200],
+    },
+  },
 }));

@@ -1,34 +1,13 @@
 import { Story } from '@storybook/react';
 import { withDesign } from 'storybook-addon-designs';
 import { Wrapper } from '../../_helpers/Wrapper';
-import { ButtonExtended, ButtonProps } from './ButtonExtended';
+import { ButtonProps } from '@material-ui/core';
+import { MuiButton } from './MuiButton';
 import WbSunnyIcon from '@material-ui/icons/WbSunny';
 
 export default {
-  title: '💧 Atoms/ButtonExtended',
-  component: ButtonExtended,
-  argTypes: {
-    bigBorder: {
-      control: 'boolean',
-      defaultValue: true,
-    },
-    size: {
-      control: 'select',
-      options: ['small', 'medium', 'large'],
-      defaultValue: 'medium',
-    },
-    color: {
-      control: 'select',
-      options: ['primary', 'secondary', 'default', 'inherit'],
-      defaultValue: 'primary',
-    },
-    variant: {
-      control: 'select',
-      options: ['contained', 'outline', 'text'],
-      defaultValue: 'contained',
-    },
-    onClick: { action: { type: 'clicked' } },
-  },
+  title: 'Example/MuiButton',
+  component: MuiButton,
   decorators: [withDesign],
   parameters: {
     design: {
@@ -41,7 +20,7 @@ export default {
 
 const Template: Story<ButtonProps> = (args) => (
   <Wrapper>
-    <ButtonExtended {...args}>Button</ButtonExtended>
+    <MuiButton {...args}>Button</MuiButton>
   </Wrapper>
 );
 
