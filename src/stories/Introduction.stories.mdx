@@ -3,14 +3,103 @@ import Code from './assets/code-brackets.svg';
 import Colors from './assets/colors.svg';
 import Comments from './assets/comments.svg';
 import Direction from './assets/direction.svg';
+import Figma from './assets/figma.svg';
 import Flow from './assets/flow.svg';
 import Plugin from './assets/plugin.svg';
+import Mui from './assets/mui.svg';
 import Repo from './assets/repo.svg';
 import StackAlt from './assets/stackalt.svg';
 
-<Meta title="Example/Introduction" />
+<Meta title="👋 Get started/Welcome" />
+
+# Welcome to Design System
+
+This is the **anynines Design System**, here we build UI components in isolation from our app's business logic, data, and context.
+
+<div className="link-list">
+  <a
+    className="link-item"
+    href="https://storybook.js.org/docs/react/addons/addon-types"
+    target="_blank"
+  >
+    <img src={Plugin} alt="plugin" />
+    <span>
+      <strong>Live Demo</strong>
+      Checkout latest published version
+    </span>
+  </a>
+  <a
+    className="link-item"
+    href="https://storybook.js.org/docs/react/configure/webpack"
+    target="_blank"
+  >
+    <img src={Plugin} alt="Build" />
+    <span>
+      <strong>Changelog</strong>
+      See latest changes
+    </span>
+  </a>
+</div>
+
+## Get Started
+
+### Atomic Design
+
+We follow the [**Atomic Design**](https://bradfrost.com/blog/post/atomic-web-design/) principles. Basic building blocks of the UI are assigned to **💧 Atoms**, **🌱 Molecules** and **🌳 Organisms** depending on their complexity and dependencies. To orchestrate these building blocks together can be challenging for developers, which is why **📑 Templates** and **📘 Pages** are provided also within storybook.
+
+<div className="tip-wrapper">
+  <span className="tip">Tip</span>Find examples for all these in the left hand
+  sidebar.
+</div>
+
+### Figma
+
+Storybook is where we write the code on the basis of what designers have build in the represetnative Figma file [**anynines Design System**](https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/anynines-Design-System?node-id=77%3A521). Figma is where we think, concept, design and prototype as a team, while storybook is the place where developers can check out all the UI components. It is important that both sides stay in synch whenever possible.
+
+<div className="link-list">
+  <a
+    className="link-item"
+    href="https://storybook.js.org/docs/react/configure/webpack"
+    target="_blank"
+  >
+    <img src={Figma} alt="Build" />
+    <span>
+      <strong>anynines Design System</strong>
+      Check out or contribute to our Figma file
+    </span>
+  </a>
+</div>
+
+### Material UI
+
+Since we only have a small team to provide a wide range of UI components we need to build on something **bullet proven**, **maintained** and **easy to extend**. Our choice for that one is **Material UI** (Mui) from Google. We simply take all the basic components from MUI wrap them to override styles, add default props or add additional props.
+
+<div className="link-list">
+  <a className="link-item" href="https://material-ui.com/" target="_blank">
+    <img src={Mui} alt="Build" />
+    <span>
+      <strong>Material UI</strong>
+      Googles UI Library
+    </span>
+  </a>
+</div>
+
+### Toolabs
+
+To manage different themes with following the same structure we use a tool called toolabs. It is a graphical UI to manage colors, fonts and typo, icons, images and even ui texts. The data we configure there can be synched with Figma and can be exported as javascript files to be used in any app.
 
 <style>{`
+  h2, h3 {
+    font-weight: 900;
+  }
+
+  h2.sbdocs.sbdocs-h2 {
+    margin-top: 40px;
+  }
+  h3.sbdocs.sbdocs-h3 {
+    margin-top: 20px;
+  }
+
   .subheading {
     --mediumdark: '#999999';
     font-weight: 900;
@@ -26,8 +115,9 @@ import StackAlt from './assets/stackalt.svg';
   .link-list {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr;
     row-gap: 10px;
+    margin-bottom: 20px;
   }
 
   @media (min-width: 620px) {
@@ -102,8 +192,8 @@ import StackAlt from './assets/stackalt.svg';
   .tip-wrapper {
     font-size: 13px;
     line-height: 20px;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 
   .tip-wrapper code {
@@ -113,99 +203,3 @@ import StackAlt from './assets/stackalt.svg';
 
   
 `}</style>
-
-# Welcome to Storybook
-
-Storybook helps you build UI components in isolation from your app's business logic, data, and context.
-That makes it easy to develop hard-to-reach states. Save these UI states as **stories** to revisit during development, testing, or QA.
-
-Browse example stories now by navigating to them in the sidebar.
-View their code in the `src/stories` directory to learn how they work.
-We recommend building UIs with a [**component-driven**](https://componentdriven.org) process starting with atomic components and ending with pages.
-
-<div className="subheading">Configure</div>
-
-<div className="link-list">
-  <a
-    className="link-item"
-    href="https://storybook.js.org/docs/react/addons/addon-types"
-    target="_blank"
-  >
-    <img src={Plugin} alt="plugin" />
-    <span>
-      <strong>Presets for popular tools</strong>
-      Easy setup for TypeScript, SCSS and more.
-    </span>
-  </a>
-  <a
-    className="link-item"
-    href="https://storybook.js.org/docs/react/configure/webpack"
-    target="_blank"
-  >
-    <img src={StackAlt} alt="Build" />
-    <span>
-      <strong>Build configuration</strong>
-      How to customize webpack and Babel
-    </span>
-  </a>
-  <a
-    className="link-item"
-    href="https://storybook.js.org/docs/react/configure/styling-and-css"
-    target="_blank"
-  >
-    <img src={Colors} alt="colors" />
-    <span>
-      <strong>Styling</strong>
-      How to load and configure CSS libraries
-    </span>
-  </a>
-  <a
-    className="link-item"
-    href="https://storybook.js.org/docs/react/get-started/setup#configure-storybook-for-your-stack"
-    target="_blank"
-  >
-    <img src={Flow} alt="flow" />
-    <span>
-      <strong>Data</strong>
-      Providers and mocking for data libraries
-    </span>
-  </a>
-</div>
-
-<div className="subheading">Learn</div>
-
-<div className="link-list">
-  <a className="link-item" href="https://storybook.js.org/docs" target="_blank">
-    <img src={Repo} alt="repo" />
-    <span>
-      <strong>Storybook documentation</strong>
-      Configure, customize, and extend
-    </span>
-  </a>
-  <a className="link-item" href="https://storybook.js.org/tutorials/" target="_blank">
-    <img src={Direction} alt="direction" />
-    <span>
-      <strong>In-depth guides</strong>
-      Best practices from leading teams
-    </span>
-  </a>
-  <a className="link-item" href="https://github.com/storybookjs/storybook" target="_blank">
-    <img src={Code} alt="code" />
-    <span>
-      <strong>GitHub project</strong>
-      View the source and add issues
-    </span>
-  </a>
-  <a className="link-item" href="https://discord.gg/storybook" target="_blank">
-    <img src={Comments} alt="comments" />
-    <span>
-      <strong>Discord chat</strong>
-      Chat with maintainers and the community
-    </span>
-  </a>
-</div>
-
-<div className="tip-wrapper">
-  <span className="tip">Tip</span>Edit the Markdown in{' '}
-  <code>src/stories/Introduction.stories.mdx</code>
-</div>
