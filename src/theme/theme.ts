@@ -119,6 +119,7 @@ export const palette = {
   background: {
     default: COLOR_GREY_100,
     paper: COLOR_WHITE,
+    light: COLOR_GREY_500,
   },
   text: {
     primary: COLOR_GREY_900,
