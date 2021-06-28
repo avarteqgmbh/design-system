@@ -8,6 +8,10 @@ export default {
   title: '🌳 Organisms/DataGrid',
   component: DataGrid,
   argTypes: {
+    disableColumnResize: {
+      control: 'boolean',
+      defaultValue: undefined,
+    }
   },
   decorators: [withDesign],
   parameters: {
@@ -48,7 +52,6 @@ const rows = [
   { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
   { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
 ];
-
 
 const Template: Story<DataGridProps> = (args) => (
   <div style={{ height: 500 }}>
