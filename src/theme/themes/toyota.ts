@@ -7,23 +7,23 @@ const COLOR_COMMON_WHITE = '#ffffff';
 const COLOR_COMMON_BLACK = '#000000';
 const COLOR_COMMON_TRANSPARENT = '#00000000';
 
-const COLOR_GREY_50 = '#f6f8fc';
-const COLOR_GREY_100 = '#e8eefb';
-const COLOR_GREY_200 = '#e0e4ed';
-const COLOR_GREY_300 = '#b8c2d6';
-const COLOR_GREY_400 = '#b0bfd9';
-const COLOR_GREY_500 = '#909fbe';
-const COLOR_GREY_600 = '#677695';
-const COLOR_GREY_700 = '#485776';
-const COLOR_GREY_800 = '#293858';
-const COLOR_GREY_900 = '#131f37';
-const COLOR_GREY_1000 = '#0d1424';
+const COLOR_GREY_50 = '#fcfcfc';
+const COLOR_GREY_100 = '#dadbdc';
+const COLOR_GREY_200 = '#b9babc';
+const COLOR_GREY_300 = '#989a9c';
+const COLOR_GREY_400 = '#78797c';
+const COLOR_GREY_500 = '#58595B';
+const COLOR_GREY_600 = '#48494b';
+const COLOR_GREY_700 = '#38393a';
+const COLOR_GREY_800 = '#28292a';
+const COLOR_GREY_900 = '#191919';
+const COLOR_GREY_1000 = '#090909';
 
-const COLOR_PRIMARY_LIGHTER = '#f5c9ab';
-const COLOR_PRIMARY_LIGHT = '#eda674';
-const COLOR_PRIMARY_MAIN = '#e4833e';
-const COLOR_PRIMARY_DARK = '#c56521';
-const COLOR_PRIMARY_DARKER = '#613313';
+const COLOR_PRIMARY_LIGHTER = '#fb919b';
+const COLOR_PRIMARY_LIGHT = '#f84958';
+const COLOR_PRIMARY_MAIN = '#eb0a1e';
+const COLOR_PRIMARY_DARK = '#a10b18';
+const COLOR_PRIMARY_DARKER = '#5a0810';
 
 const COLOR_ERROR_LIGHT = '#64f49e';
 const COLOR_ERROR_MAIN = '#1ada67';
@@ -58,7 +58,7 @@ const palette = {
     border: COLOR_GREY_200,
   },
   text: {
-    primary: COLOR_GREY_900,
+    primary: COLOR_GREY_1000,
     secondary: COLOR_GREY_700,
     disabled: COLOR_GREY_500,
     hint: COLOR_GREY_300,
@@ -130,12 +130,12 @@ const palette = {
 // --------------------------------------------
 // T Y P E
 // ------------------
-const FONT_FAMILY_HEADLINE = 'Inter';
-const FONT_FAMILY_BODY = 'Inter';
+const FONT_FAMILY_HEADLINE = 'Toyota Type';
+const FONT_FAMILY_BODY = 'Toyota Type';
 
-const FONT_WEIGHT_HEADLINE = 800;
+const FONT_WEIGHT_HEADLINE = 700;
 const FONT_WEIGHT_BODY = 400;
-const FONT_WEIGHT_BUTTON = 600;
+const FONT_WEIGHT_BUTTON = 700;
 
 const LINE_HEIGHT_HEADLINE = 1.5;
 const LINE_HEIGHT_BODY = 1.15;
@@ -163,7 +163,7 @@ const BASE_BODY_STYLES = {
 const BASE_BUTTON_STYLES = {
   fontFamily: FONT_FAMILY_BODY,
   fontWeight: FONT_WEIGHT_BUTTON,
-  lineHeight: LINE_HEIGHT_NONE,
+  lineHeight: 1.1,
   letterSpacing: LETTER_SPACING_HEADLINE,
 };
 
@@ -202,8 +202,8 @@ const radius = {
   small: 4,
   medium: 8,
   large: 12,
-  button: 8,
-  card: 12,
+  button: 100,
+  card: 8,
 };
 
 const overrides = {
