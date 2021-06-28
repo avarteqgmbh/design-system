@@ -21,7 +21,7 @@ export default {
     },
     variant: {
       control: 'select',
-      options: ['contained', 'outline', 'text'],
+      options: ['contained', 'outlined', 'text'],
       defaultValue: 'contained',
     },
     onClick: { action: { type: 'clicked' } },

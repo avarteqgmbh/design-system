@@ -1,14 +1,15 @@
-import { MuiThemeProvider, createMuiTheme, CssBaseline } from '@material-ui/core';
+import { createMuiTheme, CssBaseline } from '@material-ui/core';
 import { theme } from './theme/theme';
 import { Home } from './pages/Home';
+import { ThemeProvider } from './theme/ThemeProvider';
 
 function App() {
   const muiTheme = createMuiTheme(theme)
   return (
-    <MuiThemeProvider theme={muiTheme}>
+    <ThemeProvider>
       <CssBaseline />
       <Home />
-    </MuiThemeProvider>
+    </ThemeProvider>
   );
 }
 
