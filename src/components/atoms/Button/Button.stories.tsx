@@ -1,17 +1,13 @@
 import { Story } from '@storybook/react';
 import { withDesign } from 'storybook-addon-designs';
-import { Wrapper } from '../../_helpers/Wrapper';
-import { ButtonExtended, ButtonProps } from './ButtonExtended';
+import { ButtonProps } from '@material-ui/core';
+import { Button } from './Button';
 import WbSunnyIcon from '@material-ui/icons/WbSunny';
 
 export default {
-  title: 'Example/ButtonExtended',
-  component: ButtonExtended,
+  title: '💧 Atoms/Button',
+  component: Button,
   argTypes: {
-    bigBorder: {
-      control: 'boolean',
-      defaultValue: true,
-    },
     size: {
       control: 'select',
       options: ['small', 'medium', 'large'],
@@ -24,7 +20,7 @@ export default {
     },
     variant: {
       control: 'select',
-      options: ['contained', 'outline', 'text'],
+      options: ['contained', 'outlined', 'text'],
       defaultValue: 'contained',
     },
     onClick: { action: { type: 'clicked' } },
@@ -33,20 +29,21 @@ export default {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/Tokens?node-id=43%3A235',
+      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/anynines-Design-System?node-id=102%3A10',
     },
   },
 };
 
 
 const Template: Story<ButtonProps> = (args) => (
-  <Wrapper>
-    <ButtonExtended {...args}>Button</ButtonExtended>
-  </Wrapper>
+  <Button {...args}>Button</Button>
 );
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  color: 'default',
+  variant: 'contained',
+};
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -57,6 +54,12 @@ Primary.args = {
 export const Secondary = Template.bind({});
 Secondary.args = {
   color: 'secondary',
+  variant: 'contained',
+};
+
+export const Inherit = Template.bind({});
+Inherit.args = {
+  color: 'inherit',
   variant: 'contained',
 };
 
