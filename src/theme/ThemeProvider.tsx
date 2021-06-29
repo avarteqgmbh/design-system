@@ -2,9 +2,10 @@ import { ThemeProvider as MuiThemeProvider, ThemeProviderProps as MuiThemeProvid
 import { Theme } from './types'
 import { theme as anynines } from './theme'
 import { theme as toyota } from './themes/toyota'
+import { theme as thomsit } from './themes/thomsit'
 
 export interface ThemeProviderProps extends Omit<MuiThemeProviderProps, "theme"> {
-  theme?: Theme | 'anynines' | 'toyota'
+  theme?: Theme | 'anynines' | 'toyota' | 'thomsit'
 }
 
 export function ThemeProvider(props: ThemeProviderProps) {
@@ -16,6 +17,9 @@ export function ThemeProvider(props: ThemeProviderProps) {
     }
     if (theme === 'toyota') {
       return toyota
+    }
+    if (theme === 'thomsit') {
+      return thomsit
     }
     return theme
   }

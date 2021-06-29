@@ -9,23 +9,23 @@ const COLOR_COMMON_WHITE = '#ffffff';
 const COLOR_COMMON_BLACK = '#000000';
 const COLOR_COMMON_TRANSPARENT = '#00000000';
 
-const COLOR_GREY_50 = '#fcfcfc';
-const COLOR_GREY_100 = '#dadbdc';
-const COLOR_GREY_200 = '#b9babc';
-const COLOR_GREY_300 = '#989a9c';
-const COLOR_GREY_400 = '#78797c';
-const COLOR_GREY_500 = '#58595B';
-const COLOR_GREY_600 = '#48494b';
-const COLOR_GREY_700 = '#38393a';
-const COLOR_GREY_800 = '#28292a';
-const COLOR_GREY_900 = '#191919';
-const COLOR_GREY_1000 = '#090909';
+const COLOR_GREY_50 = '#fdfdfd';
+const COLOR_GREY_100 = '#e6e6e6';
+const COLOR_GREY_200 = '#cfcfcf';
+const COLOR_GREY_300 = '#b9b9b9';
+const COLOR_GREY_400 = '#a2a2a2';
+const COLOR_GREY_500 = '#8c8c8c';
+const COLOR_GREY_600 = '#737373';
+const COLOR_GREY_700 = '#5a5a5a';
+const COLOR_GREY_800 = '#404040';
+const COLOR_GREY_900 = '#272727';
+const COLOR_GREY_1000 = '#0e0e0e';
 
-const COLOR_PRIMARY_LIGHTER = '#fb919b';
-const COLOR_PRIMARY_LIGHT = '#f84958';
-const COLOR_PRIMARY_MAIN = '#eb0a1e';
-const COLOR_PRIMARY_DARK = '#a10b18';
-const COLOR_PRIMARY_DARKER = '#5a0810';
+const COLOR_PRIMARY_LIGHTER = '#fe8aca';
+const COLOR_PRIMARY_LIGHT = '#fd3da6';
+const COLOR_PRIMARY_MAIN = '#ea0281';
+const COLOR_PRIMARY_DARK = '#a0055a';
+const COLOR_PRIMARY_DARKER = '#590533';
 
 const COLOR_ERROR_LIGHT = '#fba69e';
 const COLOR_ERROR_MAIN = '#f67367';
@@ -132,12 +132,12 @@ const palette = {
 // --------------------------------------------
 // T Y P O G R A P H Y
 // ------------------
-const FONT_FAMILY_HEADLINE = 'Toyota Type';
-const FONT_FAMILY_BODY = 'Toyota Type';
+const FONT_FAMILY_HEADLINE = 'Roboto';
+const FONT_FAMILY_BODY = 'Roboto';
 
-const FONT_WEIGHT_HEADLINE = 700;
+const FONT_WEIGHT_HEADLINE = 800;
 const FONT_WEIGHT_BODY = 400;
-const FONT_WEIGHT_BUTTON = 700;
+const FONT_WEIGHT_BUTTON = 600;
 
 const LINE_HEIGHT_HEADLINE = 1.5;
 const LINE_HEIGHT_BODY = 1.15;
@@ -201,11 +201,11 @@ const spacing = [0, 4, 8, 12, 16, 24, 32, 40, 60, 80, 120, 160];
 
 const radius = {
   none: 0,
-  small: 4,
-  medium: 8,
-  large: 12,
-  button: 100,
-  card: 8,
+  small: 2,
+  medium: 2,
+  large: 2,
+  button: 0,
+  card: 0,
 };
 
 export const theme = {

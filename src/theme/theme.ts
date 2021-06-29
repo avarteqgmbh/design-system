@@ -1,3 +1,5 @@
+import { overrides } from './overrides';
+
 const TYPE = 'light';
 
 // --------------------------------------------
@@ -25,14 +27,14 @@ const COLOR_PRIMARY_MAIN = '#e4833e';
 const COLOR_PRIMARY_DARK = '#c56521';
 const COLOR_PRIMARY_DARKER = '#613313';
 
-const COLOR_ERROR_LIGHT = '#64f49e';
-const COLOR_ERROR_MAIN = '#1ada67';
-const COLOR_ERROR_DARK = '#259251';
+const COLOR_ERROR_LIGHT = '#fba69e';
+const COLOR_ERROR_MAIN = '#f67367';
+const COLOR_ERROR_DARK = '#d63e30';
 const COLOR_ERROR_CONTRAST = COLOR_COMMON_WHITE;
 
-const COLOR_SUCCESS_LIGHT = '#87c5ff';
-const COLOR_SUCCESS_MAIN = '#108cff';
-const COLOR_SUCCESS_DARK = '#0f4ceb';
+const COLOR_SUCCESS_LIGHT = '#64f49e';
+const COLOR_SUCCESS_MAIN = '#1ada67';
+const COLOR_SUCCESS_DARK = '#259251';
 const COLOR_SUCCESS_CONTRAST = COLOR_COMMON_WHITE;
 
 const COLOR_WARNING_LIGHT = '#ffde9d';
@@ -40,9 +42,9 @@ const COLOR_WARNING_MAIN = '#ffca62';
 const COLOR_WARNING_DARK = '#e0a228';
 const COLOR_WARNING_CONTRAST = COLOR_COMMON_WHITE;
 
-const COLOR_INFO_LIGHT = '#fba69e';
-const COLOR_INFO_MAIN = '#f67367';
-const COLOR_INFO_DARK = '#d63e30';
+const COLOR_INFO_LIGHT = '#87c5ff';
+const COLOR_INFO_MAIN = '#108cff';
+const COLOR_INFO_DARK = '#0f4ceb';
 const COLOR_INFO_CONTRAST = COLOR_COMMON_WHITE;
 
 const GRADIENT_LIGHT = `linear-gradient(65deg, ${COLOR_GREY_200} 15%, ${COLOR_GREY_50} 100%)`;
@@ -128,7 +130,7 @@ const palette = {
 };
 
 // --------------------------------------------
-// T Y P E
+// T Y P O G R A P H Y
 // ------------------
 const FONT_FAMILY_HEADLINE = 'Inter';
 const FONT_FAMILY_BODY = 'Inter';
@@ -204,28 +206,6 @@ const radius = {
   large: 12,
   button: 8,
   card: 12,
-};
-
-const overrides = {
-  MuiCssBaseline: {
-    '@global': {
-      body: {
-        background: GRADIENT_LIGHT,
-        backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'fixed',
-      },
-    },
-  },
-  MuiTooltip: {
-    tooltip: {
-      fontSize: '1rem',
-    },
-  },
-  MuiTabs: {
-    indicator: {
-      background: 'transparent',
-    },
-  },
 };
 
 export const theme = {
