@@ -6,7 +6,7 @@ import {
 import { Theme } from '../../../theme/types';
 
 export function TextField(props: MuiTextFieldProps) {
-  const { variant = 'filled'} = props;
+  const { variant = 'outlined'} = props;
   const classes = useStyles();
   return (
     <MuiTextField

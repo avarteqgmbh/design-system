@@ -2,8 +2,9 @@ import { Story } from '@storybook/react';
 import { withDesign } from 'storybook-addon-designs';
 import { TextFieldProps, InputAdornment } from '@material-ui/core';
 import { TextField } from './TextField';
-import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import ArrowBackRoundedIcon from '@material-ui/icons/ArrowBackRounded';
+import Visibility from '@material-ui/icons/Visibility';
+import { MenuItem } from '@material-ui/core';
 
 export default {
   title: '💧 Atoms/TextField',
@@ -85,6 +86,15 @@ export default {
       table: {
         type: { summary: 'medium | small' },
         defaultValue: { summary: 'medium' }
+      }
+    },
+    variant: {
+      control: 'radio',
+      options: ['filled', 'outline', 'standard'],
+      defaultValue: 'outlined',
+      table: {
+        type: { summary: 'filled | outlined | standard' },
+        defaultValue: { summary: 'outline' }
       }
     },
     multiline: {
@@ -185,7 +195,10 @@ Password.args = {
   id: 'textfield-password',
   type: 'password',
   label: 'Password',
-  placeholder: 'Enter your password'
+  placeholder: 'Enter your password',
+  InputProps: {
+    endAdornment: <InputAdornment position="start"><Visibility /></InputAdornment>,
+  }
 };
 
 export const Tel = Template.bind({});
@@ -234,6 +247,20 @@ WithIcon.args = {
   placeholder: 'Placeholder',
   InputProps: {
     startAdornment: <InputAdornment position="start"><ArrowBackRoundedIcon /></InputAdornment>,
+  }
+};
+
+export const Select = Template.bind({});
+Select.args = {
+  id: 'textfield-select',
+  type: 'text',
+  label: 'Select',
+  placeholder: 'Select something',
+  select: true,
+  SelectProps: {
+    children: (
+      <MenuItem value={10}>Ten</MenuItem>
+    )
   }
 };
 
