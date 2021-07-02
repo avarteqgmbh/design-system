@@ -1,5 +1,6 @@
 import { theme } from '../src/theme/theme';
 import { theme as toyota } from '../src/theme/themes/toyota';
+import { theme as thomsit } from '../src/theme/themes/thomsit';
 import { ThemeProvider } from '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { addDecorator } from '@storybook/react';
@@ -20,4 +21,4 @@ const providerFn = ({ theme, children }) => {
   return <ThemeProvider theme={muTheme}>{children}</ThemeProvider>;
 };
 
-addDecorator(withThemes(null, [theme, toyota], { providerFn }));
+addDecorator(withThemes(null, [theme, toyota, thomsit], { providerFn }));

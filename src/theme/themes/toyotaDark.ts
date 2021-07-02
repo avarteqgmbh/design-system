@@ -1,6 +1,6 @@
 import { overrides } from '../overrides';
 
-const TYPE = 'light';
+const TYPE = 'dark';
 
 // --------------------------------------------
 // C O L O R S
@@ -53,18 +53,18 @@ const GRADIENT_PRIMARY = `linear-gradient(65deg, ${COLOR_PRIMARY_MAIN} 15%, ${CO
 
 const palette = {
   background: {
-    paper: COLOR_COMMON_WHITE,
-    default: COLOR_GREY_50,
-    light: COLOR_GREY_100,
-    medium: COLOR_GREY_200,
-    border: COLOR_GREY_200,
+    paper: COLOR_GREY_900,
+    default: COLOR_GREY_900,
+    light: COLOR_GREY_800,
+    medium: COLOR_GREY_700,
+    border: COLOR_GREY_700,
   },
   text: {
-    primary: COLOR_GREY_1000,
-    secondary: COLOR_GREY_700,
+    primary: COLOR_COMMON_WHITE,
+    secondary: COLOR_GREY_300,
     disabled: COLOR_GREY_500,
-    hint: COLOR_GREY_300,
-    divider: COLOR_GREY_300,
+    hint: COLOR_GREY_700,
+    divider: COLOR_GREY_700,
   },
   grey: {
     50: COLOR_GREY_50,
