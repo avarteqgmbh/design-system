@@ -1,11 +1,8 @@
 import { Story } from '@storybook/react';
 import { withDesign } from 'storybook-addon-designs';
 import { Select } from './Select';
-import { MenuItem } from '../MenuItem/MenuItem'
+import { MenuItem } from '../../index';
 import { SelectProps } from '@material-ui/core';
-// import ListItemIcon from '@material-ui/core/ListItemIcon';
-// import ListItemText from '@material-ui/core/ListItemText';
-// import SendIcon from '@material-ui/icons/Send';
 
 export default {
   title: '💧 Atoms/Select',
@@ -34,7 +31,7 @@ export const Default = () => {
       fullWidth={true}
       variant='outlined'
     >
-      <MenuItem value={""}></MenuItem>
+      <MenuItem value={''}></MenuItem>
       <MenuItem value={10}>Ten</MenuItem>
       <MenuItem value={20}>Twenty</MenuItem>
       <MenuItem value={30}>Thirty</MenuItem>
