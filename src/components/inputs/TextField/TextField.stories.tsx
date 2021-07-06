@@ -4,7 +4,6 @@ import { TextFieldProps, InputAdornment } from '@material-ui/core';
 import { TextField } from './TextField';
 import ArrowBackRoundedIcon from '@material-ui/icons/ArrowBackRounded';
 import Visibility from '@material-ui/icons/Visibility';
-import { MenuItem } from '@material-ui/core';
 
 export default {
   title: '💧 Atoms/TextField',
@@ -249,18 +248,3 @@ WithIcon.args = {
     startAdornment: <InputAdornment position="start"><ArrowBackRoundedIcon /></InputAdornment>,
   }
 };
-
-export const Select = Template.bind({});
-Select.args = {
-  id: 'textfield-select',
-  type: 'text',
-  label: 'Select',
-  placeholder: 'Select something',
-  select: true,
-  SelectProps: {
-    children: (
-      <MenuItem value={10}>Ten</MenuItem>
-    )
-  }
-};
-

@@ -1,4 +1,8 @@
-import { Button } from './atoms/Button/Button';
-import { DataGrid } from './organisms/DataGrid/DataGrid';
+import { Button, Select, TextField } from './inputs/index';
+export { Button, Select, TextField };
 
-export { Button, DataGrid };
+import { DataGrid } from './labs/index';
+export { DataGrid };
+
+import { Link, MenuItem } from './navigation/index';
+export { Link, MenuItem };
