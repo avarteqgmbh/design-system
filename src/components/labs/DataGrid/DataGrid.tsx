@@ -1,8 +1,8 @@
+import React from 'react'
 import {
   DataGrid as MuiDataGrid,
   DataGridProps as MuiDataGridProps,
-  GridToolbar,
-  deDE
+  GridToolbar
 } from '@material-ui/data-grid'
 import { makeStyles } from '@material-ui/core'
 import { Theme } from '../../../theme/types'
@@ -11,7 +11,7 @@ export interface DataGridProps extends MuiDataGridProps {
   toolbar?: boolean
 }
 
-export function DataGrid(props: DataGridProps) {
+export function DataGrid(props: DataGridProps): JSX.Element {
   const { toolbar = false } = props
   const classes = useStyles()
 
@@ -27,6 +27,8 @@ export function DataGrid(props: DataGridProps) {
   )
 }
 
-const useStyles = makeStyles<Theme>((theme) => ({
-  root: {}
-}))
+const useStyles = makeStyles<Theme>(() => {
+  return {
+    root: {}
+  }
+})

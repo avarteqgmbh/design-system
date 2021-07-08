@@ -141,12 +141,12 @@ const FONT_WEIGHT_BUTTON = 700
 
 const LINE_HEIGHT_HEADLINE = 1.5
 const LINE_HEIGHT_BODY = 1.15
-const LINE_HEIGHT_NONE = 1
+// const LINE_HEIGHT_NONE = 1
 
 const LETTER_SPACING_HEADLINE = '0em'
 const LETTER_SPACING_BODY = '0em'
-const LETTER_SPACING_OVERLINE = '0.1em'
-const LETTER_SPACING_NONE = '0em'
+// const LETTER_SPACING_OVERLINE = '0.1em'
+// const LETTER_SPACING_NONE = '0em'
 
 const TYPE_SPACING = [10, 12, 14, 16, 20, 24, 32, 40, 48, 62, 124]
 
@@ -210,9 +210,9 @@ const radius = {
 
 export const theme = {
   type: TYPE,
-  palette: palette,
+  palette,
   overrides: { ...overrides },
-  typography: typography,
-  spacing: spacing,
-  radius: radius
+  typography,
+  spacing,
+  radius
 }
