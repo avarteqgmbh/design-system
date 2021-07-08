@@ -130,6 +130,14 @@
         "jsx": "never"
       }
     ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": ["src/**/*.stories.tsx"],
+        "optionalDependencies": false,
+        "peerDependencies": false
+      }
+    ],
     //// typescript rules -> https://github.com/typescript-eslint/typescript-eslint
     "@typescript-eslint/member-delimiter-style": [
       "error",
@@ -185,16 +193,6 @@
     "react/destructuring-assignment": "warn",
     "react/jsx-props-no-spreading": "off",
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    //// prettier rules -> https://github.com/prettier/prettier
-    "prettier/prettier": [
-      "error",
-      {
-        "endOfLine": "auto",
-        "semi": false,
-        "trailingComma": "none",
-        "jsxSingleQuote": true
-      }
-    ]
+    "react-hooks/exhaustive-deps": "warn"
   }
 }
