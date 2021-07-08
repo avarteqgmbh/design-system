@@ -24,14 +24,14 @@ export default {
         }
     },
     maxWidth: {
-			control: 'radio',
-			options: ['xs', 'sm', 'md', 'lg', 'xl', 'false'],
-			defaultValue: 'lg',
-			table: {
-				type: { summary: 'xl | sm | md | lg | xl | false' },
-				defaultValue: { summary: 'medium' }
-			}
-		},
+      control: 'radio',
+      options: ['xs', 'sm', 'md', 'lg', 'xl', 'false'],
+      defaultValue: 'lg',
+      table: {
+        type: { summary: 'xl | sm | md | lg | xl | false' },
+        defaultValue: { summary: 'medium' }
+      }
+    },
   },
   decorators: [withDesign],
   parameters: {
@@ -56,7 +56,7 @@ Default.args = {
 export const Children = Template.bind({});
 Children.args = {
     children: [
-								<Typography style={{ backgroundColor: '#cfe8fc', height: '20vh' }}></Typography>,
-								<Typography style={{ backgroundColor: '#108cff', height: '20vh' }}></Typography>
-							]
+      <Typography style={{ backgroundColor: '#cfe8fc', height: '20vh' }}></Typography>,
+      <Typography style={{ backgroundColor: '#108cff', height: '20vh' }}></Typography>
+    ]
 };
