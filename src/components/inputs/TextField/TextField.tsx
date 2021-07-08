@@ -1,26 +1,24 @@
 import {
   TextField as MuiTextField,
   TextFieldProps as MuiTextFieldProps,
-  makeStyles,
-} from '@material-ui/core';
-import { Theme } from '../../../theme/types';
+  makeStyles
+} from '@material-ui/core'
+import { Theme } from '../../../theme/types'
 
 export function TextField(props: MuiTextFieldProps) {
-  const { variant = 'outlined'} = props;
-  const classes = useStyles();
+  const { variant = 'outlined' } = props
+  const classes = useStyles()
   return (
     <MuiTextField
       classes={{
-        root: classes.root,
+        root: classes.root
       }}
       variant={variant}
       {...props}
     />
-  );
+  )
 }
 
 const useStyles = makeStyles<Theme>((theme) => ({
-  root: {
-    
-  },
-}));
+  root: {}
+}))

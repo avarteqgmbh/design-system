@@ -1,3 +1,3 @@
-import { DataGrid } from './DataGrid/DataGrid';
+import { DataGrid } from './DataGrid/DataGrid'
 
-export { DataGrid };
+export { DataGrid }
