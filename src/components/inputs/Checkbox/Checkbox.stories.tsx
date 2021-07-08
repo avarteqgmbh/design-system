@@ -10,11 +10,11 @@ export default {
   title: '💧 Atoms/Checkbox',
   component: Checkbox,
   argTypes: {
-		id: {
+    id: {
       control: { type: 'text' },
       table: { type: { summary: 'string' } }
     },
-		checked: {
+    checked: {
       control: { type: 'boolean' },
       defaultValue: false,
       table: {
@@ -22,7 +22,7 @@ export default {
         defaultValue: { summary: false }
       }
     },
-		color: {
+    color: {
       control: 'radio',
       options: ['default', 'primary', 'secondary'],
       table: {
@@ -30,7 +30,7 @@ export default {
         defaultValue: { summary: 'secondary' }
       }
     },
-		disabled: {
+    disabled: {
       control: { type: 'boolean' },
       defaultValue: false,
       table: {
@@ -38,7 +38,7 @@ export default {
         defaultValue: { summary: false }
       }
     },
-		disableRipple: {
+    disableRipple: {
       control: { type: 'boolean' },
       defaultValue: false,
       table: {
@@ -46,7 +46,7 @@ export default {
         defaultValue: { summary: false }
       }
     },
-		indeterminate: {
+    indeterminate: {
       control: { type: 'boolean' },
       defaultValue: false,
       table: {
@@ -54,7 +54,7 @@ export default {
         defaultValue: { summary: false }
       }
     },
-		required: {
+    required: {
       control: { type: 'boolean' },
       defaultValue: false,
       table: {
@@ -62,7 +62,7 @@ export default {
         defaultValue: { summary: false }
       }
     },
-		size: {
+    size: {
       control: 'radio',
       options: ['medium', 'small'],
       defaultValue: 'medium',
@@ -71,11 +71,11 @@ export default {
         defaultValue: { summary: 'medium' }
       }
     },
-		value: {
+    value: {
       control: { type: 'text' },
       table: { type: { summary: 'string' } }
     },
-		onChange: { action: 'checked' }
+    onChange: { action: 'checked' }
   },
   decorators: [withDesign],
   parameters: {
@@ -90,7 +90,7 @@ export default {
 //         https://material-ui.com/components/checkboxes/#checkbox-with-formcontrollabel
 
 const Template: Story<CheckboxProps> = (args) => (
-	<Checkbox {...args} inputProps={{ 'aria-label': 'primary checkbox' }} />
+  <Checkbox {...args} inputProps={{ 'aria-label': 'primary checkbox' }} />
 )
 
 export const Default = Template.bind({});
@@ -101,36 +101,36 @@ Default.args = {
 export const Primary = Template.bind({});
 Primary.args = {
   id: 'checkbox-Primary',
-	checked: true,
-	color: 'primary'
+  checked: true,
+  color: 'primary'
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
   id: 'checkbox-Disabled',
-	checked: true,
-	disabled: true
+  checked: true,
+  disabled: true
 };
 
 export const Indeterminate = Template.bind({});
 Indeterminate.args = {
   id: 'checkbox-Indeterminate',
-	indeterminate: true,
+  indeterminate: true,
 };
 
 export const CustomIcon = Template.bind({});
 CustomIcon.args = {
   id: 'checkbox-CustomIcon',
-	icon: <WbSunnyIcon />,
-	checkedIcon: <Brightness3Icon />
+  icon: <WbSunnyIcon />,
+  checkedIcon: <Brightness3Icon />
 };
 
 
 export const StatefulCheckbox: Story<CheckboxProps> = (args) => {
-	const [checked, setChecked] = React.useState(true);
+  const [checked, setChecked] = React.useState(true);
 
-	const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-		setChecked(event.target.checked);			
-	};
-	return (<Checkbox {...args} checked={checked} onChange={handleChange}  />)
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    setChecked(event.target.checked);			
+  };
+  return (<Checkbox {...args} checked={checked} onChange={handleChange}  />)
 }
