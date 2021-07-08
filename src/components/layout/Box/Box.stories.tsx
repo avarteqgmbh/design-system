@@ -37,10 +37,10 @@ const Template: Story<BoxProps> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-    children: <Typography> Default </Typography>
+    children: <Typography>Default</Typography>
 };
 
 export const H1 = Template.bind({});
 H1.args = {
-    children: <Typography variant='h1'> H1 </Typography>
+    children: <Typography variant='h1'>H1</Typography>
 };

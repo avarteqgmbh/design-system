@@ -1,5 +1,5 @@
-import { Button, Select, TextField } from './inputs/index';
-export { Button, Select, TextField };
+import { Button, Checkbox, Select, TextField } from './inputs/index';
+export { Button, Checkbox, Select, TextField };
 
 import { DataGrid } from './labs/index';
 export { DataGrid };
