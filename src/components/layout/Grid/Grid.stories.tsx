@@ -107,7 +107,7 @@ Spacing.args = {
 
 const BreakpointTemplate: Story<GridProps> = (args) => {
   return (
-    <Grid {...args} container>
+    <Grid {...args}>
       <Grid item xs={12}>
         <Paper style={{ textAlign: 'center', padding: '12px' }}>xs=12</Paper>
       </Grid>
