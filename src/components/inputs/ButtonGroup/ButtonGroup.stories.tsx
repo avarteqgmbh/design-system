@@ -1,7 +1,8 @@
 import { Story } from '@storybook/react';
 import { withDesign } from 'storybook-addon-designs';
-import { ButtonGroupProps, Typography, Button } from '@material-ui/core';
+import { ButtonGroupProps, Typography } from '@material-ui/core';
 import { ButtonGroup } from './ButtonGroup';
+import { Button } from '../Button/Button'
 
 export default {
   title: 'Input/ButtonGroup',
@@ -14,6 +15,33 @@ export default {
       table: {
         type: { summary: 'select' },
         defaultValue: { summary: 'medium' }
+      }
+    },
+    color: {
+      control: { type: 'select' },
+      options: ['default', 'inherit', 'primary', 'secondary'],
+      defaultValue: 'default',
+      table: {
+        type: { summary: 'select' },
+        defaultValue: { summary: 'primary' }
+      }
+    },
+    variant: {
+      control: { type: 'select' },
+      options: ['contained', 'outlined', 'text'],
+      defaultValue: 'contained',
+      table: {
+        type: { summary: 'select' },
+        defaultValue: { summary: 'contained' }
+      }
+    },
+    disabled: {
+      control: { type: 'boolean' },
+      options: ['true', 'false'],
+      defaultValue: 'false',
+      table: {
+        type: { summary: 'select' },
+        defaultValue: { summary: 'false' }
       }
     }
   },
@@ -34,7 +62,7 @@ const Template: Story<ButtonGroupProps> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  children: <Typography> Default </Typography>
+  children: <Typography> Default Button </Typography>
 };
 
 
@@ -48,3 +76,16 @@ PrimaryButtonGroup.args = {
   variant: "contained",
   color: "primary"
 };
+
+export const SecondaryButtonGroup = Template.bind({});
+SecondaryButtonGroup.args = {
+  children: <>
+    <Button>One</Button>
+    <Button>Two</Button>
+    <Button>Three</Button>
+  </>,
+  variant: "outlined",
+  color: "secondary"
+};
+
+
