@@ -1,9 +1,10 @@
-import { Story } from '@storybook/react';
-import { withDesign } from 'storybook-addon-designs';
-import { TextFieldProps, InputAdornment } from '@material-ui/core';
-import { TextField } from './TextField';
-import ArrowBackRoundedIcon from '@material-ui/icons/ArrowBackRounded';
-import Visibility from '@material-ui/icons/Visibility';
+import React from 'react'
+import { Story } from '@storybook/react'
+import { withDesign } from 'storybook-addon-designs'
+import { TextFieldProps, InputAdornment } from '@material-ui/core'
+import { TextField } from './TextField'
+import ArrowBackRoundedIcon from '@material-ui/icons/ArrowBackRounded'
+import Visibility from '@material-ui/icons/Visibility'
 
 export default {
   title: '💧 Atoms/TextField',
@@ -63,7 +64,19 @@ export default {
     },
     type: {
       control: 'select',
-      options: ['text', 'date', 'datetime-local', 'email', 'hidden', 'number', 'password', 'tel', 'time', 'url', 'week'],
+      options: [
+        'text',
+        'date',
+        'datetime-local',
+        'email',
+        'hidden',
+        'number',
+        'password',
+        'tel',
+        'time',
+        'url',
+        'week'
+      ],
       defaultValue: 'text',
       table: {
         type: { summary: 'text | email | number | password | tel' },
@@ -123,31 +136,30 @@ export default {
         type: { summary: 'number' },
         defaultValue: { summary: 5 }
       }
-    },
+    }
   },
   decorators: [withDesign],
   parameters: {
     controls: { expanded: true },
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%8E%A8-Design-System?node-id=181%3A375',
-    },
-  },
-};
+      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%8E%A8-Design-System?node-id=181%3A375'
+    }
+  }
+}
 
+const Template: Story<TextFieldProps> = (args) => {
+  return <TextField {...args} />
+}
 
-const Template: Story<TextFieldProps> = (args) => (
-  <TextField {...args} />
-);
-
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 Default.args = {
   id: 'textfield-default',
   label: 'Label',
   placeholder: 'Placeholder'
-};
+}
 
-export const Date = Template.bind({});
+export const Date = Template.bind({})
 Date.args = {
   id: 'textfield-date',
   type: 'date',
@@ -155,60 +167,64 @@ Date.args = {
   defaultValue: '2017-05-24',
   InputLabelProps: {
     shrink: true
-  },
-};
+  }
+}
 
-  export const DateTimeLocal = Template.bind({});
-  DateTimeLocal.args = {
+export const DateTimeLocal = Template.bind({})
+DateTimeLocal.args = {
   id: 'textfield-datetime-local',
   type: 'datetime-local',
   label: 'Datetime',
   defaultValue: '2017-05-24T04:20',
-  InputLabelProps: { shrink: true },
-};
+  InputLabelProps: { shrink: true }
+}
 
-export const Email = Template.bind({});
+export const Email = Template.bind({})
 Email.args = {
   id: 'textfield-email',
   type: 'email',
   label: 'Email',
   placeholder: 'john@doe.com'
-};
+}
 
-export const Hidden = Template.bind({});
+export const Hidden = Template.bind({})
 Hidden.args = {
   id: 'textfield-hidden',
-  type: 'hidden',
-};
+  type: 'hidden'
+}
 
-export const Number = Template.bind({});
+export const Number = Template.bind({})
 Number.args = {
   id: 'textfield-number',
   type: 'number',
   label: 'Number',
   placeholder: '42.02'
-};
+}
 
-export const Password = Template.bind({});
+export const Password = Template.bind({})
 Password.args = {
   id: 'textfield-password',
   type: 'password',
   label: 'Password',
   placeholder: 'Enter your password',
   InputProps: {
-    endAdornment: <InputAdornment position="start"><Visibility /></InputAdornment>,
+    endAdornment: (
+      <InputAdornment position='start'>
+        <Visibility />
+      </InputAdornment>
+    )
   }
-};
+}
 
-export const Tel = Template.bind({});
+export const Tel = Template.bind({})
 Tel.args = {
   id: 'textfield-tel',
   type: 'tel',
   label: 'Phone',
   placeholder: 'Enter your phone number'
-};
+}
 
-export const Time = Template.bind({});
+export const Time = Template.bind({})
 Time.args = {
   id: 'textfield-time',
   type: 'time',
@@ -217,34 +233,38 @@ Time.args = {
   defaultValue: '04:20',
   InputLabelProps: {
     shrink: true
-  },
-};
+  }
+}
 
-export const Url = Template.bind({});
+export const Url = Template.bind({})
 Url.args = {
   id: 'textfield-url',
   type: 'url',
   label: 'Url',
-  placeholder: 'https://anynines.com',
-};
+  placeholder: 'https://anynines.com'
+}
 
-export const Week = Template.bind({});
+export const Week = Template.bind({})
 Week.args = {
   id: 'textfield-week',
   type: 'week',
   label: 'Week',
   InputLabelProps: {
     shrink: true
-  },
-};
+  }
+}
 
-export const WithIcon = Template.bind({});
+export const WithIcon = Template.bind({})
 WithIcon.args = {
   id: 'textfield-with-icon',
   type: 'text',
   label: 'With icon',
   placeholder: 'Placeholder',
   InputProps: {
-    startAdornment: <InputAdornment position="start"><ArrowBackRoundedIcon /></InputAdornment>,
+    startAdornment: (
+      <InputAdornment position='start'>
+        <ArrowBackRoundedIcon />
+      </InputAdornment>
+    )
   }
-};
+}

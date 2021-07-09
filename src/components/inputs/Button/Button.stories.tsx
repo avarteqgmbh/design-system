@@ -1,8 +1,9 @@
-import { Story } from '@storybook/react';
-import { withDesign } from 'storybook-addon-designs';
-import { ButtonProps } from '@material-ui/core';
-import { Button } from './Button';
-import WbSunnyIcon from '@material-ui/icons/WbSunny';
+import React from 'react'
+import { Story } from '@storybook/react'
+import { withDesign } from 'storybook-addon-designs'
+import { ButtonProps } from '@material-ui/core'
+import { Button } from './Button'
+import WbSunnyIcon from '@material-ui/icons/WbSunny'
 
 export default {
   title: '💧 Atoms/Button',
@@ -11,104 +12,103 @@ export default {
     size: {
       control: 'select',
       options: ['small', 'medium', 'large'],
-      defaultValue: 'medium',
+      defaultValue: 'medium'
     },
     color: {
       control: 'select',
       options: ['primary', 'secondary', 'default', 'inherit'],
-      defaultValue: 'primary',
+      defaultValue: 'primary'
     },
     variant: {
       control: 'select',
       options: ['contained', 'outlined', 'text'],
-      defaultValue: 'contained',
+      defaultValue: 'contained'
     },
-    onClick: { action: { type: 'clicked' } },
+    onClick: { action: { type: 'clicked' } }
   },
   decorators: [withDesign],
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%8E%A8-Design-System?node-id=181%3A375',
-    },
-  },
-};
+      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%8E%A8-Design-System?node-id=181%3A375'
+    }
+  }
+}
 
+const Template: Story<ButtonProps> = (args) => {
+  return <Button {...args}>Button</Button>
+}
 
-const Template: Story<ButtonProps> = (args) => (
-  <Button {...args}>Button</Button>
-);
-
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 Default.args = {
   color: 'default',
-  variant: 'contained',
-};
+  variant: 'contained'
+}
 
-export const Primary = Template.bind({});
+export const Primary = Template.bind({})
 Primary.args = {
   color: 'primary',
-  variant: 'contained',
-};
+  variant: 'contained'
+}
 
-export const Secondary = Template.bind({});
+export const Secondary = Template.bind({})
 Secondary.args = {
   color: 'secondary',
-  variant: 'contained',
-};
+  variant: 'contained'
+}
 
-export const Inherit = Template.bind({});
+export const Inherit = Template.bind({})
 Inherit.args = {
   color: 'inherit',
-  variant: 'contained',
-};
+  variant: 'contained'
+}
 
-export const Large = Template.bind({});
+export const Large = Template.bind({})
 Large.args = {
-  size: 'large',
-};
+  size: 'large'
+}
 
-export const Medium = Template.bind({});
+export const Medium = Template.bind({})
 Medium.args = {
-  size: 'medium',
-};
+  size: 'medium'
+}
 
-export const Small = Template.bind({});
+export const Small = Template.bind({})
 Small.args = {
-  size: 'small',
-};
+  size: 'small'
+}
 
-export const FullWidth = Template.bind({});
+export const FullWidth = Template.bind({})
 FullWidth.args = {
-  fullWidth: true,
-};
+  fullWidth: true
+}
 
-export const Disabled = Template.bind({});
+export const Disabled = Template.bind({})
 Disabled.args = {
-  disabled: true,
-};
+  disabled: true
+}
 
-export const Contained = Template.bind({});
+export const Contained = Template.bind({})
 Contained.args = {
-  variant: 'contained',
-};
+  variant: 'contained'
+}
 
-export const Outlined = Template.bind({});
+export const Outlined = Template.bind({})
 Outlined.args = {
-  variant: 'outlined',
-};
+  variant: 'outlined'
+}
 
-export const Text = Template.bind({});
+export const Text = Template.bind({})
 Text.args = {
-  variant: 'text',
-};
+  variant: 'text'
+}
 
-export const StartIconMui = Template.bind({});
+export const StartIconMui = Template.bind({})
 StartIconMui.args = {
-  startIcon: <WbSunnyIcon />,
-};
+  startIcon: <WbSunnyIcon />
+}
 
-export const EndIconMui = Template.bind({});
+export const EndIconMui = Template.bind({})
 EndIconMui.args = {
-  endIcon: <WbSunnyIcon />,
-};
+  endIcon: <WbSunnyIcon />
+}

@@ -2,21 +2,21 @@ export const overrides = {
   MuiCssBaseline: {
     '@global': {
       '& .MuiGridPanel-root': {
-        background: 'red !important',
-      },
-    },
+        background: 'red !important'
+      }
+    }
   },
   MuiGridPanel: {
-    background: 'red',
+    background: 'red'
   },
   MuiTooltip: {
     tooltip: {
-      fontSize: '1rem',
-    },
+      fontSize: '1rem'
+    }
   },
   MuiTabs: {
     indicator: {
-      background: 'transparent',
-    },
-  },
-};
+      background: 'transparent'
+    }
+  }
+}
