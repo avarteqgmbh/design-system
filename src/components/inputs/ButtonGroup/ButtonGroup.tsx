@@ -6,6 +6,5 @@ import {
 export function ButtonGroup(props: ButtonGroupProps) {
   return (
     <MuiButtonGroup  {...props} />
-
   )
 }

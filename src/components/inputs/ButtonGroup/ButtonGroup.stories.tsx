@@ -4,6 +4,12 @@ import { ButtonGroupProps, Typography } from '@material-ui/core';
 import { ButtonGroup } from './ButtonGroup';
 import { Button } from '../Button/Button'
 
+const Buttons = <>
+  <Button> One</Button>
+  <Button>Two</Button>
+  <Button>Three</Button>
+</>
+
 export default {
   title: 'Input/ButtonGroup',
   component: ButtonGroup,
@@ -23,7 +29,7 @@ export default {
       defaultValue: 'default',
       table: {
         type: { summary: 'select' },
-        defaultValue: { summary: 'primary' }
+        defaultValue: { summary: 'default' }
       }
     },
     variant: {
@@ -55,7 +61,6 @@ export default {
   },
 };
 
-
 const Template: Story<ButtonGroupProps> = (args) => (
   <ButtonGroup {...args} />
 );
@@ -65,27 +70,16 @@ Default.args = {
   children: <Typography> Default Button </Typography>
 };
 
-
 export const PrimaryButtonGroup = Template.bind({});
 PrimaryButtonGroup.args = {
-  children: <>
-    <Button>One</Button>
-    <Button>Two</Button>
-    <Button>Three</Button>
-  </>,
+  children: Buttons,
   variant: "contained",
   color: "primary"
 };
 
 export const SecondaryButtonGroup = Template.bind({});
 SecondaryButtonGroup.args = {
-  children: <>
-    <Button>One</Button>
-    <Button>Two</Button>
-    <Button>Three</Button>
-  </>,
+  children: Buttons,
   variant: "outlined",
   color: "secondary"
 };
-
-
