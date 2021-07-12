@@ -1,7 +1,7 @@
 {
-  "name": "design-system-poc",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@anynines/a9s-design-system",
+  "version": "0.1.2",
+  "private": false,
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "@material-ui/data-grid": "^4.0.0-alpha.32",
@@ -68,5 +68,7 @@
   "resolutions": {
     "babel-loader": "8.1.0",
     "react-docgen-typescript": "^2.0.0"
-  }
+  },
+  "author": "",
+  "license": "ISC"
 }
