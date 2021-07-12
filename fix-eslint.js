@@ -7,7 +7,7 @@ module.exports.removeTsConfig = () => {
       console.log(err)
       return
     }
-    const result = data.toString().replace('"tsconfigRootDir": "./design-system-poc"', '"tsconfigRootDir": ""')
+    const result = data.toString().replace('"tsconfigRootDir": "./design-system"', '"tsconfigRootDir": ""')
     fs.writeFile('./.eslintrc', result, 'utf8', (err) => {
       if (err) {
         console.log(err)
@@ -23,7 +23,7 @@ module.exports.addTsConfig = () => {
       console.log(err)
       return
     }
-    const result = data.toString().replace('"tsconfigRootDir": ""', '"tsconfigRootDir": "./design-system-poc"')
+    const result = data.toString().replace('"tsconfigRootDir": ""', '"tsconfigRootDir": "./design-system"')
     fs.writeFile('./.eslintrc', result, 'utf8', (err) => {
       if (err) {
         console.log(err)
