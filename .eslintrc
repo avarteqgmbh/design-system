@@ -29,7 +29,7 @@
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "tsconfigRootDir": "./design-system",
+    "tsconfigRootDir": "",
     "ecmaFeatures": {
       "jsx": true
     },
