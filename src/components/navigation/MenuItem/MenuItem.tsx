@@ -1,27 +1,33 @@
-import clsx from 'clsx';
+import React from 'react'
+import clsx from 'clsx'
 import {
   MenuItem as MuiMenuItem,
   MenuItemProps as MuiMenuItemProps,
   makeStyles
-} from "@material-ui/core";
-import { Theme } from "../../../theme/types";
+} from '@material-ui/core'
+import { Theme } from '../../../theme/types'
 
 export interface MenuItemProps extends MuiMenuItemProps {
-  button?: true | undefined,
+  button?: true | undefined
 }
 
-export function MenuItem(props: MenuItemProps) {
-  const classes = useStyles();
+export function MenuItem(props: MenuItemProps): JSX.Element {
+  const { children } = props
+  const classes = useStyles()
   return (
-    <MuiMenuItem {...props} className={clsx(classes.root)}>{props.children}</MuiMenuItem>
+    <MuiMenuItem {...props} className={clsx(classes.root)}>
+      {children}
+    </MuiMenuItem>
   )
 }
 
-const useStyles = makeStyles<Theme>((theme) => ({
-  root: {
-    '& .MuiListItemIcon-root': {
-      minWidth: 'auto',
-      marginRight: theme.spacing(2),
+const useStyles = makeStyles<Theme>((theme) => {
+  return {
+    root: {
+      '& .MuiListItemIcon-root': {
+        minWidth: 'auto',
+        marginRight: theme.spacing(2)
+      }
     }
   }
-}));
+})

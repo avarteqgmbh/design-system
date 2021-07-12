@@ -1,4 +1,4 @@
-import { GridColDef } from '@material-ui/data-grid';
+import { GridColDef } from '@material-ui/data-grid'
 
 export const rows = [
   { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
@@ -11,8 +11,8 @@ export const rows = [
   { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
   { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 13 },
   { id: 10, lastName: 'Clifford', firstName: 'Ferrara', age: 65 },
-  { id: 11, lastName: 'Melisandre', firstName: 'Peter', age: 42 },
-];
+  { id: 11, lastName: 'Melisandre', firstName: 'Peter', age: 42 }
+]
 
 export const columns: GridColDef[] = [
   { field: 'id', headerName: 'ID', flex: 1 },
@@ -22,13 +22,13 @@ export const columns: GridColDef[] = [
     field: 'age',
     headerName: 'Age',
     type: 'number',
-    width: 120,
+    width: 120
   },
   {
     field: 'fullName',
     headerName: 'Full name',
     description: 'This column has a value getter and is not sortable.',
     sortable: false,
-    flex: 1,
-  },
-];
+    flex: 1
+  }
+]
