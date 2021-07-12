@@ -29,7 +29,7 @@
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "tsconfigRootDir": "./design-system-poc",
+    "tsconfigRootDir": "",
     "ecmaFeatures": {
       "jsx": true
     },
@@ -50,7 +50,6 @@
     }
   },
   "rules": {
-    "jest/no-deprecated-functions": "off",
     "comma-dangle": [
       "error",
       "never"
@@ -193,6 +192,7 @@
     "jest/no-focused-tests": "error",
     "jest/no-identical-title": "error",
     "jest/valid-expect": "error",
+    "jest/no-deprecated-functions": "off",
     // jsx rules -> https://github.com/evcohen/eslint-plugin-jsx-a11y
     "jsx-a11y/anchor-has-content": [
       "warn",

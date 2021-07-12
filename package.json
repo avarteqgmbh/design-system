@@ -27,9 +27,9 @@
     "eject": "react-scripts eject",
     "format": "prettier --write 'src/**/*.{ts,tsx,stories.tsx}'",
     "lint": "tsc --noEmit && eslint 'src/**/*.{ts,tsx,stories.tsx}'",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public",
-    "sb:lint": "node -e 'require(\"./fix-eslint\").addTsConfig()' && npm run storybook"
+    "storybook": "node -e 'require(\"./fix-eslint\").removeTsConfig()' &&start-storybook -p 6006 -s public",
+    "storybook:lint": "node -e 'require(\"./fix-eslint\").addTsConfig()' && start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "browserslist": {
     "production": [

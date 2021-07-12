@@ -1,4 +1,10 @@
-import { Button, ButtonGroup, Checkbox, Select, TextField } from './inputs/index';
+import {
+  Button,
+  ButtonGroup,
+  Checkbox,
+  Select,
+  TextField
+} from './inputs/index'
 
 import { DataGrid } from './labs/index'
 
