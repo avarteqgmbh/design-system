@@ -1,0 +1,34 @@
+/* eslint-disable */
+const fs = require('fs')
+
+module.exports.removeTsConfig = () => {
+  fs.readFile('./.eslintrc', 'utf8', (err, data) => {
+    if (err) {
+      console.log(err)
+      return
+    }
+    const result = data.toString().replace('"tsconfigRootDir": "./design-system-poc"', '"tsconfigRootDir": ""')
+    fs.writeFile('./.eslintrc', result, 'utf8', (err) => {
+      if (err) {
+        console.log(err)
+        return
+      }
+    })
+  })
+}
+
+module.exports.addTsConfig = () => {
+  fs.readFile('./.eslintrc', 'utf8', (err, data) => {
+    if (err) {
+      console.log(err)
+      return
+    }
+    const result = data.toString().replace('"tsconfigRootDir": ""', '"tsconfigRootDir": "./design-system-poc"')
+    fs.writeFile('./.eslintrc', result, 'utf8', (err) => {
+      if (err) {
+        console.log(err)
+        return
+      }
+    })
+  })
+}
