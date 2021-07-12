@@ -1,7 +1,8 @@
-import { Story } from '@storybook/react';
-import { withDesign } from 'storybook-addon-designs';
-import { DataGrid, DataGridProps } from './DataGrid';
-import { rows, columns } from './mocks';
+import React from 'react'
+import { Story } from '@storybook/react'
+import { withDesign } from 'storybook-addon-designs'
+import { DataGrid, DataGridProps } from './DataGrid'
+import { rows, columns } from './mocks'
 
 export default {
   title: '🌳 Organisms/DataGrid',
@@ -9,15 +10,15 @@ export default {
   argTypes: {
     autoHeight: {
       control: 'boolean',
-      defaultValue: true,
+      defaultValue: true
     },
     checkboxSelection: {
       control: 'boolean',
-      defaultValue: false,
+      defaultValue: false
     },
     autoPageSize: {
       control: 'boolean',
-      defaultValue: false,
+      defaultValue: false
     },
     density: {
       control: 'select',
@@ -26,32 +27,32 @@ export default {
     },
     disableSelectionOnClick: {
       control: 'boolean',
-      defaultValue: true,
-    },
+      defaultValue: true
+    }
   },
   decorators: [withDesign],
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%8E%A8-Design-System?node-id=285%3A1900',
-    },
-  },
-};
+      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%8E%A8-Design-System?node-id=285%3A1900'
+    }
+  }
+}
 
-const Template: Story<DataGridProps> = (args) => (
-  <DataGrid {...args} />
-);
+const Template: Story<DataGridProps> = (args) => {
+  return <DataGrid {...args} />
+}
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 Default.args = {
-  rows: rows,
-  columns: columns,
-};
+  rows,
+  columns
+}
 
-export const Toolbar = Template.bind({});
+export const Toolbar = Template.bind({})
 Toolbar.args = {
-  rows: rows,
-  columns: columns,
+  rows,
+  columns,
   checkboxSelection: true,
-  toolbar: true,
-};
+  toolbar: true
+}

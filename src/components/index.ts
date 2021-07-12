@@ -1,11 +1,14 @@
-import { Button, Select, TextField } from './inputs/index';
-export { Button, Select, TextField };
+import { Button, ButtonGroup, Checkbox, Select, TextField } from './inputs/index';
 
-import { DataGrid } from './labs/index';
-export { DataGrid };
+import { DataGrid } from './labs/index'
 
-import { Link, MenuItem } from './navigation/index';
-export { Link, MenuItem };
+import { Link, MenuItem } from './navigation/index'
 
-import { Box } from './layout/index'
-export { Box } 
+import { Box, Container, Grid } from './layout/index'
+import { Paper } from './surfaces/index'
+
+export { Button, ButtonGroup, Checkbox, Select, TextField }
+export { DataGrid }
+export { Link, MenuItem }
+export { Box, Container, Grid }
+export { Paper }

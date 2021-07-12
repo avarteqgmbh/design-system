@@ -1,20 +1,18 @@
 import React from 'react'
 import {
-  TextField as MuiTextField,
-  TextFieldProps as MuiTextFieldProps,
+  Paper as MuiPaper,
+  PaperProps as MuiPaperProps,
   makeStyles
 } from '@material-ui/core'
 import { Theme } from '../../../theme/types'
 
-export function TextField(props: MuiTextFieldProps): JSX.Element {
-  const { variant = 'outlined' } = props
+export function Paper(props: MuiPaperProps): JSX.Element {
   const classes = useStyles()
   return (
-    <MuiTextField
+    <MuiPaper
       classes={{
         root: classes.root
       }}
-      variant={variant}
       {...props}
     />
   )
