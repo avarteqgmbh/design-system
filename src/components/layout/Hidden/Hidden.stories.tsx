@@ -133,3 +133,19 @@ const Template: Story<HiddenProps> = (args) => {
 
 export const Default = Template.bind({})
 Default.args = {}
+
+export const Only = Template.bind({})
+Only.args = {
+  implementation: 'js',
+  only: ['md', 'sm']
+}
+
+export const MdUp = Template.bind({})
+MdUp.args = {
+  mdUp: true
+}
+
+export const MdDown = Template.bind({})
+MdDown.args = {
+  mdDown: true
+}
