@@ -48,11 +48,11 @@ export default {
     },
     edge: {
       control: 'radio',
-      options: ['end', 'start', 'false'],
-      defaultValue: 'false',
+      options: ['end', 'start', false],
+      defaultValue: false,
       table: {
         type: { summary: 'end | start | false' },
-        defaultValue: { summary: 'false' }
+        defaultValue: { summary: false }
       }
     },
     required: {
