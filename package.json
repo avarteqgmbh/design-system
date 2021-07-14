@@ -30,6 +30,7 @@
     "format": "prettier --write 'src/**/*.{ts,tsx,stories.tsx}'",
     "lint": "tsc --noEmit && eslint 'src/**/*.{ts,tsx,stories.tsx}'",
     "storybook": "node -e 'require(\"./fix-eslint\").removeTsConfig()' &&start-storybook -p 6006 -s public",
+    "sb": "node -e 'require(\"./fix-eslint\").removeTsConfig()' &&start-storybook -p 6006 -s public",
     "storybook:lint": "node -e 'require(\"./fix-eslint\").addTsConfig()' && start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
   },
