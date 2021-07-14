@@ -1,7 +1,7 @@
 {
-  "name": "design-system-poc",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@anynines/a9s-design-system",
+  "version": "0.1.2",
+  "private": false,
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "@material-ui/data-grid": "^4.0.0-alpha.32",
@@ -29,9 +29,9 @@
     "eject": "react-scripts eject",
     "format": "prettier --write 'src/**/*.{ts,tsx,stories.tsx}'",
     "lint": "tsc --noEmit && eslint 'src/**/*.{ts,tsx,stories.tsx}'",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public",
-    "sb:lint": "node -e 'require(\"./fix-eslint\").addTsConfig()' && npm run storybook"
+    "storybook": "node -e 'require(\"./fix-eslint\").removeTsConfig()' &&start-storybook -p 6006 -s public",
+    "storybook:lint": "node -e 'require(\"./fix-eslint\").addTsConfig()' && start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "browserslist": {
     "production": [
@@ -68,5 +68,7 @@
   "resolutions": {
     "babel-loader": "8.1.0",
     "react-docgen-typescript": "^2.0.0"
-  }
+  },
+  "author": "",
+  "license": "ISC"
 }

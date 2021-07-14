@@ -1,14 +1,18 @@
-import { Story } from '@storybook/react';
-import { withDesign } from 'storybook-addon-designs';
-import { ButtonGroupProps, Typography } from '@material-ui/core';
-import { ButtonGroup } from './ButtonGroup';
+import React from 'react'
+import { Story } from '@storybook/react'
+import { withDesign } from 'storybook-addon-designs'
+import { ButtonGroupProps, Typography } from '@material-ui/core'
+
+import { ButtonGroup } from './ButtonGroup'
 import { Button } from '../Button/Button'
 
-const Buttons = <>
-  <Button> One</Button>
-  <Button>Two</Button>
-  <Button>Three</Button>
-</>
+const Buttons = (
+  <>
+    <Button> One</Button>
+    <Button>Two</Button>
+    <Button>Three</Button>
+  </>
+)
 
 export default {
   title: 'Input/ButtonGroup',
@@ -56,30 +60,30 @@ export default {
     controls: { expanded: true },
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%8E%A8-Design-System?node-id=181%3A375',
-    },
-  },
-};
+      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%8E%A8-Design-System?node-id=181%3A375'
+    }
+  }
+}
 
-const Template: Story<ButtonGroupProps> = (args) => (
-  <ButtonGroup {...args} />
-);
+const Template: Story<ButtonGroupProps> = (args) => {
+  return <ButtonGroup {...args} />
+}
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 Default.args = {
   children: <Typography> Default Button </Typography>
-};
+}
 
-export const PrimaryButtonGroup = Template.bind({});
+export const PrimaryButtonGroup = Template.bind({})
 PrimaryButtonGroup.args = {
   children: Buttons,
-  variant: "contained",
-  color: "primary"
-};
+  variant: 'contained',
+  color: 'primary'
+}
 
-export const SecondaryButtonGroup = Template.bind({});
+export const SecondaryButtonGroup = Template.bind({})
 SecondaryButtonGroup.args = {
   children: Buttons,
-  variant: "outlined",
-  color: "secondary"
-};
+  variant: 'outlined',
+  color: 'secondary'
+}
