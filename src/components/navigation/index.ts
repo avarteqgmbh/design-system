@@ -1,4 +1,4 @@
 import { Link } from './Link/Link'
-import { MenuItem } from './MenuItem/MenuItem'
+import { MenuItem } from './Menu/MenuItem'
 
 export { Link, MenuItem }
