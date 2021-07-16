@@ -11,7 +11,7 @@ import { DataGrid } from './labs/index'
 
 import { Link, MenuItem, Menu } from './navigation/index'
 
-import { Box, Container, Grid } from './layout/index'
+import { Box, Container, Grid, Hidden } from './layout/index'
 import { Paper } from './surfaces/index'
 
 export {
@@ -24,5 +24,5 @@ export {
 }
 export { DataGrid }
 export { Link, MenuItem, Menu }
-export { Box, Container, Grid }
+export { Box, Container, Grid, Hidden }
 export { Paper }
