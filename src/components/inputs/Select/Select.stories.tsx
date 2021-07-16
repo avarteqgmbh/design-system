@@ -8,7 +8,12 @@ import { MenuItem } from '../../index'
 export default {
   title: '💧 Atoms/Select',
   component: Select,
-  argTypes: {},
+  argTypes: {
+    customProp: {
+      control: { type: 'text' },
+      table: { type: { summary: 'string' } }
+    }
+  },
   decorators: [withDesign],
   parameters: {
     design: {
