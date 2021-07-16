@@ -1,8 +1,8 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { Typography } from '@material-ui/core'
-import { Slider, SliderPropsMui } from './Slider'
+import { Typography, SliderProps } from '@material-ui/core'
+import { Slider } from './Slider'
 
 export default {
   title: 'Input/Slider',
@@ -11,7 +11,7 @@ export default {
     'aria-label': 'string',
     'aria-labelledby': 'string',
     defaultValue: {
-      control: { type: 'multiselect' },
+      control: { type: 'number' },
       table: {
         type: { summary: 'number' }
       }
@@ -28,13 +28,59 @@ export default {
         type: { summary: 'number' }
       }
     },
+    step: {
+      control: { type: 'number' },
+      defaultValue: '1',
+      table: {
+        type: {
+          summary: 'number',
+          detail:
+            'The granularity with which the slider can step through values. '
+        },
+        defaultValue: { summary: '1' }
+      }
+    },
+    marks: {
+      control: { type: 'boolean' },
+      options: ['true', 'false'],
+      table: {
+        type: { summary: 'boolean' }
+      }
+    },
     color: {
       control: { type: 'select' },
-      options: ['primay', 'secondary'],
+      options: ['primary', 'secondary'],
       defaultValue: 'primary',
       table: {
         type: { summary: 'select' },
         defaultValue: { summary: 'primary' }
+      }
+    },
+    disabled: {
+      control: { type: 'boolean' },
+      options: ['true', 'false'],
+      defaultValue: 'false',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' }
+      }
+    },
+    valueLabelDisplay: {
+      control: { type: 'select' },
+      options: ['on', 'auto', 'off'],
+      defaultValue: 'off',
+      table: {
+        type: { summary: 'select' },
+        defaultValue: { summary: 'off' }
+      }
+    },
+    ortientation: {
+      control: { type: 'select' },
+      options: ['horizontal', 'vertical'],
+      defaultValue: 'horizontal',
+      table: {
+        type: { summary: 'select' },
+        defaultValue: { summary: 'horizontal' }
       }
     }
   },
@@ -48,16 +94,51 @@ export default {
   }
 }
 
-const Template: Story<SliderPropsMui> = (args) => {
-  return <Slider {...args} />
+const Template: Story<SliderProps> = (args) => {
+  return <Slider {...args} style={{ marginTop: ' 2em ' }} />
 }
 
 export const Default = Template.bind({})
 Default.args = {
-  children: <Typography> Default Slider</Typography>
+  children: <Typography> Default Slider</Typography>,
+  color: 'primary',
+  disabled: false
 }
 
-export const Primary = Template.bind({})
-Primary.args = {
-  color: 'primary'
+export const Secondary = Template.bind({})
+Secondary.args = {
+  color: 'secondary',
+  defaultValue: 20,
+  disabled: false
+}
+
+export const Step = Template.bind({})
+Step.args = {
+  defaultValue: 20,
+  color: 'primary',
+  step: 10,
+  marks: true,
+  disabled: false
+}
+
+export const LabelOn = Template.bind({})
+LabelOn.args = {
+  color: 'primary',
+  defaultValue: 20,
+  valueLabelDisplay: 'on',
+  disabled: false
+}
+export const LabelAuto = Template.bind({})
+LabelAuto.args = {
+  color: 'primary',
+  defaultValue: 20,
+  valueLabelDisplay: 'auto',
+  disabled: false
+}
+
+export const Disabled = Template.bind({})
+Disabled.args = {
+  color: 'primary',
+  defaultValue: 20,
+  disabled: true
 }
