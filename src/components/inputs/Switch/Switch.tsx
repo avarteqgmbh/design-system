@@ -1,20 +1,18 @@
 import React from 'react'
 import {
-  Select as MuiSelect,
-  SelectProps as MuiSelectProps,
+  Switch as MuiSwitch,
+  SwitchProps as MuiSwitchProps,
   makeStyles
 } from '@material-ui/core'
 import { Theme } from '../../../theme/types'
 
-export function Select(props: MuiSelectProps): JSX.Element {
+export function Switch(props: MuiSwitchProps): JSX.Element {
   const classes = useStyles()
-  const { variant = 'outlined' } = props
   return (
-    <MuiSelect
+    <MuiSwitch
       classes={{
         root: classes.root
       }}
-      variant={variant}
       {...props}
     />
   )

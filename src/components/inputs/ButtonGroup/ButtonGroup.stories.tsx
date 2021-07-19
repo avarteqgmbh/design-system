@@ -8,7 +8,7 @@ import { Button } from '../Button/Button'
 
 const Buttons = (
   <>
-    <Button> One</Button>
+    <Button>One</Button>
     <Button>Two</Button>
     <Button>Three</Button>
   </>

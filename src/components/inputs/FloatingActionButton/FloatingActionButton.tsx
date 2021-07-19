@@ -1,22 +1,24 @@
 import React from 'react'
 import {
-  Select as MuiSelect,
-  SelectProps as MuiSelectProps,
+  Fab as MuiFab,
+  FabProps as MuiFabProps,
   makeStyles
 } from '@material-ui/core'
+
 import { Theme } from '../../../theme/types'
 
-export function Select(props: MuiSelectProps): JSX.Element {
+export function FloatingActionButton(props: MuiFabProps): JSX.Element {
   const classes = useStyles()
-  const { variant = 'outlined' } = props
+  const { children } = props
   return (
-    <MuiSelect
+    <MuiFab
       classes={{
         root: classes.root
       }}
-      variant={variant}
       {...props}
-    />
+    >
+      {children}
+    </MuiFab>
   )
 }
 
