@@ -1,14 +1,14 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { CheckboxProps } from '@material-ui/core'
-import { Checkbox } from './Checkbox'
-import WbSunnyIcon from '@material-ui/icons/WbSunny'
-import Brightness3Icon from '@material-ui/icons/Brightness3'
+import { SwitchProps } from '@material-ui/core'
+import { Switch } from './Switch'
+import CancelIcon from '@material-ui/icons/Cancel'
+import CheckCircleIcon from '@material-ui/icons/CheckCircle'
 
 export default {
-  title: '💧 Atoms/Checkbox',
-  component: Checkbox,
+  title: '💧 Atoms/Switch',
+  component: Switch,
   argTypes: {
     id: {
       control: { type: 'text' },
@@ -46,11 +46,12 @@ export default {
         defaultValue: { summary: false }
       }
     },
-    indeterminate: {
-      control: { type: 'boolean' },
+    edge: {
+      control: 'radio',
+      options: ['end', 'start', false],
       defaultValue: false,
       table: {
-        type: { summary: 'boolean' },
+        type: { summary: 'end | start | false' },
         defaultValue: { summary: false }
       }
     },
@@ -82,56 +83,56 @@ export default {
     controls: { expanded: true },
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%8E%A8-Design-System?node-id=383%3A3833'
+      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%8E%A8-Design-System?node-id=388%3A6093'
     }
   }
 }
 // TODO: - adding examples with FormControlLabel
-//         https://material-ui.com/components/checkboxes/#checkbox-with-formcontrollabel
+//         https://material-ui.com/components/switches/#switch-with-formcontrollabel
 
-const Template: Story<CheckboxProps> = (args) => {
-  return (
-    <Checkbox {...args} inputProps={{ 'aria-label': 'primary checkbox' }} />
-  )
+const Template: Story<SwitchProps> = (args) => {
+  return <Switch {...args} inputProps={{ 'aria-label': 'primary Switch' }} />
 }
 
 export const Default = Template.bind({})
 Default.args = {
-  id: 'checkbox-default'
+  id: 'Switch-default'
 }
 
 export const Primary = Template.bind({})
 Primary.args = {
-  id: 'checkbox-Primary',
+  id: 'Switch-Primary',
   checked: true,
   color: 'primary'
 }
 
+export const Secondary = Template.bind({})
+Secondary.args = {
+  id: 'switch-secondary',
+  checked: true,
+  color: 'secondary'
+}
+
 export const Disabled = Template.bind({})
 Disabled.args = {
-  id: 'checkbox-Disabled',
+  id: 'Switch-Disabled',
   checked: true,
   disabled: true
 }
 
-export const Indeterminate = Template.bind({})
-Indeterminate.args = {
-  id: 'checkbox-Indeterminate',
-  indeterminate: true
-}
-
 export const CustomIcon = Template.bind({})
 CustomIcon.args = {
-  id: 'checkbox-CustomIcon',
-  icon: <WbSunnyIcon />,
-  checkedIcon: <Brightness3Icon />
+  id: 'Switch-CustomIcon',
+  color: 'default',
+  icon: <CancelIcon fontSize='small' />,
+  checkedIcon: <CheckCircleIcon fontSize='small' />
 }
 
-export const StatefulCheckbox: Story<CheckboxProps> = (args) => {
+export const StatefulSwitch: Story<SwitchProps> = (args) => {
   const [checked, setChecked] = React.useState(true)
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setChecked(event.target.checked)
   }
-  return <Checkbox {...args} checked={checked} onChange={handleChange} />
+  return <Switch {...args} checked={checked} onChange={handleChange} />
 }
