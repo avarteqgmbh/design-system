@@ -4,8 +4,10 @@ import {
   Checkbox,
   FloatingActionButton,
   Select,
-  Switch,
-  TextField
+  TextField,
+  FloatingActionButton,
+  Slider,
+  Switch
 } from './inputs/index'
 
 import { DataGrid } from './labs/index'
@@ -21,9 +23,12 @@ export {
   Checkbox,
   FloatingActionButton,
   Select,
-  Switch,
-  TextField
+  TextField,
+  FloatingActionButton,
+  Slider,
+  Switch
 }
+
 export { DataGrid }
 export { Link, MenuItem }
 export { Box, Container, Grid, Hidden }
