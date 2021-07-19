@@ -29,19 +29,19 @@ export default {
     checked: {
       control: { type: 'boolean' },
       options: ['true', 'false'],
-      defaultValue: 'false',
+      defaultValue: false,
       table: {
         type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' }
+        defaultValue: { summary: false }
       }
     },
     disabled: {
       control: { type: 'boolean' },
       options: ['true', 'false'],
-      defaultValue: 'false',
+      defaultValue: false,
       table: {
         type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' }
+        defaultValue: { summary: false }
       }
     },
     onChange: {
@@ -59,41 +59,48 @@ export default {
 }
 
 const Template: Story<RadioProps> = (args) => {
-  return <Radio {...args}> Radio </Radio>
+  return <Radio {...args} />
 }
 
 export const Default = Template.bind({})
 Default.args = {
   color: 'secondary',
-  size: 'medium'
+  size: 'medium',
+  checked: true
 }
 
 export const Primary = Template.bind({})
 Primary.args = {
   color: 'primary',
-  size: 'medium'
+  size: 'medium',
+  checked: true
 }
 
 export const Small = Template.bind({})
 Small.args = {
-  size: 'small'
+  size: 'small',
+  color: 'primary',
+  checked: true
 }
 
 export const Medium = Template.bind({})
 Medium.args = {
-  size: 'medium'
+  size: 'medium',
+  color: 'primary',
+  checked: true
 }
 
-export const Checked = Template.bind({})
-Checked.args = {
+export const Unchecked = Template.bind({})
+Unchecked.args = {
   size: 'medium',
-  color: 'secondary',
-  checked: true
+  color: 'primary',
+  checked: false
 }
 
 export const Disabled = Template.bind({})
 Disabled.args = {
   size: 'medium',
-  color: 'secondary',
+  color: 'primary',
+  checked: true,
   disabled: true
 }
