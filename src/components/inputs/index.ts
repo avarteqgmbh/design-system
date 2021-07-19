@@ -6,6 +6,7 @@ import { Select } from './Select/Select'
 import { Switch } from './Switch/Switch'
 import { TextField } from './TextField/TextField'
 import { Radio } from './Radio/Radio'
+import { Slider } from './Slider/Slider'
 
 export {
   Button,
@@ -15,5 +16,7 @@ export {
   Select,
   Switch,
   TextField,
-  Radio
+  Radio,
+  Slider,
+  Switch
 }

@@ -6,6 +6,7 @@ import {
   Select,
   TextField,
   Radio,
+  Slider,
   Switch
 } from './inputs/index'
 
@@ -24,8 +25,11 @@ export {
   Select,
   Switch,
   TextField,
-  Radio
+  Radio,
+  Slider,
+  Switch
 }
+
 export { DataGrid }
 export { Link, MenuItem }
 export { Box, Container, Grid, Hidden }
