@@ -14,7 +14,6 @@ export {
   Checkbox,
   FloatingActionButton,
   Select,
-  Switch,
   TextField,
   Radio,
   Slider,
