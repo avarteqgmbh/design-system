@@ -30,14 +30,14 @@ export default {
     },
     step: {
       control: { type: 'number' },
-      defaultValue: '1',
+      defaultValue: 1,
       table: {
         type: {
           summary: 'number',
           detail:
             'The granularity with which the slider can step through values. '
         },
-        defaultValue: { summary: '1' }
+        defaultValue: { summary: 1 }
       }
     },
     marks: {
@@ -59,10 +59,10 @@ export default {
     disabled: {
       control: { type: 'boolean' },
       options: ['true', 'false'],
-      defaultValue: 'false',
+      defaultValue: false,
       table: {
         type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' }
+        defaultValue: { summary: false }
       }
     },
     valueLabelDisplay: {
