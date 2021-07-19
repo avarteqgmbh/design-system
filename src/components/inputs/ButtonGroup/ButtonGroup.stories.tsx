@@ -50,7 +50,7 @@ export default {
       options: ['true', 'false'],
       defaultValue: 'false',
       table: {
-        type: { summary: 'select' },
+        type: { summary: 'boolean' },
         defaultValue: { summary: 'false' }
       }
     }

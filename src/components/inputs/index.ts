@@ -5,6 +5,7 @@ import { FloatingActionButton } from './FloatingActionButton/FloatingActionButto
 import { Select } from './Select/Select'
 import { Switch } from './Switch/Switch'
 import { TextField } from './TextField/TextField'
+import { Radio } from './Radio/Radio'
 import { Slider } from './Slider/Slider'
 
 export {
@@ -13,7 +14,9 @@ export {
   Checkbox,
   FloatingActionButton,
   Select,
+  Switch,
   TextField,
+  Radio,
   Slider,
   Switch
 }

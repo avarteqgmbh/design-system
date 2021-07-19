@@ -5,7 +5,7 @@ import {
   FloatingActionButton,
   Select,
   TextField,
-  FloatingActionButton,
+  Radio,
   Slider,
   Switch
 } from './inputs/index'
@@ -23,8 +23,9 @@ export {
   Checkbox,
   FloatingActionButton,
   Select,
+  Switch,
   TextField,
-  FloatingActionButton,
+  Radio,
   Slider,
   Switch
 }
