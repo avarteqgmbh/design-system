@@ -10,7 +10,7 @@ import {
   Switch
 } from './inputs/index'
 
-import { DataGrid } from './labs/index'
+import { Alert, DataGrid } from './labs/index'
 
 import { Link, MenuItem, Menu, Breadcrumbs } from './navigation/index'
 
@@ -29,7 +29,7 @@ export {
   Switch
 }
 
-export { DataGrid }
+export { Alert, DataGrid }
 export { Link, MenuItem, Menu, Breadcrumbs }
 export { Box, Container, Grid, Hidden }
 export { Paper }
