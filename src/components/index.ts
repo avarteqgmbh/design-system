@@ -17,6 +17,8 @@ import { Link, MenuItem } from './navigation/index'
 import { Box, Container, Grid, Hidden } from './layout/index'
 import { Paper } from './surfaces/index'
 
+import { Backdrop, CircularProgress, LinearProgress } from './feedback/index'
+
 export {
   Button,
   ButtonGroup,
@@ -33,3 +35,4 @@ export { DataGrid }
 export { Link, MenuItem }
 export { Box, Container, Grid, Hidden }
 export { Paper }
+export { Backdrop, CircularProgress, LinearProgress }
