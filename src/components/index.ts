@@ -2,9 +2,10 @@ import {
   Button,
   ButtonGroup,
   Checkbox,
+  FloatingActionButton,
   Select,
-  TextField,
-  FloatingActionButton
+  Switch,
+  TextField
 } from './inputs/index'
 
 import { DataGrid } from './labs/index'
@@ -18,9 +19,10 @@ export {
   Button,
   ButtonGroup,
   Checkbox,
+  FloatingActionButton,
   Select,
-  TextField,
-  FloatingActionButton
+  Switch,
+  TextField
 }
 export { DataGrid }
 export { Link, MenuItem }
