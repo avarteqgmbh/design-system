@@ -19,6 +19,8 @@ import { Paper } from './surfaces/index'
 
 import { Backdrop, CircularProgress, LinearProgress } from './feedback/index'
 
+import { List } from './dataDisplay/index'
+
 export {
   Button,
   ButtonGroup,
@@ -36,3 +38,4 @@ export { Link, MenuItem, Menu, Breadcrumbs }
 export { Box, Container, Grid, Hidden }
 export { Paper }
 export { Backdrop, CircularProgress, LinearProgress }
+export { List }
