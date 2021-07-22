@@ -31,7 +31,7 @@ Default.args = {
   color: 'primary'
 }
 
-export const ButtonLink: Story<MenuProps> = (args): JSX.Element => {
+export const ButtonLink: Story<LinkProps> = (args): JSX.Element => {
   return (
     <Link
       {...args}
