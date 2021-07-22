@@ -15,7 +15,10 @@ import { Alert, DataGrid } from './labs/index'
 import { Link, MenuItem, Menu, Breadcrumbs } from './navigation/index'
 
 import { Box, Container, Grid, Hidden } from './layout/index'
+
 import { Paper } from './surfaces/index'
+
+import { Chip } from './dataDisplay/index'
 
 import { Backdrop, CircularProgress, LinearProgress } from './feedback/index'
 
@@ -35,4 +38,5 @@ export { Alert, DataGrid }
 export { Link, MenuItem, Menu, Breadcrumbs }
 export { Box, Container, Grid, Hidden }
 export { Paper }
+export { Chip }
 export { Backdrop, CircularProgress, LinearProgress }
