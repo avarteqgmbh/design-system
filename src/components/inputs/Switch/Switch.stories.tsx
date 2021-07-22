@@ -7,7 +7,7 @@ import CancelIcon from '@material-ui/icons/Cancel'
 import CheckCircleIcon from '@material-ui/icons/CheckCircle'
 
 export default {
-  title: '💧 Atoms/Switch',
+  title: 'Input/Switch',
   component: Switch,
   argTypes: {
     id: {

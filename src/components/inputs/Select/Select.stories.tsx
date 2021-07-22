@@ -6,7 +6,7 @@ import { Select } from './Select'
 import { MenuItem } from '../../index'
 
 export default {
-  title: '💧 Atoms/Select',
+  title: 'Input/Select',
   component: Select,
   argTypes: {
     id: {

@@ -7,7 +7,7 @@ import { Breadcrumbs } from './Breadcrumbs'
 import { Link } from '../Link/Link'
 
 export default {
-  title: '💧 Atoms/Breadcrumbs',
+  title: 'Navigation/Breadcrumbs',
   component: Breadcrumbs,
   argTypes: {},
   decorators: [withDesign],

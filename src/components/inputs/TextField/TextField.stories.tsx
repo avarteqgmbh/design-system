@@ -7,7 +7,7 @@ import ArrowBackRoundedIcon from '@material-ui/icons/ArrowBackRounded'
 import Visibility from '@material-ui/icons/Visibility'
 
 export default {
-  title: '💧 Atoms/TextField',
+  title: 'Input/TextField',
   component: TextField,
   argTypes: {
     id: {
