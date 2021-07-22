@@ -1,20 +1,18 @@
 import React from 'react'
 import {
-  Select as MuiSelect,
-  SelectProps as MuiSelectProps,
+  CircularProgress as MuiCircularProgress,
+  CircularProgressProps as MuiCircularProgressProps,
   makeStyles
 } from '@material-ui/core'
 import { Theme } from '../../../theme/types'
 
-export function Select(props: MuiSelectProps): JSX.Element {
+export function CircularProgress(props: MuiCircularProgressProps): JSX.Element {
   const classes = useStyles()
-  const { variant = 'outlined' } = props
   return (
-    <MuiSelect
+    <MuiCircularProgress
       classes={{
         root: classes.root
       }}
-      variant={variant}
       {...props}
     />
   )
