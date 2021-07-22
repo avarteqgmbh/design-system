@@ -7,7 +7,7 @@ import ListItemText from '@material-ui/core/ListItemText'
 import SendIcon from '@material-ui/icons/Send'
 
 export default {
-  title: '💧 Atoms/MenuItem',
+  title: 'Navigation/MenuItem',
   component: MenuItem,
   argTypes: {},
   decorators: [withDesign],
