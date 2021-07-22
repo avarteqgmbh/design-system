@@ -9,7 +9,7 @@ import { MenuItem } from './MenuItem'
 import { Button } from '../../inputs/Button/Button'
 
 export default {
-  title: '💧 Atoms/Menu',
+  title: 'Navigation/Menu',
   component: Menu,
   argTypes: {
     anchorEl: {
