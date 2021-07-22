@@ -3,13 +3,16 @@ import {
   ThemeProvider as MuiThemeProvider,
   ThemeProviderProps as MuiThemeProviderProps,
   ThemeOptions,
-  createMuiTheme
+  makeStyles as muiMakeStyles,
+  createTheme
 } from '@material-ui/core'
 
 import { Theme } from './types'
 import { theme as anynines } from './theme'
 import { theme as toyota } from './themes/toyota'
 import { theme as thomsit } from './themes/thomsit'
+
+export const makeStyles = muiMakeStyles
 
 export interface ThemeProviderProps
   extends Omit<MuiThemeProviderProps, 'theme'> {
@@ -32,5 +35,5 @@ export function ThemeProvider(props: ThemeProviderProps): JSX.Element {
     return theme
   }
 
-  return <MuiThemeProvider {...props} theme={createMuiTheme(getTheme())} />
+  return <MuiThemeProvider {...props} theme={createTheme(getTheme())} />
 }

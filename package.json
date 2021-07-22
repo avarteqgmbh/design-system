@@ -7,10 +7,13 @@
   "files": [
     "dist"
   ],
+  "eslintConfig": {
+    "extends": "react-app"
+  },
   "dependencies": {
     "@material-ui/core": "^4.11.4",
-    "@material-ui/data-grid": "^4.0.0-alpha.34",
     "@material-ui/icons": "^4.11.2",
+    "@material-ui/data-grid": "^4.0.0-alpha.34",
     "@material-ui/lab": "^4.0.0-alpha.58",
     "@storybook/react": "^6.2.9",
     "@testing-library/jest-dom": "^5.11.4",
@@ -36,8 +39,7 @@
     "eject": "react-scripts eject",
     "format": "prettier --write 'src/**/*.{ts,tsx,stories.tsx}'",
     "lint": "tsc --noEmit && eslint 'src/**/*.{ts,tsx,stories.tsx}'",
-    "storybook": "node -e 'require(\"./fix-eslint\").removeTsConfig()' &&start-storybook -p 6006 -s public",
-    "sb": "node -e 'require(\"./fix-eslint\").removeTsConfig()' &&start-storybook -p 6006 -s public",
+    "storybook": "start-storybook -p 6006 -s public",
     "storybook:lint": "node -e 'require(\"./fix-eslint\").addTsConfig()' && start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
     "rm:build": "rm -rf ./dist/"
@@ -71,7 +73,6 @@
     "@storybook/preset-create-react-app": "^3.1.7",
     "@typescript-eslint/eslint-plugin": "^4.26.1",
     "@typescript-eslint/parser": "^4.26.1",
-    "babel-loader": "^8.0.6",
     "babel-plugin-inline-json-import": "^0.3.2",
     "babel-plugin-styled-components": "^1.10.7",
     "eslint-config-airbnb-typescript": "6.3.2",
