@@ -18,7 +18,8 @@ import {
   Menu,
   Breadcrumbs,
   BottomNavigation,
-  BottomNavigationAction
+  BottomNavigationAction,
+  Drawer
 } from './navigation/index'
 
 import { Box, Container, Grid, Hidden } from './layout/index'
@@ -53,7 +54,8 @@ export {
   Menu,
   Breadcrumbs,
   BottomNavigation,
-  BottomNavigationAction
+  BottomNavigationAction,
+  Drawer
 }
 export { Box, Container, Grid, Hidden }
 export { Paper }

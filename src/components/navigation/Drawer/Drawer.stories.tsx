@@ -7,17 +7,11 @@ import { Button } from '../../inputs/Button/Button'
 
 import clsx from 'clsx'
 import { makeStyles } from '@material-ui/core/styles'
-import {
-  List,
-  ListItem,
-  Divider,
-  ListItemText,
-  ListItemIcon
-} from '@material-ui/core/ListItemText'
+import { List, ListItem, ListItemText, ListItemIcon } from '@material-ui/core'
 import { Mail as MailIcon, Inbox as InboxIcon } from '@material-ui/icons'
 
 export default {
-  title: '💧 Atoms/Drawer',
+  title: 'Navigation/Drawer',
   component: Drawer,
   argTypes: {},
   decorators: [withDesign],
@@ -38,9 +32,9 @@ const useStyles = makeStyles({
   }
 })
 
-type Anchor = 'top' | 'left' | 'bottom' | 'right'
+type Anchor = 'top' | 'left' | 'bottom' | 'right' | undefined
 
-export const Drawer: Story<DrawerProps> = (): JSX.Element => {
+export const Default: Story<DrawerProps> = (): JSX.Element => {
   const classes = useStyles()
   const [state, setState] = React.useState({
     top: false,
@@ -74,29 +68,18 @@ export const Drawer: Story<DrawerProps> = (): JSX.Element => {
         onKeyDown={toggleDrawer(anchor, false)}
       >
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => {
-            return (
-              <ListItem button key={text}>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            )
-          })}
-        </List>
-        <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => {
-            return (
-              <ListItem button key={text}>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            )
-          })}
+          {['Inbox', 'Starred', 'Send email', 'Drafts'].map(
+            (text, index): JSX.Element => {
+              return (
+                <ListItem button key={text}>
+                  <ListItemIcon>
+                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  </ListItemIcon>
+                  <ListItemText primary={text} />
+                </ListItem>
+              )
+            }
+          )}
         </List>
       </div>
     )
@@ -104,20 +87,22 @@ export const Drawer: Story<DrawerProps> = (): JSX.Element => {
 
   return (
     <div>
-      {(['left', 'right', 'top', 'bottom'] as Anchor[]).map((anchor) => {
-        return (
-          <React.Fragment key={anchor}>
-            <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
-            <Drawer
-              anchor={anchor}
-              open={state[anchor]}
-              onClose={toggleDrawer(anchor, false)}
-            >
-              {list(anchor)}
-            </Drawer>
-          </React.Fragment>
-        )
-      })}
+      {(['left', 'right', 'top', 'bottom'] as Anchor[]).map(
+        (anchor: Anchor): JSX.Element[] => {
+          return (
+            <React.Fragment key={anchor.toString()}>
+              <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
+              <Drawer
+                anchor={anchor}
+                open={state[anchor]}
+                onClose={toggleDrawer(anchor, false)}
+              >
+                {list(anchor)}
+              </Drawer>
+            </React.Fragment>
+          )
+        }
+      )}
     </div>
   )
 }
