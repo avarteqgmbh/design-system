@@ -26,7 +26,7 @@ import { Box, Container, Grid, Hidden } from './layout/index'
 
 import { Paper } from './surfaces/index'
 
-import { Chip } from './dataDisplay/index'
+import { Chip, List } from './dataDisplay/index'
 
 import {
   Backdrop,
@@ -61,3 +61,4 @@ export { Box, Container, Grid, Hidden }
 export { Paper }
 export { Chip }
 export { Backdrop, CircularProgress, LinearProgress, Snackbar }
+export { List }
