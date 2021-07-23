@@ -27,7 +27,12 @@ import { Paper } from './surfaces/index'
 
 import { Chip } from './dataDisplay/index'
 
-import { Backdrop, CircularProgress, LinearProgress } from './feedback/index'
+import {
+  Backdrop,
+  CircularProgress,
+  LinearProgress,
+  Snackbar
+} from './feedback/index'
 
 export {
   Button,
@@ -53,4 +58,4 @@ export {
 export { Box, Container, Grid, Hidden }
 export { Paper }
 export { Chip }
-export { Backdrop, CircularProgress, LinearProgress }
+export { Backdrop, CircularProgress, LinearProgress, Snackbar }
