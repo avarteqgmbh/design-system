@@ -120,7 +120,7 @@ BottomLeft.args = {
   anchorOrigin: { vertical: 'bottom', horizontal: 'left' }
 }
 
-export const StatefulCheckbox: Story<SnackbarProps> = (args) => {
+export const StatefulSnackbar: Story<SnackbarProps> = (args) => {
   const [open, setOpen] = React.useState(false)
 
   const handleClick = (): void => {
