@@ -12,7 +12,12 @@ import {
 
 import { DataGrid } from './labs/index'
 
-import { Link, MenuItem } from './navigation/index'
+import {
+  Link,
+  MenuItem,
+  BottomNavigation,
+  BottomNavigationAction
+} from './navigation/index'
 
 import { Box, Container, Grid, Hidden } from './layout/index'
 import { Paper } from './surfaces/index'
@@ -30,6 +35,6 @@ export {
 }
 
 export { DataGrid }
-export { Link, MenuItem }
+export { Link, MenuItem, BottomNavigation, BottomNavigationAction }
 export { Box, Container, Grid, Hidden }
 export { Paper }

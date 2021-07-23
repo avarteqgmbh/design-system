@@ -17,15 +17,26 @@ export default {
         type: { summary: 'object' }
       }
     },
-    icon: {
+    showLabel: {
       control: { type: 'node' },
       table: {
         type: { summary: 'node' }
       }
     },
-    showLabel: {
+    selected: {
       control: { type: 'boolean' },
-      options: ['true', 'false'],
+      table: {
+        type: { summary: 'boolean' }
+      }
+    },
+    centerRipple: {
+      control: { type: 'boolean' },
+      table: {
+        type: { summary: 'boolean' }
+      }
+    },
+    icon: {
+      control: { type: 'node' },
       table: {
         type: { summary: 'node' }
       }
@@ -41,26 +52,107 @@ export default {
 }
 
 const Template: Story<BottomNavigationActionProps> = (args) => {
-  return <BottomNavigationAction {...args} />
+  return <BottomNavigationAction {...args} style={{ padding: ' 1em ' }} />
 }
 
-export const DefaultRestoreIcon = Template.bind({})
-DefaultRestoreIcon.args = {
+export const DefaultRestore = Template.bind({})
+DefaultRestore.args = {
   label: 'Recent',
   icon: <RestoreIcon />,
-  showLabel: true
+  showLabel: false,
+  selected: false,
+  centerRipple: false
 }
 
-export const DefaultFavoriteIcon = Template.bind({})
-DefaultFavoriteIcon.args = {
+export const DefaultFavorite = Template.bind({})
+DefaultFavorite.args = {
   label: 'Favorite',
   icon: <FavoriteIcon />,
-  showLabel: true
+  showLabel: false,
+  selected: false,
+  centerRipple: false
 }
 
-export const DefaultLocationOnIcon = Template.bind({})
-DefaultLocationOnIcon.args = {
+export const DefaultLocation = Template.bind({})
+DefaultLocation.args = {
   label: 'Nearby',
   icon: <LocationOnIcon />,
-  showLabel: true
+  showLabel: false,
+  selected: false,
+  centerRipple: false
+}
+
+export const LabelRestore = Template.bind({})
+LabelRestore.args = {
+  label: 'Recent',
+  icon: <RestoreIcon />,
+  showLabel: true,
+  selected: false,
+  centerRipple: false
+}
+
+export const LabelFavorite = Template.bind({})
+LabelFavorite.args = {
+  label: 'Favorite',
+  icon: <FavoriteIcon />,
+  showLabel: true,
+  selected: false,
+  centerRipple: false
+}
+
+export const LabelLocation = Template.bind({})
+LabelLocation.args = {
+  label: 'Nearby',
+  icon: <LocationOnIcon />,
+  showLabel: true,
+  selected: false,
+  centerRipple: false
+}
+
+export const SelectedRestore = Template.bind({})
+SelectedRestore.args = {
+  label: 'Recent',
+  icon: <RestoreIcon />,
+  selected: true,
+  centerRipple: false
+}
+
+export const SelectedFavorite = Template.bind({})
+SelectedFavorite.args = {
+  label: 'Favorite',
+  icon: <FavoriteIcon />,
+  selected: true,
+  centerRipple: false
+}
+
+export const SelectedLocation = Template.bind({})
+SelectedLocation.args = {
+  label: 'Nearby',
+  icon: <LocationOnIcon />,
+  selected: true,
+  centerRipple: false
+}
+
+export const CenteredRippleRestore = Template.bind({})
+CenteredRippleRestore.args = {
+  label: 'Recent',
+  icon: <RestoreIcon />,
+  selected: true,
+  centerRipple: true
+}
+
+export const CenteredRippleFavorite = Template.bind({})
+CenteredRippleFavorite.args = {
+  label: 'Favorite',
+  icon: <FavoriteIcon />,
+  selected: true,
+  centerRipple: true
+}
+
+export const CenteredRippleLocation = Template.bind({})
+CenteredRippleLocation.args = {
+  label: 'Nearby',
+  icon: <LocationOnIcon />,
+  selected: true,
+  centerRipple: true
 }
