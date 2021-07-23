@@ -3,7 +3,7 @@ import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { BottomNavigation } from './BottomNavigation'
 import { BottomNavigationProps } from '@material-ui/core'
-import { BottomNavigationAction } from '../BottomNavigationAction/BottomNavigationAction'
+import { BottomNavigationAction } from './BottomNavigationAction'
 import RestoreIcon from '@material-ui/icons/Restore'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import LocationOnIcon from '@material-ui/icons/LocationOn'
@@ -30,7 +30,7 @@ const Icons = [
 ]
 
 export default {
-  title: '💧 Atoms/BottomNavigation',
+  title: 'Navigation/BottomNavigation',
   component: BottomNavigation,
   args: {
     showLabels: {

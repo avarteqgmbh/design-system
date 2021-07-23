@@ -15,12 +15,11 @@ import { Alert, DataGrid } from './labs/index'
 import {
   Link,
   MenuItem,
-  Menu, 
+  Menu,
   Breadcrumbs,
   BottomNavigation,
   BottomNavigationAction
 } from './navigation/index'
-
 
 import { Box, Container, Grid, Hidden } from './layout/index'
 
@@ -43,7 +42,14 @@ export {
 }
 
 export { Alert, DataGrid }
-export { Link, MenuItem, Menu, Breadcrumbs, BottomNavigation, BottomNavigationAction }
+export {
+  Link,
+  MenuItem,
+  Menu,
+  Breadcrumbs,
+  BottomNavigation,
+  BottomNavigationAction
+}
 export { Box, Container, Grid, Hidden }
 export { Paper }
 export { Chip }
