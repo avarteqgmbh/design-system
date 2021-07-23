@@ -1,11 +1,11 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { LinkProps } from '@material-ui/core'
+import { LinkProps, MenuProps } from '@material-ui/core'
 import { Link } from './Link'
 
 export default {
-  title: '💧 Atoms/Link',
+  title: 'Navigation/Link',
   component: Link,
   argTypes: {
     color: {
@@ -35,7 +35,7 @@ export const ButtonLink: Story<LinkProps> = (args): JSX.Element => {
   return (
     <Link
       {...args}
-      component='button'
+      component={"button"}
       variant='body2'
       onClick={(): void => {
         console.log("I'm a button.")

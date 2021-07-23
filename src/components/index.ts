@@ -12,12 +12,27 @@ import {
 
 import { Alert, DataGrid } from './labs/index'
 
-import { Link, MenuItem, Menu, Breadcrumbs } from './navigation/index'
+import {
+  Link,
+  MenuItem,
+  Menu,
+  Breadcrumbs,
+  BottomNavigation,
+  BottomNavigationAction
+} from './navigation/index'
 
 import { Box, Container, Grid, Hidden } from './layout/index'
+
 import { Paper } from './surfaces/index'
 
-import { Backdrop, CircularProgress, LinearProgress } from './feedback/index'
+import { Chip } from './dataDisplay/index'
+
+import {
+  Backdrop,
+  CircularProgress,
+  LinearProgress,
+  Snackbar
+} from './feedback/index'
 
 export {
   Button,
@@ -32,7 +47,15 @@ export {
 }
 
 export { Alert, DataGrid }
-export { Link, MenuItem, Menu, Breadcrumbs }
+export {
+  Link,
+  MenuItem,
+  Menu,
+  Breadcrumbs,
+  BottomNavigation,
+  BottomNavigationAction
+}
 export { Box, Container, Grid, Hidden }
 export { Paper }
-export { Backdrop, CircularProgress, LinearProgress }
+export { Chip }
+export { Backdrop, CircularProgress, LinearProgress, Snackbar }
