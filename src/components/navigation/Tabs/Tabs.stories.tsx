@@ -2,7 +2,7 @@ import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { makeStyles, Theme } from '@material-ui/core/styles'
-import {Typography, Box, AppBar, TabsProps} from '@material-ui/core'
+import {Typography, Box,AppBar, TabsProps} from '@material-ui/core'
 
 import { Tabs } from './Tabs'
 import { Tab } from './Tab'
