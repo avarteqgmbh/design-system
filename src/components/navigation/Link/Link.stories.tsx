@@ -1,7 +1,7 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { LinkProps, MenuProps } from '@material-ui/core'
+import { LinkProps } from '@material-ui/core'
 import { Link } from './Link'
 
 export default {
@@ -28,7 +28,7 @@ const Template: Story<LinkProps> = (args) => {
 
 export const Default = Template.bind({})
 Default.args = {
-  color: 'primary'
+     color: 'primary'
 }
 
 export const ButtonLink: Story<LinkProps> = (args): JSX.Element => {
