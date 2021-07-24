@@ -15,12 +15,12 @@ export const TabPanel: JSX.Element<TabPanelProps> = (props) => {
     <div
       className={classes.root}
       role='tabpanel'
-      hidden={value !== index.toString()}
+      hidden={value !== index}
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index.toString() && <Box p={3}>{children}</Box>}
+      {value === index && <Box p={3}>{children}</Box>}
     </div>
   )
 }

@@ -28,14 +28,14 @@ const Template: Story<LinkProps> = (args) => {
 
 export const Default = Template.bind({})
 Default.args = {
-     color: 'primary'
+  color: 'primary'
 }
 
 export const ButtonLink: Story<LinkProps> = (args): JSX.Element => {
   return (
     <Link
       {...args}
-      component={"button"}
+      component='button'
       variant='body2'
       onClick={(): void => {
         console.log("I'm a button.")
