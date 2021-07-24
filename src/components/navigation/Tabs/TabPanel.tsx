@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles'
 
 interface TabPanelProps {
   index: number
-  value: string
+  value: number
 }
 
 export const TabPanel: JSX.Element<TabPanelProps> = (props) => {

@@ -1,8 +1,7 @@
 import React from 'react'
-import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { makeStyles, Theme } from '@material-ui/core/styles'
-import { Typography, Box, AppBar, TabsProps } from '@material-ui/core'
+import { Typography, AppBar, TabsProps, Paper } from '@material-ui/core'
 
 import { Tabs } from './Tabs'
 import { Tab } from './Tab'
@@ -21,7 +20,7 @@ export default {
   }
 }
 
-type A11yProps {
+interface A11yProps {
   id: string
   'aria-controls': string
 }
@@ -42,7 +41,7 @@ const useStyles = makeStyles((theme: Theme) => {
   }
 })
 
-export function Default(): JSX.Element {
+export const Default: Story<TabsProps> = (args): JSX.Element => {
   const classes = useStyles()
   const [value, setValue] = React.useState<number>(0)
 
@@ -50,12 +49,15 @@ export function Default(): JSX.Element {
     event: React.ChangeEvent<{}>,
     newValue: number
   ): void => {
+    event.preventDefault()
     setValue(newValue)
   }
+
   return (
     <div className={classes.root}>
       <AppBar position='static'>
         <Tabs
+          {...args}
           value={value}
           onChange={handleChange}
           aria-label='simple tabs example'
@@ -75,5 +77,33 @@ export function Default(): JSX.Element {
         <Typography>Item Three</Typography>
       </TabPanel>
     </div>
+  )
+}
+
+export const Disabled: Story<TabsProps> = (args): JSX.Element => {
+  const [value, setValue] = React.useState(2)
+
+  const handleChange = (
+    event: React.ChangeEvent<{}>,
+    newValue: number
+  ): void => {
+    setValue(newValue)
+  }
+
+  return (
+    <Paper square>
+      <Tabs
+        {...args}
+        value={value}
+        indicatorColor='primary'
+        textColor='primary'
+        onChange={handleChange}
+        aria-label='disabled tabs example'
+      >
+        <Tab label='Active' />
+        <Tab label='Disabled' disabled />
+        <Tab label='Active' />
+      </Tabs>
+    </Paper>
   )
 }

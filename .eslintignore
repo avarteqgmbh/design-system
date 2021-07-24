@@ -7,5 +7,3 @@ public/dist/*
 *.test.tsx
 
 storybook-static/*
-
-*.stories.tsx
