@@ -23,7 +23,7 @@ import {
 
 import { Box, Container, Grid, Hidden } from './layout/index'
 
-import { Paper } from './surfaces/index'
+import { Paper, Card } from './surfaces/index'
 
 import { Chip, List } from './dataDisplay/index'
 
@@ -56,6 +56,6 @@ export {
   BottomNavigationAction
 }
 export { Box, Container, Grid, Hidden }
-export { Paper }
+export { Paper, Card }
 export { Chip, List }
 export { Backdrop, CircularProgress, LinearProgress, Snackbar }
