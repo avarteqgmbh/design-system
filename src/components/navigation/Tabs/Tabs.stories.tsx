@@ -27,8 +27,8 @@ interface A11yProps {
 
 function getA11yProps(index: number): A11yProps {
   return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`
+    id: `tab-${index}`,
+    'aria-controls': `tabpanel-${index}`
   }
 }
 
@@ -36,7 +36,22 @@ const useStyles = makeStyles((theme: Theme) => {
   return {
     root: {
       flexGrow: 1,
+      width: '100%',
       backgroundColor: theme.palette.background.paper
+    }
+  }
+})
+
+const useVerticalStyles = makeStyles((theme: Theme) => {
+  return {
+    root: {
+      flexGrow: 1,
+      backgroundColor: theme.palette.background.paper,
+      display: 'flex',
+      height: 224
+    },
+    tabs: {
+      borderRight: `1px solid ${theme.palette.divider}`
     }
   }
 })
@@ -105,5 +120,118 @@ export const Disabled: Story<TabsProps> = (args): JSX.Element => {
         <Tab label='Active' />
       </Tabs>
     </Paper>
+  )
+}
+
+export const Scrollable: Story<TabsProps> = (args): JSX.Element => {
+  const classes = useStyles()
+  const [value, setValue] = React.useState(0)
+
+  const handleChange = (
+    event: React.ChangeEvent<{}>,
+    newValue: number
+  ): void => {
+    setValue(newValue)
+  }
+
+  return (
+    <div className={classes.root}>
+      <AppBar position='static' color='default'>
+        <Tabs
+          {...args}
+          value={value}
+          onChange={handleChange}
+          indicatorColor='primary'
+          textColor='primary'
+          variant='scrollable'
+          scrollButtons='auto'
+          aria-label='scrollable auto tabs example'
+        >
+          <Tab label='Item One' {...getA11yProps(0)} />
+          <Tab label='Item Two' {...getA11yProps(1)} />
+          <Tab label='Item Three' {...getA11yProps(2)} />
+          <Tab label='Item Four' {...getA11yProps(3)} />
+          <Tab label='Item Five' {...getA11yProps(4)} />
+          <Tab label='Item Six' {...getA11yProps(5)} />
+          <Tab label='Item Seven' {...getA11yProps(6)} />
+        </Tabs>
+      </AppBar>
+      <TabPanel value={value} index={0}>
+        Item One
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        Item Two
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+        Item Three
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+        Item Four
+      </TabPanel>
+      <TabPanel value={value} index={4}>
+        Item Five
+      </TabPanel>
+      <TabPanel value={value} index={5}>
+        Item Six
+      </TabPanel>
+      <TabPanel value={value} index={6}>
+        Item Seven
+      </TabPanel>
+    </div>
+  )
+}
+
+export const Vertical: Story<TabsProps> = (args): JSX.Element => {
+  const classes = useVerticalStyles()
+  const [value, setValue] = React.useState(0)
+
+  const handleChange = (
+    event: React.ChangeEvent<{}>,
+    newValue: number
+  ): void => {
+    setValue(newValue)
+  }
+
+  return (
+    <div className={classes.root}>
+      <Tabs
+        {...args}
+        orientation='vertical'
+        variant='scrollable'
+        value={value}
+        onChange={handleChange}
+        aria-label='Vertical tabs example'
+        className={classes.tabs}
+      >
+        <Tab label='Item One' {...getA11yProps(0)} />
+        <Tab label='Item Two' {...getA11yProps(1)} />
+        <Tab label='Item Three' {...getA11yProps(2)} />
+        <Tab label='Item Four' {...getA11yProps(3)} />
+        <Tab label='Item Five' {...getA11yProps(4)} />
+        <Tab label='Item Six' {...getA11yProps(5)} />
+        <Tab label='Item Seven' {...getA11yProps(6)} />
+      </Tabs>
+      <TabPanel value={value} index={0}>
+        Item One
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        Item Two
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+        Item Three
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+        Item Four
+      </TabPanel>
+      <TabPanel value={value} index={4}>
+        Item Five
+      </TabPanel>
+      <TabPanel value={value} index={5}>
+        Item Six
+      </TabPanel>
+      <TabPanel value={value} index={6}>
+        Item Seven
+      </TabPanel>
+    </div>
   )
 }

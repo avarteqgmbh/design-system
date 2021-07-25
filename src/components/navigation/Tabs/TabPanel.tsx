@@ -16,8 +16,8 @@ export const TabPanel: JSX.Element<TabPanelProps> = (props) => {
       className={classes.root}
       role='tabpanel'
       hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
+      id={`tabpanel-${index}`}
+      aria-labelledby={`tab-${index}`}
       {...other}
     >
       {value === index && <Box p={3}>{children}</Box>}
