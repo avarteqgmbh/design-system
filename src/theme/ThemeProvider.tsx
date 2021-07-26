@@ -21,7 +21,7 @@ export interface ThemeProviderProps
   theme?: Theme | 'anynines' | 'anynines-dark' | 'thomsit' | 'toyota' | 'bosch'
 }
 
-export function ThemeProvider(props: ThemeProviderProps): JSX.Element {
+export const ThemeProvider = (props: ThemeProviderProps): JSX.Element => {
   const { theme = 'anynines' } = props
 
   function getTheme(): ThemeOptions {
