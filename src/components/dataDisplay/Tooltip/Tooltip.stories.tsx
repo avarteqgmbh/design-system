@@ -5,12 +5,9 @@ import { TooltipProps } from '@material-ui/core'
 import { Tooltip } from './Tooltip'
 import Fade from '@material-ui/core/Fade'
 import Zoom from '@material-ui/core/Zoom'
-// import { Button } from '../../inputs/Button/Button'
 import { FloatingActionButton as Fab } from '../../index'
-// import IconButton from '@material-ui/core/IconButton'
+
 import AddIcon from '@material-ui/icons/Add';
-// import DeleteIcon from '@material-ui/icons/Delete';
-// import { Children } from 'react'
 
 export default {
   title: 'Data Display/Tooltip',
