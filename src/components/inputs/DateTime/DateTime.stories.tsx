@@ -1,10 +1,8 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { TextFieldProps, InputAdornment } from '@material-ui/core'
+import { TextFieldProps } from '@material-ui/core'
 import { DateTime } from './DateTime'
-import ArrowBackRoundedIcon from '@material-ui/icons/ArrowBackRounded'
-import Visibility from '@material-ui/icons/Visibility'
 
 export default {
   title: 'Input/DateTime',
@@ -18,15 +16,10 @@ export default {
       control: { type: 'text' },
       table: { type: { summary: 'string' } }
     },
-    type: {
-      control: 'select',
-      options: [
-        'date',
-        'datetime-local',
-        'time'
-      ],
+    defaultValue: {
+      control: { type: 'text' },
       table: {
-        type: { summary: 'date | datetime-local | time' }
+        type: { summary: 'text' }
       }
     },
     color: {
@@ -58,7 +51,7 @@ export default {
 }
 
 const Template: Story<TextFieldProps> = (args) => {
-  return <TextField {...args} />
+  return <DateTime {...args} />
 }
 
 export const Default = Template.bind({})
@@ -110,21 +103,6 @@ Number.args = {
   placeholder: '42.02'
 }
 
-export const Password = Template.bind({})
-Password.args = {
-  id: 'textfield-password',
-  type: 'password',
-  label: 'Password',
-  placeholder: 'Enter your password',
-  InputProps: {
-    endAdornment: (
-      <InputAdornment position='start'>
-        <Visibility />
-      </InputAdornment>
-    )
-  }
-}
-
 export const Tel = Template.bind({})
 Tel.args = {
   id: 'textfield-tel',
@@ -160,20 +138,5 @@ Week.args = {
   label: 'Week',
   InputLabelProps: {
     shrink: true
-  }
-}
-
-export const WithIcon = Template.bind({})
-WithIcon.args = {
-  id: 'textfield-with-icon',
-  type: 'text',
-  label: 'With icon',
-  placeholder: 'Placeholder',
-  InputProps: {
-    startAdornment: (
-      <InputAdornment position='start'>
-        <ArrowBackRoundedIcon />
-      </InputAdornment>
-    )
   }
 }
