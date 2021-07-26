@@ -8,4 +8,4 @@ public/dist/*
 
 storybook-static/*
 
-*.stories.tsx
+fix-eslint.js
