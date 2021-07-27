@@ -10,7 +10,7 @@ import {
   Switch
 } from './inputs/index'
 
-import { Alert, DataGrid, Skeleton } from './labs/index'
+import { Alert, DataGrid, Skeleton, Pagination } from './labs/index'
 
 import {
   Link,
@@ -52,7 +52,8 @@ export {
   Switch
 }
 
-export { Alert, DataGrid, Skeleton }
+export { Alert, DataGrid, Skeleton, Pagination }
+
 export {
   Link,
   MenuItem,
