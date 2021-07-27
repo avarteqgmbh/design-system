@@ -1,4 +1,6 @@
-import { overrides } from '../overrides'
+import Headline from './Headline.woff2'
+import Body from './Body.woff2'
+import { overrides } from '../../overrides'
 
 const TYPE = 'light'
 
@@ -9,23 +11,23 @@ const COLOR_COMMON_WHITE = '#ffffff'
 const COLOR_COMMON_BLACK = '#000000'
 const COLOR_COMMON_TRANSPARENT = '#00000000'
 
-const COLOR_GREY_50 = '#f6f8fc'
-const COLOR_GREY_100 = '#e8eefb'
-const COLOR_GREY_200 = '#e0e4ed'
-const COLOR_GREY_300 = '#b8c2d6'
-const COLOR_GREY_400 = '#b0bfd9'
-const COLOR_GREY_500 = '#909fbe'
-const COLOR_GREY_600 = '#677695'
-const COLOR_GREY_700 = '#485776'
-const COLOR_GREY_800 = '#293858'
-const COLOR_GREY_900 = '#131f37'
-const COLOR_GREY_1000 = '#0d1424'
+const COLOR_GREY_50 = '#fcfcfc'
+const COLOR_GREY_100 = '#dadbdc'
+const COLOR_GREY_200 = '#b9babc'
+const COLOR_GREY_300 = '#989a9c'
+const COLOR_GREY_400 = '#78797c'
+const COLOR_GREY_500 = '#58595B'
+const COLOR_GREY_600 = '#48494b'
+const COLOR_GREY_700 = '#38393a'
+const COLOR_GREY_800 = '#28292a'
+const COLOR_GREY_900 = '#191919'
+const COLOR_GREY_1000 = '#090909'
 
-const COLOR_PRIMARY_LIGHTER = '#f5c9ab'
-const COLOR_PRIMARY_LIGHT = '#eda674'
-const COLOR_PRIMARY_MAIN = '#e4833e'
-const COLOR_PRIMARY_DARK = '#c56521'
-const COLOR_PRIMARY_DARKER = '#613313'
+const COLOR_PRIMARY_LIGHTER = '#4E0000'
+const COLOR_PRIMARY_LIGHT = '#9C0000'
+const COLOR_PRIMARY_MAIN = '#EC0000'
+const COLOR_PRIMARY_DARK = '#F25757'
+const COLOR_PRIMARY_DARKER = '#F9ABAB'
 
 const COLOR_ERROR_LIGHT = '#fba69e'
 const COLOR_ERROR_MAIN = '#f67367'
@@ -132,12 +134,28 @@ const palette = {
 // --------------------------------------------
 // T Y P O G R A P H Y
 // ------------------
-const FONT_FAMILY_HEADLINE = 'Santander-HeadlineW05-Bold'
-const FONT_FAMILY_BODY = 'Santander-TextW05-Regular'
 
-const FONT_WEIGHT_HEADLINE = 800
+const headline = {
+  fontFamily: 'SantanderHeadline',
+  fontStyle: 'normal',
+  fontWeight: 800,
+  src: `url(${Headline}) format('woff2)`
+}
+
+const body = {
+  fontFamily: 'SantanderBody',
+  fontStyle: 'normal',
+  fontDisplay: 'swap',
+  fontWeight: 400,
+  src: `url(${Body}) format('woff2)`
+}
+
+const FONT_FAMILY_HEADLINE = headline
+const FONT_FAMILY_BODY = body
+
+const FONT_WEIGHT_HEADLINE = 400
 const FONT_WEIGHT_BODY = 400
-const FONT_WEIGHT_BUTTON = 600
+const FONT_WEIGHT_BUTTON = 400
 
 const LINE_HEIGHT_HEADLINE = 1.5
 const LINE_HEIGHT_BODY = 1.15
@@ -156,12 +174,14 @@ const BASE_HEADLINE_STYLES = {
   lineHeight: LINE_HEIGHT_HEADLINE,
   letterSpacing: LETTER_SPACING_HEADLINE
 }
+
 const BASE_BODY_STYLES = {
   fontFamily: FONT_FAMILY_BODY,
   fontWeight: FONT_WEIGHT_BODY,
   lineHeight: LINE_HEIGHT_BODY,
   letterSpacing: LETTER_SPACING_BODY
 }
+
 const BASE_BUTTON_STYLES = {
   fontFamily: FONT_FAMILY_BODY,
   fontWeight: FONT_WEIGHT_BUTTON,
@@ -171,7 +191,7 @@ const BASE_BUTTON_STYLES = {
 
 const typography = {
   fontFamily: [
-    `${FONT_FAMILY_BODY}`,
+    'SantanderBody',
     'Inter',
     'Roboto',
     '"Helvetica Neue"',
@@ -201,17 +221,24 @@ const spacing = [0, 4, 8, 12, 16, 24, 32, 40, 60, 80, 120, 160]
 
 const radius = {
   none: 0,
-  small: 4,
-  medium: 8,
-  large: 12,
-  button: 8,
-  card: 12
+  small: 2,
+  medium: 2,
+  large: 2,
+  button: 2,
+  card: 2
 }
 
 export const theme = {
   type: TYPE,
   palette,
-  overrides: { ...overrides },
+  overrides: {
+    ...overrides,
+    MuiCssBaseline: {
+      '@global': {
+        '@font-face': [body, headline]
+      }
+    }
+  },
   typography,
   spacing,
   radius
