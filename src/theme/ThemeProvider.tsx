@@ -18,7 +18,14 @@ export const makeStyles = muiMakeStyles
 
 export interface ThemeProviderProps
   extends Omit<MuiThemeProviderProps, 'theme'> {
-  theme?: Theme | 'anynines' | 'anynines-dark' | 'thomsit' | 'toyota' | 'bosch'
+  theme?:
+    | Theme
+    | 'anynines'
+    | 'anynines-dark'
+    | 'thomsit'
+    | 'toyota'
+    | 'bosch'
+    | 'santander'
 }
 
 export const ThemeProvider = (props: ThemeProviderProps): JSX.Element => {
@@ -39,6 +46,9 @@ export const ThemeProvider = (props: ThemeProviderProps): JSX.Element => {
     }
     if (theme === 'bosch') {
       return bosch
+    }
+    if (theme === 'santander') {
+      return anyninesDark
     }
     return theme
   }
