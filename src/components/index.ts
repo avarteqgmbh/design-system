@@ -10,7 +10,7 @@ import {
   Switch
 } from './inputs/index'
 
-import { Alert, DataGrid } from './labs/index'
+import { Alert, DataGrid, Skeleton } from './labs/index'
 
 import {
   Link,
@@ -46,7 +46,7 @@ export {
   Switch
 }
 
-export { Alert, DataGrid }
+export { Alert, DataGrid, Skeleton }
 export {
   Link,
   MenuItem,
