@@ -45,7 +45,6 @@ export const ThemeProvider = (props: ThemeProviderProps): JSX.Element => {
     if (typeof theme === 'string') {
       return THEMES[theme]
     }
-
     return theme
   }
 

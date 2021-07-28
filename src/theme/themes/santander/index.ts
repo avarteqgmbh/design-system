@@ -1,5 +1,3 @@
-import Headline from './Headline.woff2'
-import Body from './Body.woff2'
 import { overrides } from '../../overrides'
 
 const TYPE = 'light'
@@ -135,23 +133,8 @@ const palette = {
 // T Y P O G R A P H Y
 // ------------------
 
-const headline = {
-  fontFamily: 'SantanderHeadline',
-  fontStyle: 'normal',
-  fontWeight: 800,
-  src: `url(${Headline}) format('woff2)`
-}
-
-const body = {
-  fontFamily: 'SantanderBody',
-  fontStyle: 'normal',
-  fontDisplay: 'swap',
-  fontWeight: 400,
-  src: `url(${Body}) format('woff2)`
-}
-
-const FONT_FAMILY_HEADLINE = headline
-const FONT_FAMILY_BODY = body
+const FONT_FAMILY_HEADLINE = 'Santander-HeadlineW05-Bold'
+const FONT_FAMILY_BODY = 'Santander-TextW05-Regular'
 
 const FONT_WEIGHT_HEADLINE = 400
 const FONT_WEIGHT_BODY = 400
@@ -191,7 +174,7 @@ const BASE_BUTTON_STYLES = {
 
 const typography = {
   fontFamily: [
-    'SantanderBody',
+    'Santander-TextW05-Regular',
     'Inter',
     'Roboto',
     '"Helvetica Neue"',
@@ -232,12 +215,7 @@ export const theme = {
   type: TYPE,
   palette,
   overrides: {
-    ...overrides,
-    MuiCssBaseline: {
-      '@global': {
-        '@font-face': [body, headline]
-      }
-    }
+    ...overrides
   },
   typography,
   spacing,
