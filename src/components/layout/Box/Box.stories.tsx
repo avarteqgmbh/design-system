@@ -1,7 +1,8 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { BoxProps, Typography } from '@material-ui/core'
+import { BoxProps } from '@material-ui/core'
+import { Typography } from '../../dataDisplay/Typography/Typography'
 import { Box } from './Box'
 
 export default {
