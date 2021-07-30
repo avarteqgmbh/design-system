@@ -16,7 +16,7 @@ import { List } from './List'
 import { Checkbox } from '../../inputs/Checkbox/Checkbox'
 
 export default {
-  title: 'Layout/List',
+  title: 'Data Display/List',
   component: List,
   argTypes: {},
   decorators: [withDesign],

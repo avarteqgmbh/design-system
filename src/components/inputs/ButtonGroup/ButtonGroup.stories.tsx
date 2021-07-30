@@ -1,10 +1,10 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { ButtonGroupProps, Typography } from '@material-ui/core'
-
+import { ButtonGroupProps } from '@material-ui/core'
 import { ButtonGroup } from './ButtonGroup'
 import { Button } from '../Button/Button'
+import { Typography } from '../../dataDisplay/Typography/Typography'
 
 const Buttons = (
   <>
