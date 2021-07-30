@@ -13,32 +13,37 @@ import { theme as anyninesDark } from './themes/anyninesDark'
 import { theme as toyota } from './themes/toyota'
 import { theme as thomsit } from './themes/thomsit'
 import { theme as bosch } from './themes/bosch'
+import { theme as santander } from './themes/santander/index'
+
+export type CustomThemeName =
+  | 'anynines'
+  | 'anynines-dark'
+  | 'thomsit'
+  | 'toyota'
+  | 'bosch'
+  | 'santander'
 
 export const makeStyles = muiMakeStyles
 
+const THEMES: { [key in CustomThemeName]: ThemeOptions } = {
+  anynines,
+  'anynines-dark': anyninesDark,
+  toyota,
+  thomsit,
+  bosch,
+  santander
+}
 export interface ThemeProviderProps
   extends Omit<MuiThemeProviderProps, 'theme'> {
-  theme?: Theme | 'anynines' | 'anynines-dark' | 'thomsit' | 'toyota' | 'bosch'
+  theme?: Theme | CustomThemeName
 }
 
-export function ThemeProvider(props: ThemeProviderProps): JSX.Element {
+export const ThemeProvider = (props: ThemeProviderProps): JSX.Element => {
   const { theme = 'anynines' } = props
 
   function getTheme(): ThemeOptions {
-    if (theme === 'anynines') {
-      return anynines
-    }
-    if (theme === 'anynines-dark') {
-      return anyninesDark
-    }
-    if (theme === 'toyota') {
-      return toyota
-    }
-    if (theme === 'thomsit') {
-      return thomsit
-    }
-    if (theme === 'bosch') {
-      return bosch
+    if (typeof theme === 'string') {
+      return THEMES[theme]
     }
     return theme
   }
