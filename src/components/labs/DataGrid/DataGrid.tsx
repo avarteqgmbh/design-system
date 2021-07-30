@@ -12,7 +12,7 @@ export interface DataGridProps extends MuiDataGridProps {
 }
 
 export function DataGrid(props: DataGridProps): JSX.Element {
-  const { toolbar = false } = props
+  const { toolbar = false, autoHeight = true } = props
   const classes = useStyles()
 
   return (
@@ -20,6 +20,7 @@ export function DataGrid(props: DataGridProps): JSX.Element {
       classes={{
         root: classes.root
       }}
+      autoHeight={autoHeight}
       className={`${classes.root}`}
       components={toolbar ? { Toolbar: GridToolbar } : {}}
       {...props}

@@ -136,7 +136,7 @@
       {
         "devDependencies": ["src/**/*.stories.tsx"],
         "optionalDependencies": false,
-        "peerDependencies": false
+        "peerDependencies": true
       }
     ],
     //// typescript rules -> https://github.com/typescript-eslint/typescript-eslint
