@@ -51,7 +51,7 @@ export const Rect = Template.bind({})
 Rect.args = {
   variant: 'rect',
   width: 210,
-  height: 118 
+  height: 118
 }
 
 export const NoAnimation = Template.bind({})
@@ -85,9 +85,9 @@ export const Loading: Story<SkeletonProps> = (args) => {
           </Skeleton>
         </Box>
       </Box>
-        <Skeleton {...args} variant='rect' width='100%'>
-          <div style={{ paddingTop: '57%' }} />
-        </Skeleton>
+      <Skeleton {...args} variant='rect' width='100%'>
+        <div style={{ paddingTop: '57%' }} />
+      </Skeleton>
     </div>
   )
 }

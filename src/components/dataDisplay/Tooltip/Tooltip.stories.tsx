@@ -7,7 +7,7 @@ import Fade from '@material-ui/core/Fade'
 import Zoom from '@material-ui/core/Zoom'
 import { FloatingActionButton as Fab } from '../../index'
 
-import AddIcon from '@material-ui/icons/Add';
+import AddIcon from '@material-ui/icons/Add'
 
 export default {
   title: 'Data Display/Tooltip',
@@ -45,8 +45,9 @@ export default {
       ],
       defaultValue: 'bottom',
       table: {
-        type: { 
-          summary: 'bottom-end | bottom-start | bottom | left-end | left-start | left | right-end | right-start | right | top-end | top-start | top' 
+        type: {
+          summary:
+            'bottom-end | bottom-start | bottom | left-end | left-start | left | right-end | right-start | right | top-end | top-start | top'
         },
         defaultValue: { summary: 'bottom' }
       }
@@ -133,9 +134,17 @@ export default {
     }
   }
 }
-const FAB = <Fab color='primary'><AddIcon /></Fab>
+const FAB = (
+  <Fab color='primary'>
+    <AddIcon />
+  </Fab>
+)
 const Template: Story<TooltipProps> = (args) => {
-  return <Tooltip {...args} aria-label='add' style={{ margin: '80px'}}>{FAB}</Tooltip>
+  return (
+    <Tooltip {...args} aria-label='add' style={{ margin: '80px' }}>
+      {FAB}
+    </Tooltip>
+  )
 }
 
 export const Default = Template.bind({})
@@ -160,7 +169,6 @@ Top.args = {
   title: 'Add',
   placement: 'top'
 }
-
 
 export const Left = Template.bind({})
 Left.args = {

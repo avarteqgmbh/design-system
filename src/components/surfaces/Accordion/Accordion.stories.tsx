@@ -5,7 +5,7 @@ import { AccordionProps, Divider } from '@material-ui/core'
 import { Accordion } from './Accordion'
 import { AccordionActions } from './AccordionActions'
 import { AccordionDetails } from './AccordionDetails'
-import  { AccordionSummary } from './AccordionSummary'
+import { AccordionSummary } from './AccordionSummary'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import { Button } from '../../index'
 
@@ -55,7 +55,7 @@ export default {
 }
 
 const Template: Story<AccordionProps> = (args) => {
-  return(
+  return (
     <Accordion {...args}>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
@@ -64,9 +64,9 @@ const Template: Story<AccordionProps> = (args) => {
       >
         Accordion Header
       </AccordionSummary>
-      <AccordionDetails>            
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus
-        ex, sit amet blandit leo lobortis eget.
+      <AccordionDetails>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+        malesuada lacus ex, sit amet blandit leo lobortis eget.
       </AccordionDetails>
     </Accordion>
   )
@@ -92,8 +92,7 @@ Square.args = {
 }
 
 export const AccordionAction: Story<AccordionProps> = (args) => {
-
-  return(
+  return (
     <Accordion {...args}>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
@@ -102,14 +101,14 @@ export const AccordionAction: Story<AccordionProps> = (args) => {
       >
         Accordion Header
       </AccordionSummary>
-      <AccordionDetails>            
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus
-        ex, sit amet blandit leo lobortis eget.
+      <AccordionDetails>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+        malesuada lacus ex, sit amet blandit leo lobortis eget.
       </AccordionDetails>
       <Divider />
       <AccordionActions>
-        <Button size="small">Cancel</Button>
-        <Button size="small" color="primary">
+        <Button size='small'>Cancel</Button>
+        <Button size='small' color='primary'>
           Save
         </Button>
       </AccordionActions>

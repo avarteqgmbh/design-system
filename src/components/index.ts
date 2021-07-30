@@ -31,7 +31,7 @@ import {
   Paper
 } from './surfaces/index'
 
-import { Chip, List, Tooltip, Typography } from './dataDisplay/index'
+import { Chip, List, Tooltip, Typography, Divider } from './dataDisplay/index'
 
 import {
   Backdrop,
@@ -63,6 +63,7 @@ export {
   BottomNavigationAction
 }
 export { Box, Container, Grid, Hidden }
+
 export {
   Accordion,
   AccordionDetails,
@@ -70,5 +71,5 @@ export {
   AccordionActions,
   Paper
 }
-export { Chip, List, Tooltip, Typography }
+export { Chip, List, Tooltip, Typography, Divider }
 export { Backdrop, CircularProgress, LinearProgress, Snackbar }

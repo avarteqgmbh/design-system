@@ -93,25 +93,29 @@ H6.args = {
 
 export const Subtitle1 = Template.bind({})
 Subtitle1.args = {
-  children: 'subtitle1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur',
+  children:
+    'subtitle1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur',
   variant: 'subtitle1'
 }
 
 export const Subtitle2 = Template.bind({})
 Subtitle2.args = {
-  children: 'subtitle2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur',
+  children:
+    'subtitle2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur',
   variant: 'subtitle2'
 }
 
 export const body1 = Template.bind({})
 body1.args = {
-  children: 'body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur',
+  children:
+    'body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur',
   variant: 'body1'
 }
 
 export const body2 = Template.bind({})
 body2.args = {
-  children: 'body2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur',
+  children:
+    'body2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur',
   variant: 'body2'
 }
 
