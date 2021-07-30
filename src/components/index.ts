@@ -18,7 +18,10 @@ import {
   Menu,
   Breadcrumbs,
   BottomNavigation,
-  BottomNavigationAction
+  BottomNavigationAction,
+  Tabs,
+  Tab,
+  TabPanel
 } from './navigation/index'
 
 import { Box, Container, Grid, Hidden } from './layout/index'
@@ -60,7 +63,10 @@ export {
   Menu,
   Breadcrumbs,
   BottomNavigation,
-  BottomNavigationAction
+  BottomNavigationAction,
+  Tab,
+  Tabs,
+  TabPanel
 }
 export { Box, Container, Grid, Hidden }
 
