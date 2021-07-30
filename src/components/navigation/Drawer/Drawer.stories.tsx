@@ -30,7 +30,94 @@ import {
 export default {
   title: 'Navigation/Drawer',
   component: Drawer,
-  argTypes: {},
+  argTypes: {
+    anchor: {
+      control: { type: 'select' },
+      options: ['bottom', 'left', 'right', 'top'],
+      defaultValue: 'left',
+      table: {
+        type: { summary: 'select' },
+        defaultValue: { summary: 'left' }
+      }
+    },
+    children: {
+      control: { type: 'node' },
+      table: { type: { summary: 'node' } }
+    },
+    classes: {
+      control: { type: 'object' },
+      table: { type: { summary: 'object' } }
+    },
+    elevation: {
+      control: { type: 'number' },
+      defaultValue: 16,
+      table: {
+        type: { summary: 'number' },
+        defaultValue: { summary: 16 }
+      }
+    },
+    ModalProps: {
+      control: { type: 'object' },
+      defaultValue: {},
+      table: {
+        type: { summary: 'object' },
+        defaultValue: { summary: {} }
+      }
+    },
+    onClose: {
+      control: { type: 'function' },
+      table: {
+        type: { summary: 'function' }
+      }
+    },
+    open: {
+      control: { type: 'boolean' },
+      defaultValue: false,
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false }
+      }
+    },
+    PaperProps: {
+      control: { type: 'object' },
+      defaultValue: {},
+      table: {
+        type: { summary: 'object' },
+        defaultValue: { summary: {} }
+      }
+    },
+    SlideProps: {
+      control: { type: 'object' },
+      table: {
+        type: { summary: 'object' }
+      }
+    },
+    transitionDuration: {
+      control: {
+        type: 'number | { appear?: number, enter?: number, exit?: number }'
+      },
+      defaultValue:
+        '{ enter: duration.enteringScreen, exit: duration.leavingScreen }',
+      table: {
+        type: {
+          summary: 'number | { appear?: number, enter?: number, exit?: number }'
+        },
+        defaultValue: {
+          summary:
+            '{ enter: duration.enteringScreen, exit: duration.leavingScreen }'
+        }
+      }
+    },
+    variant: {
+      control: { type: 'select' },
+      options: ['permanent', 'persistent', 'temporary'],
+      defaultValue: 'temporary',
+      table: {
+        type: { summary: 'select' },
+        defaultValue: { summary: 'temporary' }
+      }
+    }
+  },
   decorators: [withDesign],
   parameters: {
     design: {
@@ -51,7 +138,7 @@ const useDefaultStyles = makeStyles({
 
 type Anchor = 'top' | 'left' | 'bottom' | 'right' | undefined
 
-export const Default: Story<DrawerProps> = (): JSX.Element => {
+export const Default: Story<DrawerProps> = (args): JSX.Element => {
   const classes = useDefaultStyles()
   const [state, setState] = React.useState({
     top: false,
@@ -113,6 +200,7 @@ export const Default: Story<DrawerProps> = (): JSX.Element => {
                 anchor={anchor}
                 open={state[anchor]}
                 onClose={toggleDrawer(anchor, false)}
+                {...args}
               >
                 {list(anchor)}
               </Drawer>
@@ -185,7 +273,7 @@ const useStyles = makeStyles((theme: Theme) => {
   })
 })
 
-export const PersistentDrawer = (): JSX.Element => {
+export const PersistentDrawer: Story<DrawerProps> = (args): JSX.Element => {
   const classes = useStyles()
   const theme = useTheme()
   const [open, setOpen] = React.useState(false)
@@ -230,6 +318,7 @@ export const PersistentDrawer = (): JSX.Element => {
         classes={{
           paper: classes.drawerPaper
         }}
+        {...args}
       >
         <div className={classes.drawerHeader}>
           <IconButton onClick={handleDrawerClose}>
