@@ -23,7 +23,13 @@ import {
 
 import { Box, Container, Grid, Hidden } from './layout/index'
 
-import { Paper } from './surfaces/index'
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  AccordionActions,
+  Paper
+} from './surfaces/index'
 
 import { Chip, List, Tooltip, Typography } from './dataDisplay/index'
 
@@ -56,6 +62,12 @@ export {
   BottomNavigationAction
 }
 export { Box, Container, Grid, Hidden }
-export { Paper }
+export {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  AccordionActions,
+  Paper
+}
 export { Chip, List, Tooltip, Typography }
 export { Backdrop, CircularProgress, LinearProgress, Snackbar }
