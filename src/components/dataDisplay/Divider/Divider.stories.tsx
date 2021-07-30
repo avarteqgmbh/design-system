@@ -22,7 +22,44 @@ import { Grid } from '../../layout/Grid/Grid'
 export default {
   title: 'Data Display/Divider',
   component: Divider,
-  argTypes: {},
+  argTypes: {
+    absolute: {
+      defaultValue: false,
+      table: {
+        defaultValue: { summary: false }
+      }
+    },
+    orientation: {
+      defaultValue: 'horizontal',
+      table: {
+        defaultValue: { summary: 'horizontal' }
+      }
+    },
+    component: {
+      defaultValue: 'hr',
+      table: {
+        defaultValue: { summary: 'hr' }
+      }
+    },
+    flexItem: {
+      defaultValue: false,
+      table: {
+        defaultValue: { summary: false }
+      }
+    },
+    light: {
+      defaultValue: false,
+      table: {
+        defaultValue: { summary: false }
+      }
+    },
+    variant: {
+      defaultValue: 'fullWidth',
+      table: {
+        defaultValue: { summary: 'fullWidth' }
+      }
+    }
+  },
   decorators: [withDesign],
   parameters: {
     controls: { expanded: true },
