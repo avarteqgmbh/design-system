@@ -1,19 +1,24 @@
-import React, { SetStateAction, useState } from 'react'
-import DateFnsUtils from '@date-io/date-fns'
+import React from 'react'
 import {
-  TimePicker,
+  TimePicker as MuiTimePicker,
   TimePickerProps,
   MuiPickersUtilsProvider
 } from '@material-ui/pickers'
+import MomentUtils from '@date-io/moment'
+import { Moment } from 'moment'
 
-export function Date(props: TimePickerProps): JSX.Element {
-  const [selectedDate, setDob] = useState(null)
-  const handleDateChange = (date: SetStateAction<null>): void => {
-    setDob(date)
-  }
+export function TimePicker(props: TimePickerProps): JSX.Element {
+  const [selectedDate, setDate] = React.useState<Moment | null>()
+
   return (
-    <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <TimePicker {...props} value={selectedDate} onChange={handleDateChange} />
+    <MuiPickersUtilsProvider utils={MomentUtils}>
+      <MuiTimePicker
+        {...props}
+        value={selectedDate}
+        onChange={(newDate): void => {
+          return setDate(newDate)
+        }}
+      />
     </MuiPickersUtilsProvider>
   )
 }
