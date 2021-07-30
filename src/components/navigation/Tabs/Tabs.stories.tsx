@@ -1,4 +1,5 @@
 import React from 'react'
+import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { makeStyles, Theme } from '@material-ui/core/styles'
 import { Typography, AppBar, TabsProps, Paper } from '@material-ui/core'
@@ -61,7 +62,7 @@ export const Default: Story<TabsProps> = (args): JSX.Element => {
   const [value, setValue] = React.useState<number>(0)
 
   const handleChange = (
-    event: React.ChangeEvent<{}>,
+    event: React.ChangeEvent<Record<string, unknown>>,
     newValue: number
   ): void => {
     event.preventDefault()
@@ -99,7 +100,7 @@ export const Disabled: Story<TabsProps> = (args): JSX.Element => {
   const [value, setValue] = React.useState(2)
 
   const handleChange = (
-    event: React.ChangeEvent<{}>,
+    event: React.ChangeEvent<Record<string, unknown>>,
     newValue: number
   ): void => {
     setValue(newValue)
@@ -128,7 +129,7 @@ export const Scrollable: Story<TabsProps> = (args): JSX.Element => {
   const [value, setValue] = React.useState(0)
 
   const handleChange = (
-    event: React.ChangeEvent<{}>,
+    event: React.ChangeEvent<Record<string, unknown>>,
     newValue: number
   ): void => {
     setValue(newValue)
@@ -186,7 +187,7 @@ export const Vertical: Story<TabsProps> = (args): JSX.Element => {
   const [value, setValue] = React.useState(0)
 
   const handleChange = (
-    event: React.ChangeEvent<{}>,
+    event: React.ChangeEvent<Record<string, unknown>>,
     newValue: number
   ): void => {
     setValue(newValue)
