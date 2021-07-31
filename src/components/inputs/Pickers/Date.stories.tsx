@@ -12,8 +12,8 @@ import { Moment } from 'moment'
 import MomentUtils from '@date-io/moment'
 
 export default {
-  title: 'Input/Date',
-  component: Date,
+  title: 'Input/Pickers/Date',
+  component: DatePicker,
   argTypes: {
     label: {
       control: { type: 'text' },
@@ -133,11 +133,11 @@ export default {
     },
     variant: {
       control: 'radio',
-      options: ['filled', 'outline', 'standard'],
-      defaultValue: 'outlined',
+      options: ['dialog | inline | static'],
+      defaultValue: 'dialog',
       table: {
-        type: { summary: 'filled | outlined | standard' },
-        defaultValue: { summary: 'outline' }
+        type: { summary: 'dialog | inline | static' },
+        defaultValue: { summary: 'dialog' }
       }
     }
   },
@@ -193,15 +193,15 @@ CalendarOnly.args = {
   helperText: 'No year selection'
 }
 
-export const StaticVertical = Template.bind({})
-StaticVertical.args = {
+export const DateStaticVertical = Template.bind({})
+DateStaticVertical.args = {
   autoOk: true,
   variant: 'static',
   openTo: 'year'
 }
 
-export const StaticHorizontal = Template.bind({})
-StaticHorizontal.args = {
+export const DateStaticHorizontal = Template.bind({})
+DateStaticHorizontal.args = {
   autoOk: true,
   variant: 'static',
   openTo: 'year',
@@ -224,8 +224,8 @@ const KeyboardPicker: Story<KeyboardDatePickerProps> = (args) => {
   )
 }
 
-export const KeyboardInput = KeyboardPicker.bind({})
-KeyboardInput.args = {
+export const DateKeyboardInput = KeyboardPicker.bind({})
+DateKeyboardInput.args = {
   label: 'Clearable',
   autoOk: true,
   clearable: true,
@@ -233,8 +233,8 @@ KeyboardInput.args = {
   format: 'DD/MM/YYYY'
 }
 
-export const KeyboardInline = KeyboardPicker.bind({})
-KeyboardInline.args = {
+export const DateKeyboardInline = KeyboardPicker.bind({})
+DateKeyboardInline.args = {
   autoOk: true,
   variant: 'inline',
   inputVariant: 'outlined',
