@@ -3,6 +3,7 @@ import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { BreadcrumbsProps } from '@material-ui/core'
 import { Typography } from '../../dataDisplay/Typography/Typography'
+import { NavigateNext as NavigateNextIcon } from '@material-ui/icons'
 
 import { Breadcrumbs } from './Breadcrumbs'
 import { Link } from '../Link/Link'
@@ -41,9 +42,12 @@ export const Default: Story<BreadcrumbsProps> = (args): JSX.Element => {
   )
 }
 
-export const Custom: Story<BreadcrumbsProps> = (args): JSX.Element => {
+export const Custom: Story<BreadcrumbsProps> = (): JSX.Element => {
   return (
-    <Breadcrumbs {...args} separator='>' aria-label='breadcrumb'>
+    <Breadcrumbs
+      separator={<NavigateNextIcon fontSize='small' />}
+      aria-label='breadcrumb'
+    >
       <Link color='inherit' href='/' onClick={handleClick}>
         Material-UI
       </Link>

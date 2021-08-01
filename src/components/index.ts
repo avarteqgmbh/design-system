@@ -19,6 +19,7 @@ import {
   Breadcrumbs,
   BottomNavigation,
   BottomNavigationAction,
+  Drawer,
   Tabs,
   Tab,
   TabPanel
@@ -64,6 +65,7 @@ export {
   Breadcrumbs,
   BottomNavigation,
   BottomNavigationAction,
+  Drawer,
   Tab,
   Tabs,
   TabPanel
