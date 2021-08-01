@@ -8,6 +8,7 @@ import {
   Radio,
   Slider,
   Switch,
+  TransferList,
   DatePicker,
   TimePicker,
   DateTimePicker
@@ -71,6 +72,7 @@ export {
   Radio,
   Slider,
   Switch,
+  TransferList,
   DatePicker,
   TimePicker,
   DateTimePicker

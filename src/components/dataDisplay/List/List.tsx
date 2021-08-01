@@ -6,7 +6,11 @@ import {
 } from '@material-ui/core'
 import { Theme } from '../../../theme/types'
 
-export function List(props: MuiListProps): JSX.Element {
+export interface ListProps extends MuiListProps {
+  component?: string | undefined
+}
+
+export function List(props: ListProps): JSX.Element {
   const classes = useStyles()
   return (
     <MuiList
