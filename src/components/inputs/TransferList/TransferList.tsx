@@ -1,20 +1,14 @@
 import React from 'react'
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles'
-import Card from '@material-ui/core/Card'
-import CardHeader from '@material-ui/core/CardHeader'
-import ListItem from '@material-ui/core/ListItem'
-import ListItemText from '@material-ui/core/ListItemText'
-import ListItemIcon from '@material-ui/core/ListItemIcon'
-import Divider from '@material-ui/core/Divider'
 import { CheckboxProps } from '@material-ui/core'
 import { Button } from '../Button/Button'
-import { Checkbox } from '../Checkbox/Checkbox'
 import { Grid } from '../../layout/Grid/Grid'
-import { List } from '../../dataDisplay/List/List'
+import { CustomList } from './CustomList'
 
 export interface TransferListProps {
   leftList: []
   rightList: []
+  checkedList?: never[]
   checkboxProps?: CheckboxProps
   checkKey?: string
   onChange: (leftList: [], rightList: []) => void
@@ -46,12 +40,12 @@ function union(a: never[], b: never[]): never[] {
 export function TransferList({
   leftList = [],
   rightList = [],
+  checkedList = [],
   checkboxProps = {},
-  // checkKey = 'id',
   onChange
 }: TransferListProps): JSX.Element {
   const classes = useStyles()
-  const [checked, setChecked] = React.useState<never[]>([])
+  const [checked, setChecked] = React.useState<never[]>(checkedList)
   const [left, setLeft] = React.useState<[]>(leftList)
   const [right, setRight] = React.useState<[]>(rightList)
 
@@ -114,61 +108,6 @@ export function TransferList({
     setChecked(not(checked, rightChecked))
   }
 
-  const customList = (title: React.ReactNode, items: []): JSX.Element => {
-    return (
-      <Card>
-        <CardHeader
-          className={classes.cardHeader}
-          avatar={
-            <Checkbox
-              {...checkboxProps}
-              onClick={handleToggleAll(items)}
-              checked={
-                numberOfChecked(items) === items.length && items.length !== 0
-              }
-              indeterminate={
-                numberOfChecked(items) !== items.length &&
-                numberOfChecked(items) !== 0
-              }
-              disabled={items.length === 0}
-              inputProps={{ 'aria-label': 'all items selected' }}
-            />
-          }
-          title={title}
-          subheader={`${numberOfChecked(items)}/${items.length} selected`}
-        />
-        <Divider />
-        <List className={classes.list} dense component='div' role='list'>
-          {items.map((item: any) => { // eslint-disable-line
-            const { id, name } = item as never
-            const labelId = `transfer-list-all-item-${id}-label`
-
-            return (
-              <ListItem
-                key={id}
-                role='listitem'
-                button
-                onClick={handleToggle(id)}
-              >
-                <ListItemIcon>
-                  <Checkbox
-                    {...checkboxProps}
-                    checked={checked.indexOf(id) !== -1}
-                    tabIndex={-1}
-                    disableRipple
-                    inputProps={{ 'aria-labelledby': labelId }}
-                  />
-                </ListItemIcon>
-                <ListItemText id={labelId} primary={`List item ${name}`} />
-              </ListItem>
-            )
-          })}
-          <ListItem />
-        </List>
-      </Card>
-    )
-  }
-
   return (
     <Grid
       container
@@ -177,7 +116,17 @@ export function TransferList({
       alignItems='center'
       className={classes.root}
     >
-      <Grid item>{customList('Choices', left)}</Grid>
+      <Grid item>
+        <CustomList
+          items={left}
+          title='Choices'
+          checked={checked}
+          checkboxProps={checkboxProps}
+          handleToggleAll={handleToggleAll}
+          numberOfChecked={numberOfChecked}
+          handleToggle={handleToggle}
+        />
+      </Grid>
       <Grid item>
         <Grid container direction='column' alignItems='center'>
           <Button
@@ -202,7 +151,18 @@ export function TransferList({
           </Button>
         </Grid>
       </Grid>
-      <Grid item>{customList('Chosen', right)}</Grid>
+
+      <Grid item>
+        <CustomList
+          items={right}
+          title='Chosen'
+          checked={checked}
+          checkboxProps={checkboxProps}
+          handleToggleAll={handleToggleAll}
+          numberOfChecked={numberOfChecked}
+          handleToggle={handleToggle}
+        />
+      </Grid>
     </Grid>
   )
 }
@@ -211,15 +171,6 @@ const useStyles = makeStyles((theme: Theme) => {
   return createStyles({
     root: {
       margin: 'auto'
-    },
-    cardHeader: {
-      padding: theme.spacing(1, 2)
-    },
-    list: {
-      width: 200,
-      height: 230,
-      backgroundColor: theme.palette.background.paper,
-      overflow: 'auto'
     },
     button: {
       margin: theme.spacing(0.5, 0)
