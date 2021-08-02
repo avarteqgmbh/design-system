@@ -7,7 +7,10 @@ import {
   TextField,
   Radio,
   Slider,
-  Switch
+  Switch,
+  DatePicker,
+  TimePicker,
+  DateTimePicker
 } from './inputs/index'
 
 import { Alert, DataGrid, Skeleton, Pagination } from './labs/index'
@@ -53,7 +56,10 @@ export {
   TextField,
   Radio,
   Slider,
-  Switch
+  Switch,
+  DatePicker,
+  TimePicker,
+  DateTimePicker
 }
 
 export { Alert, DataGrid, Skeleton, Pagination }
