@@ -1,7 +1,8 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { Typography, SliderProps } from '@material-ui/core'
+import { SliderProps } from '@material-ui/core'
+import { Typography } from '../../dataDisplay/Typography/Typography'
 import { Slider } from './Slider'
 
 export default {
