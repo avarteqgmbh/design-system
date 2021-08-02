@@ -10,8 +10,6 @@ import {
   Switch
 } from './inputs/index'
 
-import { Alert, DataGrid } from './labs/index'
-
 import {
   Link,
   MenuItem,
@@ -20,6 +18,8 @@ import {
   BottomNavigation,
   BottomNavigationAction
 } from './navigation/index'
+
+import { Alert, DataGrid, XGrid } from './labs/index'
 
 import { Box, Container, Grid, Hidden } from './layout/index'
 
@@ -46,7 +46,8 @@ export {
   Switch
 }
 
-export { Alert, DataGrid }
+export { Alert, DataGrid, XGrid }
+
 export {
   Link,
   MenuItem,
