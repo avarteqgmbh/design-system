@@ -20,7 +20,8 @@ import {
   XGrid,
   Skeleton,
   Pagination,
-  Badge
+  Badge,
+  Rating
 } from './labs/index'
 
 import {
@@ -85,7 +86,7 @@ export {
   DateTimePicker
 }
 
-export { Alert, DataGrid, XGrid, Skeleton, Pagination, Badge }
+export { Alert, DataGrid, XGrid, Skeleton, Pagination, Badge, Rating }
 
 export {
   Link,
