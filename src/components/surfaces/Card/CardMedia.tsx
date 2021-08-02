@@ -1,23 +1,20 @@
 import React from 'react'
 import {
-  Card as MuiCard,
-  CardProps as MuiCardProps,
+  CardMedia as MuiCardMedia,
+  CardMediaProps,
   makeStyles
 } from '@material-ui/core'
 import { Theme } from '../../../theme/types'
 
-export function Card(props: MuiCardProps): JSX.Element {
+export function CardMedia(props: CardMediaProps): JSX.Element {
   const classes = useStyles()
-  const { children } = props
   return (
-    <MuiCard
+    <MuiCardMedia
       classes={{
         root: classes.root
       }}
       {...props}
-    >
-      {children}
-    </MuiCard>
+    />
   )
 }
 

@@ -2,11 +2,11 @@ import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { TooltipProps } from '@material-ui/core'
-import { Tooltip } from './Tooltip'
 import Fade from '@material-ui/core/Fade'
 import Zoom from '@material-ui/core/Zoom'
-import { FloatingActionButton as Fab } from '../../index'
 
+import { Tooltip } from './Tooltip'
+import { FloatingActionButton as Fab } from '../../index'
 import AddIcon from '@material-ui/icons/Add'
 
 export default {

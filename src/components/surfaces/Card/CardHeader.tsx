@@ -1,23 +1,23 @@
 import React from 'react'
 import {
-  Card as MuiCard,
-  CardProps as MuiCardProps,
+  CardHeader as MuiCardHeader,
+  CardHeaderProps,
   makeStyles
 } from '@material-ui/core'
 import { Theme } from '../../../theme/types'
 
-export function Card(props: MuiCardProps): JSX.Element {
+export function CardHeader(props: CardHeaderProps): JSX.Element {
   const classes = useStyles()
   const { children } = props
   return (
-    <MuiCard
+    <MuiCardHeader
       classes={{
         root: classes.root
       }}
       {...props}
     >
       {children}
-    </MuiCard>
+    </MuiCardHeader>
   )
 }
 

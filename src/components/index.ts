@@ -28,8 +28,12 @@ import {
 import { Box, Container, Grid, Hidden } from './layout/index'
 
 import {
-  Paper,
   Card,
+  CardActions,
+  CardHeader,
+  CardMedia,
+  CardContent,
+  CardActionArea,
   Accordion,
   AccordionDetails,
   AccordionSummary,
@@ -73,14 +77,19 @@ export {
   TabPanel
 }
 export { Box, Container, Grid, Hidden }
-export { Card }
 
 export {
   Accordion,
   AccordionDetails,
   AccordionSummary,
   AccordionActions,
-  Paper
+  Paper,
+  Card,
+  CardActions,
+  CardHeader,
+  CardMedia,
+  CardContent,
+  CardActionArea
 }
 export { Chip, List, Tooltip, Typography, Divider }
 export { Backdrop, CircularProgress, LinearProgress, Snackbar }
