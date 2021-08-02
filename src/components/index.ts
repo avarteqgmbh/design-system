@@ -41,7 +41,8 @@ import {
   Tooltip,
   Typography,
   Divider,
-  Avatar
+  Avatar,
+  AvatarGroup
 } from './dataDisplay/index'
 
 import {
@@ -86,5 +87,5 @@ export {
   AccordionActions,
   Paper
 }
-export { Chip, List, Tooltip, Typography, Divider, Avatar }
+export { Chip, List, Tooltip, Typography, Divider, Avatar, AvatarGroup }
 export { Backdrop, CircularProgress, LinearProgress, Snackbar }
