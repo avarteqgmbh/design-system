@@ -37,9 +37,8 @@ const leftList = [
   {
     id: 4,
     name: 'List item 4'
-  },
-
-]
+  }
+] as never
 
 const rightList = [
   {
@@ -58,42 +57,39 @@ const rightList = [
     id: 8,
     name: 'List item 8'
   }
-]
+] as never
 
 export const Default = Template.bind({})
 Default.args = {
-  leftList: leftList,
-  rightList: rightList
+  leftList,
+  rightList
 }
 
 const onChangeExample = (right: [], left: []): void => {
   console.log(right)
-  console.log(left);
+  console.log(left)
 }
 
 export const OnChange = Template.bind({})
 OnChange.args = {
-  leftList: leftList,
-  rightList: rightList,
+  leftList,
+  rightList,
   onChange: onChangeExample
 }
 
 export const CheckedList = Template.bind({})
 CheckedList.args = {
-  leftList: leftList,
-  rightList: rightList,
-  checkedList: [1, 2, 5]
+  leftList,
+  rightList,
+  checkedList: [1, 2, 5] as never
 }
-
 
 export const CheckboxProps = Template.bind({})
 CheckboxProps.args = {
-  leftList: leftList,
-  rightList: rightList,
-  checkedList: [1, 2, 5],
+  leftList,
+  rightList,
+  checkedList: [1, 2, 5] as never,
   checkboxProps: {
     color: 'primary'
   }
 }
-
-
