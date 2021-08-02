@@ -210,3 +210,42 @@ export const Group: Story<AvatarProps> = (args) => {
     </AvatarGroup>
   )
 }
+
+const useFallbackStyles = makeStyles((theme: Theme) => {
+  return createStyles({
+    root: {
+      display: 'flex',
+      '& > *': {
+        margin: theme.spacing(1)
+      }
+    },
+    orange: {
+      color: theme.palette.getContrastText(deepOrange[500]),
+      backgroundColor: deepOrange[500]
+    }
+  })
+})
+
+export const Fallback: Story<AvatarProps> = (args) => {
+  const classes = useFallbackStyles()
+
+  return (
+    <div className={classes.root}>
+      <Avatar
+        alt='Remy Sharp'
+        src='broken-url'
+        className={classes.orange}
+        {...args}
+      >
+        B
+      </Avatar>
+      <Avatar
+        alt='Remy Sharp'
+        src='broken-url'
+        className={classes.orange}
+        {...args}
+      />
+      <Avatar src='broken-url' {...args} />
+    </div>
+  )
+}
