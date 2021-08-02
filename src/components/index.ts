@@ -13,7 +13,7 @@ import {
   DateTimePicker
 } from './inputs/index'
 
-import { Alert, DataGrid } from './labs/index'
+import { Alert, DataGrid, Skeleton, Pagination } from './labs/index'
 
 import {
   Link,
@@ -21,14 +21,23 @@ import {
   Menu,
   Breadcrumbs,
   BottomNavigation,
-  BottomNavigationAction
+  BottomNavigationAction,
+  Tabs,
+  Tab,
+  TabPanel
 } from './navigation/index'
 
 import { Box, Container, Grid, Hidden } from './layout/index'
 
-import { Paper } from './surfaces/index'
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  AccordionActions,
+  Paper
+} from './surfaces/index'
 
-import { Chip, List } from './dataDisplay/index'
+import { Chip, List, Tooltip, Typography, Divider } from './dataDisplay/index'
 
 import {
   Backdrop,
@@ -52,16 +61,27 @@ export {
   DateTimePicker
 }
 
-export { Alert, DataGrid }
+export { Alert, DataGrid, Skeleton, Pagination }
+
 export {
   Link,
   MenuItem,
   Menu,
   Breadcrumbs,
   BottomNavigation,
-  BottomNavigationAction
+  BottomNavigationAction,
+  Tab,
+  Tabs,
+  TabPanel
 }
 export { Box, Container, Grid, Hidden }
-export { Paper }
-export { Chip, List }
+
+export {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  AccordionActions,
+  Paper
+}
+export { Chip, List, Tooltip, Typography, Divider }
 export { Backdrop, CircularProgress, LinearProgress, Snackbar }
