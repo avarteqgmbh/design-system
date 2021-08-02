@@ -14,7 +14,14 @@ import {
   DateTimePicker
 } from './inputs/index'
 
-import { Alert, DataGrid, XGrid, Skeleton, Pagination } from './labs/index'
+import {
+  Alert,
+  DataGrid,
+  XGrid,
+  Skeleton,
+  Pagination,
+  Badge
+} from './labs/index'
 
 import {
   Link,
@@ -52,8 +59,7 @@ import {
   Typography,
   Divider,
   Avatar,
-  AvatarGroup,
-  Badge
+  AvatarGroup
 } from './dataDisplay/index'
 
 import {
@@ -79,7 +85,7 @@ export {
   DateTimePicker
 }
 
-export { Alert, DataGrid, XGrid, Skeleton, Pagination }
+export { Alert, DataGrid, XGrid, Skeleton, Pagination, Badge }
 
 export {
   Link,
@@ -108,5 +114,5 @@ export {
   CardContent,
   CardActionArea
 }
-export { Chip, List, Tooltip, Typography, Divider, Avatar, AvatarGroup, Badge }
+export { Chip, List, Tooltip, Typography, Divider, Avatar, AvatarGroup }
 export { Backdrop, CircularProgress, LinearProgress, Snackbar }

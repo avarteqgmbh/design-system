@@ -5,6 +5,5 @@ import { Typography } from './Typography/Typography'
 import { Tooltip } from './Tooltip/Tooltip'
 import { Avatar } from './Avatar/Avatar'
 import { AvatarGroup } from './Avatar/AvatarGroup'
-import { Badge } from './Badge/Badge'
 
-export { Chip, List, Tooltip, Typography, Divider, Avatar, AvatarGroup, Badge }
+export { Chip, List, Tooltip, Typography, Divider, Avatar, AvatarGroup }
