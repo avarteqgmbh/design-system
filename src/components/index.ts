@@ -7,8 +7,13 @@ import {
   TextField,
   Radio,
   Slider,
-  Switch
+  Switch,
+  DatePicker,
+  TimePicker,
+  DateTimePicker
 } from './inputs/index'
+
+import { Alert, DataGrid, XGrid, Skeleton, Pagination } from './labs/index'
 
 import {
   Link,
@@ -16,16 +21,38 @@ import {
   Menu,
   Breadcrumbs,
   BottomNavigation,
-  BottomNavigationAction
+  BottomNavigationAction,
+  Drawer,
+  Tabs,
+  Tab,
+  TabPanel
 } from './navigation/index'
-
-import { Alert, DataGrid, XGrid } from './labs/index'
 
 import { Box, Container, Grid, Hidden } from './layout/index'
 
-import { Paper } from './surfaces/index'
+import {
+  Card,
+  CardActions,
+  CardHeader,
+  CardMedia,
+  CardContent,
+  CardActionArea,
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  AccordionActions,
+  Paper
+} from './surfaces/index'
 
-import { Chip, List } from './dataDisplay/index'
+import {
+  Chip,
+  List,
+  Tooltip,
+  Typography,
+  Divider,
+  Avatar,
+  AvatarGroup
+} from './dataDisplay/index'
 
 import {
   Backdrop,
@@ -43,10 +70,14 @@ export {
   TextField,
   Radio,
   Slider,
-  Switch
+  Switch,
+  DatePicker,
+  TimePicker,
+  DateTimePicker
 }
 
-export { Alert, DataGrid, XGrid }
+export { Alert, DataGrid, 
+  XGrid, Skeleton, Pagination }
 
 export {
   Link,
@@ -54,9 +85,26 @@ export {
   Menu,
   Breadcrumbs,
   BottomNavigation,
-  BottomNavigationAction
+  BottomNavigationAction,
+  Drawer,
+  Tab,
+  Tabs,
+  TabPanel
 }
 export { Box, Container, Grid, Hidden }
-export { Paper }
-export { Chip, List }
+
+export {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  AccordionActions,
+  Paper,
+  Card,
+  CardActions,
+  CardHeader,
+  CardMedia,
+  CardContent,
+  CardActionArea
+}
+export { Chip, List, Tooltip, Typography, Divider, Avatar, AvatarGroup }
 export { Backdrop, CircularProgress, LinearProgress, Snackbar }

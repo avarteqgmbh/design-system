@@ -5,7 +5,7 @@ import { theme as santander } from '../src/theme/themes/santander/index'
 import { theme as thomsit } from '../src/theme/themes/thomsit'
 import { theme as bosch } from '../src/theme/themes/bosch'
 import { ThemeProvider } from '@material-ui/core'
-import { createTheme } from '@material-ui/core/styles'
+import { createMuiTheme } from '@material-ui/core/styles'
 import { addDecorator } from '@storybook/react'
 import { withThemes } from '@react-theming/storybook-addon'
 
@@ -20,7 +20,7 @@ export const parameters = {
 }
 
 const providerFn = ({ theme, children }) => {
-  const muTheme = createTheme(theme)
+  const muTheme = createMuiTheme(theme)
   return <ThemeProvider theme={muTheme}>{children}</ThemeProvider>
 }
 

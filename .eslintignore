@@ -7,5 +7,4 @@ public/dist/*
 *.test.tsx
 
 storybook-static/*
-
-*.stories.tsx
+fix-eslint.js

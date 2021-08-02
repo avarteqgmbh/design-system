@@ -7,6 +7,9 @@ import { Switch } from './Switch/Switch'
 import { TextField } from './TextField/TextField'
 import { Radio } from './Radio/Radio'
 import { Slider } from './Slider/Slider'
+import { DatePicker } from './Pickers/Date'
+import { TimePicker } from './Pickers/Time'
+import { DateTimePicker } from './Pickers/DateTime'
 
 export {
   Button,
@@ -17,5 +20,8 @@ export {
   TextField,
   Radio,
   Slider,
-  Switch
+  Switch,
+  DatePicker,
+  TimePicker,
+  DateTimePicker
 }
