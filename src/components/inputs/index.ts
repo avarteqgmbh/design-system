@@ -10,6 +10,7 @@ import { Slider } from './Slider/Slider'
 import { DatePicker } from './Pickers/Date'
 import { TimePicker } from './Pickers/Time'
 import { DateTimePicker } from './Pickers/DateTime'
+import { TransferList } from './TransferList/TransferList'
 
 export {
   Button,
@@ -23,5 +24,6 @@ export {
   Switch,
   DatePicker,
   TimePicker,
-  DateTimePicker
+  DateTimePicker,
+  TransferList
 }

@@ -8,7 +8,7 @@ import { AccordionActions } from './AccordionActions'
 import { AccordionDetails } from './AccordionDetails'
 import { AccordionSummary } from './AccordionSummary'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import { Button } from '../../index'
+import { Button } from '../../inputs/Button/Button'
 
 export default {
   title: 'Surfaces/Accordion',
