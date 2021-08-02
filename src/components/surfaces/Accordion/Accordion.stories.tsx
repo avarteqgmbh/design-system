@@ -2,6 +2,7 @@ import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { AccordionProps, Divider } from '@material-ui/core'
+
 import { Accordion } from './Accordion'
 import { AccordionActions } from './AccordionActions'
 import { AccordionDetails } from './AccordionDetails'

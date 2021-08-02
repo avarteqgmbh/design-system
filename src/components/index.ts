@@ -31,6 +31,12 @@ import {
 import { Box, Container, Grid, Hidden } from './layout/index'
 
 import {
+  Card,
+  CardActions,
+  CardHeader,
+  CardMedia,
+  CardContent,
+  CardActionArea,
   Accordion,
   AccordionDetails,
   AccordionSummary,
@@ -91,7 +97,13 @@ export {
   AccordionDetails,
   AccordionSummary,
   AccordionActions,
-  Paper
+  Paper,
+  Card,
+  CardActions,
+  CardHeader,
+  CardMedia,
+  CardContent,
+  CardActionArea
 }
 export { Chip, List, Tooltip, Typography, Divider, Avatar, AvatarGroup }
 export { Backdrop, CircularProgress, LinearProgress, Snackbar }
