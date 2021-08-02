@@ -137,11 +137,11 @@ EmptyIcon.args = {
   emptyIcon: <StarBorderIcon fontSize='inherit' />
 }
 
-const StylesTemplate: Story<RatingProps> = (args) => {
+const StyledTemplate: Story<RatingProps> = (args) => {
   const classes = useStyles()
   return <Rating {...args} classes={{ ...classes }} />
 }
-export const CustomIcon = StylesTemplate.bind({})
+export const CustomIcon = StyledTemplate.bind({})
 CustomIcon.args = {
   defaultValue: 2.5,
   precision: 0.5,
