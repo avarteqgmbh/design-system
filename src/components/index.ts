@@ -38,7 +38,15 @@ import {
   Paper
 } from './surfaces/index'
 
-import { Chip, List, Tooltip, Typography, Divider } from './dataDisplay/index'
+import {
+  Chip,
+  List,
+  Tooltip,
+  Typography,
+  Divider,
+  Avatar,
+  AvatarGroup
+} from './dataDisplay/index'
 
 import {
   Backdrop,
@@ -85,5 +93,5 @@ export {
   AccordionActions,
   Paper
 }
-export { Chip, List, Tooltip, Typography, Divider }
+export { Chip, List, Tooltip, Typography, Divider, Avatar, AvatarGroup }
 export { Backdrop, CircularProgress, LinearProgress, Snackbar }
