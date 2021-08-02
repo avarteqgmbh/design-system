@@ -25,7 +25,7 @@ function handleClick(
   event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
 ): void {
   event.preventDefault()
-  console.log('You clicked a breadcrumb')
+  // TODO: add action here
 }
 
 export const Default: Story<BreadcrumbsProps> = (args): JSX.Element => {

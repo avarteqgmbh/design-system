@@ -76,8 +76,7 @@ export {
   DateTimePicker
 }
 
-export { Alert, DataGrid, 
-  XGrid, Skeleton, Pagination }
+export { Alert, DataGrid, XGrid, Skeleton, Pagination }
 
 export {
   Link,
