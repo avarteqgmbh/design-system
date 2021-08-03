@@ -2,7 +2,7 @@ import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { ContainerProps } from '@material-ui/core'
-import { Typography } from '../../dataDisplay/Typography/Typography'
+import { Typography } from '../../index'
 import { Container } from './Container'
 
 export default {

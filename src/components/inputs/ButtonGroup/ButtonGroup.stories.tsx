@@ -3,8 +3,7 @@ import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { ButtonGroupProps } from '@material-ui/core'
 import { ButtonGroup } from './ButtonGroup'
-import { Button } from '../Button/Button'
-import { Typography } from '../../dataDisplay/Typography/Typography'
+import { Typography, Button } from '../../index'
 
 const Buttons = (
   <>

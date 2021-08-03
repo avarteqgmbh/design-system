@@ -3,7 +3,7 @@ import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { HiddenProps } from '@material-ui/core'
 import { Hidden } from './Hidden'
-import { Paper } from '../../surfaces/Paper/Paper'
+import { Paper } from '../../index'
 
 export default {
   title: 'Layout/Hidden',

@@ -13,7 +13,7 @@ import ImageIcon from '@material-ui/icons/Image'
 import WorkIcon from '@material-ui/icons/Work'
 
 import { List } from './List'
-import { Checkbox } from '../../inputs/Checkbox/Checkbox'
+import { Checkbox } from '../../index'
 
 export default {
   title: 'Data Display/List',

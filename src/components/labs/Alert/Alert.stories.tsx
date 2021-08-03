@@ -3,7 +3,7 @@ import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { AlertProps, AlertTitle } from '@material-ui/lab'
 import { Alert } from './Alert'
-import { Button } from '../../inputs/Button/Button'
+import { Button } from '../../index'
 
 export default {
   title: 'Labs/Alert',

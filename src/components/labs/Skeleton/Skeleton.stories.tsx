@@ -3,8 +3,7 @@ import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { SkeletonProps } from '@material-ui/lab'
 import { Skeleton } from './Skeleton'
-import { Box } from '../../layout/Box/Box'
-import { Avatar, Typography } from '@material-ui/core'
+import { Box, Avatar, Typography } from '../../index'
 
 export default {
   title: 'Labs/Skeleton',

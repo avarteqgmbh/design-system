@@ -8,7 +8,7 @@ import { AccordionActions } from './AccordionActions'
 import { AccordionDetails } from './AccordionDetails'
 import { AccordionSummary } from './AccordionSummary'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import { Button } from '../../inputs/Button/Button'
+import { Button } from '../../index'
 
 export default {
   title: 'Surfaces/Accordion',
@@ -66,8 +66,10 @@ const Template: Story<AccordionProps> = (args) => {
         Accordion Header
       </AccordionSummary>
       <AccordionDetails>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-        malesuada lacus ex, sit amet blandit leo lobortis eget.
+        In order to put an action such as a Checkbox or a button inside of the
+        AccordionSummary, you need to stop the propagation of the focus and
+        click events to prevent the accordion from expanding/collapsing when
+        using the action.
       </AccordionDetails>
     </Accordion>
   )
@@ -103,8 +105,10 @@ export const AccordionAction: Story<AccordionProps> = (args) => {
         Accordion Header
       </AccordionSummary>
       <AccordionDetails>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-        malesuada lacus ex, sit amet blandit leo lobortis eget.
+        In order to put an action such as a Checkbox or a button inside of the
+        AccordionSummary, you need to stop the propagation of the focus and
+        click events to prevent the accordion from expanding/collapsing when
+        using the action.
       </AccordionDetails>
       <Divider />
       <AccordionActions>
