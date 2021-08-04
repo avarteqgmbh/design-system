@@ -14,7 +14,15 @@ import {
   DateTimePicker
 } from './inputs/index'
 
-import { Alert, DataGrid, XGrid, Skeleton, Pagination } from './labs/index'
+import {
+  Alert,
+  DataGrid,
+  XGrid,
+  Skeleton,
+  Pagination,
+  Badge,
+  Rating
+} from './labs/index'
 
 import {
   Link,
@@ -78,7 +86,7 @@ export {
   DateTimePicker
 }
 
-export { Alert, DataGrid, XGrid, Skeleton, Pagination }
+export { Alert, DataGrid, XGrid, Skeleton, Pagination, Badge, Rating }
 
 export {
   Link,
