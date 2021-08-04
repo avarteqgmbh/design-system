@@ -12,10 +12,10 @@ export interface MenuItemProps extends MuiMenuItemProps {
 }
 
 export function MenuItem(props: MenuItemProps): JSX.Element {
-  const { children } = props
+  const { children, className } = props
   const classes = useStyles()
   return (
-    <MuiMenuItem {...props} className={clsx(classes.root)}>
+    <MuiMenuItem {...props} className={clsx(classes.root, className)}>
       {children}
     </MuiMenuItem>
   )
@@ -24,9 +24,14 @@ export function MenuItem(props: MenuItemProps): JSX.Element {
 const useStyles = makeStyles<Theme>((theme) => {
   return {
     root: {
+      background: 'transparent',
+      padding: theme.spacing(2),
+      borderRadius: theme.radius.small,
+
       '& .MuiListItemIcon-root': {
         minWidth: 'auto',
-        marginRight: theme.spacing(2)
+        marginRight: theme.spacing(2),
+        color: theme.palette.text.primary
       }
     }
   }

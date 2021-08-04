@@ -116,7 +116,7 @@ export const Inset: Story<DividerProps> = (args): JSX.Element => {
         </ListItemAvatar>
         <ListItemText primary='Photos' secondary='Jan 9, 2014' />
       </ListItem>
-      <Divider variant='inset' component='li' {...args} />
+      <Divider variant='inset' {...args} />
       <ListItem>
         <ListItemAvatar>
           <Avatar>
@@ -125,7 +125,7 @@ export const Inset: Story<DividerProps> = (args): JSX.Element => {
         </ListItemAvatar>
         <ListItemText primary='Work' secondary='Jan 7, 2014' />
       </ListItem>
-      <Divider variant='inset' component='li' {...args} />
+      <Divider variant='inset' {...args} />
       <ListItem>
         <ListItemAvatar>
           <Avatar>

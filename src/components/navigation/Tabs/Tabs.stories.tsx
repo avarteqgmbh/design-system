@@ -59,15 +59,17 @@ const useVerticalStyles = makeStyles((theme: Theme) => {
 
 export const Default: Story<TabsProps> = (args): JSX.Element => {
   const classes = useStyles()
-  const [value, setValue] = React.useState<number>(0)
+  const [value] = React.useState<number>(0)
 
-  const handleChange = (
-    event: React.ChangeEvent<Record<string, unknown>>,
-    newValue: number
-  ): void => {
-    event.preventDefault()
-    setValue(newValue)
-  }
+  // const handleChange = (
+  //   // eslint-disable-next-line @typescript-eslint/ban-types
+  //   event: ChangeEvent<{}>,
+  //   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  //   newValue: any
+  // ): void => {
+  //   event.preventDefault()
+  //   setValue(newValue)
+  // }
 
   return (
     <div className={classes.root}>
@@ -75,7 +77,7 @@ export const Default: Story<TabsProps> = (args): JSX.Element => {
         <Tabs
           {...args}
           value={value}
-          onChange={handleChange}
+          // onChange={handleChange}
           aria-label='simple tabs example'
         >
           <Tab label='Item One' {...getA11yProps(0)} />
@@ -97,14 +99,14 @@ export const Default: Story<TabsProps> = (args): JSX.Element => {
 }
 
 export const Disabled: Story<TabsProps> = (args): JSX.Element => {
-  const [value, setValue] = React.useState(2)
+  const [value] = React.useState(2)
 
-  const handleChange = (
-    event: React.ChangeEvent<Record<string, unknown>>,
-    newValue: number
-  ): void => {
-    setValue(newValue)
-  }
+  // const handleChange = (
+  //   event: React.ChangeEvent<Record<string, unknown>>,
+  //   newValue: number
+  // ): void => {
+  //   setValue(newValue)
+  // }
 
   return (
     <Paper square>
@@ -113,7 +115,6 @@ export const Disabled: Story<TabsProps> = (args): JSX.Element => {
         value={value}
         indicatorColor='primary'
         textColor='primary'
-        onChange={handleChange}
         aria-label='disabled tabs example'
       >
         <Tab label='Active' />
@@ -126,14 +127,14 @@ export const Disabled: Story<TabsProps> = (args): JSX.Element => {
 
 export const Scrollable: Story<TabsProps> = (args): JSX.Element => {
   const classes = useStyles()
-  const [value, setValue] = React.useState(0)
+  const [value] = React.useState(0)
 
-  const handleChange = (
-    event: React.ChangeEvent<Record<string, unknown>>,
-    newValue: number
-  ): void => {
-    setValue(newValue)
-  }
+  // const handleChange = (
+  //   event: React.ChangeEvent<Record<string, unknown>>,
+  //   newValue: number
+  // ): void => {
+  //   setValue(newValue)
+  // }
 
   return (
     <div className={classes.root}>
@@ -141,7 +142,6 @@ export const Scrollable: Story<TabsProps> = (args): JSX.Element => {
         <Tabs
           {...args}
           value={value}
-          onChange={handleChange}
           indicatorColor='primary'
           textColor='primary'
           variant='scrollable'
@@ -184,14 +184,14 @@ export const Scrollable: Story<TabsProps> = (args): JSX.Element => {
 
 export const Vertical: Story<TabsProps> = (args): JSX.Element => {
   const classes = useVerticalStyles()
-  const [value, setValue] = React.useState(0)
+  const [value] = React.useState(0)
 
-  const handleChange = (
-    event: React.ChangeEvent<Record<string, unknown>>,
-    newValue: number
-  ): void => {
-    setValue(newValue)
-  }
+  // const handleChange = (
+  //   event: React.ChangeEvent<Record<string, unknown>>,
+  //   newValue: number
+  // ): void => {
+  //   setValue(newValue)
+  // }
 
   return (
     <div className={classes.root}>
@@ -200,7 +200,6 @@ export const Vertical: Story<TabsProps> = (args): JSX.Element => {
         orientation='vertical'
         variant='scrollable'
         value={value}
-        onChange={handleChange}
         aria-label='Vertical tabs example'
         className={classes.tabs}
       >

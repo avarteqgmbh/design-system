@@ -51,10 +51,7 @@ const Template: Story<ContainerProps> = (args) => {
 export const Default = Template.bind({})
 Default.args = {
   children: (
-    <Typography
-      component='div'
-      style={{ backgroundColor: '#cfe8fc', height: '50vh' }}
-    />
+    <Typography style={{ backgroundColor: '#cfe8fc', height: '50vh' }} />
   )
 }
 

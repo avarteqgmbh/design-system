@@ -143,6 +143,5 @@ Overline.args = {
 export const VariantMapping = Template.bind({})
 VariantMapping.args = {
   children: 'h1. Heading',
-  variant: 'h1',
-  component: 'h2'
+  variant: 'h1'
 }

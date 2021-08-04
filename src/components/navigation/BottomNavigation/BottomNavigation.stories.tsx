@@ -70,25 +70,12 @@ LabelsOff.args = {
   showLabels: false
 }
 
-const DynamicView: Story<BottomNavigationProps> = (args) => {
-  const [value, setValue] = React.useState('recents')
-  const handleChange = (
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    event: React.ChangeEvent<{}>,
-    newValue: string
-  ): void => {
-    setValue(newValue)
-  }
-
-  return <BottomNavigation {...args} value={value} onChange={handleChange} />
-}
-
-export const DynamicDefault = DynamicView.bind({})
+export const DynamicDefault = Template.bind({})
 DynamicDefault.args = {
   children: Icons
 }
 
-export const DynamicLabelOff = DynamicView.bind({})
+export const DynamicLabelOff = Template.bind({})
 DynamicLabelOff.args = {
   children: Icons,
   showLabels: false

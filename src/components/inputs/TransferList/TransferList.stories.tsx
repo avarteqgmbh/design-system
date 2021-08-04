@@ -65,9 +65,8 @@ Default.args = {
   rightList
 }
 
-const onChangeExample = (right: [], left: []): void => {
-  console.log(right)
-  console.log(left)
+const onChangeExample = (): void => {
+  // TODO: add storybook action here
 }
 
 export const OnChange = Template.bind({})

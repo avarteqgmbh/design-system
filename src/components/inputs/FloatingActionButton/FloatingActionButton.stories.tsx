@@ -42,8 +42,7 @@ Default.args = {
 
 export const Icon = Template.bind({})
 Icon.args = {
-  children: <AddIcon />,
-  ariaLabel: 'add'
+  children: <AddIcon />
 }
 
 export const IconAndText = Template.bind({})

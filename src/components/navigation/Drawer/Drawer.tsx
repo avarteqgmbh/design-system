@@ -1,12 +1,12 @@
 import React from 'react'
 import {
   Drawer as MuiDrawer,
-  DrawerProps as MuiDrawerProps,
+  DrawerProps,
   makeStyles,
   createStyles
 } from '@material-ui/core'
 
-export function Drawer(props: MuiDrawerProps): JSX.Element {
+export function Drawer(props: DrawerProps): JSX.Element {
   const classes = useStyles()
   const { children } = props
 

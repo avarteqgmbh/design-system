@@ -26,6 +26,7 @@ import { CardActionArea } from './CardActionArea'
 import { CardHeader } from './CardHeader'
 import { CardMedia } from './CardMedia'
 import { Button } from '../../inputs/Button/Button'
+import { Theme } from '../../../theme/types'
 
 export default {
   title: 'Surfaces/Card',
@@ -89,13 +90,13 @@ export const Default: Story<CardProps> = (args) => {
         >
           Word of the Day
         </Typography>
-        <Typography variant='h5' component='h2'>
+        <Typography variant='h5'>
           be{bull}nev{bull}o{bull}lent
         </Typography>
         <Typography className={classes.pos} color='textSecondary'>
           adjective
         </Typography>
-        <Typography variant='body2' component='p'>
+        <Typography variant='body2'>
           well meaning and kindly.
           <br />a benevolent smile
         </Typography>
@@ -153,10 +154,10 @@ export const Media: Story<CardProps> = (args) => {
           title='Contemplative Reptile'
         />
         <CardContent>
-          <Typography gutterBottom variant='h5' component='h2'>
+          <Typography gutterBottom variant='h5'>
             Lizard
           </Typography>
-          <Typography variant='body2' color='textSecondary' component='p'>
+          <Typography variant='body2' color='textSecondary'>
             Lizards are a widespread group of squamate reptiles, with over 6,000
             species, ranging across all continents except Antarctica
           </Typography>
@@ -204,7 +205,7 @@ export const ComplexInteraction: Story<CardProps> = (args) => {
         title='Paella dish'
       />
       <CardContent>
-        <Typography variant='body2' color='textSecondary' component='p'>
+        <Typography variant='body2' color='textSecondary'>
           This impressive paella is a perfect party dish and a fun meal to cook
           together with your guests. Add 1 cup of frozen peas along with the
           mussels, if you like.

@@ -3,11 +3,12 @@ import { Box } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
 interface TabPanelProps {
-  index: number
-  value: number
+  children: React.ReactNode
+  index: string | number
+  value: string | number
 }
 
-export const TabPanel: JSX.Element<TabPanelProps> = (props) => {
+export const TabPanel = (props: TabPanelProps): JSX.Element => {
   const { children, value, index, ...other } = props
   const classes = useStyles()
 
