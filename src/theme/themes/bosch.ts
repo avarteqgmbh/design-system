@@ -57,7 +57,8 @@ const palette = {
     default: COLOR_GREY_50,
     light: COLOR_GREY_100,
     medium: COLOR_GREY_200,
-    border: COLOR_GREY_200
+    border: COLOR_GREY_200,
+    gradient: GRADIENT_LIGHT
   },
   text: {
     primary: COLOR_GREY_1000,
@@ -139,8 +140,8 @@ const FONT_WEIGHT_HEADLINE = 700
 const FONT_WEIGHT_BODY = 400
 const FONT_WEIGHT_BUTTON = 700
 
-const LINE_HEIGHT_HEADLINE = 1.5
-const LINE_HEIGHT_BODY = 1.15
+const LINE_HEIGHT_HEADLINE = 1.15
+const LINE_HEIGHT_BODY = 1.5
 // const LINE_HEIGHT_NONE = 1
 
 const LETTER_SPACING_HEADLINE = '0em'

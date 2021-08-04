@@ -57,7 +57,8 @@ const palette = {
     default: COLOR_GREY_900,
     light: COLOR_GREY_800,
     medium: COLOR_GREY_700,
-    border: COLOR_GREY_700
+    border: COLOR_GREY_700,
+    gradient: GRADIENT_DARK
   },
   text: {
     primary: COLOR_COMMON_WHITE,
