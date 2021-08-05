@@ -1,10 +1,14 @@
 import React from 'react'
 import {
   Tabs as MuiTabs,
-  TabsProps,
+  TabsProps as MuiTabsProps,
   makeStyles,
   createStyles
 } from '@material-ui/core'
+
+export interface TabsProps extends Omit<MuiTabsProps, 'onChange'> {
+  onChange: (event: React.ChangeEvent<{}>, newValue: number) => void
+}
 
 export function Tabs(props: TabsProps): JSX.Element {
   const classes = useStyles()

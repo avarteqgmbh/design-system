@@ -1,8 +1,8 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { LinkProps } from '@material-ui/core'
-import { Link } from './Link'
+
+import { Link, LinkProps } from './Link'
 
 export default {
   title: 'Navigation/Link',
@@ -11,6 +11,14 @@ export default {
     color: {
       control: 'select',
       options: ['inherit', 'primary', 'secondary']
+    },
+    component: {
+      control: { type: 'element type' },
+      defaultValue: 'a',
+      table: {
+        type: { summary: 'element type' },
+        defaultValue: { summary: 'a' }
+      }
     }
   },
   decorators: [withDesign],
@@ -34,10 +42,10 @@ Default.args = {
 export const ButtonLink: Story<LinkProps> = (args): JSX.Element => {
   return (
     <Link
-      // TODO: Resolve warn props type issue
+      component='button'
       variant='body2'
       onClick={(): void => {
-        // TODO: Add action
+        console.log("I'm a button.")
       }}
       {...args}
     >

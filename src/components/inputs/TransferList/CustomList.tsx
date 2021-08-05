@@ -11,7 +11,7 @@ import { Checkbox } from '../Checkbox/Checkbox'
 import { List } from '../../dataDisplay/List/List'
 
 export interface CustomListProps {
-  items: Item[]
+  items: []
   checked: never[]
   title: React.ReactNode
   checkboxProps?: CheckboxProps
@@ -20,11 +20,6 @@ export interface CustomListProps {
   ) => React.MouseEventHandler<HTMLButtonElement> | undefined
   numberOfChecked: (items: []) => number
   handleToggle: (value: never) => MouseEventHandler<HTMLDivElement> | undefined
-}
-
-export interface Item {
-  id: string
-  name: string
 }
 
 export function CustomList({
@@ -62,7 +57,7 @@ export function CustomList({
       />
       <Divider />
       <List className={classes.list} dense component='div' role='list'>
-        {items.map((item: Item) => {
+        {items.map((item: never) => {
           const { id, name } = item as never
           const labelId = `transfer-list-all-item-${id}-label`
 

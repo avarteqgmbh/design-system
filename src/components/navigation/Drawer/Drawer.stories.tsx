@@ -1,14 +1,8 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-
-import { Drawer } from './Drawer'
-import { Button } from '../../inputs/Button/Button'
-import { List } from '../../dataDisplay/List/List'
-
-import clsx from 'clsx'
-import { makeStyles, createStyles, useTheme } from '@material-ui/core/styles'
 import {
+  DrawerProps,
   ListItem,
   ListItemText,
   ListItemIcon,
@@ -20,12 +14,23 @@ import {
   IconButton
 } from '@material-ui/core'
 import {
+  makeStyles,
+  Theme,
+  createStyles,
+  useTheme
+} from '@material-ui/core/styles'
+import clsx from 'clsx'
+import {
   Mail as MailIcon,
   Inbox as InboxIcon,
   ChevronLeft as ChevronLeftIcon,
   ChevronRight as ChevronRightIcon,
   Menu as MenuIcon
 } from '@material-ui/icons'
+
+import { Drawer } from './Drawer'
+import { Button } from '../../inputs/Button/Button'
+import { List } from '../../dataDisplay/List/List'
 
 export default {
   title: 'Navigation/Drawer',
@@ -92,22 +97,6 @@ export default {
         type: { summary: 'object' }
       }
     },
-    transitionDuration: {
-      control: {
-        type: 'number | { appear?: number, enter?: number, exit?: number }'
-      },
-      defaultValue:
-        '{ enter: duration.enteringScreen, exit: duration.leavingScreen }',
-      table: {
-        type: {
-          summary: 'number | { appear?: number, enter?: number, exit?: number }'
-        },
-        defaultValue: {
-          summary:
-            '{ enter: duration.enteringScreen, exit: duration.leavingScreen }'
-        }
-      }
-    },
     variant: {
       control: { type: 'select' },
       options: ['permanent', 'persistent', 'temporary'],
@@ -136,18 +125,32 @@ const useDefaultStyles = makeStyles({
   }
 })
 
-type Anchor = 'top' | 'left' | 'bottom' | 'right' | undefined
+type Anchor = 'top' | 'left' | 'bottom' | 'right'
+
+type ToggleDrawerReturnType = (
+  event: React.KeyboardEvent | React.MouseEvent
+) => void
+
+export interface DrawerState {
+  top: boolean
+  left: boolean
+  bottom: boolean
+  right: boolean
+}
 
 export const Default: Story<DrawerProps> = (args): JSX.Element => {
   const classes = useDefaultStyles()
-  const [state, setState] = React.useState({
+  const [state, setState] = React.useState<DrawerState>({
     top: false,
     left: false,
     bottom: false,
     right: false
   })
 
-  const toggleDrawer = (anchor: Anchor, open: boolean): void => {
+  const toggleDrawer = (
+    anchor: Anchor,
+    open: boolean
+  ): ToggleDrawerReturnType => {
     return (event: React.KeyboardEvent | React.MouseEvent): void => {
       if (
         event.type === 'keydown' &&
@@ -157,7 +160,7 @@ export const Default: Story<DrawerProps> = (args): JSX.Element => {
         return
       }
 
-      setState({ ...state, [anchor]: open })
+      setState({ ...state, [anchor as string]: open })
     }
   }
 
@@ -189,26 +192,26 @@ export const Default: Story<DrawerProps> = (args): JSX.Element => {
     )
   }
 
+  const items: Anchor[] = ['left', 'right', 'top', 'bottom']
+
   return (
-    <div>
-      {(['left', 'right', 'top', 'bottom'] as Anchor[]).map(
-        (anchor: Anchor): JSX.Element[] => {
-          return (
-            <React.Fragment key={anchor.toString()}>
-              <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
-              <Drawer
-                anchor={anchor}
-                open={state[anchor]}
-                onClose={toggleDrawer(anchor, false)}
-                {...args}
-              >
-                {list(anchor)}
-              </Drawer>
-            </React.Fragment>
-          )
-        }
-      )}
-    </div>
+    <>
+      {items.map((anchor: Anchor): JSX.Element => {
+        return (
+          <div key={anchor as string}>
+            <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
+            <Drawer
+              {...args}
+              anchor={anchor}
+              open={state[anchor]}
+              onClose={toggleDrawer(anchor, false)}
+            >
+              {list(anchor)}
+            </Drawer>
+          </div>
+        )
+      })}
+    </>
   )
 }
 
@@ -311,6 +314,7 @@ export const PersistentDrawer: Story<DrawerProps> = (args): JSX.Element => {
         </Toolbar>
       </AppBar>
       <Drawer
+        {...args}
         className={classes.drawer}
         variant='persistent'
         anchor='left'
@@ -318,7 +322,6 @@ export const PersistentDrawer: Story<DrawerProps> = (args): JSX.Element => {
         classes={{
           paper: classes.drawerPaper
         }}
-        {...args}
       >
         <div className={classes.drawerHeader}>
           <IconButton onClick={handleDrawerClose}>
@@ -333,7 +336,7 @@ export const PersistentDrawer: Story<DrawerProps> = (args): JSX.Element => {
         <List>
           {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => {
             return (
-              <ListItem button key={text}>
+              <ListItem button key={text} onClick={handleDrawerClose}>
                 <ListItemIcon>
                   {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                 </ListItemIcon>
