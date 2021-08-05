@@ -17,7 +17,7 @@ import {
 
 import { Divider } from './Divider'
 import { List } from '../List/List'
-import { Grid } from '../../layout/Grid/Grid'
+import { Grid } from '../../index'
 
 export default {
   title: 'Data Display/Divider',

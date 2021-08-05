@@ -3,8 +3,7 @@ import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { SnackbarProps } from '@material-ui/core'
 import { Snackbar } from './Snackbar'
-import { Alert } from '../../labs/Alert/Alert'
-import { Button } from '../../inputs/Button/Button'
+import { Alert, Button } from '../../index'
 
 export default {
   title: 'Feedback/Snackbar',

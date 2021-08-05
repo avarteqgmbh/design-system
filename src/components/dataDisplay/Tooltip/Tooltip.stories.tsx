@@ -6,7 +6,7 @@ import Fade from '@material-ui/core/Fade'
 import Zoom from '@material-ui/core/Zoom'
 
 import { Tooltip } from './Tooltip'
-import { FloatingActionButton as Fab } from '../../inputs/FloatingActionButton/FloatingActionButton'
+import { FloatingActionButton as Fab } from '../../index'
 import AddIcon from '@material-ui/icons/Add'
 
 export default {
