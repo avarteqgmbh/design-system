@@ -6,7 +6,7 @@ import { Menu } from './Menu'
 import { MenuProps } from '@material-ui/core'
 import { MenuItem } from './MenuItem'
 
-import { Button } from '../../inputs/Button/Button'
+import { Button } from '../../index'
 
 export default {
   title: 'Navigation/Menu',

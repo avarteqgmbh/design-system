@@ -8,7 +8,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon'
 import Divider from '@material-ui/core/Divider'
 import { CheckboxProps } from '@material-ui/core'
 import { Checkbox } from '../Checkbox/Checkbox'
-import { List } from '../../dataDisplay/List/List'
+import { List } from '../../dataDisplay/index'
 
 export interface CustomListProps {
   items: []

@@ -9,7 +9,7 @@ import {
   DialogProps as MuiDialogProps,
   DialogTitle
 } from '@material-ui/core'
-import { Button } from '../../inputs/Button/Button'
+import { Button } from '../../index'
 
 const head = `Lorem Ipsum`
 

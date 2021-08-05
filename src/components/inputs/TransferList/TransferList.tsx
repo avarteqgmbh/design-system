@@ -1,9 +1,8 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react'
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles'
 import { CheckboxProps } from '@material-ui/core'
 import { Button } from '../Button/Button'
-import { Grid } from '../../layout/Grid/Grid'
+import { Grid } from '../../layout/index'
 import { CustomList } from './CustomList'
 
 export interface TransferListProps {
@@ -15,12 +14,14 @@ export interface TransferListProps {
   onChange: (leftList: [], rightList: []) => void
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function not(a: never[], b: any[]): never[] {
   return a.filter((value) => {
     return b.indexOf(value) === -1
   })
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function intersection(a: any[], b: any[]): any[] {
   return a.filter((value) => {
     return (
@@ -88,22 +89,22 @@ export function TransferList({
   }
 
   const handleCheckedRight = (): void => {
-    const r: any = right
-    const c: any = left.filter((value: any) => {
+    const r: any = right // eslint-disable-line
+    const c: any = left.filter((value: any) => { // eslint-disable-line
       return leftChecked.indexOf(value.id) !== -1
     })
     setRight(r.concat(c))
-    setLeft(not(left, c) as any)
+    setLeft(not(left, c) as any) // eslint-disable-line
     setChecked(not(checked, leftChecked))
   }
 
   const handleCheckedLeft = (): void => {
-    const l: any = left
-    const c: any = right.filter((value: any) => {
+    const l: any = left // eslint-disable-line
+    const c: any = right.filter((value: any) => { // eslint-disable-line
       return rightChecked.indexOf(value.id) !== -1
     })
     setLeft(l.concat(c))
-    setRight(not(right, c) as any)
+    setRight(not(right, c) as any) // eslint-disable-line
     setChecked(not(checked, rightChecked))
   }
 

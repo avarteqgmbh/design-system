@@ -18,14 +18,13 @@ import {
 } from '@material-ui/icons'
 import { createStyles } from '@material-ui/core/styles'
 
-import { Typography } from '../../dataDisplay/Typography/Typography'
+import { Typography, Button } from '../../index'
 import { Card } from './Card'
 import { CardContent } from './CardContent'
 import { CardActions } from './CardActions'
 import { CardActionArea } from './CardActionArea'
 import { CardHeader } from './CardHeader'
 import { CardMedia } from './CardMedia'
-import { Button } from '../../inputs/Button/Button'
 import { Theme } from '../../../theme/types'
 
 export default {

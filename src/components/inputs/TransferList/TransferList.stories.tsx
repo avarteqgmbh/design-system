@@ -6,7 +6,9 @@ import { TransferList, TransferListProps } from './TransferList'
 export default {
   title: 'Input/TransferList',
   component: TransferList,
-  argTypes: {},
+  argTypes: {
+    onChange: { action: 'checked' }
+  },
   decorators: [withDesign],
   parameters: {
     controls: { expanded: true },
@@ -63,17 +65,6 @@ export const Default = Template.bind({})
 Default.args = {
   leftList,
   rightList
-}
-
-const onChangeExample = (): void => {
-  // TODO: add storybook action here
-}
-
-export const OnChange = Template.bind({})
-OnChange.args = {
-  leftList,
-  rightList,
-  onChange: onChangeExample
 }
 
 export const CheckedList = Template.bind({})
