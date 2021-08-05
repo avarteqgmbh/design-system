@@ -74,7 +74,8 @@ export function TransferList({
 
   const handleToggleAll = (items: never[]) => {
     return (): void => {
-      const c: any = items.map((value: any) => { // eslint-disable-line
+      const c: any = items.map((value: any) => {
+        // eslint-disable-line
         return value.id
       })
 
