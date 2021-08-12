@@ -42,6 +42,7 @@
     "prepare": "install-peers",
     "install-peers": "install-peers",
     "start": "react-scripts start",
+    "rm:build": "rm -rf ./dist/",
     "build": "yarn rm:build && npm run build:types && npm run build:js",
     "build:types": "tsc --emitDeclarationOnly && tsc-alias -p tsconfig.json",
     "build:js": "babel --config-file ./_.babelrc src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
@@ -49,9 +50,9 @@
     "eject": "react-scripts eject",
     "format": "prettier --write 'src/**/*.{ts,tsx,stories.tsx}'",
     "lint": "tsc --noEmit && eslint 'src/**/*.{ts,tsx,stories.tsx}'",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public",
-    "sb:lint": "node -e 'require(\"./fix-eslint\").addTsConfig()' && npm run storybook"
+    "storybook": "node -e 'require(\"./fix-eslint\").removeTsConfig()' && start-storybook -p 6006 -s public",
+    "sb:lint": "node -e 'require(\"./fix-eslint\").addTsConfig()' && start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "browserslist": {
     "production": [
