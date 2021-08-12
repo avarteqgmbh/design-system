@@ -1,4 +1,5 @@
 {
+  // "root": true,
   "extends": [
     "airbnb-typescript",
     "airbnb/hooks",
@@ -12,7 +13,6 @@
     "jest"
   ],
   "env": {
-    "browser": true,
     "es6": true,
     "jest": true
   },
@@ -34,8 +34,7 @@
       "jsx": true
     },
     "ecmaVersion": 2018,
-    "sourceType": "module",
-    "project": "./tsconfig.json"
+    "sourceType": "module"
   },
   "settings": {
     "import/resolver": {
@@ -169,7 +168,7 @@
           "src/**/*.stories.tsx"
         ],
         "optionalDependencies": false,
-        "peerDependencies": false
+        "peerDependencies": true
       }
     ],
     //// typescript rules -> https://github.com/typescript-eslint/typescript-eslint
@@ -193,6 +192,7 @@
     "jest/no-focused-tests": "error",
     "jest/no-identical-title": "error",
     "jest/valid-expect": "error",
+    "jest/no-deprecated-functions": "off",
     // jsx rules -> https://github.com/evcohen/eslint-plugin-jsx-a11y
     "jsx-a11y/anchor-has-content": [
       "warn",

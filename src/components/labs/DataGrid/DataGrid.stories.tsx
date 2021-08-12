@@ -5,7 +5,7 @@ import { DataGrid, DataGridProps } from './DataGrid'
 import { rows, columns } from './mocks'
 
 export default {
-  title: '🌳 Organisms/DataGrid',
+  title: 'Labs/DataGrid',
   component: DataGrid,
   argTypes: {
     autoHeight: {
@@ -54,5 +54,7 @@ Toolbar.args = {
   rows,
   columns,
   checkboxSelection: true,
-  toolbar: true
+  toolbar: true,
+  rowsPerPageOptions: [5, 10],
+  pageSize: 5
 }

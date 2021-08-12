@@ -1,7 +1,8 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { ContainerProps, Typography } from '@material-ui/core'
+import { ContainerProps } from '@material-ui/core'
+import { Typography } from '../../index'
 import { Container } from './Container'
 
 export default {
@@ -50,10 +51,7 @@ const Template: Story<ContainerProps> = (args) => {
 export const Default = Template.bind({})
 Default.args = {
   children: (
-    <Typography
-      component='div'
-      style={{ backgroundColor: '#cfe8fc', height: '50vh' }}
-    />
+    <Typography style={{ backgroundColor: '#cfe8fc', height: '50vh' }} />
   )
 }
 

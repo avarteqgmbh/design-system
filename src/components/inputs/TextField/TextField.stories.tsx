@@ -7,7 +7,7 @@ import ArrowBackRoundedIcon from '@material-ui/icons/ArrowBackRounded'
 import Visibility from '@material-ui/icons/Visibility'
 
 export default {
-  title: '💧 Atoms/TextField',
+  title: 'Input/TextField',
   component: TextField,
   argTypes: {
     id: {
@@ -103,10 +103,8 @@ export default {
     variant: {
       control: 'radio',
       options: ['filled', 'outline', 'standard'],
-      defaultValue: 'outlined',
       table: {
-        type: { summary: 'filled | outlined | standard' },
-        defaultValue: { summary: 'outline' }
+        type: { summary: 'filled | outlined | standard' }
       }
     },
     multiline: {
@@ -143,7 +141,7 @@ export default {
     controls: { expanded: true },
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%8E%A8-Design-System?node-id=181%3A375'
+      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%8E%A8-Design-System?node-id=392%3A36790'
     }
   }
 }
@@ -155,8 +153,42 @@ const Template: Story<TextFieldProps> = (args) => {
 export const Default = Template.bind({})
 Default.args = {
   id: 'textfield-default',
-  label: 'Label',
-  placeholder: 'Placeholder'
+  placeholder: 'Placeholder',
+  variant: 'outlined'
+}
+
+export const WidthLabel = Template.bind({})
+WidthLabel.args = {
+  id: 'textfield-default',
+  placeholder: 'Placeholder',
+  label: 'Lorem ipsum',
+  variant: 'outlined'
+}
+
+export const WidthLabelShrink = Template.bind({})
+WidthLabelShrink.args = {
+  id: 'textfield-default',
+  placeholder: 'Placeholder',
+  label: 'Lorem ipsum',
+  variant: 'outlined',
+  InputLabelProps: {
+    shrink: true
+  }
+}
+
+export const WidthLabelIcon = Template.bind({})
+WidthLabelIcon.args = {
+  id: 'textfield-default',
+  placeholder: 'Placeholder',
+  label: 'Lorem ipsum',
+  variant: 'outlined',
+  InputProps: {
+    startAdornment: (
+      <InputAdornment position='start'>
+        <ArrowBackRoundedIcon />
+      </InputAdornment>
+    )
+  }
 }
 
 export const Date = Template.bind({})
