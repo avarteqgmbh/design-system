@@ -13,7 +13,10 @@ import { theme as anyninesDark } from './themes/anyninesDark'
 import { theme as toyota } from './themes/toyota'
 import { theme as thomsit } from './themes/thomsit'
 import { theme as bosch } from './themes/bosch'
+import { theme as boschDark } from './themes/boschDark'
 import { theme as santander } from './themes/santander/index'
+import { theme as siemens } from './themes/siemens'
+import { theme as siemensDark } from './themes/siemensDark'
 
 export type CustomThemeName =
   | 'anynines'
@@ -21,7 +24,10 @@ export type CustomThemeName =
   | 'thomsit'
   | 'toyota'
   | 'bosch'
+  | 'bosch-dark'
   | 'santander'
+  | 'siemens'
+  | 'siemens-dark'
 
 export const makeStyles = muiMakeStyles
 
@@ -31,7 +37,10 @@ const THEMES: { [key in CustomThemeName]: ThemeOptions } = {
   toyota,
   thomsit,
   bosch,
-  santander
+  'bosch-dark': boschDark,
+  santander,
+  siemens,
+  'siemens-dark': siemensDark
 }
 export interface ThemeProviderProps
   extends Omit<MuiThemeProviderProps, 'theme'> {
