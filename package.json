@@ -42,6 +42,7 @@
     "prepare": "install-peers",
     "install-peers": "install-peers",
     "start": "react-scripts start",
+    "rm:build": "rm -rf ./dist/",
     "build": "yarn rm:build && npm run build:types && npm run build:js",
     "build:types": "tsc --emitDeclarationOnly && tsc-alias -p tsconfig.json",
     "build:js": "babel --config-file ./_.babelrc src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
