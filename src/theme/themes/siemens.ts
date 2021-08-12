@@ -133,8 +133,8 @@ const palette = {
 // --------------------------------------------
 // T Y P O G R A P H Y
 // ------------------
-const FONT_FAMILY_HEADLINE = 'Bosch Sans Black'
-const FONT_FAMILY_BODY = 'Bosch Sans Regular'
+const FONT_FAMILY_HEADLINE = 'Inter'
+const FONT_FAMILY_BODY = 'Inter'
 
 const FONT_WEIGHT_HEADLINE = 800
 const FONT_WEIGHT_BODY = 400
@@ -199,11 +199,11 @@ const spacing = [0, 4, 8, 12, 16, 24, 32, 40, 60, 80, 120, 160]
 
 const radius = {
   none: 0,
-  small: 4,
-  medium: 8,
-  large: 8,
-  button: 8,
-  card: 8
+  small: 0,
+  medium: 0,
+  large: 0,
+  button: 0,
+  card: 2
 }
 
 export const theme = {
