@@ -41,14 +41,7 @@ Default.args = {
 
 export const ButtonLink: Story<LinkProps> = (args): JSX.Element => {
   return (
-    <Link
-      component='button'
-      variant='body2'
-      onClick={(): void => {
-        console.log("I'm a button.")
-      }}
-      {...args}
-    >
+    <Link component='button' variant='body2' onClick={(): void => {}} {...args}>
       Button Link
     </Link>
   )
