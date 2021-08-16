@@ -34,7 +34,13 @@ import {
   Drawer,
   Tabs,
   Tab,
-  TabPanel
+  TabPanel,
+  Step,
+  StepLabel,
+  Stepper,
+  StepButton,
+  StepContent,
+  MobileStepper
 } from './navigation/index'
 
 import { Box, Container, Grid, Hidden } from './layout/index'
@@ -98,7 +104,13 @@ export {
   Drawer,
   Tab,
   Tabs,
-  TabPanel
+  TabPanel,
+  Step,
+  StepLabel,
+  Stepper,
+  StepButton,
+  StepContent,
+  MobileStepper
 }
 export { Box, Container, Grid, Hidden }
 

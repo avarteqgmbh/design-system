@@ -26,6 +26,10 @@ const useStyles = makeStyles((theme: Theme) => {
       background: theme.palette.background.default,
       borderRadius: theme.radius.button,
 
+      '& .MuiSvgIcon-root': {
+        color: theme.palette.text.primary
+      },
+
       '&:hover, &:focus-within': {
         background: theme.palette.background.medium
       },

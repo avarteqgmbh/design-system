@@ -20,8 +20,12 @@ export function Select(props: MuiSelectProps): JSX.Element {
   )
 }
 
-const useStyles = makeStyles<Theme>(() => {
+const useStyles = makeStyles((theme: Theme) => {
   return {
-    root: {}
+    root: {
+      '& .MuiSelect-iconFilled': {
+        color: theme.palette.text.primary
+      }
+    }
   }
 })
