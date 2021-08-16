@@ -6,7 +6,11 @@ import {
 } from '@material-ui/core'
 import { Theme } from '../../../theme/types'
 
-export function CardActionArea(props: CardActionAreaProps): JSX.Element {
+export interface MuiCardActionAreaProps extends CardActionAreaProps {
+  href?: string
+}
+
+export function CardActionArea(props: MuiCardActionAreaProps): JSX.Element {
   const classes = useStyles()
   const { children } = props
   return (
