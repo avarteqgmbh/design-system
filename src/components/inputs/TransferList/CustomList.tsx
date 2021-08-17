@@ -57,7 +57,7 @@ export function CustomList({
       />
       <Divider />
       <List className={classes.list} dense component='div' role='list'>
-          {items.map((item: any) => { // eslint-disable-line
+        {items.map((item: never) => {
           const { id, name } = item as never
           const labelId = `transfer-list-all-item-${id}-label`
 
