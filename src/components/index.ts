@@ -66,7 +66,11 @@ import {
   Typography,
   Divider,
   Avatar,
-  AvatarGroup
+  AvatarGroup,
+  Icon,
+  IconButton,
+  icons,
+  SvgIcon
 } from './dataDisplay/index'
 
 import {
@@ -127,5 +131,17 @@ export {
   CardContent,
   CardActionArea
 }
-export { Chip, List, Tooltip, Typography, Divider, Avatar, AvatarGroup }
+export {
+  Chip,
+  List,
+  Tooltip,
+  Typography,
+  Divider,
+  Avatar,
+  AvatarGroup,
+  Icon,
+  IconButton,
+  icons,
+  SvgIcon
+}
 export { Backdrop, CircularProgress, LinearProgress, Snackbar }
