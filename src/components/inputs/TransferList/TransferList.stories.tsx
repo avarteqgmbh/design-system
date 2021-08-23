@@ -4,7 +4,7 @@ import { withDesign } from 'storybook-addon-designs'
 import { TransferList, TransferListProps } from './TransferList'
 
 export default {
-  title: 'Input/TransferList',
+  title: 'Inputs/TransferList',
   component: TransferList,
   argTypes: {
     onChange: { action: 'checked' }

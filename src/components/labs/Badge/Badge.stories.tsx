@@ -7,7 +7,7 @@ import MailIcon from '@material-ui/icons/Mail'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
 
 export default {
-  title: 'Labs/Badge',
+  title: 'Lab/Badge',
   component: Badge,
   argTypes: {
     color: {

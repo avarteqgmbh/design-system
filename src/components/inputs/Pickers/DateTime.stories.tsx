@@ -12,7 +12,7 @@ import MomentUtils from '@date-io/moment'
 import { Moment } from 'moment'
 
 export default {
-  title: 'Input/Pickers/DateTime',
+  title: 'Inputs/Pickers/DateTime',
   component: DateTimePicker,
   argTypes: {
     label: {
