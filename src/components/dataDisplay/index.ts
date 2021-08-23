@@ -8,9 +8,11 @@ import { AvatarGroup } from './Avatar/AvatarGroup'
 import { Icon, icons } from './Icons/Icon'
 import { SvgIcon } from './Icons/SvgIcon'
 import { IconButton } from './Icons/IconButton'
+import { CodeSnippet } from './CodeSnippet/CodeSnippet'
 
 export {
   Chip,
+  CodeSnippet,
   List,
   Tooltip,
   Typography,

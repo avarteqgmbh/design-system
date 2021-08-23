@@ -61,6 +61,7 @@ import {
 
 import {
   Chip,
+  CodeSnippet,
   List,
   Tooltip,
   Typography,
@@ -133,6 +134,7 @@ export {
 }
 export {
   Chip,
+  CodeSnippet,
   List,
   Tooltip,
   Typography,
