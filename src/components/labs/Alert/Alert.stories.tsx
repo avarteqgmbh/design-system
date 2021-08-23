@@ -6,7 +6,7 @@ import { Alert } from './Alert'
 import { Button } from '../../index'
 
 export default {
-  title: 'Labs/Alert',
+  title: 'Lab/Alert',
   component: Alert,
   argTypes: {
     closeText: {

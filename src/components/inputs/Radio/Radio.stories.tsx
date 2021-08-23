@@ -4,7 +4,7 @@ import { withDesign } from 'storybook-addon-designs'
 import { Radio, RadioProps } from '@material-ui/core'
 
 export default {
-  title: 'Input/Radio',
+  title: 'Inputs/Radio',
   component: Radio,
   argTypes: {
     id: 'radio',

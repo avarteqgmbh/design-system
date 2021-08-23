@@ -5,7 +5,7 @@ import { DataGrid, DataGridProps } from './DataGrid'
 import { rows, columns } from './mocks'
 
 export default {
-  title: 'Labs/DataGrid',
+  title: 'Lab/DataGrid',
   component: DataGrid,
   argTypes: {
     autoHeight: {

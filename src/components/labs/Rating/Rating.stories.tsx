@@ -9,7 +9,7 @@ import { makeStyles } from '@material-ui/core'
 import { Theme } from '../../../theme/types'
 
 export default {
-  title: 'Labs/Rating',
+  title: 'Lab/Rating',
   component: Rating,
   argTypes: {
     defaultValue: {

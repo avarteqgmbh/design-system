@@ -6,7 +6,7 @@ import { Skeleton } from './Skeleton'
 import { Box, Avatar, Typography } from '../../index'
 
 export default {
-  title: 'Labs/Skeleton',
+  title: 'Lab/Skeleton',
   component: Skeleton,
   argTypes: {
     animation: {

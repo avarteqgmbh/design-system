@@ -6,7 +6,7 @@ import { Typography } from '../../index'
 import { Slider } from './Slider'
 
 export default {
-  title: 'Input/Slider',
+  title: 'Inputs/Slider',
   component: Slider,
   argTypes: {
     'aria-label': 'string',

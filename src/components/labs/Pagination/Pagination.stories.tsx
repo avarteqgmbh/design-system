@@ -5,7 +5,7 @@ import { PaginationProps } from '@material-ui/lab'
 import { Pagination } from './Pagination'
 
 export default {
-  title: 'Labs/Pagination',
+  title: 'Lab/Pagination',
   component: Pagination,
   argTypes: {
     boundaryCount: {

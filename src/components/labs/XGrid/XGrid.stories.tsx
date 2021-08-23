@@ -5,7 +5,7 @@ import { XGrid, XGridProps } from './XGrid'
 import { rows, columns } from './mocks'
 
 export default {
-  title: 'Labs/XGrid',
+  title: 'Lab/XGrid',
   component: XGrid,
   argTypes: {
     autoHeight: {

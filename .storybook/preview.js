@@ -16,6 +16,11 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/
     }
+  },
+  options: {
+    storySort: {
+      order: ['👋 Get started', 'Layout', 'Inputs', 'Navigation', 'Surfaces', 'Feedback', 'Data Display', 'Lab'],
+    },
   }
 }
 

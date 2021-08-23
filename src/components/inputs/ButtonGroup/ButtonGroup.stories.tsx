@@ -14,7 +14,7 @@ const Buttons = (
 )
 
 export default {
-  title: 'Input/ButtonGroup',
+  title: 'Inputs/ButtonGroup',
   component: ButtonGroup,
   argTypes: {
     size: {

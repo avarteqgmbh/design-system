@@ -10,7 +10,7 @@ import {
 import { FloatingActionButton as Fab } from './FloatingActionButton'
 
 export default {
-  title: 'Input/Floating Action Button',
+  title: 'Inputs/Floating Action Button',
   component: Fab,
   argTypes: {},
   decorators: [

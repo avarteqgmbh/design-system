@@ -7,7 +7,7 @@ import WbSunnyIcon from '@material-ui/icons/WbSunny'
 import Brightness3Icon from '@material-ui/icons/Brightness3'
 
 export default {
-  title: 'Input/Checkbox',
+  title: 'Inputs/Checkbox',
   component: Checkbox,
   argTypes: {
     id: {

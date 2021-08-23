@@ -6,7 +6,7 @@ import { Button } from './Button'
 import WbSunnyIcon from '@material-ui/icons/WbSunny'
 
 export default {
-  title: 'Input/Button',
+  title: 'Inputs/Button',
   component: Button,
   argTypes: {
     size: {
