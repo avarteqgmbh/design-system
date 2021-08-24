@@ -3,6 +3,7 @@ import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { XGrid, XGridProps } from './XGrid'
 import { rows, columns } from './mocks'
+// import { useDemoData } from '@material-ui/x-grid-data-generator'
 
 export default {
   title: 'Lab/XGrid',
@@ -57,4 +58,16 @@ Toolbar.args = {
   toolbar: true,
   rowsPerPageOptions: [5, 10],
   pageSize: 5
+}
+
+export const DE = Template.bind({})
+DE.args = {
+  rows,
+  columns,
+  checkboxSelection: true,
+  toolbar: true,
+  rowsPerPageOptions: [5, 10],
+  pageSize: 5,
+  language: 'DE',
+  checkboxSelectionVisibleOnly: true
 }

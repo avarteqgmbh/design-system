@@ -6,33 +6,29 @@ import {
 } from '@material-ui/x-grid'
 import { makeStyles } from '@material-ui/core'
 import { Theme } from '../../../theme/types'
+import { GRID_DE_LOCALE_TEXT } from './locales'
 
 export interface XGridProps extends MuiXGridProps {
   toolbar?: boolean
+  language?: 'DE' | 'EN'
 }
 
 export function XGrid(props: XGridProps): JSX.Element {
-  const { toolbar = false, autoHeight = true } = props
+  const { toolbar = false, autoHeight = true, language = 'EN' } = props
   const classes = useStyles()
+
+  let lang = {}
+
+  if (language === 'DE') {
+    lang = GRID_DE_LOCALE_TEXT
+  }
 
   return (
     <MuiXGrid
       classes={{
         root: classes.root
       }}
-      localeText={{
-        toolbarDensity: 'Dichte',
-        toolbarDensityLabel: 'Dichte',
-        toolbarDensityCompact: 'Eng',
-        toolbarDensityStandard: 'Mittel',
-        toolbarDensityComfortable: 'Weit',
-        toolbarColumns: 'Spalten',
-        toolbarColumnsLabel: 'Spalten',
-        toolbarFilters: 'Filter',
-        toolbarFiltersLabel: 'Filter',
-        columnMenuHideColumn: 'Alle verbergen',
-        columnMenuShowColumns: 'Alle anzeigen'
-      }}
+      localeText={lang}
       autoHeight={autoHeight}
       autoPageSize={autoHeight}
       className={classes.root}
