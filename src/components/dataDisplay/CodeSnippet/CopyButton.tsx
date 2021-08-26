@@ -18,18 +18,15 @@ export function CopyButton({ value }: CodeSnippetProps): JSX.Element {
   }
 
   return (
-    <CopyToClipboard text={value}>
-      <Tooltip title={title} aria-label='copy' placement='top'>
-        <button
-          type='button'
-          className={classes.button}
-          onClick={changeText}
-          onMouseLeave={handleUnHover}
-        >
-          <FileCopyIcon fontSize='small' />
-        </button>
-      </Tooltip>
-    </CopyToClipboard>
+    <Tooltip title={title} aria-label='copy' placement='top'>
+      <div onMouseLeave={handleUnHover}>
+        <CopyToClipboard text={value}>
+          <button type='button' className={classes.button} onClick={changeText}>
+            <FileCopyIcon fontSize='small' />
+          </button>
+        </CopyToClipboard>
+      </div>
+    </Tooltip>
   )
 }
 
