@@ -1,7 +1,3 @@
-export interface SectionData {
-  title?: string
-}
-
 export interface SlideProps {
   title: string
   subtitle: string
@@ -10,6 +6,6 @@ export interface SlideProps {
   children?: React.ReactNode
 }
 
-export type SlidesProps<T = SectionData> = T & {
+export interface SlidesProps {
   slides: SlideProps[]
 }
