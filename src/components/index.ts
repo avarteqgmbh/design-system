@@ -71,6 +71,7 @@ import {
   Icon,
   IconButton,
   icons,
+  Slides,
   SvgIcon
 } from './dataDisplay/index'
 
@@ -144,6 +145,7 @@ export {
   Icon,
   IconButton,
   icons,
+  Slides,
   SvgIcon
 }
 export { Backdrop, CircularProgress, LinearProgress, Snackbar }
