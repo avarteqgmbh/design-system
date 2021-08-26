@@ -14,29 +14,32 @@ export function CopyButton({ value }: CodeSnippetProps): JSX.Element {
   }
 
   const handleUnHover = (): void => {
-    setTitle('copy')
+    setTimeout(() => {
+      setTitle('copy')
+    }, 250)
   }
 
   return (
-    <CopyToClipboard text={value}>
-      <Tooltip title={title} aria-label='copy' placement='top'>
-        <button
-          type='button'
-          className={classes.button}
-          onClick={changeText}
-          onMouseLeave={handleUnHover}
-        >
-          <FileCopyIcon fontSize='small' />
-        </button>
+    <div onMouseLeave={handleUnHover}>
+      <Tooltip
+        title={title}
+        aria-label='copy'
+        placement='top'
+        className={classes.root}
+      >
+        <CopyToClipboard text={value}>
+          <button type='button' onClick={changeText}>
+            <FileCopyIcon fontSize='small' />
+          </button>
+        </CopyToClipboard>
       </Tooltip>
-    </CopyToClipboard>
+    </div>
   )
 }
 
 const useStyles = makeStyles(() => {
   return {
-    root: {},
-    button: {
+    root: {
       cursor: 'pointer'
     }
   }
