@@ -134,7 +134,8 @@ export default {
         type: { summary: 'number' },
         defaultValue: { summary: 5 }
       }
-    }
+    },
+    onChange: { action: 'input changed' }
   },
   decorators: [withDesign],
   parameters: {

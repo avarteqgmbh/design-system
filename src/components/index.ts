@@ -61,6 +61,7 @@ import {
 
 import {
   Chip,
+  CodeSnippet,
   List,
   Tooltip,
   Typography,
@@ -70,6 +71,7 @@ import {
   Icon,
   IconButton,
   icons,
+  Slides,
   SvgIcon
 } from './dataDisplay/index'
 
@@ -133,6 +135,7 @@ export {
 }
 export {
   Chip,
+  CodeSnippet,
   List,
   Tooltip,
   Typography,
@@ -142,6 +145,7 @@ export {
   Icon,
   IconButton,
   icons,
+  Slides,
   SvgIcon
 }
 export { Backdrop, CircularProgress, LinearProgress, Snackbar }
