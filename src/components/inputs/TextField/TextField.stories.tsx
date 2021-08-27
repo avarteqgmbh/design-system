@@ -102,7 +102,7 @@ export default {
     },
     variant: {
       control: 'radio',
-      options: ['filled', 'outline', 'standard'],
+      options: ['filled', 'outlined', 'standard'],
       table: {
         type: { summary: 'filled | outlined | standard' }
       }

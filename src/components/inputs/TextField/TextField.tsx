@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) => {
   return {
     root: {
       background: theme.palette.background.default,
-      borderRadius: theme.radius.button,
+      borderRadius: theme.radius.medium,
 
       '& .MuiSvgIcon-root': {
         color: theme.palette.text.primary
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme: Theme) => {
       },
 
       '& .MuiInputBase-root': {
-        borderRadius: theme.radius.button
+        borderRadius: theme.radius.medium
       },
 
       '& fieldset.MuiOutlinedInput-notchedOutline': {
@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme: Theme) => {
 
       '& .MuiOutlinedInput-root': {
         background: 'inherit',
-        borderRadius: theme.radius.button,
+        borderRadius: theme.radius.medium,
         overflow: 'hidden',
         borderColor: theme.palette.background.border,
         borderStyle: 'solid',
