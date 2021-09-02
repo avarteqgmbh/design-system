@@ -1,18 +1,15 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import {
-  Avatar,
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
-  ListItemSecondaryAction,
-  ListProps
-} from '@material-ui/core'
+import { Avatar, ListProps } from '@material-ui/core'
 import ImageIcon from '@material-ui/icons/Image'
 import WorkIcon from '@material-ui/icons/Work'
 
 import { List } from './List'
+import { ListItem } from './ListItem'
+import { ListItemAvatar } from './ListItemAvatar'
+import { ListItemText } from './ListItemText'
+import { ListItemSecondaryAction } from './ListItemSecondaryAction'
 import { Checkbox } from '../../index'
 
 export default {

@@ -5,12 +5,16 @@ import { FloatingActionButton } from './FloatingActionButton/FloatingActionButto
 import { Select } from './Select/Select'
 import { Switch } from './Switch/Switch'
 import { TextField } from './TextField/TextField'
+import { InputAdornment } from './TextField/InputAdornment'
 import { Radio } from './Radio/Radio'
 import { Slider } from './Slider/Slider'
 import { DatePicker } from './Pickers/Date'
 import { TimePicker } from './Pickers/Time'
 import { DateTimePicker } from './Pickers/DateTime'
 import { TransferList } from './TransferList/TransferList'
+import { FormControl } from './FormControl/FormControl'
+import { InputLabel } from './FormControl/InputLabel'
+import { Input } from './FormControl/Input'
 
 export {
   Button,
@@ -19,11 +23,15 @@ export {
   FloatingActionButton,
   Select,
   TextField,
+  InputAdornment,
   Radio,
   Slider,
   Switch,
   DatePicker,
   TimePicker,
   DateTimePicker,
-  TransferList
+  TransferList,
+  FormControl,
+  Input,
+  InputLabel
 }

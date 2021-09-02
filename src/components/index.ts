@@ -5,13 +5,17 @@ import {
   FloatingActionButton,
   Select,
   TextField,
+  InputAdornment,
   Radio,
   Slider,
   Switch,
   TransferList,
   DatePicker,
   TimePicker,
-  DateTimePicker
+  DateTimePicker,
+  FormControl,
+  Input,
+  InputLabel
 } from './inputs/index'
 
 import {
@@ -89,13 +93,17 @@ export {
   FloatingActionButton,
   Select,
   TextField,
+  InputAdornment,
   Radio,
   Slider,
   Switch,
   TransferList,
   DatePicker,
   TimePicker,
-  DateTimePicker
+  DateTimePicker,
+  FormControl,
+  Input,
+  InputLabel
 }
 
 export { Alert, DataGrid, XGrid, Skeleton, Pagination, Badge, Rating }

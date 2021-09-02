@@ -1,8 +1,9 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { TextFieldProps, InputAdornment } from '@material-ui/core'
+import { TextFieldProps } from '@material-ui/core'
 import { TextField } from './TextField'
+import { InputAdornment } from './InputAdornment'
 import ArrowBackRoundedIcon from '@material-ui/icons/ArrowBackRounded'
 import Visibility from '@material-ui/icons/Visibility'
 
