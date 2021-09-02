@@ -76,7 +76,11 @@ import {
   IconButton,
   icons,
   Slides,
-  SvgIcon
+  SvgIcon,
+  ListItem,
+  ListItemAvatar,
+  ListItemText,
+  ListItemSecondaryAction
 } from './dataDisplay/index'
 
 import {
@@ -145,6 +149,10 @@ export {
   Chip,
   CodeSnippet,
   List,
+  ListItem,
+  ListItemAvatar,
+  ListItemText,
+  ListItemSecondaryAction,
   Tooltip,
   Typography,
   Divider,
