@@ -1,16 +1,14 @@
+/* eslint-disable
+  @typescript-eslint/no-explicit-any,
+  @typescript-eslint/explicit-module-boundary-types
+*/
+
 import React from 'react'
-import {
-  ListItem as MuiListItem,
-  ListItemProps as MuiListItemProps,
-  makeStyles
-} from '@material-ui/core'
+import { ListItem as MuiListItem, makeStyles } from '@material-ui/core'
 import { Theme } from '../../../theme/types'
 
-export interface ListItemProps extends Omit<MuiListItemProps, 'button'> {
-  button?: boolean | undefined
-}
-
-export function ListItem(props: ListItemProps): JSX.Element {
+// TODO: Resolve issue with ListItemProps to replace any type usage
+export function ListItem(props: any): JSX.Element {
   const classes = useStyles()
   const { children } = props
   return (
