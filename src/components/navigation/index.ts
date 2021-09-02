@@ -1,6 +1,7 @@
 import { Link } from './Link/Link'
 import { MenuItem } from './Menu/MenuItem'
 import { Menu } from './Menu/Menu'
+import { MenuList } from './Menu/MenuList'
 import { Breadcrumbs } from './Breadcrumbs/Breadcrumbs'
 import { BottomNavigation } from './BottomNavigation/BottomNavigation'
 import { BottomNavigationAction } from './BottomNavigation/BottomNavigationAction'
@@ -31,5 +32,6 @@ export {
   StepLabel,
   StepButton,
   StepContent,
-  MobileStepper
+  MobileStepper,
+  MenuList
 }
