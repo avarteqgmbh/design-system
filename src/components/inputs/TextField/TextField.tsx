@@ -54,7 +54,11 @@ const useStyles = makeStyles((theme: Theme) => {
         transitionProperty: 'background',
         transitionTimingFunction: 'ease-in-out',
 
-        '& MuiInputLabel-root': {
+        '& .MuiOutlinedInput-input.MuiOutlinedInput-inputAdornedStart': {
+          paddingLeft: theme.spacing(3)
+        },
+
+        '& .MuiInputLabel-root': {
           padding: theme.spacing(2, 3),
           background: 'transparent'
         },
@@ -69,12 +73,8 @@ const useStyles = makeStyles((theme: Theme) => {
       },
 
       '& .MuiFormLabel-root.MuiInputLabel-shrink': {
-        background: theme.palette.background.paper,
-        padding: '6px 8px',
-        borderRadius: 20,
         color: theme.palette.text.primary,
-        boxShadow: theme.shadows[2],
-        transform: 'translate(8px, -10px) scale(0.75)'
+        transform: 'translate(16px, 8px) scale(0.75)'
       },
 
       '&:focus-within': {
