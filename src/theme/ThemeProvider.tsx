@@ -4,7 +4,8 @@ import {
   ThemeProviderProps as MuiThemeProviderProps,
   ThemeOptions,
   makeStyles as muiMakeStyles,
-  createTheme
+  createTheme,
+  CssBaseline
 } from '@material-ui/core'
 
 import { Theme } from './types'
@@ -59,3 +60,5 @@ export const ThemeProvider = (props: ThemeProviderProps): JSX.Element => {
 
   return <MuiThemeProvider {...props} theme={createTheme(getTheme())} />
 }
+
+export { CssBaseline }

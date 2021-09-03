@@ -1,5 +1,10 @@
 import { Chip } from './Chip/Chip'
 import { List } from './List/List'
+import { ListItem } from './List/ListItem'
+import { ListItemAvatar } from './List/ListItemAvatar'
+import { ListItemText } from './List/ListItemText'
+import { ListItemIcon } from './List/ListItemIcon'
+import { ListItemSecondaryAction } from './List/ListItemSecondaryAction'
 import { Divider } from './Divider/Divider'
 import { Typography } from './Typography/Typography'
 import { Tooltip } from './Tooltip/Tooltip'
@@ -15,6 +20,11 @@ export {
   Chip,
   CodeSnippet,
   List,
+  ListItem,
+  ListItemAvatar,
+  ListItemText,
+  ListItemSecondaryAction,
+  ListItemIcon,
   Tooltip,
   Typography,
   Divider,

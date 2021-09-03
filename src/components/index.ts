@@ -5,17 +5,22 @@ import {
   FloatingActionButton,
   Select,
   TextField,
+  InputAdornment,
   Radio,
   Slider,
   Switch,
   TransferList,
   DatePicker,
   TimePicker,
-  DateTimePicker
+  DateTimePicker,
+  FormControl,
+  Input,
+  InputLabel
 } from './inputs/index'
 
 import {
   Alert,
+  AlertTitle,
   DataGrid,
   XGrid,
   Skeleton,
@@ -28,6 +33,7 @@ import {
   Link,
   MenuItem,
   Menu,
+  MenuList,
   Breadcrumbs,
   BottomNavigation,
   BottomNavigationAction,
@@ -72,7 +78,12 @@ import {
   IconButton,
   icons,
   Slides,
-  SvgIcon
+  SvgIcon,
+  ListItem,
+  ListItemIcon,
+  ListItemAvatar,
+  ListItemText,
+  ListItemSecondaryAction
 } from './dataDisplay/index'
 
 import {
@@ -89,21 +100,35 @@ export {
   FloatingActionButton,
   Select,
   TextField,
+  InputAdornment,
   Radio,
   Slider,
   Switch,
   TransferList,
   DatePicker,
   TimePicker,
-  DateTimePicker
+  DateTimePicker,
+  FormControl,
+  Input,
+  InputLabel
 }
 
-export { Alert, DataGrid, XGrid, Skeleton, Pagination, Badge, Rating }
+export {
+  Alert,
+  AlertTitle,
+  DataGrid,
+  XGrid,
+  Skeleton,
+  Pagination,
+  Badge,
+  Rating
+}
 
 export {
   Link,
   MenuItem,
   Menu,
+  MenuList,
   Breadcrumbs,
   BottomNavigation,
   BottomNavigationAction,
@@ -137,6 +162,11 @@ export {
   Chip,
   CodeSnippet,
   List,
+  ListItem,
+  ListItemIcon,
+  ListItemAvatar,
+  ListItemText,
+  ListItemSecondaryAction,
   Tooltip,
   Typography,
   Divider,

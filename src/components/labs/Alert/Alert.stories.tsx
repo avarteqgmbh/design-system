@@ -1,8 +1,9 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { AlertProps, AlertTitle } from '@material-ui/lab'
+import { AlertProps } from '@material-ui/lab'
 import { Alert } from './Alert'
+import { AlertTitle } from './AlertTitle'
 import { Button } from '../../index'
 
 export default {
