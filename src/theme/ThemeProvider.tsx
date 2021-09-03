@@ -18,6 +18,8 @@ import { theme as boschDark } from './themes/boschDark'
 import { theme as santander } from './themes/santander/index'
 import { theme as siemens } from './themes/siemens'
 import { theme as siemensDark } from './themes/siemensDark'
+import { theme as hyundai } from './themes/hyundai'
+import { theme as kia } from './themes/kia'
 
 export type CustomThemeName =
   | 'anynines'
@@ -26,6 +28,8 @@ export type CustomThemeName =
   | 'toyota'
   | 'bosch'
   | 'bosch-dark'
+  | 'hyundai'
+  | 'kia'
   | 'santander'
   | 'siemens'
   | 'siemens-dark'
@@ -40,9 +44,12 @@ const THEMES: { [key in CustomThemeName]: ThemeOptions } = {
   bosch,
   'bosch-dark': boschDark,
   santander,
+  hyundai,
+  kia,
   siemens,
   'siemens-dark': siemensDark
 }
+
 export interface ThemeProviderProps
   extends Omit<MuiThemeProviderProps, 'theme'> {
   theme?: Theme | CustomThemeName
