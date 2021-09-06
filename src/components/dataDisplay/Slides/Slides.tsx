@@ -32,7 +32,7 @@ export const Slides: React.FC<SlidesProps> = (props) => {
 
   return (
     <Grid container className={classes.root}>
-      <Grid sm={9}>
+      <Grid item sm={9}>
         <Paper className={classes.slideContainer}>
           <Slide
             src={slides[currentSlideIndex].src}
@@ -42,7 +42,7 @@ export const Slides: React.FC<SlidesProps> = (props) => {
           </Slide>
         </Paper>
       </Grid>
-      <Grid className={classes.slides} sm={3}>
+      <Grid item className={classes.slides} sm={3}>
         {slides.map((slide, index) => {
           return (
             <SlideItem
