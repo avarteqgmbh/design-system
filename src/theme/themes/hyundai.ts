@@ -133,13 +133,14 @@ const palette = {
 // --------------------------------------------
 // T Y P O G R A P H Y
 // ------------------
-const FONT_FAMILY_HEADLINE = 'NeoSansPro Bold'
-const FONT_FAMILY_BODY = 'NeoSansPro Regular'
-const FONT_FAMILY_BUTTON = 'NeoSansPro Medium'
+// HyundaiSansHead Medium
+const FONT_FAMILY_HEADLINE = 'HyundaiSansHead Medium'
+const FONT_FAMILY_BODY = 'HyundaiSansHead Regular'
+const FONT_FAMILY_BUTTON = 'HyundaiSansHead Medium'
 
-const FONT_WEIGHT_HEADLINE = 700
+const FONT_WEIGHT_HEADLINE = 500
 const FONT_WEIGHT_BODY = 400
-const FONT_WEIGHT_BUTTON = 700
+const FONT_WEIGHT_BUTTON = 500
 
 const LINE_HEIGHT_HEADLINE = 1.15
 const LINE_HEIGHT_BODY = 1.5
