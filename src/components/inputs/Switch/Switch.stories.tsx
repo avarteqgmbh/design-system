@@ -76,7 +76,12 @@ export default {
       control: { type: 'text' },
       table: { type: { summary: 'string' } }
     },
-    onChange: { action: 'checked' }
+    onChange: {
+      action: { type: 'changed' },
+      table: {
+        type: { summary: 'func' }
+      }
+    }
   },
   decorators: [withDesign],
   parameters: {

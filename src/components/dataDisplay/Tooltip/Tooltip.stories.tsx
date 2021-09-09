@@ -123,6 +123,18 @@ export default {
         type: { summary: 'number' },
         defaultValue: { summary: 100 }
       }
+    },
+    onClose: {
+      action: { type: 'closed' },
+      table: {
+        type: { summary: 'func' }
+      }
+    },
+    onOpen: {
+      action: { type: 'opended' },
+      table: {
+        type: { summary: 'func' }
+      }
     }
   },
   decorators: [withDesign],

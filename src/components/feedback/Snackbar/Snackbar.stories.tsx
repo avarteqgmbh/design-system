@@ -40,6 +40,12 @@ export default {
       table: {
         type: { summary: 'number' }
       }
+    },
+    onClose: {
+      action: { type: 'closed' },
+      table: {
+        type: { summary: 'func' }
+      }
     }
   },
   decorators: [withDesign],

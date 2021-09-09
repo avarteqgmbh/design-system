@@ -68,6 +68,18 @@ export default {
       table: {
         type: { summary: 'number' }
       }
+    },
+    onChange: {
+      action: { type: 'changed' },
+      table: {
+        type: { summary: 'func' }
+      }
+    },
+    onChangeActive: {
+      action: { type: 'active changed' },
+      table: {
+        type: { summary: 'func' }
+      }
     }
   },
   decorators: [withDesign],
