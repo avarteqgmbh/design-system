@@ -12,9 +12,9 @@ export interface TabsProps extends Omit<MuiTabsProps, 'onChange'> {
 
 export function Tabs(props: TabsProps): JSX.Element {
   const classes = useStyles()
-  const { children } = props
+  const { children, className } = props
   return (
-    <MuiTabs className={classes.root} {...props}>
+    <MuiTabs className={`${classes.root} ${className}`} {...props}>
       {children}
     </MuiTabs>
   )
