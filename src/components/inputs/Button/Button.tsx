@@ -1,6 +1,5 @@
 import React from 'react'
 import { Button as MuiButton, makeStyles, ButtonProps } from '@material-ui/core'
-
 import { Theme } from '../../../theme/types'
 
 export function Button(props: ButtonProps): JSX.Element {
@@ -13,10 +12,8 @@ export function Button(props: ButtonProps): JSX.Element {
         label: classes.label,
         text: classes.text,
         textPrimary: classes.textPrimary,
-        textSecondary: classes.textSecondary,
         outlined: classes.outlined,
         outlinedPrimary: classes.outlinedPrimary,
-        outlinedSecondary: classes.outlinedSecondary,
         contained: classes.contained,
         containedPrimary: classes.containedPrimary,
         containedSecondary: classes.containedSecondary,
@@ -31,7 +28,7 @@ export function Button(props: ButtonProps): JSX.Element {
   )
 }
 
-const useStyles = makeStyles<Theme>((theme) => {
+const useStyles = makeStyles((theme: Theme) => {
   return {
     root: {
       display: 'flex',
@@ -100,6 +97,7 @@ const useStyles = makeStyles<Theme>((theme) => {
       color: theme.palette.common.white,
       borderColor: theme.palette.primary.light,
       '&:hover': {
+        color: theme.palette.common.white,
         background: theme.palette.primary.dark
       }
     },

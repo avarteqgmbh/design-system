@@ -199,11 +199,11 @@ const spacing = [0, 4, 8, 12, 16, 24, 32, 40, 60, 80, 120, 160]
 
 const radius = {
   none: 0,
-  small: 0,
-  medium: 0,
-  large: 0,
-  button: 0,
-  card: 0
+  small: 2,
+  medium: 4,
+  large: 8,
+  button: 4,
+  card: 8
 }
 
 export const theme = {
