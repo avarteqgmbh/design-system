@@ -1,7 +1,7 @@
 import { GridLocaleText } from '@material-ui/x-grid'
 
 export const GRID_DE_LOCALE_TEXT: GridLocaleText = {
-  noRowsLabel: 'Keine Reihen',
+  noRowsLabel: 'Keine Daten vorhanden',
   noResultsOverlayLabel: 'Keine Ergebnisse gefunden.',
   errorOverlayDefaultLabel: 'Ein Fehler ist aufgetreten.',
 
@@ -22,7 +22,7 @@ export const GRID_DE_LOCALE_TEXT: GridLocaleText = {
   toolbarFiltersTooltipHide: 'Verstecke Filter',
   toolbarFiltersTooltipShow: 'Zeige Filter',
   toolbarFiltersTooltipActive: (count) => {
-    return count !== 1 ? `${count} aktive Filter` : `${count} aktive Filter`
+    return count !== 1 ? `${count} aktive Filter` : `${count} aktiver Filter`
   },
 
   // Export selector toolbar button text
@@ -31,7 +31,7 @@ export const GRID_DE_LOCALE_TEXT: GridLocaleText = {
   toolbarExportCSV: 'Als CSV herunterladen',
 
   // Columns panel text
-  columnsPanelTextFieldLabel: 'Finde Spalten',
+  columnsPanelTextFieldLabel: 'Spalten finden',
   columnsPanelTextFieldPlaceholder: 'Spalten Titel',
   columnsPanelDragIconLabel: 'Spalten umsortieren',
   columnsPanelShowAllButton: 'Zeige alle',
@@ -56,13 +56,13 @@ export const GRID_DE_LOCALE_TEXT: GridLocaleText = {
   filterOperatorNot: 'ist nicht',
   filterOperatorAfter: 'ist nach',
   filterOperatorOnOrAfter: 'ist auf oder nach',
-  filterOperatorBefore: 'ist dannach',
-  filterOperatorOnOrBefore: 'ist auf oder dannach',
+  filterOperatorBefore: 'ist danach',
+  filterOperatorOnOrBefore: 'ist auf oder danach',
   filterOperatorIsEmpty: 'ist leer',
   filterOperatorIsNotEmpty: 'ist nicht leer',
 
   // Filter values text
-  filterValueAny: 'any',
+  filterValueAny: 'irgendwas',
   filterValueTrue: 'wahr',
   filterValueFalse: 'falsch',
 
@@ -71,13 +71,13 @@ export const GRID_DE_LOCALE_TEXT: GridLocaleText = {
   columnMenuShowColumns: 'Zeige Spalten',
   columnMenuFilter: 'Filter',
   columnMenuHideColumn: 'Verstecken',
-  columnMenuUnsort: 'Unsortieren',
-  columnMenuSortAsc: 'Sort by ASC',
-  columnMenuSortDesc: 'Sort by DESC',
+  columnMenuUnsort: 'Sortierung aufheben',
+  columnMenuSortAsc: 'Aufsteigend sortieren',
+  columnMenuSortDesc: 'Absteigend sortieren',
 
   // Column header text
   columnHeaderFiltersTooltipActive: (count) => {
-    return count !== 1 ? `${count} aktive Filter` : `${count} aktive Filter`
+    return count !== 1 ? `${count} aktive Filter` : `${count} aktiver Filter`
   },
 
   columnHeaderFiltersLabel: 'Zeige Filter',
