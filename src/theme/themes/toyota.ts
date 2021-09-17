@@ -133,8 +133,8 @@ const palette = {
 // --------------------------------------------
 // T Y P O G R A P H Y
 // ------------------
-const FONT_FAMILY_HEADLINE = 'Toyota Type'
-const FONT_FAMILY_BODY = 'Toyota Type'
+const FONT_FAMILY_HEADLINE = 'Bold'
+const FONT_FAMILY_BODY = 'Regular'
 
 const FONT_WEIGHT_HEADLINE = 700
 const FONT_WEIGHT_BODY = 400
