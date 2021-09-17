@@ -2,6 +2,8 @@ import React from 'react'
 import {
   XGrid as MuiXGrid,
   XGridProps as MuiXGridProps,
+  getGridNumericColumnOperators,
+  getGridStringOperators,
   GridToolbar
 } from '@material-ui/x-grid'
 import { makeStyles } from '@material-ui/core'
@@ -43,3 +45,5 @@ const useStyles = makeStyles<Theme>(() => {
     root: {}
   }
 })
+
+export { getGridNumericColumnOperators, getGridStringOperators }
