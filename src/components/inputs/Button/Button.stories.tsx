@@ -24,7 +24,12 @@ export default {
       options: ['contained', 'outlined', 'text'],
       defaultValue: 'contained'
     },
-    onClick: { action: { type: 'clicked' } }
+    onClick: {
+      action: { type: 'clicked' },
+      table: {
+        type: { summary: 'func' }
+      }
+    }
   },
   decorators: [withDesign],
   parameters: {

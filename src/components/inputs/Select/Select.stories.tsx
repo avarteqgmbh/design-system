@@ -85,6 +85,30 @@ export default {
         type: { summary: 'filled | outlined | standard' },
         defaultValue: { summary: 'outlined' }
       }
+    },
+    onChange: {
+      action: { type: 'changed' },
+      table: {
+        type: { summary: 'func' }
+      }
+    },
+    onClose: {
+      action: { type: 'closed' },
+      table: {
+        type: { summary: 'func' }
+      }
+    },
+    onOpen: {
+      action: { type: 'opended' },
+      table: {
+        type: { summary: 'func' }
+      }
+    },
+    renderValue: {
+      action: { type: 'render value' },
+      table: {
+        type: { summary: 'func' }
+      }
     }
   },
   decorators: [withDesign],

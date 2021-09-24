@@ -70,7 +70,7 @@ export default {
       }
     },
     onClose: {
-      control: { type: 'function' },
+      action: { type: 'closed' },
       table: {
         type: { summary: 'function' }
       }
