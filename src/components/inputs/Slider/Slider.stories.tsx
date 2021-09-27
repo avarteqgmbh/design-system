@@ -83,6 +83,12 @@ export default {
         type: { summary: 'select' },
         defaultValue: { summary: 'horizontal' }
       }
+    },
+    onChange: {
+      action: { type: 'changed' },
+      table: {
+        type: { summary: 'func' }
+      }
     }
   },
   decorators: [withDesign],

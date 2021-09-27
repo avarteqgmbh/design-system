@@ -34,13 +34,15 @@ export default {
   component: BottomNavigation,
   args: {
     showLabels: {
-      control: { type: 'node' },
+      control: { type: 'boolean' },
+      defaultValue: false,
       table: {
-        type: { summary: 'node' }
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false }
       }
     },
     onChange: {
-      control: { type: 'func' },
+      action: { type: 'changed' },
       table: {
         type: { summary: 'func' }
       }

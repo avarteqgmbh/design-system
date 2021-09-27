@@ -136,7 +136,12 @@ export default {
         defaultValue: { summary: 5 }
       }
     },
-    onChange: { action: 'input changed' }
+    onChange: {
+      action: { type: 'input changed' },
+      table: {
+        type: { summary: 'func' }
+      }
+    }
   },
   decorators: [withDesign],
   parameters: {

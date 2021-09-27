@@ -45,7 +45,10 @@ export default {
       }
     },
     onChange: {
-      action: { argTypesRegex: '^on.*' }
+      action: { type: 'changed' },
+      table: {
+        type: { summary: 'func' }
+      }
     }
   },
   decorators: [withDesign],

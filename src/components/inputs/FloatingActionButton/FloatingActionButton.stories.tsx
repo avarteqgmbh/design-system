@@ -12,7 +12,14 @@ import { FloatingActionButton as Fab } from './FloatingActionButton'
 export default {
   title: 'Inputs/Floating Action Button',
   component: Fab,
-  argTypes: {},
+  argTypes: {
+    onClick: {
+      action: { type: 'clicked' },
+      table: {
+        type: { summary: 'func' }
+      }
+    }
+  },
   decorators: [
     (Component): JSX.Element => {
       return (

@@ -18,9 +18,9 @@ export default {
       }
     },
     showLabel: {
-      control: { type: 'node' },
+      control: { type: 'boolean' },
       table: {
-        type: { summary: 'node' }
+        type: { summary: 'boolean' }
       }
     },
     selected: {

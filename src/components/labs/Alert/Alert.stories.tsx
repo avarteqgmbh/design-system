@@ -48,6 +48,12 @@ export default {
         type: { summary: 'filled | outlined | standard' },
         defaultValue: { summary: 'standard' }
       }
+    },
+    onClose: {
+      action: { type: 'closed' },
+      table: {
+        type: { summary: 'func' }
+      }
     }
   },
   decorators: [withDesign],

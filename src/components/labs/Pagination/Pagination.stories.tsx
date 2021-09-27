@@ -121,6 +121,12 @@ export default {
         type: { summary: 'outlined | text' },
         defaultValue: { summary: 'outlined' }
       }
+    },
+    onChange: {
+      action: { type: 'changed' },
+      table: {
+        type: { summary: 'func' }
+      }
     }
   },
   decorators: [withDesign],
