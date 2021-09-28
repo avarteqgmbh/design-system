@@ -1,7 +1,7 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { HiddenProps } from '@material-ui/core'
+import { HiddenProps } from '@mui/material'
 import { Hidden } from './Hidden'
 import { Paper } from '../../index'
 

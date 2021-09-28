@@ -1,9 +1,9 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { ButtonProps } from '@material-ui/core'
+import { ButtonProps } from '@mui/material'
 import { Button } from './Button'
-import WbSunnyIcon from '@material-ui/icons/WbSunny'
+import WbSunnyIcon from '@mui/icons-material/WbSunny'
 
 export default {
   title: 'Inputs/Button',

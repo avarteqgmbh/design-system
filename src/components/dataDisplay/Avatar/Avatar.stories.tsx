@@ -1,14 +1,16 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { AvatarProps, makeStyles } from '@material-ui/core'
-import { Theme, createStyles } from '@material-ui/core/styles'
-import { deepOrange, deepPurple, pink, green } from '@material-ui/core/colors'
+import { AvatarProps } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
+import { Theme } from '@mui/material/styles';
+import createStyles from '@mui/styles/createStyles';
+import { deepOrange, deepPurple, pink, green } from '@mui/material/colors'
 import {
   Folder as FolderIcon,
   Pageview as PageviewIcon,
   Assignment as AssignmentIcon
-} from '@material-ui/icons'
+} from '@mui/icons-material'
 
 import { Avatar } from './Avatar'
 import { AvatarGroup } from './AvatarGroup'

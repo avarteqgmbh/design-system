@@ -1,12 +1,12 @@
 import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
-import { FabProps } from '@material-ui/core'
+import { FabProps } from '@mui/material'
 import {
   Add as AddIcon,
   Navigation as NavigationIcon,
   Favorite as FavoriteIcon
-} from '@material-ui/icons'
+} from '@mui/icons-material'
 import { FloatingActionButton as Fab } from './FloatingActionButton'
 
 export default {

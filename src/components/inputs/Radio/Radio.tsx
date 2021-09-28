@@ -1,4 +1,4 @@
-import { Radio as MuiRadio, RadioProps } from '@material-ui/core'
+import { Radio as MuiRadio, RadioProps } from '@mui/material'
 import React from 'react'
 
 export function Radio(props: RadioProps): JSX.Element {

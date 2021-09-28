@@ -1,7 +1,7 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { BackdropProps } from '@material-ui/core'
+import { BackdropProps } from '@mui/material'
 import { Button, CircularProgress } from '../../index'
 import { Backdrop } from './Backdrop'
 

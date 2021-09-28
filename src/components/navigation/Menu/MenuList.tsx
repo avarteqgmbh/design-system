@@ -1,9 +1,6 @@
 import React from 'react'
-import {
-  MenuList as MuiMenuList,
-  MenuListProps,
-  makeStyles
-} from '@material-ui/core'
+import { MenuList as MuiMenuList, MenuListProps } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { Theme } from '../../../theme/types'
 
 export function MenuList(props: MenuListProps): JSX.Element {

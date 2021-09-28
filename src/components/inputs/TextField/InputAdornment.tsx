@@ -2,8 +2,9 @@ import React from 'react'
 import {
   InputAdornment as MuiInputAdornment,
   InputAdornmentProps as MuiInputAdornmentProps,
-  makeStyles
-} from '@material-ui/core'
+} from '@mui/material';
+
+import makeStyles from '@mui/styles/makeStyles';
 
 export function InputAdornment(props: MuiInputAdornmentProps): JSX.Element {
   const classes = useStyles()

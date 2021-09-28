@@ -1,10 +1,10 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { ChipProps, Avatar } from '@material-ui/core'
+import { ChipProps, Avatar } from '@mui/material'
 import { Chip } from './Chip'
-import FaceIcon from '@material-ui/icons/Face'
-import DoneIcon from '@material-ui/icons/Done'
+import FaceIcon from '@mui/icons-material/Face'
+import DoneIcon from '@mui/icons-material/Done'
 
 export default {
   title: 'Data Display/Chip',

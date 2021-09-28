@@ -1,5 +1,7 @@
 import React from 'react'
-import { Icon as MuiIcon, IconProps, makeStyles } from '@material-ui/core'
+import { Icon as MuiIcon, IconProps } from '@mui/material';
+
+import makeStyles from '@mui/styles/makeStyles';
 
 import { Theme } from '../../../theme/types'
 
@@ -24,4 +26,4 @@ const useStyles = makeStyles<Theme>(() => {
   }
 })
 
-export * as icons from '@material-ui/icons'
+export * as icons from '@mui/icons-material'

@@ -1,13 +1,9 @@
 import {
   Color,
   Theme as MuiTheme,
-  ThemeOptions as MuiThemeOptions
-} from '@material-ui/core'
-import {
-  Palette as MuiPalette,
-  PaletteColor,
-  TypeBackground
-} from '@material-ui/core/styles/createPalette'
+  DeprecatedThemeOptions as MuiThemeOptions
+} from '@mui/material'
+import { Palette as MuiPalette, PaletteColor, TypeBackground } from '@mui/material/styles';
 
 export interface Background extends TypeBackground {
   light?: string
@@ -49,7 +45,7 @@ export interface Theme extends MuiTheme {
   palette: Palette
   radius: Radius
 }
-export interface ThemeOptions extends MuiThemeOptions {
+export interface DeprecatedThemeOptions extends MuiThemeOptions {
   palette: Palette
   radius: Radius
 }

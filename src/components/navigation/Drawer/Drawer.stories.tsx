@@ -12,13 +12,10 @@ import {
   Typography,
   Divider,
   IconButton
-} from '@material-ui/core'
-import {
-  makeStyles,
-  Theme,
-  createStyles,
-  useTheme
-} from '@material-ui/core/styles'
+} from '@mui/material'
+import { Theme, useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import createStyles from '@mui/styles/createStyles';
 import clsx from 'clsx'
 import {
   Mail as MailIcon,
@@ -26,7 +23,7 @@ import {
   ChevronLeft as ChevronLeftIcon,
   ChevronRight as ChevronRightIcon,
   Menu as MenuIcon
-} from '@material-ui/icons'
+} from '@mui/icons-material'
 
 import { Drawer } from './Drawer'
 import { Button } from '../../inputs/Button/Button'
@@ -305,7 +302,7 @@ export const PersistentDrawer: Story<DrawerProps> = (args): JSX.Element => {
             onClick={handleDrawerOpen}
             edge='start'
             className={clsx(classes.menuButton, open && classes.hide)}
-          >
+            size="large">
             <MenuIcon />
           </IconButton>
           <Typography variant='h6' noWrap>
@@ -324,7 +321,7 @@ export const PersistentDrawer: Story<DrawerProps> = (args): JSX.Element => {
         }}
       >
         <div className={classes.drawerHeader}>
-          <IconButton onClick={handleDrawerClose}>
+          <IconButton onClick={handleDrawerClose} size="large">
             {theme.direction === 'ltr' ? (
               <ChevronLeftIcon />
             ) : (
@@ -354,5 +351,5 @@ export const PersistentDrawer: Story<DrawerProps> = (args): JSX.Element => {
         <div className={classes.drawerHeader} />
       </main>
     </div>
-  )
+  );
 }

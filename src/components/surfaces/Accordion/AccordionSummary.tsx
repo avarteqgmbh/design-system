@@ -1,9 +1,6 @@
 import React from 'react'
-import {
-  AccordionSummary as MuiAccordionSummary,
-  AccordionSummaryProps,
-  makeStyles
-} from '@material-ui/core'
+import { AccordionSummary as MuiAccordionSummary, AccordionSummaryProps } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { Theme } from '../../../theme/types'
 
 export function AccordionSummary(props: AccordionSummaryProps): JSX.Element {

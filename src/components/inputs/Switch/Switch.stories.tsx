@@ -1,10 +1,10 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { SwitchProps } from '@material-ui/core'
+import { SwitchProps } from '@mui/material'
 import { Switch } from './Switch'
-import CancelIcon from '@material-ui/icons/Cancel'
-import CheckCircleIcon from '@material-ui/icons/CheckCircle'
+import CancelIcon from '@mui/icons-material/Cancel'
+import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 
 export default {
   title: 'Inputs/Switch',

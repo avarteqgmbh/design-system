@@ -1,11 +1,11 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { TextFieldProps } from '@material-ui/core'
+import { TextFieldProps } from '@mui/material'
 import { TextField } from './TextField'
 import { InputAdornment } from './InputAdornment'
-import ArrowBackRoundedIcon from '@material-ui/icons/ArrowBackRounded'
-import Visibility from '@material-ui/icons/Visibility'
+import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded'
+import Visibility from '@mui/icons-material/Visibility'
 
 export default {
   title: 'Inputs/TextField',

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { SkeletonProps } from '@material-ui/lab'
+import { SkeletonProps } from '@mui/lab'
 import { Skeleton } from './Skeleton'
 import { Box, Avatar, Typography } from '../../index'
 
@@ -74,7 +74,7 @@ export const Loading: Story<SkeletonProps> = (args) => {
     <div>
       <Box display='flex' alignItems='center'>
         <Box margin={1}>
-          <Skeleton {...args} variant='circle'>
+          <Skeleton {...args} variant="circular">
             <Avatar />
           </Skeleton>
         </Box>
@@ -84,9 +84,9 @@ export const Loading: Story<SkeletonProps> = (args) => {
           </Skeleton>
         </Box>
       </Box>
-      <Skeleton {...args} variant='rect' width='100%'>
+      <Skeleton {...args} variant="rectangular" width='100%'>
         <div style={{ paddingTop: '57%' }} />
       </Skeleton>
     </div>
-  )
+  );
 }

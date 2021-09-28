@@ -1,6 +1,6 @@
 import React from 'react'
 import { SlideProps } from './types'
-import { makeStyles } from '@material-ui/core'
+import makeStyles from '@mui/styles/makeStyles';
 import { Theme } from '../../../theme/types'
 import { Typography } from '../Typography/Typography'
 import { Grid } from '../../layout/index'

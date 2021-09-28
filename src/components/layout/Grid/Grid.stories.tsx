@@ -1,7 +1,7 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { GridProps } from '@material-ui/core'
+import { GridProps } from '@mui/material'
 import { Grid } from './Grid'
 import { Paper } from '../../index'
 

@@ -1,13 +1,13 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { AccordionProps, Divider } from '@material-ui/core'
+import { AccordionProps, Divider } from '@mui/material'
 
 import { Accordion } from './Accordion'
 import { AccordionActions } from './AccordionActions'
 import { AccordionDetails } from './AccordionDetails'
 import { AccordionSummary } from './AccordionSummary'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { Button } from '../../index'
 
 export default {

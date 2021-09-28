@@ -4,7 +4,7 @@ import {
   XGridProps as MuiXGridProps,
   GridToolbar
 } from '@material-ui/x-grid'
-import { makeStyles } from '@material-ui/core'
+import makeStyles from '@mui/styles/makeStyles';
 import { Theme } from '../../../theme/types'
 import { GRID_DE_LOCALE_TEXT } from './locales'
 

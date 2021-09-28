@@ -1,7 +1,7 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { ContainerProps } from '@material-ui/core'
+import { ContainerProps } from '@mui/material'
 import { Typography } from '../../index'
 import { Container } from './Container'
 

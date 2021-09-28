@@ -1,5 +1,6 @@
 import React from 'react'
-import { Badge as MuiBadge, BadgeProps, makeStyles } from '@material-ui/core'
+import { Badge as MuiBadge, BadgeProps } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { Theme } from '../../../theme/types'
 
 export function Badge(props: BadgeProps): JSX.Element {

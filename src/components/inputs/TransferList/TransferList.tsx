@@ -1,6 +1,8 @@
 import React from 'react'
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles'
-import { CheckboxProps } from '@material-ui/core'
+import { Theme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import createStyles from '@mui/styles/createStyles';
+import { CheckboxProps } from '@mui/material'
 import { Button } from '../Button/Button'
 import { Grid } from '../../layout/index'
 import { CustomList } from './CustomList'
@@ -111,7 +113,7 @@ export function TransferList({
     <Grid
       container
       spacing={2}
-      justify='center'
+      justifyContent='center'
       alignItems='center'
       className={classes.root}
     >
@@ -163,7 +165,7 @@ export function TransferList({
         />
       </Grid>
     </Grid>
-  )
+  );
 }
 
 const useStyles = makeStyles((theme: Theme) => {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { PaperProps } from '@material-ui/core'
+import { PaperProps } from '@mui/material'
 import { Paper } from './Paper'
 
 export default {

@@ -2,8 +2,8 @@ import React from 'react'
 import {
   LinearProgress as MuiLinearProgress,
   LinearProgressProps as MuiLinearProgressProps,
-  makeStyles
-} from '@material-ui/core'
+} from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { Theme } from '../../../theme/types'
 
 export function LinearProgress(props: MuiLinearProgressProps): JSX.Element {

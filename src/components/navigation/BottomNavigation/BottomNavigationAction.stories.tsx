@@ -2,10 +2,10 @@ import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { BottomNavigationAction } from './BottomNavigationAction'
-import { BottomNavigationActionProps } from '@material-ui/core'
-import RestoreIcon from '@material-ui/icons/Restore'
-import FavoriteIcon from '@material-ui/icons/Favorite'
-import LocationOnIcon from '@material-ui/icons/LocationOn'
+import { BottomNavigationActionProps } from '@mui/material'
+import RestoreIcon from '@mui/icons-material/Restore'
+import FavoriteIcon from '@mui/icons-material/Favorite'
+import LocationOnIcon from '@mui/icons-material/LocationOn'
 
 export default {
   title: 'Navigation/BottomNavigationAction',

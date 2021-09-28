@@ -1,12 +1,14 @@
 import React from 'react'
 import {
   ThemeProvider as MuiThemeProvider,
-  ThemeOptions,
-  makeStyles as muiMakeStyles,
+  StyledEngineProvider,
+  DeprecatedThemeOptions,
   createTheme,
-  CssBaseline
-} from '@material-ui/core'
-import { ThemeProviderProps as MuiThemeProviderProps } from '@material-ui/core/styles/ThemeProvider'
+  CssBaseline,
+  adaptV4Theme,
+} from '@mui/material';
+import muiMakeStyles from '@mui/styles/makeStyles';
+import { ThemeProviderProps as MuiThemeProviderProps } from '@mui/material/styles';
 
 import { Theme } from './types'
 import { theme as anynines } from './theme'
@@ -20,6 +22,13 @@ import { theme as siemens } from './themes/siemens'
 import { theme as siemensDark } from './themes/siemensDark'
 import { theme as hyundai } from './themes/hyundai'
 import { theme as kia } from './themes/kia'
+
+
+declare module '@mui/styles/defaultTheme' {
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  interface DefaultTheme extends Theme {}
+}
+
 
 export type CustomThemeName =
   | 'anynines'
@@ -36,7 +45,7 @@ export type CustomThemeName =
 
 export const makeStyles = muiMakeStyles
 
-const THEMES: { [key in CustomThemeName]: ThemeOptions } = {
+const THEMES: { [key in CustomThemeName]: DeprecatedThemeOptions } = {
   anynines,
   'anynines-dark': anyninesDark,
   toyota,
@@ -58,14 +67,18 @@ export interface ThemeProviderProps
 export const ThemeProvider = (props: ThemeProviderProps): JSX.Element => {
   const { theme = 'anynines' } = props
 
-  function getTheme(): ThemeOptions {
+  function getTheme(): DeprecatedThemeOptions {
     if (typeof theme === 'string') {
       return THEMES[theme]
     }
     return theme
   }
 
-  return <MuiThemeProvider {...props} theme={createTheme(getTheme())} />
+  return (
+    <StyledEngineProvider injectFirst>
+      <MuiThemeProvider {...props} theme={createTheme(adaptV4Theme(getTheme()))} />
+    </StyledEngineProvider>
+  );
 }
 
 export { CssBaseline }

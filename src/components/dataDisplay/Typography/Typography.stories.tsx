@@ -1,7 +1,7 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { TypographyProps } from '@material-ui/core'
+import { TypographyProps } from '@mui/material'
 import { Typography } from './Typography'
 
 export default {

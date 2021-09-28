@@ -1,5 +1,6 @@
 import React from 'react'
-import { makeStyles, Slide as MuiSlide } from '@material-ui/core'
+import { Slide as MuiSlide } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { Theme } from '../../../theme/types'
 import { Link } from '../../navigation/index'
 

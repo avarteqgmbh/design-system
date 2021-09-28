@@ -3,7 +3,7 @@ import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 
 import { Menu } from './Menu'
-import { MenuProps } from '@material-ui/core'
+import { MenuProps } from '@mui/material'
 import { MenuItem } from './MenuItem'
 
 import { Button } from '../../index'

@@ -1,17 +1,14 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { StepperProps, MobileStepperProps } from '@material-ui/core'
-import {
-  makeStyles,
-  Theme,
-  createStyles,
-  useTheme
-} from '@material-ui/core/styles'
+import { StepperProps, MobileStepperProps } from '@mui/material'
+import { Theme, useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import createStyles from '@mui/styles/createStyles';
 import {
   KeyboardArrowLeft as KeyboardArrowLeftIcon,
   KeyboardArrowRight as KeyboardArrowRightIcon
-} from '@material-ui/icons'
+} from '@mui/icons-material'
 import {
   Stepper,
   Step,

@@ -1,9 +1,7 @@
 import React from 'react'
-import {
-  InputLabel as MuiInputLabel,
-  InputLabelProps as MuiInputLabelProps,
-  makeStyles
-} from '@material-ui/core'
+import { InputLabel as MuiInputLabel, InputLabelProps as MuiInputLabelProps } from '@mui/material';
+
+import makeStyles from '@mui/styles/makeStyles';
 
 export function InputLabel(props: MuiInputLabelProps): JSX.Element {
   const classes = useStyles()

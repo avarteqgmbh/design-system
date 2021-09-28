@@ -1,8 +1,10 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { loadCSS } from 'fg-loadcss'
-import { Theme, createStyles, makeStyles } from '@material-ui/core/styles'
-import { SvgIconProps, IconProps, IconButtonProps } from '@material-ui/core'
+import { Theme } from '@mui/material/styles';
+import createStyles from '@mui/styles/createStyles';
+import makeStyles from '@mui/styles/makeStyles';
+import { SvgIconProps, IconProps, IconButtonProps } from '@mui/material'
 
 import { Icon, icons } from './Icon'
 import { SvgIcon } from './SvgIcon'
@@ -108,10 +110,10 @@ export const CustomIcon: Story<SvgIconProps> = (args): JSX.Element => {
 
 export const ButtonWithIcon: Story<IconButtonProps> = (args): JSX.Element => {
   return (
-    <IconButton aria-label='delete' {...args}>
+    <IconButton aria-label='delete' {...args} size="large">
       <SvgIcon>
         <path d='M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z' />
       </SvgIcon>
     </IconButton>
-  )
+  );
 }

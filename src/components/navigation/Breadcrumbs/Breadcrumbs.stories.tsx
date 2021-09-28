@@ -1,9 +1,9 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { BreadcrumbsProps } from '@material-ui/core'
+import { BreadcrumbsProps } from '@mui/material'
 import { Typography } from '../../index'
-import { NavigateNext as NavigateNextIcon } from '@material-ui/icons'
+import { NavigateNext as NavigateNextIcon } from '@mui/icons-material'
 
 import { Breadcrumbs } from './Breadcrumbs'
 import { Link } from '../Link/Link'

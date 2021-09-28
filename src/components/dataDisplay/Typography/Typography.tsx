@@ -1,9 +1,6 @@
 import React from 'react'
-import {
-  Typography as MuiTypography,
-  TypographyProps,
-  makeStyles
-} from '@material-ui/core'
+import { Typography as MuiTypography, TypographyProps } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { Theme } from '../../../theme/types'
 
 export function Typography(props: TypographyProps): JSX.Element {

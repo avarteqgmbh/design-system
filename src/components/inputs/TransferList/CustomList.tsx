@@ -1,12 +1,14 @@
 import React, { MouseEventHandler } from 'react'
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles'
-import Card from '@material-ui/core/Card'
-import CardHeader from '@material-ui/core/CardHeader'
-import ListItem from '@material-ui/core/ListItem'
-import ListItemText from '@material-ui/core/ListItemText'
-import ListItemIcon from '@material-ui/core/ListItemIcon'
-import Divider from '@material-ui/core/Divider'
-import { CheckboxProps } from '@material-ui/core'
+import { Theme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import createStyles from '@mui/styles/createStyles';
+import Card from '@mui/material/Card'
+import CardHeader from '@mui/material/CardHeader'
+import ListItem from '@mui/material/ListItem'
+import ListItemText from '@mui/material/ListItemText'
+import ListItemIcon from '@mui/material/ListItemIcon'
+import Divider from '@mui/material/Divider'
+import { CheckboxProps } from '@mui/material'
 import { Checkbox } from '../Checkbox/Checkbox'
 import { List } from '../../dataDisplay/index'
 

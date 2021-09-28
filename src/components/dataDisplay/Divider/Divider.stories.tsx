@@ -7,13 +7,15 @@ import {
   DividerProps,
   ListItemAvatar,
   Avatar
-} from '@material-ui/core'
-import { Theme, createStyles, makeStyles } from '@material-ui/core/styles'
+} from '@mui/material'
+import { Theme } from '@mui/material/styles';
+import createStyles from '@mui/styles/createStyles';
+import makeStyles from '@mui/styles/makeStyles';
 import {
   Work as WorkIcon,
   BeachAccess as BeachAccessIcon,
   Image as ImageIcon
-} from '@material-ui/icons'
+} from '@mui/icons-material'
 
 import { Divider } from './Divider'
 import { List } from '../List/List'

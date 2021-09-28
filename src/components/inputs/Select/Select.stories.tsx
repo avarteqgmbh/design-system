@@ -1,7 +1,7 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { SelectProps } from '@material-ui/core'
+import { SelectProps } from '@mui/material'
 import { Select } from './Select'
 import { MenuItem } from '../../index'
 

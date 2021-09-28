@@ -1,9 +1,6 @@
 import React from 'react'
-import {
-  Card as MuiCard,
-  CardProps as MuiCardProps,
-  makeStyles
-} from '@material-ui/core'
+import { Card as MuiCard, CardProps as MuiCardProps } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { Theme } from '../../../theme/types'
 
 export function Card(props: MuiCardProps): JSX.Element {
