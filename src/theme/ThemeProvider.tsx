@@ -1,12 +1,12 @@
 import React from 'react'
 import {
   ThemeProvider as MuiThemeProvider,
-  ThemeProviderProps as MuiThemeProviderProps,
   ThemeOptions,
   makeStyles as muiMakeStyles,
   createTheme,
   CssBaseline
 } from '@material-ui/core'
+import { ThemeProviderProps as MuiThemeProviderProps } from '@material-ui/core/styles/ThemeProvider'
 
 import { Theme } from './types'
 import { theme as anynines } from './theme'
