@@ -1,10 +1,8 @@
-// eslint-disable-next-line import/no-unresolved
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { XGrid, XGridProps } from './XGrid'
-import { rows, columns } from './mocks'
-// import { useDemoData } from '@material-ui/x-grid-data-generator'
+import { rows } from './mocks'
 
 export default {
   title: 'Lab/XGrid',
@@ -48,13 +46,13 @@ const Template: Story<XGridProps> = (args) => {
 export const Default = Template.bind({})
 Default.args = {
   rows,
-  columns
+  columns: []
 }
 
 export const Toolbar = Template.bind({})
 Toolbar.args = {
   rows,
-  columns,
+  columns: [],
   checkboxSelection: true,
   toolbar: true,
   rowsPerPageOptions: [5, 10],
@@ -64,11 +62,10 @@ Toolbar.args = {
 export const DE = Template.bind({})
 DE.args = {
   rows,
-  columns,
+  columns: [],
   checkboxSelection: true,
   toolbar: true,
   rowsPerPageOptions: [5, 10],
   pageSize: 5,
-  language: 'DE',
-  checkboxSelectionVisibleOnly: true
+  language: 'DE'
 }

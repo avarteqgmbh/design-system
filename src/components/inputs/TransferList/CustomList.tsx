@@ -1,7 +1,7 @@
 import React, { MouseEventHandler } from 'react'
-import { Theme } from '@mui/material/styles';
-import makeStyles from '@mui/styles/makeStyles';
-import createStyles from '@mui/styles/createStyles';
+import { Theme } from '@mui/material/styles'
+import makeStyles from '@mui/styles/makeStyles'
+import createStyles from '@mui/styles/createStyles'
 import Card from '@mui/material/Card'
 import CardHeader from '@mui/material/CardHeader'
 import ListItem from '@mui/material/ListItem'

@@ -1,7 +1,7 @@
 import React from 'react'
-import { SvgIcon as MuiSvgIcon, SvgIconProps } from '@mui/material';
+import { SvgIcon as MuiSvgIcon, SvgIconProps } from '@mui/material'
 
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from '@mui/styles/makeStyles'
 
 import { Theme } from '../../../theme/types'
 

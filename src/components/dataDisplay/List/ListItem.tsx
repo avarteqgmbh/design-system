@@ -4,8 +4,8 @@
 */
 
 import React from 'react'
-import { ListItem as MuiListItem } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import { ListItem as MuiListItem } from '@mui/material'
+import makeStyles from '@mui/styles/makeStyles'
 import { Theme } from '../../../theme/types'
 
 // TODO: Resolve issue with ListItemProps to replace any type usage

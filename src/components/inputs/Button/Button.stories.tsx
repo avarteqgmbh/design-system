@@ -46,7 +46,7 @@ const Template: Story<ButtonProps> = (args) => {
 
 export const Default = Template.bind({})
 Default.args = {
-  color: 'default',
+  color: 'inherit',
   variant: 'contained'
 }
 

@@ -21,7 +21,6 @@ import {
 import {
   Alert,
   AlertTitle,
-  DataGrid,
   XGrid,
   Skeleton,
   Pagination,
@@ -113,16 +112,7 @@ export {
   InputLabel
 }
 
-export {
-  Alert,
-  AlertTitle,
-  DataGrid,
-  XGrid,
-  Skeleton,
-  Pagination,
-  Badge,
-  Rating
-}
+export { Alert, AlertTitle, XGrid, Skeleton, Pagination, Badge, Rating }
 
 export {
   Link,

@@ -41,21 +41,21 @@ Default.args = {}
 
 export const Circle = Template.bind({})
 Circle.args = {
-  variant: 'circle',
+  variant: 'circular',
   width: 40,
   height: 40
 }
 
 export const Rect = Template.bind({})
 Rect.args = {
-  variant: 'rect',
+  variant: 'rectangular',
   width: 210,
   height: 118
 }
 
 export const NoAnimation = Template.bind({})
 NoAnimation.args = {
-  variant: 'circle',
+  variant: 'circular',
   width: 40,
   height: 40,
   animation: false
@@ -63,7 +63,7 @@ NoAnimation.args = {
 
 export const Wave = Template.bind({})
 Wave.args = {
-  variant: 'circle',
+  variant: 'circular',
   width: 40,
   height: 40,
   animation: 'wave'
@@ -74,7 +74,7 @@ export const Loading: Story<SkeletonProps> = (args) => {
     <div>
       <Box display='flex' alignItems='center'>
         <Box margin={1}>
-          <Skeleton {...args} variant="circular">
+          <Skeleton {...args} variant='circular'>
             <Avatar />
           </Skeleton>
         </Box>
@@ -84,9 +84,9 @@ export const Loading: Story<SkeletonProps> = (args) => {
           </Skeleton>
         </Box>
       </Box>
-      <Skeleton {...args} variant="rectangular" width='100%'>
+      <Skeleton {...args} variant='rectangular' width='100%'>
         <div style={{ paddingTop: '57%' }} />
       </Skeleton>
     </div>
-  );
+  )
 }

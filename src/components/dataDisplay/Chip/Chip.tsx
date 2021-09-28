@@ -1,6 +1,6 @@
 import React from 'react'
-import { Chip as MuiChip, ChipProps as MuiChipProps } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import { Chip as MuiChip, ChipProps as MuiChipProps } from '@mui/material'
+import makeStyles from '@mui/styles/makeStyles'
 import { Theme } from '../../../theme/types'
 
 export function Chip(props: MuiChipProps): JSX.Element {

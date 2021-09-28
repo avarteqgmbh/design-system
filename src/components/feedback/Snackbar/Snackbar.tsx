@@ -1,6 +1,9 @@
 import React from 'react'
-import { Snackbar as MuiSnackbar, SnackbarProps as MuiSnackbarProps } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import {
+  Snackbar as MuiSnackbar,
+  SnackbarProps as MuiSnackbarProps
+} from '@mui/material'
+import makeStyles from '@mui/styles/makeStyles'
 import { Theme } from '../../../theme/types'
 
 export function Snackbar(props: MuiSnackbarProps): JSX.Element {

@@ -1,7 +1,10 @@
 import React from 'react'
 import clsx from 'clsx'
-import { MenuItem as MuiMenuItem, MenuItemProps as MuiMenuItemProps } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import {
+  MenuItem as MuiMenuItem,
+  MenuItemProps as MuiMenuItemProps
+} from '@mui/material'
+import makeStyles from '@mui/styles/makeStyles'
 import { Theme } from '../../../theme/types'
 
 export interface MenuItemProps extends MuiMenuItemProps {

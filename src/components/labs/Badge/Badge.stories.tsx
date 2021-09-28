@@ -140,5 +140,5 @@ Overlap.args = {
   children: <MailIcon />,
   variant: 'dot',
   color: 'error',
-  overlap: 'circle'
+  overlap: 'circular'
 }

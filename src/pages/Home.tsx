@@ -1,7 +1,7 @@
 import React from 'react'
-import { Button, Typography } from '@mui/material';
+import { Button, Typography } from '@mui/material'
 
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from '@mui/styles/makeStyles'
 
 import { Theme } from '../theme/types'
 

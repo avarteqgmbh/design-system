@@ -1,21 +1,14 @@
 import React from 'react'
-import {
-  XGrid as MuiXGrid,
-  XGridProps as MuiXGridProps,
-  GridToolbar
-} from '@material-ui/x-grid'
-import makeStyles from '@mui/styles/makeStyles';
-import { Theme } from '../../../theme/types'
+import { DataGrid, DataGridProps, GridToolbar } from '@mui/x-data-grid'
 import { GRID_DE_LOCALE_TEXT } from './locales'
 
-export interface XGridProps extends MuiXGridProps {
+export interface XGridProps extends DataGridProps {
   toolbar?: boolean
   language?: 'DE' | 'EN'
 }
 
 export function XGrid(props: XGridProps): JSX.Element {
   const { toolbar = false, autoHeight = true, language = 'EN' } = props
-  const classes = useStyles()
 
   let lang = {}
 
@@ -24,22 +17,12 @@ export function XGrid(props: XGridProps): JSX.Element {
   }
 
   return (
-    <MuiXGrid
-      classes={{
-        root: classes.root
-      }}
+    <DataGrid
       localeText={lang}
       autoHeight={autoHeight}
       autoPageSize={autoHeight}
-      className={classes.root}
       components={toolbar ? { Toolbar: GridToolbar } : {}}
       {...props}
     />
   )
 }
-
-const useStyles = makeStyles<Theme>(() => {
-  return {
-    root: {}
-  }
-})

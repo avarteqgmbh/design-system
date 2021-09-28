@@ -1,6 +1,9 @@
 import React from 'react'
-import { ListItemIcon as MuiListItemIcon, ListItemIconProps } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import {
+  ListItemIcon as MuiListItemIcon,
+  ListItemIconProps
+} from '@mui/material'
+import makeStyles from '@mui/styles/makeStyles'
 import { Theme } from '../../../theme/types'
 
 export function ListItemIcon(props: ListItemIconProps): JSX.Element {

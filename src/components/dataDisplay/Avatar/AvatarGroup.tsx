@@ -1,7 +1,7 @@
 import React from 'react'
-import makeStyles from '@mui/styles/makeStyles';
-import { AvatarGroup as MuiAvatarGroup } from '@mui/material';
-import { AvatarGroupProps } from '@mui/lab';
+import makeStyles from '@mui/styles/makeStyles'
+import { AvatarGroup as MuiAvatarGroup } from '@mui/material'
+import { AvatarGroupProps } from '@mui/lab'
 import { Theme } from '../../../theme/types'
 
 export function AvatarGroup(props: AvatarGroupProps): JSX.Element {

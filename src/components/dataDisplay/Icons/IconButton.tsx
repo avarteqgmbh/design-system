@@ -1,7 +1,7 @@
 import React from 'react'
-import { IconButton as MuiIconButton, IconButtonProps } from '@mui/material';
+import { IconButton as MuiIconButton, IconButtonProps } from '@mui/material'
 
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from '@mui/styles/makeStyles'
 
 import { Theme } from '../../../theme/types'
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { CodeSnippetProps } from './CodeSnippetProps'
 import FileCopyIcon from '@mui/icons-material/FileCopy'
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from '@mui/styles/makeStyles'
 import { Tooltip } from '../Tooltip/Tooltip'
 
 export function CopyButton({ value }: CodeSnippetProps): JSX.Element {

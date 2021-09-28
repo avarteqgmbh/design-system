@@ -1,6 +1,6 @@
 import React from 'react'
-import { CardMedia as MuiCardMedia, CardMediaProps } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import { CardMedia as MuiCardMedia, CardMediaProps } from '@mui/material'
+import makeStyles from '@mui/styles/makeStyles'
 import { Theme } from '../../../theme/types'
 
 export function CardMedia(props: CardMediaProps): JSX.Element {

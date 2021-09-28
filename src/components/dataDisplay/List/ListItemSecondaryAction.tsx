@@ -1,9 +1,9 @@
 import React from 'react'
 import {
   ListItemSecondaryAction as MuiListItemSecondaryAction,
-  ListItemSecondaryActionProps,
-} from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+  ListItemSecondaryActionProps
+} from '@mui/material'
+import makeStyles from '@mui/styles/makeStyles'
 import { Theme } from '../../../theme/types'
 
 export function ListItemSecondaryAction(

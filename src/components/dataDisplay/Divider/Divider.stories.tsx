@@ -8,9 +8,9 @@ import {
   ListItemAvatar,
   Avatar
 } from '@mui/material'
-import { Theme } from '@mui/material/styles';
-import createStyles from '@mui/styles/createStyles';
-import makeStyles from '@mui/styles/makeStyles';
+import { Theme } from '@mui/material/styles'
+import createStyles from '@mui/styles/createStyles'
+import makeStyles from '@mui/styles/makeStyles'
 import {
   Work as WorkIcon,
   BeachAccess as BeachAccessIcon,

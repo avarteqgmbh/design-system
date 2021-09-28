@@ -1,7 +1,7 @@
 import React from 'react'
-import { Input as MuiInput, InputProps as MuiInputProps } from '@mui/material';
+import { Input as MuiInput, InputProps as MuiInputProps } from '@mui/material'
 
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from '@mui/styles/makeStyles'
 
 export function Input(props: MuiInputProps): JSX.Element {
   const classes = useStyles()

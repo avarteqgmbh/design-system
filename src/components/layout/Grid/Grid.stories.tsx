@@ -101,7 +101,7 @@ export const Spacing = Template.bind({})
 Spacing.args = {
   id: 'grid-spacing',
   container: true,
-  justify: 'center',
+  justifyContent: 'center',
   spacing: 5
 }
 

@@ -1,8 +1,8 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { CardProps, Avatar, IconButton, Collapse } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import { CardProps, Avatar, IconButton, Collapse } from '@mui/material'
+import makeStyles from '@mui/styles/makeStyles'
 import clsx from 'clsx'
 import { red } from '@mui/material/colors'
 import {
@@ -11,7 +11,7 @@ import {
   MoreVert as MoreVertIcon,
   ExpandMore as ExpandMoreIcon
 } from '@mui/icons-material'
-import createStyles from '@mui/styles/createStyles';
+import createStyles from '@mui/styles/createStyles'
 
 import { Typography, Button } from '../../index'
 import { Card } from './Card'
@@ -186,7 +186,7 @@ export const ComplexInteraction: Story<CardProps> = (args) => {
           </Avatar>
         }
         action={
-          <IconButton aria-label='settings' size="large">
+          <IconButton aria-label='settings' size='large'>
             <MoreVertIcon />
           </IconButton>
         }
@@ -206,10 +206,10 @@ export const ComplexInteraction: Story<CardProps> = (args) => {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label='add to favorites' size="large">
+        <IconButton aria-label='add to favorites' size='large'>
           <FavoriteIcon />
         </IconButton>
-        <IconButton aria-label='share' size="large">
+        <IconButton aria-label='share' size='large'>
           <ShareIcon />
         </IconButton>
         <IconButton
@@ -219,7 +219,8 @@ export const ComplexInteraction: Story<CardProps> = (args) => {
           onClick={handleExpandClick}
           aria-expanded={expanded}
           aria-label='show more'
-          size="large">
+          size='large'
+        >
           <ExpandMoreIcon />
         </IconButton>
       </CardActions>
@@ -255,5 +256,5 @@ export const ComplexInteraction: Story<CardProps> = (args) => {
         </CardContent>
       </Collapse>
     </Card>
-  );
+  )
 }

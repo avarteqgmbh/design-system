@@ -1,8 +1,8 @@
 import React from 'react'
-import { Step as MuiStep, StepProps as MuiStepProps } from '@mui/material';
+import { Step as MuiStep, StepProps as MuiStepProps } from '@mui/material'
 
-import makeStyles from '@mui/styles/makeStyles';
-import createStyles from '@mui/styles/createStyles';
+import makeStyles from '@mui/styles/makeStyles'
+import createStyles from '@mui/styles/createStyles'
 
 export function Step(props: MuiStepProps): JSX.Element {
   const classes = useStyles()

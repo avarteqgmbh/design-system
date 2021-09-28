@@ -2,9 +2,9 @@ import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { StepperProps, MobileStepperProps } from '@mui/material'
-import { Theme, useTheme } from '@mui/material/styles';
-import makeStyles from '@mui/styles/makeStyles';
-import createStyles from '@mui/styles/createStyles';
+import { Theme, useTheme } from '@mui/material/styles'
+import makeStyles from '@mui/styles/makeStyles'
+import createStyles from '@mui/styles/createStyles'
 import {
   KeyboardArrowLeft as KeyboardArrowLeftIcon,
   KeyboardArrowRight as KeyboardArrowRightIcon
@@ -382,12 +382,7 @@ export const HorizontalNonLinearStepper: Story<StepperProps> = (
         {steps.map((label, index) => {
           return (
             <Step key={label}>
-              <StepButton
-                onClick={handleStep(index)}
-                completed={completed[index]}
-              >
-                {label}
-              </StepButton>
+              <StepButton onClick={handleStep(index)}>{label}</StepButton>
             </Step>
           )
         })}
@@ -534,10 +529,6 @@ export const HorizontalNonLinearAlternativeStepper: Story<StepperProps> = (
     return skipped.has(step)
   }
 
-  function isStepComplete(step: number): boolean {
-    return completed.has(step)
-  }
-
   return (
     <div className={classes.root}>
       <Stepper {...args} alternativeLabel nonLinear activeStep={activeStep}>
@@ -554,11 +545,7 @@ export const HorizontalNonLinearAlternativeStepper: Story<StepperProps> = (
           }
           return (
             <Step key={label} {...stepProps}>
-              <StepButton
-                onClick={handleStep(index)}
-                completed={isStepComplete(index)}
-                {...buttonProps}
-              >
+              <StepButton onClick={handleStep(index)} {...buttonProps}>
                 {label}
               </StepButton>
             </Step>

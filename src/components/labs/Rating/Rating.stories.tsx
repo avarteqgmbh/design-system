@@ -5,7 +5,7 @@ import { RatingProps } from '@mui/lab'
 import { Rating } from './Rating'
 import StarBorderIcon from '@mui/icons-material/StarBorder'
 import FavoriteIcon from '@mui/icons-material/Favorite'
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from '@mui/styles/makeStyles'
 import { Theme } from '../../../theme/types'
 
 export default {

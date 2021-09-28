@@ -1,6 +1,9 @@
 import React from 'react'
-import { TextField as MuiTextField, TextFieldProps as MuiTextFieldProps } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import {
+  TextField as MuiTextField,
+  TextFieldProps as MuiTextFieldProps
+} from '@mui/material'
+import makeStyles from '@mui/styles/makeStyles'
 import { Theme } from '../../../theme/types'
 
 export function TextField(props: MuiTextFieldProps): JSX.Element {

@@ -4,11 +4,9 @@ import {
   StyledEngineProvider,
   DeprecatedThemeOptions,
   createTheme,
-  CssBaseline,
-  adaptV4Theme,
-} from '@mui/material';
-import muiMakeStyles from '@mui/styles/makeStyles';
-import { ThemeProviderProps as MuiThemeProviderProps } from '@mui/material/styles';
+  CssBaseline
+} from '@mui/material'
+import muiMakeStyles from '@mui/styles/makeStyles'
 
 import { Theme } from './types'
 import { theme as anynines } from './theme'
@@ -22,13 +20,12 @@ import { theme as siemens } from './themes/siemens'
 import { theme as siemensDark } from './themes/siemensDark'
 import { theme as hyundai } from './themes/hyundai'
 import { theme as kia } from './themes/kia'
-
+import { ThemeProviderProps as MuiThemeProviderProps } from '@mui/material/styles/ThemeProvider'
 
 declare module '@mui/styles/defaultTheme' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
   interface DefaultTheme extends Theme {}
 }
-
 
 export type CustomThemeName =
   | 'anynines'
@@ -76,9 +73,9 @@ export const ThemeProvider = (props: ThemeProviderProps): JSX.Element => {
 
   return (
     <StyledEngineProvider injectFirst>
-      <MuiThemeProvider {...props} theme={createTheme(adaptV4Theme(getTheme()))} />
+      <MuiThemeProvider {...props} theme={createTheme(getTheme())} />
     </StyledEngineProvider>
-  );
+  )
 }
 
 export { CssBaseline }

@@ -1,10 +1,10 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { AvatarProps } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
-import { Theme } from '@mui/material/styles';
-import createStyles from '@mui/styles/createStyles';
+import { AvatarProps } from '@mui/material'
+import makeStyles from '@mui/styles/makeStyles'
+import { Theme } from '@mui/material/styles'
+import createStyles from '@mui/styles/createStyles'
 import { deepOrange, deepPurple, pink, green } from '@mui/material/colors'
 import {
   Folder as FolderIcon,

@@ -1,6 +1,6 @@
 import React from 'react'
-import { CardActions as MuiCardActions, CardActionsProps } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import { CardActions as MuiCardActions, CardActionsProps } from '@mui/material'
+import makeStyles from '@mui/styles/makeStyles'
 import { Theme } from '../../../theme/types'
 
 export function CardActions(props: CardActionsProps): JSX.Element {

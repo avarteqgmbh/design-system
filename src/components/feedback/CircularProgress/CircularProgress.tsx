@@ -1,9 +1,9 @@
 import React from 'react'
 import {
   CircularProgress as MuiCircularProgress,
-  CircularProgressProps as MuiCircularProgressProps,
-} from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+  CircularProgressProps as MuiCircularProgressProps
+} from '@mui/material'
+import makeStyles from '@mui/styles/makeStyles'
 import { Theme } from '../../../theme/types'
 
 export function CircularProgress(props: MuiCircularProgressProps): JSX.Element {

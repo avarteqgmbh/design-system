@@ -1,8 +1,8 @@
 import React from 'react'
-import { Pagination as MuiPagination } from '@mui/material';
-import { PaginationProps } from '@mui/lab';
+import { Pagination as MuiPagination } from '@mui/material'
+import { PaginationProps } from '@mui/lab'
 
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from '@mui/styles/makeStyles'
 import { Theme } from '../../../theme/types'
 
 export function Pagination(props: PaginationProps): JSX.Element {
