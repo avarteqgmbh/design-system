@@ -7,6 +7,7 @@ import { SvgIconProps, IconProps, IconButtonProps } from '@material-ui/core'
 import { Icon, icons } from './Icon'
 import { SvgIcon } from './SvgIcon'
 import { IconButton } from './IconButton'
+import { Moon as MoonIcon } from './assets'
 
 export default {
   title: 'Data Display/Icons',
@@ -96,6 +97,7 @@ export const CustomIcon: Story<SvgIconProps> = (args): JSX.Element => {
       <HomeIcon {...args} />
       <HomeIcon {...args} color='primary' />
       <HomeIcon {...args} color='secondary' />
+      <MoonIcon {...args} style={{ color: 'green' }} />
       <HomeIcon {...args} color='action' />
       <HomeIcon {...args} color='disabled' />
       <HomeIcon {...args} style={{ color: 'green' }} />

@@ -12,6 +12,7 @@ import { Avatar } from './Avatar/Avatar'
 import { AvatarGroup } from './Avatar/AvatarGroup'
 import { Icon, icons } from './Icons/Icon'
 import { SvgIcon } from './Icons/SvgIcon'
+import * as customIcons from './Icons/assets'
 import { IconButton } from './Icons/IconButton'
 import { CodeSnippet } from './CodeSnippet/CodeSnippet'
 import { Slides } from './Slides/Slides'
@@ -32,6 +33,7 @@ export {
   AvatarGroup,
   Icon,
   icons,
+  customIcons,
   SvgIcon,
   Slides,
   IconButton
