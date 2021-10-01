@@ -77,6 +77,7 @@ import {
   Icon,
   IconButton,
   icons,
+  customIcons,
   Slides,
   SvgIcon,
   ListItem,
@@ -175,6 +176,7 @@ export {
   Icon,
   IconButton,
   icons,
+  customIcons,
   Slides,
   SvgIcon
 }
