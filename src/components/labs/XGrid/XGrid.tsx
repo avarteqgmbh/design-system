@@ -1,5 +1,11 @@
 import React from 'react'
-import { DataGrid, DataGridProps, GridToolbar } from '@mui/x-data-grid'
+import {
+  DataGrid,
+  DataGridProps,
+  GridToolbar,
+  getGridStringOperators,
+  getGridNumericColumnOperators
+} from '@mui/x-data-grid'
 import { GRID_DE_LOCALE_TEXT } from './locales'
 
 export interface XGridProps extends DataGridProps {
@@ -26,3 +32,5 @@ export function XGrid(props: XGridProps): JSX.Element {
     />
   )
 }
+
+export { getGridStringOperators, getGridNumericColumnOperators }

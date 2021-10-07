@@ -22,6 +22,8 @@ import {
   Alert,
   AlertTitle,
   XGrid,
+  getGridNumericColumnOperators,
+  getGridStringOperators,
   Skeleton,
   Pagination,
   Badge,
@@ -116,7 +118,17 @@ export {
   InputLabel
 }
 
-export { Alert, AlertTitle, XGrid, Skeleton, Pagination, Badge, Rating }
+export {
+  Alert,
+  AlertTitle,
+  XGrid,
+  getGridNumericColumnOperators,
+  getGridStringOperators,
+  Skeleton,
+  Pagination,
+  Badge,
+  Rating
+}
 
 export {
   Link,
