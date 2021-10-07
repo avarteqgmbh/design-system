@@ -2,10 +2,10 @@ import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { BottomNavigationAction } from './BottomNavigationAction'
-import { BottomNavigationActionProps } from '@material-ui/core'
-import RestoreIcon from '@material-ui/icons/Restore'
-import FavoriteIcon from '@material-ui/icons/Favorite'
-import LocationOnIcon from '@material-ui/icons/LocationOn'
+import { BottomNavigationActionProps } from '@mui/material'
+import RestoreIcon from '@mui/icons-material/Restore'
+import FavoriteIcon from '@mui/icons-material/Favorite'
+import LocationOnIcon from '@mui/icons-material/LocationOn'
 
 export default {
   title: 'Navigation/BottomNavigationAction',
@@ -60,7 +60,6 @@ DefaultRestore.args = {
   label: 'Recent',
   icon: <RestoreIcon />,
   showLabel: false,
-  selected: false,
   centerRipple: false
 }
 
@@ -69,7 +68,6 @@ DefaultFavorite.args = {
   label: 'Favorite',
   icon: <FavoriteIcon />,
   showLabel: false,
-  selected: false,
   centerRipple: false
 }
 
@@ -78,7 +76,6 @@ DefaultLocation.args = {
   label: 'Nearby',
   icon: <LocationOnIcon />,
   showLabel: false,
-  selected: false,
   centerRipple: false
 }
 
@@ -87,7 +84,6 @@ LabelRestore.args = {
   label: 'Recent',
   icon: <RestoreIcon />,
   showLabel: true,
-  selected: false,
   centerRipple: false
 }
 
@@ -96,7 +92,6 @@ LabelFavorite.args = {
   label: 'Favorite',
   icon: <FavoriteIcon />,
   showLabel: true,
-  selected: false,
   centerRipple: false
 }
 
@@ -105,7 +100,6 @@ LabelLocation.args = {
   label: 'Nearby',
   icon: <LocationOnIcon />,
   showLabel: true,
-  selected: false,
   centerRipple: false
 }
 
@@ -113,7 +107,6 @@ export const SelectedRestore = Template.bind({})
 SelectedRestore.args = {
   label: 'Recent',
   icon: <RestoreIcon />,
-  selected: true,
   centerRipple: false
 }
 
@@ -121,7 +114,6 @@ export const SelectedFavorite = Template.bind({})
 SelectedFavorite.args = {
   label: 'Favorite',
   icon: <FavoriteIcon />,
-  selected: true,
   centerRipple: false
 }
 
@@ -129,7 +121,6 @@ export const SelectedLocation = Template.bind({})
 SelectedLocation.args = {
   label: 'Nearby',
   icon: <LocationOnIcon />,
-  selected: true,
   centerRipple: false
 }
 
@@ -137,7 +128,6 @@ export const CenteredRippleRestore = Template.bind({})
 CenteredRippleRestore.args = {
   label: 'Recent',
   icon: <RestoreIcon />,
-  selected: true,
   centerRipple: true
 }
 
@@ -145,7 +135,6 @@ export const CenteredRippleFavorite = Template.bind({})
 CenteredRippleFavorite.args = {
   label: 'Favorite',
   icon: <FavoriteIcon />,
-  selected: true,
   centerRipple: true
 }
 
@@ -153,6 +142,5 @@ export const CenteredRippleLocation = Template.bind({})
 CenteredRippleLocation.args = {
   label: 'Nearby',
   icon: <LocationOnIcon />,
-  selected: true,
   centerRipple: true
 }

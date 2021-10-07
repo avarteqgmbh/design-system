@@ -1,9 +1,6 @@
 import React from 'react'
-import {
-  Fab as MuiFab,
-  FabProps as MuiFabProps,
-  makeStyles
-} from '@material-ui/core'
+import { Fab as MuiFab, FabProps as MuiFabProps } from '@mui/material'
+import makeStyles from '@mui/styles/makeStyles'
 import { Theme } from '../../../theme/types'
 
 export function FloatingActionButton(props: MuiFabProps): JSX.Element {

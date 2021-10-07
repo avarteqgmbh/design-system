@@ -1,10 +1,8 @@
 import React from 'react'
-import {
-  Tab as MuiTab,
-  TabProps,
-  makeStyles,
-  createStyles
-} from '@material-ui/core'
+import { Tab as MuiTab, TabProps } from '@mui/material'
+
+import makeStyles from '@mui/styles/makeStyles'
+import createStyles from '@mui/styles/createStyles'
 
 export function Tab(props: TabProps): JSX.Element {
   const classes = useStyles()

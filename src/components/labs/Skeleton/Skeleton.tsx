@@ -1,7 +1,8 @@
 import React from 'react'
-import { Skeleton as MuiSkeleton, SkeletonProps } from '@material-ui/lab'
+import { Skeleton as MuiSkeleton } from '@mui/material'
+import { SkeletonProps } from '@mui/lab'
 
-import { makeStyles } from '@material-ui/core'
+import makeStyles from '@mui/styles/makeStyles'
 import { Theme } from '../../../theme/types'
 
 export function Skeleton(props: SkeletonProps): JSX.Element {

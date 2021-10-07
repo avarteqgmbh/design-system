@@ -1,7 +1,7 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { Radio, RadioProps } from '@material-ui/core'
+import { Radio, RadioProps } from '@mui/material'
 
 export default {
   title: 'Inputs/Radio',

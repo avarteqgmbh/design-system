@@ -1,9 +1,9 @@
 import React from 'react'
 import {
   ListItemAvatar as MuiListItemAvatar,
-  ListItemAvatarProps,
-  makeStyles
-} from '@material-ui/core'
+  ListItemAvatarProps
+} from '@mui/material'
+import makeStyles from '@mui/styles/makeStyles'
 import { Theme } from '../../../theme/types'
 
 export function ListItemAvatar(props: ListItemAvatarProps): JSX.Element {

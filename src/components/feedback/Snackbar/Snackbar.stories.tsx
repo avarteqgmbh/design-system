@@ -1,7 +1,7 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { SnackbarProps } from '@material-ui/core'
+import { SnackbarProps } from '@mui/material'
 import { Snackbar } from './Snackbar'
 import { Alert, Button } from '../../index'
 

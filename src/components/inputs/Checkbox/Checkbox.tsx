@@ -1,9 +1,9 @@
 import React from 'react'
 import {
   Checkbox as MuiCheckbox,
-  CheckboxProps as MuiCheckboxProps,
-  makeStyles
-} from '@material-ui/core'
+  CheckboxProps as MuiCheckboxProps
+} from '@mui/material'
+import makeStyles from '@mui/styles/makeStyles'
 import { Theme } from '../../../theme/types'
 
 export function Checkbox(props: MuiCheckboxProps): JSX.Element {

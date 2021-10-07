@@ -1,10 +1,10 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { BadgeProps } from '@material-ui/core'
+import { BadgeProps } from '@mui/material'
 import { Badge } from './Badge'
-import MailIcon from '@material-ui/icons/Mail'
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
+import MailIcon from '@mui/icons-material/Mail'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 
 export default {
   title: 'Lab/Badge',
@@ -140,5 +140,5 @@ Overlap.args = {
   children: <MailIcon />,
   variant: 'dot',
   color: 'error',
-  overlap: 'circle'
+  overlap: 'circular'
 }

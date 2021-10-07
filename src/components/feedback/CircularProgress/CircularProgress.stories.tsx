@@ -1,7 +1,7 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { CircularProgressProps } from '@material-ui/core'
+import { CircularProgressProps } from '@mui/material'
 import { CircularProgress } from './CircularProgress'
 
 export default {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { PaginationProps } from '@material-ui/lab'
+import { PaginationProps } from '@mui/lab'
 import { Pagination } from './Pagination'
 
 export default {

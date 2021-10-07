@@ -21,7 +21,6 @@ import {
 import {
   Alert,
   AlertTitle,
-  DataGrid,
   XGrid,
   Skeleton,
   Pagination,
@@ -66,6 +65,7 @@ import {
 } from './surfaces/index'
 
 import {
+  AnyIcon,
   Chip,
   CodeSnippet,
   List,
@@ -94,6 +94,8 @@ import {
   Snackbar
 } from './feedback/index'
 
+import { onClickOutsideHook } from './utils'
+
 export {
   Button,
   ButtonGroup,
@@ -114,16 +116,7 @@ export {
   InputLabel
 }
 
-export {
-  Alert,
-  AlertTitle,
-  DataGrid,
-  XGrid,
-  Skeleton,
-  Pagination,
-  Badge,
-  Rating
-}
+export { Alert, AlertTitle, XGrid, Skeleton, Pagination, Badge, Rating }
 
 export {
   Link,
@@ -160,6 +153,7 @@ export {
   CardActionArea
 }
 export {
+  AnyIcon,
   Chip,
   CodeSnippet,
   List,
@@ -181,3 +175,5 @@ export {
   SvgIcon
 }
 export { Backdrop, CircularProgress, LinearProgress, Snackbar }
+
+export { onClickOutsideHook }

@@ -8,7 +8,7 @@ import {
   DialogContentText,
   DialogProps as MuiDialogProps,
   DialogTitle
-} from '@material-ui/core'
+} from '@mui/material'
 import { Button } from '../../index'
 
 const head = `Lorem Ipsum`

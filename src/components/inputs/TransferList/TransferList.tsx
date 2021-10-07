@@ -1,6 +1,8 @@
 import React from 'react'
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles'
-import { CheckboxProps } from '@material-ui/core'
+import { Theme } from '@mui/material/styles'
+import makeStyles from '@mui/styles/makeStyles'
+import createStyles from '@mui/styles/createStyles'
+import { CheckboxProps } from '@mui/material'
 import { Button } from '../Button/Button'
 import { Grid } from '../../layout/index'
 import { CustomList } from './CustomList'
@@ -75,7 +77,9 @@ export function TransferList({
 
   const handleToggleAll = (items: never[]) => {
     return (): void => {
-      const c: any = items.map((value: any) => { // eslint-disable-line
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const c: any = items.map((value: any) => {
+        // eslint-disable-line
         return value.id
       })
 
@@ -89,7 +93,9 @@ export function TransferList({
 
   const handleCheckedRight = (): void => {
     const r: any = right // eslint-disable-line
-    const c: any = left.filter((value: any) => { // eslint-disable-line
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const c: any = left.filter((value: any) => {
+      // eslint-disable-line
       return leftChecked.indexOf(value.id) !== -1
     })
     setRight(r.concat(c))
@@ -99,7 +105,9 @@ export function TransferList({
 
   const handleCheckedLeft = (): void => {
     const l: any = left // eslint-disable-line
-    const c: any = right.filter((value: any) => { // eslint-disable-line
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const c: any = right.filter((value: any) => {
+      // eslint-disable-line
       return rightChecked.indexOf(value.id) !== -1
     })
     setLeft(l.concat(c))
@@ -111,7 +119,7 @@ export function TransferList({
     <Grid
       container
       spacing={2}
-      justify='center'
+      justifyContent='center'
       alignItems='center'
       className={classes.root}
     >

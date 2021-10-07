@@ -1,11 +1,11 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { RatingProps } from '@material-ui/lab'
+import { RatingProps } from '@mui/lab'
 import { Rating } from './Rating'
-import StarBorderIcon from '@material-ui/icons/StarBorder'
-import FavoriteIcon from '@material-ui/icons/Favorite'
-import { makeStyles } from '@material-ui/core'
+import StarBorderIcon from '@mui/icons-material/StarBorder'
+import FavoriteIcon from '@mui/icons-material/Favorite'
+import makeStyles from '@mui/styles/makeStyles'
 import { Theme } from '../../../theme/types'
 
 export default {

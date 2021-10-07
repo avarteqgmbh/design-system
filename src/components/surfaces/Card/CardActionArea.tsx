@@ -1,9 +1,9 @@
 import React from 'react'
 import {
   CardActionArea as MuiCardActionArea,
-  CardActionAreaProps,
-  makeStyles
-} from '@material-ui/core'
+  CardActionAreaProps
+} from '@mui/material'
+import makeStyles from '@mui/styles/makeStyles'
 import { Theme } from '../../../theme/types'
 
 export interface MuiCardActionAreaProps extends CardActionAreaProps {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { FormControlProps } from '@material-ui/core'
+import { FormControlProps } from '@mui/material'
 
 import { FormControl } from './FormControl'
 import { Input } from './Input'

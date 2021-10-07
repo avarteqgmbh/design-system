@@ -1,9 +1,6 @@
 import React from 'react'
-import {
-  Tooltip as MuiTooltip,
-  TooltipProps,
-  makeStyles
-} from '@material-ui/core'
+import { Tooltip as MuiTooltip, TooltipProps } from '@mui/material'
+import makeStyles from '@mui/styles/makeStyles'
 import { Theme } from '../../../theme/types'
 
 export function Tooltip(props: TooltipProps): JSX.Element {

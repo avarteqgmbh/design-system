@@ -1,9 +1,7 @@
 import React from 'react'
-import {
-  IconButton as MuiIconButton,
-  IconButtonProps,
-  makeStyles
-} from '@material-ui/core'
+import { IconButton as MuiIconButton, IconButtonProps } from '@mui/material'
+
+import makeStyles from '@mui/styles/makeStyles'
 
 import { Theme } from '../../../theme/types'
 

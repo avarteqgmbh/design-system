@@ -1,9 +1,9 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { Avatar, ListProps } from '@material-ui/core'
-import ImageIcon from '@material-ui/icons/Image'
-import WorkIcon from '@material-ui/icons/Work'
+import { Avatar, ListProps } from '@mui/material'
+import ImageIcon from '@mui/icons-material/Image'
+import WorkIcon from '@mui/icons-material/Work'
 
 import { List } from './List'
 import { ListItem } from './ListItem'

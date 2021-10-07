@@ -1,10 +1,11 @@
 import React from 'react'
 import {
   Stepper as MuiStepper,
-  StepperProps as MuiStepperProps,
-  makeStyles,
-  createStyles
-} from '@material-ui/core'
+  StepperProps as MuiStepperProps
+} from '@mui/material'
+
+import makeStyles from '@mui/styles/makeStyles'
+import createStyles from '@mui/styles/createStyles'
 
 export function Stepper(props: MuiStepperProps): JSX.Element {
   const classes = useStyles()

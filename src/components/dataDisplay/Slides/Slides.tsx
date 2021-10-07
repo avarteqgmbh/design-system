@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core'
+import makeStyles from '@mui/styles/makeStyles'
 import { Theme } from '../../../theme/types'
 import { Grid } from '../../layout/index'
 import { SlideItem } from './SlideItem'

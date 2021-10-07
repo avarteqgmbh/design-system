@@ -1,7 +1,7 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { LinearProgressProps } from '@material-ui/core'
+import { LinearProgressProps } from '@mui/material'
 import { LinearProgress } from './LinearProgress'
 
 export default {

@@ -1,13 +1,13 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { TooltipProps } from '@material-ui/core'
-import Fade from '@material-ui/core/Fade'
-import Zoom from '@material-ui/core/Zoom'
+import { TooltipProps } from '@mui/material'
+import Fade from '@mui/material/Fade'
+import Zoom from '@mui/material/Zoom'
 
 import { Tooltip } from './Tooltip'
 import { FloatingActionButton as Fab } from '../../index'
-import AddIcon from '@material-ui/icons/Add'
+import AddIcon from '@mui/icons-material/Add'
 
 export default {
   title: 'Data Display/Tooltip',

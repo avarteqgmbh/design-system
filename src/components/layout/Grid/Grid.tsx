@@ -1,9 +1,6 @@
 import React from 'react'
-import {
-  Grid as MuiGrid,
-  GridProps as MuiGridProps,
-  makeStyles
-} from '@material-ui/core'
+import { Grid as MuiGrid, GridProps as MuiGridProps } from '@mui/material'
+import makeStyles from '@mui/styles/makeStyles'
 import { Theme } from '../../../theme/types'
 
 export function Grid(props: MuiGridProps): JSX.Element {

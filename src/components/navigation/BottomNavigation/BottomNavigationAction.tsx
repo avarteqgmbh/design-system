@@ -2,7 +2,7 @@ import React from 'react'
 import {
   BottomNavigationAction as MuiBottomNavigationAction,
   BottomNavigationActionProps
-} from '@material-ui/core'
+} from '@mui/material'
 
 export function BottomNavigationAction(
   props: BottomNavigationActionProps

@@ -1,5 +1,6 @@
 import React from 'react'
-import { Button as MuiButton, makeStyles, ButtonProps } from '@material-ui/core'
+import { Button as MuiButton, ButtonProps } from '@mui/material'
+import makeStyles from '@mui/styles/makeStyles'
 import { Theme } from '../../../theme/types'
 
 export function Button(props: ButtonProps): JSX.Element {
@@ -9,7 +10,6 @@ export function Button(props: ButtonProps): JSX.Element {
     <MuiButton
       classes={{
         root: classes.root,
-        label: classes.label,
         text: classes.text,
         textPrimary: classes.textPrimary,
         outlined: classes.outlined,
@@ -42,10 +42,6 @@ const useStyles = makeStyles((theme: Theme) => {
       '&:hover': {
         background: theme.shadows[0]
       }
-    },
-    label: {
-      textTransform: 'none',
-      letterSpacing: 0
     },
     text: {
       borderColor: 'transparent',

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { ButtonGroupProps } from '@material-ui/core'
+import { ButtonGroupProps } from '@mui/material'
 import { ButtonGroup } from './ButtonGroup'
 import { Typography, Button } from '../../index'
 

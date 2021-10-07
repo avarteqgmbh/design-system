@@ -1,10 +1,10 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { CheckboxProps } from '@material-ui/core'
+import { CheckboxProps } from '@mui/material'
 import { Checkbox } from './Checkbox'
-import WbSunnyIcon from '@material-ui/icons/WbSunny'
-import Brightness3Icon from '@material-ui/icons/Brightness3'
+import WbSunnyIcon from '@mui/icons-material/WbSunny'
+import Brightness3Icon from '@mui/icons-material/Brightness3'
 
 export default {
   title: 'Inputs/Checkbox',

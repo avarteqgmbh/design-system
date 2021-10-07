@@ -1,9 +1,10 @@
 import React from 'react'
 import {
   FormControl as MuiFormControl,
-  FormControlProps as MuiFormControlProps,
-  makeStyles
-} from '@material-ui/core'
+  FormControlProps as MuiFormControlProps
+} from '@mui/material'
+
+import makeStyles from '@mui/styles/makeStyles'
 
 export function FormControl(props: MuiFormControlProps): JSX.Element {
   const classes = useStyles()

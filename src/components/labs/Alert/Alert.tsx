@@ -1,10 +1,8 @@
 import React from 'react'
-import {
-  Alert as MuiAlert,
-  AlertProps as MuiAlertProps
-} from '@material-ui/lab'
+import { Alert as MuiAlert } from '@mui/material'
+import { AlertProps as MuiAlertProps } from '@mui/lab'
 
-import { makeStyles } from '@material-ui/core'
+import makeStyles from '@mui/styles/makeStyles'
 import { Theme } from '../../../theme/types'
 
 export function Alert(props: MuiAlertProps): JSX.Element {

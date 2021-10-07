@@ -1,9 +1,9 @@
 import React from 'react'
 import {
   AccordionActions as MuiAccordionActions,
-  AccordionActionsProps,
-  makeStyles
-} from '@material-ui/core'
+  AccordionActionsProps
+} from '@mui/material'
+import makeStyles from '@mui/styles/makeStyles'
 import { Theme } from '../../../theme/types'
 
 export function AccordionActions(props: AccordionActionsProps): JSX.Element {
