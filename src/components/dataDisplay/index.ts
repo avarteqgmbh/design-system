@@ -1,3 +1,4 @@
+import { AnyIcon } from './AnyIcon/AnyIcon'
 import { Chip } from './Chip/Chip'
 import { List } from './List/List'
 import { ListItem } from './List/ListItem'
@@ -17,6 +18,7 @@ import { CodeSnippet } from './CodeSnippet/CodeSnippet'
 import { Slides } from './Slides/Slides'
 
 export {
+  AnyIcon,
   Chip,
   CodeSnippet,
   List,

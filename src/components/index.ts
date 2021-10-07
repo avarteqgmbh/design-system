@@ -65,6 +65,7 @@ import {
 } from './surfaces/index'
 
 import {
+  AnyIcon,
   Chip,
   CodeSnippet,
   List,
@@ -91,6 +92,8 @@ import {
   LinearProgress,
   Snackbar
 } from './feedback/index'
+
+import { onClickOutsideHook } from './utils'
 
 export {
   Button,
@@ -149,6 +152,7 @@ export {
   CardActionArea
 }
 export {
+  AnyIcon,
   Chip,
   CodeSnippet,
   List,
@@ -169,3 +173,5 @@ export {
   SvgIcon
 }
 export { Backdrop, CircularProgress, LinearProgress, Snackbar }
+
+export { onClickOutsideHook }
