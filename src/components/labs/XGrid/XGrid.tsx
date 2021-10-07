@@ -4,7 +4,8 @@ import {
   DataGridProps,
   GridToolbar,
   getGridStringOperators,
-  getGridNumericColumnOperators
+  getGridNumericColumnOperators,
+  getGridDateOperators
 } from '@mui/x-data-grid'
 import { GRID_DE_LOCALE_TEXT } from './locales'
 
@@ -33,4 +34,8 @@ export function XGrid(props: XGridProps): JSX.Element {
   )
 }
 
-export { getGridStringOperators, getGridNumericColumnOperators }
+export {
+  getGridStringOperators,
+  getGridNumericColumnOperators,
+  getGridDateOperators
+}

@@ -62,9 +62,9 @@ export const GRID_DE_LOCALE_TEXT: GridLocaleText = {
   filterOperatorIsNotEmpty: 'ist nicht leer',
 
   // Filter values text
-  filterValueAny: 'irgendwas',
-  filterValueTrue: 'wahr',
-  filterValueFalse: 'falsch',
+  filterValueAny: '',
+  filterValueTrue: 'Ja',
+  filterValueFalse: 'Nein',
 
   // Column menu text
   columnMenuLabel: 'Menu',

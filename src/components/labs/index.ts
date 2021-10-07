@@ -3,7 +3,8 @@ import { AlertTitle } from './Alert/AlertTitle'
 import {
   XGrid,
   getGridNumericColumnOperators,
-  getGridStringOperators
+  getGridStringOperators,
+  getGridDateOperators
 } from './XGrid/XGrid'
 import { Skeleton } from './Skeleton/Skeleton'
 import { Pagination } from './Pagination/Pagination'
@@ -16,6 +17,7 @@ export {
   XGrid,
   getGridNumericColumnOperators,
   getGridStringOperators,
+  getGridDateOperators,
   Skeleton,
   Pagination,
   Badge,
