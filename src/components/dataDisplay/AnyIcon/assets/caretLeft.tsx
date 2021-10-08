@@ -1,6 +1,6 @@
 import React from 'react'
 
-const caretLeft = () => {
+const caretLeft: React.FC = () => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'

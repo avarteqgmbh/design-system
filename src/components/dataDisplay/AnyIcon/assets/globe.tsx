@@ -1,6 +1,6 @@
 import React from 'react'
 
-const globe = () => {
+const globe: React.FC = () => {
   return (
     <svg
       id='globe'
