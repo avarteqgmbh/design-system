@@ -1,6 +1,6 @@
 import React from 'react'
 
-const news = () => {
+const news: React.FC = () => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
