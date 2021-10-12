@@ -92,7 +92,7 @@ export default {
   }
 }
 // TODO: - adding examples with FormControlLabel
-//         https://material-ui.com/components/checkboxes/#checkbox-with-formcontrollabel
+//         https://mui.com/components/checkboxes/#checkbox-with-formcontrollabel
 
 const Template: Story<CheckboxProps> = (args) => {
   return (

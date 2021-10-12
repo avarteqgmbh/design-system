@@ -44,7 +44,7 @@ export default {
 }
 
 // TODO: - adding Typography Theme
-//         https://material-ui.com/customization/typography/
+//         https://mui.com/customization/typography/
 
 const Template: Story<TypographyProps> = (args) => {
   return <Typography {...args} />

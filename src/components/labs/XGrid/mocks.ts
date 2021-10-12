@@ -1,4 +1,4 @@
-import { GridColDef } from '@material-ui/x-grid'
+import { GridColDef } from '@mui/x-data-grid-pro'
 
 export const rows = [
   { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },

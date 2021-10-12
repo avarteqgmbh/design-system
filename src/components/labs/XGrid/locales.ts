@@ -1,4 +1,4 @@
-import { GridLocaleText } from '@material-ui/x-grid'
+import { GridLocaleText } from '@mui/x-data-grid-pro'
 
 export const GRID_DE_LOCALE_TEXT: GridLocaleText = {
   noRowsLabel: 'Keine Daten vorhanden',

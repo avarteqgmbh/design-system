@@ -32,7 +32,10 @@ const useStyles = makeStyles((theme: Theme) => {
   return {
     root: {
       display: 'flex',
-      padding: theme.spacing(3, 5),
+      paddingTop: theme.spacing(3),
+      paddingBottom: theme.spacing(3),
+      paddingLeft: theme.spacing(5),
+      paddingRight: theme.spacing(5),
       borderWidth: 1,
       borderStyle: 'solid',
       borderColor: theme.palette.background.border,
@@ -59,10 +62,16 @@ const useStyles = makeStyles((theme: Theme) => {
       }
     },
     sizeLarge: {
-      padding: theme.spacing(4, 6)
+      paddingTop: theme.spacing(4),
+      paddingBottom: theme.spacing(4),
+      paddingLeft: theme.spacing(6),
+      paddingRight: theme.spacing(6)
     },
     sizeSmall: {
-      padding: theme.spacing(2, 4)
+      paddingTop: theme.spacing(2),
+      paddingBottom: theme.spacing(2),
+      paddingLeft: theme.spacing(4),
+      paddingRight: theme.spacing(4)
     },
     outlined: {
       borderColor: theme.palette.text.primary,
