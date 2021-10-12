@@ -9,7 +9,7 @@ export function Tooltip(props: TooltipProps): JSX.Element {
 }
 
 // TODO: - adding Customized tooltips
-//         https://material-ui.com/components/tooltips/#customized-tooltips
+//         https://mui.com/components/tooltips/#customized-tooltips
 
 const useStyles = makeStyles<Theme>(() => {
   return {

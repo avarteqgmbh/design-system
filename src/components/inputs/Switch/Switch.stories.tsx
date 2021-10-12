@@ -93,7 +93,7 @@ export default {
   }
 }
 // TODO: - adding examples with FormControlLabel
-//         https://material-ui.com/components/switches/#switch-with-formcontrollabel
+//         https://mui.com/components/switches/#switch-with-formcontrollabel
 
 const Template: Story<SwitchProps> = (args) => {
   return <Switch {...args} inputProps={{ 'aria-label': 'primary Switch' }} />

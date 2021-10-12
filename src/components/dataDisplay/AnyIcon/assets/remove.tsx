@@ -1,6 +1,6 @@
 import React from 'react'
 
-const remove = () => {
+const remove: React.FC = () => {
   return (
     <svg
       version='1.1'

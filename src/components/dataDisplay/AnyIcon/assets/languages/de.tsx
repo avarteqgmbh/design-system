@@ -1,6 +1,6 @@
 import React from 'react'
 
-const de = () => {
+const de: React.FC = () => {
   return (
     <svg
       id='DE'

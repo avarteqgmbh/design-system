@@ -91,28 +91,28 @@ function HomeIcon(props: SvgIconProps): JSX.Element {
   )
 }
 
-export const CustomIcon: Story<SvgIconProps> = (args): JSX.Element => {
+export const CustomIcon: Story<SvgIconProps> = (): JSX.Element => {
   const classes = useSvgStyles()
 
   return (
     <div className={classes.root}>
-      <HomeIcon {...args} />
-      <HomeIcon {...args} color='primary' />
-      <HomeIcon {...args} color='secondary' />
-      <MoonIcon {...args} style={{ color: 'green' }} />
-      <HomeIcon {...args} color='action' />
-      <HomeIcon {...args} color='disabled' />
-      <HomeIcon {...args} style={{ color: 'green' }} />
-      <HomeIcon {...args} fontSize='small' />
-      <HomeIcon {...args} fontSize='large' />
-      <HomeIcon {...args} style={{ fontSize: 40 }} />
+      <HomeIcon />
+      <HomeIcon />
+      <HomeIcon />
+      <MoonIcon color='inherit' />
+      <HomeIcon />
+      <HomeIcon />
+      <HomeIcon />
+      <HomeIcon />
+      <HomeIcon />
+      <HomeIcon />
     </div>
   )
 }
 
 export const ButtonWithIcon: Story<IconButtonProps> = (args): JSX.Element => {
   return (
-    <IconButton aria-label='delete' {...args} size='large'>
+    <IconButton aria-label='delete' {...args} size='medium'>
       <SvgIcon>
         <path d='M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z' />
       </SvgIcon>
