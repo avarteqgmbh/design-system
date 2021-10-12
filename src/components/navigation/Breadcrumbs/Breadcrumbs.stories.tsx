@@ -4,7 +4,6 @@ import { withDesign } from 'storybook-addon-designs'
 import { BreadcrumbsProps } from '@mui/material'
 import { Typography } from '../../index'
 import { NavigateNext as NavigateNextIcon } from '@mui/icons-material'
-
 import { Breadcrumbs } from './Breadcrumbs'
 import { Link } from '../Link/Link'
 
@@ -32,7 +31,7 @@ export const Default: Story<BreadcrumbsProps> = (args): JSX.Element => {
   return (
     <Breadcrumbs {...args} aria-label='breadcrumb'>
       <Link color='inherit' href='/' onClick={handleClick}>
-        Material-UI
+        Mui
       </Link>
       <Link color='inherit' href='/' onClick={handleClick}>
         Core
@@ -49,7 +48,7 @@ export const Custom: Story<BreadcrumbsProps> = (): JSX.Element => {
       aria-label='breadcrumb'
     >
       <Link color='inherit' href='/' onClick={handleClick}>
-        Material-UI
+        Mui
       </Link>
       <Link color='inherit' href='/' onClick={handleClick}>
         Core

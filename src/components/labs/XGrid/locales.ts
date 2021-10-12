@@ -40,7 +40,7 @@ export const GRID_DE_LOCALE_TEXT: GridLocaleText = {
   // Filter panel text
   filterPanelAddFilter: 'Filter hinzufügen',
   filterPanelDeleteIconLabel: 'Löschen',
-  filterPanelOperators: 'Operatoren',
+  filterPanelOperators: 'Operator',
   filterPanelOperatorAnd: 'Und',
   filterPanelOperatorOr: 'Oder',
   filterPanelColumns: 'Spalten',

@@ -8,18 +8,15 @@ import { Theme } from '../../../theme/types'
 
 export function CircularProgress(props: MuiCircularProgressProps): JSX.Element {
   const classes = useStyles()
-  return (
-    <MuiCircularProgress
-      classes={{
-        root: classes.root
-      }}
-      {...props}
-    />
-  )
+  return <MuiCircularProgress className={classes.root} {...props} />
 }
 
-const useStyles = makeStyles<Theme>(() => {
+const useStyles = makeStyles((theme: Theme) => {
   return {
-    root: {}
+    root: {
+      '&.MuiCircularProgress-colorPrimary': {
+        color: theme.palette.primary.main
+      }
+    }
   }
 })
