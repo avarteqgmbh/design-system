@@ -2,7 +2,7 @@ import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { XGrid, XGridProps } from './XGrid'
-import { rows } from './mocks'
+import { rows, columns } from './mocks'
 
 export default {
   title: 'Lab/XGrid',
@@ -46,13 +46,13 @@ const Template: Story<XGridProps> = (args) => {
 export const Default = Template.bind({})
 Default.args = {
   rows,
-  columns: []
+  columns
 }
 
 export const Toolbar = Template.bind({})
 Toolbar.args = {
   rows,
-  columns: [],
+  columns,
   checkboxSelection: true,
   toolbar: true,
   rowsPerPageOptions: [5, 10],
@@ -62,7 +62,7 @@ Toolbar.args = {
 export const DE = Template.bind({})
 DE.args = {
   rows,
-  columns: [],
+  columns,
   checkboxSelection: true,
   toolbar: true,
   rowsPerPageOptions: [5, 10],
