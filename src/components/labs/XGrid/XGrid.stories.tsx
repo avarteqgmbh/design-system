@@ -55,6 +55,18 @@ Toolbar.args = {
   columns,
   checkboxSelection: true,
   toolbar: true,
+  csvOptions: { delimiter: ';' },
+  rowsPerPageOptions: [5, 10],
+  pageSize: 5
+}
+
+export const ToolbarCustomExport = Template.bind({})
+Toolbar.args = {
+  rows,
+  columns,
+  checkboxSelection: true,
+  toolbar: true,
+  csvOptions: { delimiter: ';' },
   rowsPerPageOptions: [5, 10],
   pageSize: 5
 }

@@ -2,10 +2,15 @@ import React from 'react'
 import {
   DataGridPro,
   DataGridProProps,
-  GridToolbar,
   getGridStringOperators,
   getGridNumericColumnOperators,
-  getGridDateOperators
+  getGridDateOperators,
+  GridToolbarExport,
+  GridToolbarContainer,
+  GridToolbarColumnsButton,
+  GridToolbarFilterButton,
+  GridToolbarDensitySelector,
+  GridExportCsvOptions
 } from '@mui/x-data-grid-pro'
 import GlobalStyles from '@mui/material/GlobalStyles'
 import { GRID_DE_LOCALE_TEXT } from './locales'
@@ -13,8 +18,54 @@ import { makeStyles } from '../../../theme/ThemeProvider'
 import { Theme } from '../../../theme/types'
 
 export interface XGridProps extends DataGridProProps {
-  toolbar?: boolean
   language?: 'DE' | 'EN'
+  toolbar?: boolean
+  csvOptions?: GridExportCsvOptions
+}
+
+export function XGrid(props: XGridProps): JSX.Element {
+  const {
+    autoHeight = true,
+    language = 'EN',
+    csvOptions,
+    toolbar = false
+  } = props
+  const classes = useStyles()
+
+  const CustomToolbar = (): JSX.Element => {
+    return (
+      <GridToolbarContainer>
+        <GridToolbarColumnsButton />
+        <GridToolbarFilterButton />
+        <GridToolbarDensitySelector />
+        {csvOptions ? (
+          <GridToolbarExport csvOptions={csvOptions} />
+        ) : (
+          <GridToolbarExport />
+        )}
+      </GridToolbarContainer>
+    )
+  }
+
+  let lang = {}
+
+  if (language === 'DE') {
+    lang = GRID_DE_LOCALE_TEXT
+  }
+
+  return (
+    <>
+      {GridGlobalStyles}
+      <DataGridPro
+        localeText={lang}
+        autoHeight={autoHeight}
+        autoPageSize={autoHeight}
+        components={toolbar ? { Toolbar: CustomToolbar } : {}}
+        className={classes.root}
+        {...props}
+      />
+    </>
+  )
 }
 
 const GridGlobalStyles = (
@@ -52,31 +103,6 @@ const GridGlobalStyles = (
     }}
   />
 )
-
-export function XGrid(props: XGridProps): JSX.Element {
-  const { toolbar = false, autoHeight = true, language = 'EN' } = props
-  const classes = useStyles()
-
-  let lang = {}
-
-  if (language === 'DE') {
-    lang = GRID_DE_LOCALE_TEXT
-  }
-
-  return (
-    <>
-      {GridGlobalStyles}
-      <DataGridPro
-        localeText={lang}
-        autoHeight={autoHeight}
-        autoPageSize={autoHeight}
-        components={toolbar ? { Toolbar: GridToolbar } : {}}
-        className={classes.root}
-        {...props}
-      />
-    </>
-  )
-}
 
 const useStyles = makeStyles((theme: Theme) => {
   return {
