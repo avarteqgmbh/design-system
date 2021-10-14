@@ -60,7 +60,8 @@ const useStyles = makeStyles((theme: Theme) => {
   return {
     root: {
       background: theme.palette.background.light,
-      borderRadius: theme.radius.card
+      borderRadius: theme.radius.card,
+      margin: '20px 0px'
     },
     header: {
       padding: theme.spacing(2),
