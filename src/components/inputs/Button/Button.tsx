@@ -56,6 +56,7 @@ const useStyles = makeStyles((theme: Theme) => {
     textPrimary: {
       borderColor: 'transparent',
       background: 'transparent',
+      color: theme.palette.primary.main,
       '&:hover': {
         color: theme.palette.common.white,
         background: theme.palette.primary.main

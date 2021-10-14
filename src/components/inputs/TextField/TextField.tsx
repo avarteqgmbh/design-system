@@ -23,69 +23,27 @@ export function TextField(props: MuiTextFieldProps): JSX.Element {
 const useStyles = makeStyles((theme: Theme) => {
   return {
     root: {
-      background: theme.palette.background.default,
+      backgroundColor: 'inherit',
       borderRadius: theme.radius.medium,
 
-      '& .MuiSvgIcon-root': {
-        color: theme.palette.text.primary
-      },
-
-      '&:hover, &:focus-within': {
-        background: theme.palette.background.medium
-      },
-
-      '& .MuiInputBase-root': {
-        borderRadius: theme.radius.medium
-      },
-
-      '& fieldset.MuiOutlinedInput-notchedOutline': {
-        borderColor: 'transparent',
-        border: 'none'
-      },
-
-      '& .MuiOutlinedInput-root': {
-        background: 'inherit',
+      '& .MuiFilledInput-root': {
         borderRadius: theme.radius.medium,
         overflow: 'hidden',
-        borderColor: theme.palette.background.border,
-        borderStyle: 'solid',
-        borderWidth: 1,
-        transitionDuration: '280ms',
-        transitionProperty: 'background',
-        transitionTimingFunction: 'ease-in-out',
-
-        '& .MuiOutlinedInput-input.MuiOutlinedInput-inputAdornedStart': {
-          paddingLeft: theme.spacing(3)
-        },
-
-        '& .MuiInputLabel-root': {
-          padding: theme.spacing(2, 3),
-          background: 'transparent'
-        },
-
-        '&:hover, &:focus-within': {
-          background: theme.palette.background.light
-        },
-
-        '&:focus-within': {
-          borderColor: theme.palette.primary.main
+        '&:before': {
+          opacity: 0
         }
       },
 
-      '& .MuiFormLabel-root.MuiInputLabel-shrink': {
-        color: theme.palette.text.primary,
-        transform: 'translate(16px, 8px) scale(0.75)'
-      },
+      '& .MuiInputLabel-root': {
+        color: theme.palette.text.secondary,
 
-      '&:focus-within': {
-        '& .MuiFormLabel-root.MuiInputLabel-shrink': {
-          borderColor: theme.palette.primary.main
+        '&.Mui-focused': {
+          color: theme.palette.primary.main
         }
       },
 
       '&:hover': {
-        '& .MuiFormLabel-root.MuiInputLabel-shrink': {
-          background: theme.palette.background.paper,
+        '& .MuiInputLabel-root': {
           color: theme.palette.text.primary
         }
       }
