@@ -1,6 +1,6 @@
 {
   "name": "@anynines/a9s-design-system",
-  "version": "0.2.25",
+  "version": "0.2.26",
   "private": false,
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -44,6 +44,7 @@
     "web-vitals": "^1.0.1"
   },
   "peerDependencies": {
+    "@material-ui/core": "^4.12.0 || ^5.0.0-beta.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
