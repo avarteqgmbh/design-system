@@ -75,7 +75,7 @@ export const Color: Story<FabProps> = (args) => {
       <Fab {...args} color='primary'>
         <AddIcon />
       </Fab>
-      <Fab {...args} color='secondary'>
+      <Fab {...args} color='inherit'>
         <AddIcon />
       </Fab>
     </>

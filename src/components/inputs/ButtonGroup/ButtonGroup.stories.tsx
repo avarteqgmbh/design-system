@@ -1,59 +1,12 @@
 import React from 'react'
-import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { ButtonGroupProps } from '@mui/material'
 import { ButtonGroup } from './ButtonGroup'
-import { Typography, Button } from '../../index'
-
-const Buttons = (
-  <>
-    <Button>One</Button>
-    <Button>Two</Button>
-    <Button>Three</Button>
-  </>
-)
+import { Button } from '../../index'
 
 export default {
   title: 'Inputs/ButtonGroup',
   component: ButtonGroup,
-  argTypes: {
-    size: {
-      control: { type: 'select' },
-      options: ['small', 'medium', 'large'],
-      defaultValue: 'medium',
-      table: {
-        type: { summary: 'select' },
-        defaultValue: { summary: 'medium' }
-      }
-    },
-    color: {
-      control: { type: 'select' },
-      options: ['default', 'inherit', 'primary', 'secondary'],
-      defaultValue: 'default',
-      table: {
-        type: { summary: 'select' },
-        defaultValue: { summary: 'default' }
-      }
-    },
-    variant: {
-      control: { type: 'select' },
-      options: ['contained', 'outlined', 'text'],
-      defaultValue: 'contained',
-      table: {
-        type: { summary: 'select' },
-        defaultValue: { summary: 'contained' }
-      }
-    },
-    disabled: {
-      control: { type: 'boolean' },
-      options: ['true', 'false'],
-      defaultValue: 'false',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' }
-      }
-    }
-  },
+  argTypes: {},
   decorators: [withDesign],
   parameters: {
     controls: { expanded: true },
@@ -64,25 +17,72 @@ export default {
   }
 }
 
-const Template: Story<ButtonGroupProps> = (args) => {
-  return <ButtonGroup {...args} />
+const buttons = [
+  <Button key='one'>One</Button>,
+  <Button key='two'>Two</Button>,
+  <Button key='three'>Three</Button>
+]
+
+export const Outlined = (): JSX.Element => {
+  return <ButtonGroup variant='outlined'>{buttons}</ButtonGroup>
 }
 
-export const Default = Template.bind({})
-Default.args = {
-  children: <Typography> Default Button </Typography>
+export const Contained = (): JSX.Element => {
+  return <ButtonGroup variant='contained'>{buttons}</ButtonGroup>
 }
 
-export const PrimaryButtonGroup = Template.bind({})
-PrimaryButtonGroup.args = {
-  children: Buttons,
-  variant: 'contained',
-  color: 'primary'
+export const Text = (): JSX.Element => {
+  return <ButtonGroup variant='text'>{buttons}</ButtonGroup>
 }
 
-export const SecondaryButtonGroup = Template.bind({})
-SecondaryButtonGroup.args = {
-  children: Buttons,
-  variant: 'outlined',
-  color: 'secondary'
+export const Small = (): JSX.Element => {
+  return (
+    <ButtonGroup variant='contained' size='small'>
+      {buttons}
+    </ButtonGroup>
+  )
+}
+
+export const Medium = (): JSX.Element => {
+  return (
+    <ButtonGroup variant='contained' size='medium'>
+      {buttons}
+    </ButtonGroup>
+  )
+}
+
+export const Large = (): JSX.Element => {
+  return (
+    <ButtonGroup variant='contained' size='large'>
+      {buttons}
+    </ButtonGroup>
+  )
+}
+
+export const Secondary = (): JSX.Element => {
+  return (
+    <ButtonGroup color='secondary' variant='contained' size='large'>
+      {buttons}
+    </ButtonGroup>
+  )
+}
+
+export const DisabledElevation = (): JSX.Element => {
+  return (
+    <ButtonGroup disableElevation variant='contained'>
+      {buttons}
+    </ButtonGroup>
+  )
+}
+
+export const Vertical = (): JSX.Element => {
+  return (
+    <ButtonGroup
+      orientation='vertical'
+      aria-label='vertical contained button group'
+      variant='contained'
+    >
+      {buttons}
+    </ButtonGroup>
+  )
 }

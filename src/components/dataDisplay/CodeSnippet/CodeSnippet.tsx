@@ -22,8 +22,10 @@ export const CodeSnippet: React.FC<CodeSnippetProps> = ({
   return (
     <Paper className={classes.root}>
       <Grid container direction='column'>
-        <Grid container className={classes.header}>
-          <Typography variant='caption'>{fileName}</Typography>
+        <Grid item container className={classes.header}>
+          <Typography variant='body2' sx={{ fontWeight: 900 }}>
+            {fileName}
+          </Typography>
           <CopyButton value={value} />
         </Grid>
         <SyntaxHighlighter
@@ -38,7 +40,7 @@ export const CodeSnippet: React.FC<CodeSnippetProps> = ({
         >
           {value}
         </SyntaxHighlighter>
-        <Grid container className={classes.footer}>
+        <Grid item container className={classes.footer}>
           <Typography variant='overline' color='textSecondary'>
             {language}
           </Typography>
@@ -60,11 +62,13 @@ const useStyles = makeStyles((theme: Theme) => {
   return {
     root: {
       background: theme.palette.background.light,
-      borderRadius: theme.radius.card
+      borderRadius: theme.radius.button,
+      margin: '20px 0px'
     },
     header: {
       padding: theme.spacing(2),
       justifyContent: 'space-between',
+      alignItems: 'center',
       '& span::first-letter': {
         textTransform: 'uppercase'
       },

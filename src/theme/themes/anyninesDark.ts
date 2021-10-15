@@ -133,8 +133,8 @@ const palette = {
 // --------------------------------------------
 // T Y P O G R A P H Y
 // ------------------
-const FONT_FAMILY_HEADLINE = 'Inter'
-const FONT_FAMILY_BODY = 'Inter'
+const FONT_FAMILY_HEADLINE = 'Lato'
+const FONT_FAMILY_BODY = 'Lato'
 
 const FONT_WEIGHT_HEADLINE = 800
 const FONT_WEIGHT_BODY = 400
