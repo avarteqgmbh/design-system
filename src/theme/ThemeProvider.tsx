@@ -1,11 +1,12 @@
 import React from 'react'
 import {
+  adaptV4Theme,
   ThemeProvider as MuiThemeProvider,
   StyledEngineProvider,
   DeprecatedThemeOptions,
-  createTheme,
-  CssBaseline
-} from '@mui/material'
+  createTheme
+} from '@mui/material/styles'
+import { CssBaseline } from '@mui/material'
 import muiMakeStyles from '@mui/styles/makeStyles'
 
 import { Theme } from './types'
@@ -22,6 +23,10 @@ import { theme as hyundai } from './themes/hyundai'
 import { theme as kia } from './themes/kia'
 import { ThemeProviderProps as MuiThemeProviderProps } from '@mui/material/styles/ThemeProvider'
 
+declare module '@mui/styles/defaultTheme' {
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  interface DefaultTheme extends Theme {}
+}
 declare module '@mui/styles/defaultTheme' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
   interface DefaultTheme extends Theme {}
@@ -73,7 +78,10 @@ export const ThemeProvider = (props: ThemeProviderProps): JSX.Element => {
 
   return (
     <StyledEngineProvider injectFirst>
-      <MuiThemeProvider {...props} theme={createTheme(getTheme())} />
+      <MuiThemeProvider
+        {...props}
+        theme={createTheme(adaptV4Theme(getTheme()))}
+      />
     </StyledEngineProvider>
   )
 }

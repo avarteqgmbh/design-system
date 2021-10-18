@@ -1,24 +1,20 @@
 import React from 'react'
-import {
-  DateTimePicker as MuiDateTimePicker,
-  DateTimePickerViewsProps,
-  MuiPickersUtilsProvider
-} from '@material-ui/pickers'
-import { Moment } from 'moment'
-import MomentUtils from '@date-io/moment'
+import MuiDateTimePicker, { DateTimePickerProps } from '@mui/lab/DateTimePicker'
+import Moment from '@mui/lab/AdapterMoment'
+import LocalizationProvider from '@mui/lab/LocalizationProvider'
 
-export function DateTimePicker(props: DateTimePickerViewsProps): JSX.Element {
+export function DateTimePicker(props: DateTimePickerProps): JSX.Element {
   const [selectedDate, setDate] = React.useState<Moment | null>()
 
   return (
-    <MuiPickersUtilsProvider utils={MomentUtils}>
+    <LocalizationProvider dateAdapter={Moment}>
       <MuiDateTimePicker
         {...props}
         value={selectedDate}
         onChange={(newDate): void => {
-          return setDate(newDate)
+          return setDate(newDate as Moment)
         }}
       />
-    </MuiPickersUtilsProvider>
+    </LocalizationProvider>
   )
 }
