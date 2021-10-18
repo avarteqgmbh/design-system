@@ -1,6 +1,5 @@
 import React from 'react'
 import {
-  adaptV4Theme,
   ThemeProvider as MuiThemeProvider,
   StyledEngineProvider,
   DeprecatedThemeOptions,
@@ -78,10 +77,7 @@ export const ThemeProvider = (props: ThemeProviderProps): JSX.Element => {
 
   return (
     <StyledEngineProvider injectFirst>
-      <MuiThemeProvider
-        {...props}
-        theme={createTheme(adaptV4Theme(getTheme()))}
-      />
+      <MuiThemeProvider {...props} theme={createTheme(getTheme())} />
     </StyledEngineProvider>
   )
 }

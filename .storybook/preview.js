@@ -4,7 +4,7 @@ import { theme as toyota } from '../src/theme/themes/toyota'
 import { theme as santander } from '../src/theme/themes/santander/index'
 import { theme as thomsit } from '../src/theme/themes/thomsit'
 import { theme as bosch } from '../src/theme/themes/bosch'
-import { ThemeProvider, createTheme, adaptV4Theme, StyledEngineProvider} from '@mui/material/styles'
+import { ThemeProvider, createTheme, StyledEngineProvider} from '@mui/material/styles'
 import { addDecorator } from '@storybook/react'
 import { withThemes } from '@react-theming/storybook-addon'
 
@@ -24,7 +24,7 @@ export const parameters = {
 }
 
 const providerFn = ({ theme, children }) => {
-  const muTheme = createTheme(adaptV4Theme(theme))
+  const muTheme = createTheme(theme)
   return (
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={(muTheme)}>
