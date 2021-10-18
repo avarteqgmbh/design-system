@@ -10,7 +10,7 @@ import {
   GridToolbarColumnsButton,
   GridToolbarFilterButton,
   GridToolbarDensitySelector,
-  GridExportCsvOptions
+  GridCsvExportOptions
 } from '@mui/x-data-grid-pro'
 import GlobalStyles from '@mui/material/GlobalStyles'
 import { GRID_DE_LOCALE_TEXT } from './locales'
@@ -20,7 +20,7 @@ import { Theme } from '../../../theme/types'
 export interface XGridProps extends DataGridProProps {
   language?: 'DE' | 'EN'
   toolbar?: boolean
-  csvOptions?: GridExportCsvOptions
+  csvOptions?: GridCsvExportOptions
 }
 
 export function XGrid(props: XGridProps): JSX.Element {

@@ -29,6 +29,7 @@ export const GRID_DE_LOCALE_TEXT: GridLocaleText = {
   toolbarExport: 'Export',
   toolbarExportLabel: 'Export',
   toolbarExportCSV: 'Als CSV herunterladen',
+  toolbarExportPrint: 'Drucken',
 
   // Columns panel text
   columnsPanelTextFieldLabel: 'Spalten finden',
@@ -104,6 +105,8 @@ export const GRID_DE_LOCALE_TEXT: GridLocaleText = {
   // Boolean cell text
   booleanCellTrueLabel: 'wahr',
   booleanCellFalseLabel: 'falsch',
+
+  actionsCellMore: 'Mehr',
 
   // Used core components translation keys
   MuiTablePagination: {}
