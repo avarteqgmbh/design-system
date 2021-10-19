@@ -2,7 +2,7 @@ import { Button } from './Button/Button'
 import { ButtonGroup } from './ButtonGroup/ButtonGroup'
 import { Checkbox } from './Checkbox/Checkbox'
 import { FloatingActionButton } from './FloatingActionButton/FloatingActionButton'
-import { Select } from './Select/Select'
+import { Select, SelectChangeEvent } from './Select/Select'
 import { Switch } from './Switch/Switch'
 import { TextField } from './TextField/TextField'
 import { InputAdornment } from './TextField/InputAdornment'
@@ -35,3 +35,4 @@ export {
   Input,
   InputLabel
 }
+export type { SelectChangeEvent }
