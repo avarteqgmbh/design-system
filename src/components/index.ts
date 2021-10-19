@@ -4,6 +4,7 @@ import {
   Checkbox,
   FloatingActionButton,
   Select,
+  SelectChangeEvent,
   TextField,
   InputAdornment,
   Radio,
@@ -51,7 +52,7 @@ import {
   MobileStepper
 } from './navigation/index'
 
-import { Box, Container, Grid, Hidden } from './layout/index'
+import { Box, Container, Grid, GridDirection, Hidden } from './layout/index'
 
 import {
   Card,
@@ -152,6 +153,7 @@ export {
   MobileStepper
 }
 export { Box, Container, Grid, Hidden }
+export type { GridDirection, SelectChangeEvent }
 
 export {
   Accordion,
