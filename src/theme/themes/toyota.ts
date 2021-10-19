@@ -133,12 +133,11 @@ const palette = {
 // --------------------------------------------
 // T Y P O G R A P H Y
 // ------------------
-const FONT_FAMILY_HEADLINE = 'Bold'
-const FONT_FAMILY_BODY = 'Regular'
+const FONT_FAMILY = 'Toyota Type'
 
-const FONT_WEIGHT_HEADLINE = 700
+const FONT_WEIGHT_HEADLINE = 800
 const FONT_WEIGHT_BODY = 400
-const FONT_WEIGHT_BUTTON = 700
+const FONT_WEIGHT_BUTTON = 800
 
 const LINE_HEIGHT_HEADLINE = 1.15
 const LINE_HEIGHT_BODY = 1.5
@@ -152,19 +151,19 @@ const LETTER_SPACING_BODY = '0em'
 const TYPE_SPACING = [10, 12, 14, 16, 20, 24, 32, 40, 48, 62, 124]
 
 const BASE_HEADLINE_STYLES = {
-  fontFamily: FONT_FAMILY_HEADLINE,
+  fontFamily: FONT_FAMILY,
   fontWeight: FONT_WEIGHT_HEADLINE,
   lineHeight: LINE_HEIGHT_HEADLINE,
   letterSpacing: LETTER_SPACING_HEADLINE
 }
 const BASE_BODY_STYLES = {
-  fontFamily: FONT_FAMILY_BODY,
+  fontFamily: FONT_FAMILY,
   fontWeight: FONT_WEIGHT_BODY,
   lineHeight: LINE_HEIGHT_BODY,
   letterSpacing: LETTER_SPACING_BODY
 }
 const BASE_BUTTON_STYLES = {
-  fontFamily: FONT_FAMILY_BODY,
+  fontFamily: FONT_FAMILY,
   fontWeight: FONT_WEIGHT_BUTTON,
   lineHeight: 1.1,
   letterSpacing: LETTER_SPACING_HEADLINE
@@ -172,7 +171,7 @@ const BASE_BUTTON_STYLES = {
 
 const typography = {
   fontFamily: [
-    `${FONT_FAMILY_BODY}`,
+    `${FONT_FAMILY}`,
     'Inter',
     'Roboto',
     '"Helvetica Neue"',
@@ -182,6 +181,10 @@ const typography = {
     '"Segoe UI Emoji"',
     '"Segoe UI Symbol"'
   ].join(','),
+  fontWeightLight: FONT_WEIGHT_BODY,
+  fontWeightRegular: FONT_WEIGHT_BODY,
+  fontWeightMedium: FONT_WEIGHT_BODY,
+  fontWeightBold: FONT_WEIGHT_HEADLINE,
   h1: { ...BASE_HEADLINE_STYLES, fontSize: TYPE_SPACING[9] },
   h2: { ...BASE_HEADLINE_STYLES, fontSize: TYPE_SPACING[8] },
   h3: { ...BASE_HEADLINE_STYLES, fontSize: TYPE_SPACING[7] },
