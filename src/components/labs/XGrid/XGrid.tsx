@@ -16,11 +16,16 @@ import GlobalStyles from '@mui/material/GlobalStyles'
 import { GRID_DE_LOCALE_TEXT } from './locales'
 import { makeStyles } from '../../../theme/ThemeProvider'
 import { Theme } from '../../../theme/types'
+import { QuickSearch } from './QuickSearch'
 
 export interface XGridProps extends DataGridProProps {
   language?: 'DE' | 'EN'
   toolbar?: boolean
   csvOptions?: GridCsvExportOptions
+  quickSearch?: boolean
+  searchText: string
+  onSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  clearSearch: () => void
 }
 
 export function XGrid(props: XGridProps): JSX.Element {
@@ -28,6 +33,10 @@ export function XGrid(props: XGridProps): JSX.Element {
     autoHeight = true,
     language = 'EN',
     csvOptions,
+    quickSearch = true,
+    clearSearch,
+    onSearchChange,
+    searchText,
     toolbar = false
   } = props
   const classes = useStyles()
@@ -42,6 +51,13 @@ export function XGrid(props: XGridProps): JSX.Element {
           <GridToolbarExport csvOptions={csvOptions} />
         ) : (
           <GridToolbarExport />
+        )}
+        {quickSearch && (
+          <QuickSearch
+            clearSearch={clearSearch}
+            onChange={onSearchChange}
+            value={searchText}
+          />
         )}
       </GridToolbarContainer>
     )

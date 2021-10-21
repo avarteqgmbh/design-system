@@ -2,7 +2,7 @@ import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { XGrid, XGridProps } from './XGrid'
-import { rows, columns } from './mocks'
+import { useDemoData, DataRowModel } from '@mui/x-data-grid-generator'
 
 export default {
   title: 'Lab/XGrid',
@@ -40,30 +40,53 @@ export default {
 }
 
 const Template: Story<XGridProps> = (args) => {
-  return <XGrid {...args} />
+  const { data } = useDemoData({
+    dataSet: 'Commodity',
+    rowLength: 100,
+    maxColumns: 6
+  })
+  function escapeRegExp(value: string): string {
+    return value.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&')
+  }
+
+  const [searchText, setSearchText] = React.useState('')
+  const [rows, setRows] = React.useState<DataRowModel[]>(data.rows)
+
+  const requestSearch = (searchValue: string): void => {
+    setSearchText(searchValue)
+    const searchRegex = new RegExp(escapeRegExp(searchValue), 'i')
+    const filteredRows = data.rows.filter((row: DataRowModel) => {
+      return Object.keys(row).some((field) => {
+        return searchRegex.test(row[field].toString())
+      })
+    })
+    setRows(filteredRows)
+  }
+
+  React.useEffect(() => {
+    setRows(data.rows)
+  }, [data.rows])
+
+  return (
+    <XGrid
+      {...args}
+      rows={rows}
+      columns={data.columns}
+      searchText={searchText}
+      onSearchChange={(event: React.ChangeEvent<HTMLInputElement>): void => {
+        return requestSearch(event.target.value)
+      }}
+      clearSearch={(): void => {
+        return requestSearch('')
+      }}
+    />
+  )
 }
 
 export const Default = Template.bind({})
-Default.args = {
-  rows,
-  columns
-}
 
 export const Toolbar = Template.bind({})
 Toolbar.args = {
-  rows,
-  columns,
-  checkboxSelection: true,
-  toolbar: true,
-  csvOptions: { delimiter: ';' },
-  rowsPerPageOptions: [5, 10],
-  pageSize: 5
-}
-
-export const ToolbarCustomExport = Template.bind({})
-Toolbar.args = {
-  rows,
-  columns,
   checkboxSelection: true,
   toolbar: true,
   csvOptions: { delimiter: ';' },
@@ -73,8 +96,6 @@ Toolbar.args = {
 
 export const DE = Template.bind({})
 DE.args = {
-  rows,
-  columns,
   checkboxSelection: true,
   toolbar: true,
   rowsPerPageOptions: [5, 10],
