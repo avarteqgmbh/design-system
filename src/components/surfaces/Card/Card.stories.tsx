@@ -3,7 +3,6 @@ import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { CardProps, Avatar, IconButton, Collapse } from '@mui/material'
 import makeStyles from '@mui/styles/makeStyles'
-import clsx from 'clsx'
 import { red } from '@mui/material/colors'
 import {
   Favorite as FavoriteIcon,
@@ -213,9 +212,7 @@ export const ComplexInteraction: Story<CardProps> = (args) => {
           <ShareIcon />
         </IconButton>
         <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded
-          })}
+          className={`${classes.expand} ${expanded ? classes.expandOpen : ''}`}
           onClick={handleExpandClick}
           aria-expanded={expanded}
           aria-label='show more'
