@@ -57,8 +57,8 @@ export const GRID_DE_LOCALE_TEXT: GridLocaleText = {
   filterOperatorNot: 'ist nicht',
   filterOperatorAfter: 'ist nach',
   filterOperatorOnOrAfter: 'ist auf oder nach',
-  filterOperatorBefore: 'ist danach',
-  filterOperatorOnOrBefore: 'ist auf oder danach',
+  filterOperatorBefore: 'ist vor',
+  filterOperatorOnOrBefore: 'ist auf oder vor',
   filterOperatorIsEmpty: 'ist leer',
   filterOperatorIsNotEmpty: 'ist nicht leer',
 
