@@ -16,7 +16,6 @@ import {
 import { Theme, useTheme } from '@mui/material/styles'
 import makeStyles from '@mui/styles/makeStyles'
 import createStyles from '@mui/styles/createStyles'
-import clsx from 'clsx'
 import {
   Mail as MailIcon,
   Inbox as InboxIcon,
@@ -164,9 +163,9 @@ export const Default: Story<DrawerProps> = (args): JSX.Element => {
   const list = (anchor: Anchor): JSX.Element => {
     return (
       <div
-        className={clsx(classes.list, {
-          [classes.fullList]: anchor === 'top' || anchor === 'bottom'
-        })}
+        className={`${classes.list} ${
+          anchor === 'top' || anchor === 'bottom' ? classes.fullList : ''
+        }`}
         role='presentation'
         onClick={toggleDrawer(anchor, false)}
         onKeyDown={toggleDrawer(anchor, false)}
@@ -291,9 +290,7 @@ export const PersistentDrawer: Story<DrawerProps> = (args): JSX.Element => {
       <CssBaseline />
       <AppBar
         position='fixed'
-        className={clsx(classes.appBar, {
-          [classes.appBarShift]: open
-        })}
+        className={`${classes.appBar} ${open ? classes.appBarShift : ''}`}
       >
         <Toolbar>
           <IconButton
@@ -301,7 +298,7 @@ export const PersistentDrawer: Story<DrawerProps> = (args): JSX.Element => {
             aria-label='open drawer'
             onClick={handleDrawerOpen}
             edge='start'
-            className={clsx(classes.menuButton, open && classes.hide)}
+            className={`${classes.menuButton} ${open && classes.hide}`}
             size='large'
           >
             <MenuIcon />
@@ -344,11 +341,7 @@ export const PersistentDrawer: Story<DrawerProps> = (args): JSX.Element => {
           })}
         </List>
       </Drawer>
-      <main
-        className={clsx(classes.content, {
-          [classes.contentShift]: open
-        })}
-      >
+      <main className={`${classes.content} ${open && classes.contentShift}`}>
         <div className={classes.drawerHeader} />
       </main>
     </div>

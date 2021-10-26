@@ -1,5 +1,4 @@
 import React from 'react'
-import clsx from 'clsx'
 import {
   MenuItem as MuiMenuItem,
   MenuItemProps as MuiMenuItemProps
@@ -15,7 +14,7 @@ export function MenuItem(props: MenuItemProps): JSX.Element {
   const { children, className } = props
   const classes = useStyles()
   return (
-    <MuiMenuItem {...props} className={clsx(classes.root, className)}>
+    <MuiMenuItem {...props} className={`${classes.root} ${className}`}>
       {children}
     </MuiMenuItem>
   )
