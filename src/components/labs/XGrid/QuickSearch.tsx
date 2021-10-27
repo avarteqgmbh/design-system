@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme: Theme) => {
   }
 })
 
-interface QuickSearchProps {
+export interface QuickSearchProps {
   clearSearch: () => void
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
   value: string
@@ -40,14 +40,18 @@ interface QuickSearchProps {
 
 export function QuickSearch(props: QuickSearchProps): JSX.Element {
   const classes = useStyles()
+  const { clearSearch, onChange, value } = props
 
   return (
     <div className={classes.root}>
       <TextField
         variant='standard'
-        value={props.value}
-        onChange={props.onChange}
-        placeholder='Search…'
+        value={value}
+        autoFocus
+        onChange={(event: React.ChangeEvent<HTMLInputElement>): void => {
+          return onChange(event)
+        }}
+        placeholder='Suchen…'
         className={classes.textField}
         InputProps={{
           startAdornment: <SearchIcon fontSize='small' />,
@@ -56,8 +60,8 @@ export function QuickSearch(props: QuickSearchProps): JSX.Element {
               title='Clear'
               aria-label='Clear'
               size='small'
-              style={{ visibility: props.value ? 'visible' : 'hidden' }}
-              onClick={props.clearSearch}
+              style={{ visibility: value ? 'visible' : 'hidden' }}
+              onClick={clearSearch}
             >
               <ClearIcon fontSize='small' />
             </IconButton>
