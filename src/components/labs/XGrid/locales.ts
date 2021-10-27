@@ -68,7 +68,7 @@ export const GRID_DE_LOCALE_TEXT: GridLocaleText = {
   filterValueFalse: 'Nein',
 
   // Column menu text
-  columnMenuLabel: 'Menu',
+  columnMenuLabel: 'Menü',
   columnMenuShowColumns: 'Zeige Spalten',
   columnMenuFilter: 'Filter',
   columnMenuHideColumn: 'Verstecken',
