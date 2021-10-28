@@ -47,7 +47,7 @@ export function QuickSearch(props: QuickSearchProps): JSX.Element {
       <TextField
         variant='standard'
         value={value}
-        autoFocus
+        autoFocus={!!value}
         onChange={(event: React.ChangeEvent<HTMLInputElement>): void => {
           return onChange(event)
         }}
