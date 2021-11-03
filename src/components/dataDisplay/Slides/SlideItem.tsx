@@ -14,7 +14,7 @@ export interface SlideItemProps extends SlideProps {
 }
 
 export const SlideItem: React.FC<SlideItemProps> = (props) => {
-  const { index, title, subtitle, active, onClick } = props
+  const { index, title, active, onClick } = props
   const [progress, setProgress] = React.useState(0)
   const classes = useStyles()
 
@@ -44,9 +44,6 @@ export const SlideItem: React.FC<SlideItemProps> = (props) => {
       >
         <Typography variant='subtitle1' className={classes.title}>
           {title}
-        </Typography>
-        <Typography variant='subtitle2' className={classes.subtitle}>
-          {subtitle}
         </Typography>
         {active && (
           <LinearProgress
