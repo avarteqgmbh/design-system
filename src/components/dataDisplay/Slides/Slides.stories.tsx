@@ -34,12 +34,10 @@ const slides: SlideProps[] = [
   },
   {
     title: 'Smells like roses',
-    subtitle: 'Wolle rose kaufen?',
     src: 'https://images.pexels.com/photos/54320/rose-roses-flowers-red-54320.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260'
   },
   {
     title: 'Special fish',
-    subtitle: 'Most beautiful fish',
     src: 'https://images.pexels.com/photos/325044/pexels-photo-325044.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
     children: (
       <div>
