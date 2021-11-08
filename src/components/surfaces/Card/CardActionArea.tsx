@@ -8,6 +8,7 @@ import { Theme } from '../../../theme/types'
 
 export interface MuiCardActionAreaProps extends CardActionAreaProps {
   href?: string
+  target?: string
 }
 
 export function CardActionArea(props: MuiCardActionAreaProps): JSX.Element {

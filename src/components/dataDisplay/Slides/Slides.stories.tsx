@@ -24,7 +24,6 @@ export default {
 const slides: SlideProps[] = [
   {
     title: 'Kind of universe',
-    subtitle: 'Mystic galaxy somewhere else',
     src: 'https://images.pexels.com/photos/73873/star-clusters-rosette-nebula-star-galaxies-73873.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
     link: 'https://www.anynines.com/',
     children: (
