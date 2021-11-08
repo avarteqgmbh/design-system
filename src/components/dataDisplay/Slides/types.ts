@@ -1,7 +1,6 @@
 export interface SlideProps {
   title: string
   src: string
-  subtitle?: string
   link?: string
   children?: React.ReactNode
 }

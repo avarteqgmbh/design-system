@@ -80,10 +80,6 @@ const useStyles = makeStyles((theme: Theme) => {
       color: theme.palette.text.primary,
       fontWeight: 'bold'
     },
-    subtitle: {
-      color: theme.palette.text.secondary,
-      fontSize: 'calc(var(--text-base-unit))'
-    },
     bar: {
       marginTop: 5,
       width: '100%',
