@@ -49,7 +49,6 @@ export const Slides: React.FC<SlidesProps> = (props) => {
               index={index}
               key={slide.title}
               title={slide.title}
-              subtitle={slide.subtitle}
               src={slide.src}
               active={currentSlideIndex === index}
               onClick={onSlideItemClick}

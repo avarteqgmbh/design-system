@@ -20,6 +20,8 @@ import { theme as siemens } from './themes/siemens'
 import { theme as siemensDark } from './themes/siemensDark'
 import { theme as hyundai } from './themes/hyundai'
 import { theme as kia } from './themes/kia'
+import { theme as bum } from './themes/bum'
+import { theme as tesla } from './themes/tesla'
 import { ThemeProviderProps as MuiThemeProviderProps } from '@mui/material/styles/ThemeProvider'
 
 declare module '@mui/styles/defaultTheme' {
@@ -36,10 +38,12 @@ export type CustomThemeName =
   | 'anynines-dark'
   | 'thomsit'
   | 'toyota'
+  | 'bum'
   | 'bosch'
   | 'bosch-dark'
   | 'hyundai'
   | 'kia'
+  | 'tesla'
   | 'santander'
   | 'siemens'
   | 'siemens-dark'
@@ -52,10 +56,12 @@ const THEMES: { [key in CustomThemeName]: DeprecatedThemeOptions } = {
   toyota,
   thomsit,
   bosch,
+  bum,
   'bosch-dark': boschDark,
   santander,
   hyundai,
   kia,
+  tesla,
   siemens,
   'siemens-dark': siemensDark
 }
