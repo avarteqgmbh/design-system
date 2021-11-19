@@ -73,8 +73,9 @@ const Template: Story<XGridProps> = (args) => {
       rows={rows}
       columns={data.columns}
       searchText={searchText}
-      onSearchChange={(event: React.ChangeEvent<HTMLInputElement>): void => {
-        return requestSearch(event.target.value)
+      setSearchText={setSearchText}
+      onSearchClick={(): void => {
+        return requestSearch(searchText)
       }}
       clearSearch={(): void => {
         return requestSearch('')

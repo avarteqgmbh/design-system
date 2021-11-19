@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme: Theme) => {
       padding: 1,
       justifyContent: 'space-between',
       display: 'flex',
-      alignItems: 'flex-start',
+      alignItems: 'center',
       flexWrap: 'wrap',
       marginLeft: 'auto',
       '& .MuiInput-input': {
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) => {
       }
     },
     textField: {
-      width: '100%',
+      flex: 1,
       margin: 2,
       '& .MuiSvgIcon-root': {
         marginRight: 2
@@ -34,13 +34,14 @@ const useStyles = makeStyles((theme: Theme) => {
 
 export interface QuickSearchProps {
   clearSearch: () => void
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  onClick: (term: string) => void
   value: string
+  setValue: React.Dispatch<React.SetStateAction<string>>
 }
 
 export function QuickSearch(props: QuickSearchProps): JSX.Element {
   const classes = useStyles()
-  const { clearSearch, onChange, value } = props
+  const { clearSearch, onClick, value, setValue } = props
 
   return (
     <div className={classes.root}>
@@ -48,13 +49,12 @@ export function QuickSearch(props: QuickSearchProps): JSX.Element {
         variant='standard'
         value={value}
         autoFocus={!!value}
-        onChange={(event: React.ChangeEvent<HTMLInputElement>): void => {
-          return onChange(event)
+        onChange={(event): void => {
+          return setValue(event.target.value)
         }}
         placeholder='Suchen…'
         className={classes.textField}
         InputProps={{
-          startAdornment: <SearchIcon fontSize='small' />,
           endAdornment: (
             <IconButton
               title='Clear'
@@ -68,6 +68,16 @@ export function QuickSearch(props: QuickSearchProps): JSX.Element {
           )
         }}
       />
+      <IconButton
+        title='Search'
+        aria-label='Search'
+        size='small'
+        onClick={(): void => {
+          onClick(value)
+        }}
+      >
+        <SearchIcon fontSize='small' />
+      </IconButton>
     </div>
   )
 }
