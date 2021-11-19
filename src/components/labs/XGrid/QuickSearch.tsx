@@ -71,12 +71,12 @@ export function QuickSearch(props: QuickSearchProps): JSX.Element {
       <IconButton
         title='Search'
         aria-label='Search'
-        size='small'
+        size='medium'
         onClick={(): void => {
           onClick(value)
         }}
       >
-        <SearchIcon fontSize='small' />
+        <SearchIcon fontSize='medium' />
       </IconButton>
     </div>
   )
