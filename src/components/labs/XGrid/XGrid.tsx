@@ -10,7 +10,8 @@ import {
   GridToolbarColumnsButton,
   GridToolbarFilterButton,
   GridToolbarDensitySelector,
-  GridCsvExportOptions
+  GridCsvExportOptions,
+  useGridApiRef
 } from '@mui/x-data-grid-pro'
 import GlobalStyles from '@mui/material/GlobalStyles'
 import { GRID_DE_LOCALE_TEXT } from './locales'
@@ -173,5 +174,6 @@ const useStyles = makeStyles((theme: Theme) => {
 export {
   getGridStringOperators,
   getGridNumericColumnOperators,
-  getGridDateOperators
+  getGridDateOperators,
+  useGridApiRef
 }

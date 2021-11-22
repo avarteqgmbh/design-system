@@ -4,7 +4,8 @@ import {
   XGrid,
   getGridNumericColumnOperators,
   getGridStringOperators,
-  getGridDateOperators
+  getGridDateOperators,
+  useGridApiRef
 } from './XGrid/XGrid'
 import { Skeleton } from './Skeleton/Skeleton'
 import { Pagination } from './Pagination/Pagination'
@@ -18,6 +19,7 @@ export {
   getGridNumericColumnOperators,
   getGridStringOperators,
   getGridDateOperators,
+  useGridApiRef,
   Skeleton,
   Pagination,
   Badge,
