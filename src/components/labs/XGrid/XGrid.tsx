@@ -24,7 +24,8 @@ export interface XGridProps extends DataGridProProps {
   csvOptions?: GridCsvExportOptions
   quickSearch?: boolean
   searchText: string
-  onSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  setSearchText: React.Dispatch<React.SetStateAction<string>>
+  onSearchClick: (term: string) => void
   clearSearch: () => void
 }
 
@@ -35,8 +36,9 @@ export function XGrid(props: XGridProps): JSX.Element {
     csvOptions,
     quickSearch = true,
     clearSearch,
-    onSearchChange,
+    onSearchClick,
     searchText,
+    setSearchText,
     toolbar = false
   } = props
   const classes = useStyles()
@@ -55,8 +57,9 @@ export function XGrid(props: XGridProps): JSX.Element {
         {quickSearch && (
           <QuickSearch
             clearSearch={clearSearch}
-            onChange={onSearchChange}
+            onClick={onSearchClick}
             value={searchText}
+            setValue={setSearchText}
           />
         )}
       </GridToolbarContainer>
