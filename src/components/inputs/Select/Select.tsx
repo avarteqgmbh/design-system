@@ -14,15 +14,7 @@ export interface SelectProps extends Omit<MuiSelectProps, 'onChange'> {
 export function Select(props: SelectProps): JSX.Element {
   const classes = useStyles()
   const { variant = 'outlined' } = props
-  return (
-    <MuiSelect
-      classes={{
-        root: classes.root
-      }}
-      variant={variant}
-      {...props}
-    />
-  )
+  return <MuiSelect className={classes.root} variant={variant} {...props} />
 }
 
 export type { SelectChangeEvent }

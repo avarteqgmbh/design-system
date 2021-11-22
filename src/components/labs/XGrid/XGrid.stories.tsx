@@ -2,7 +2,8 @@ import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { XGrid, XGridProps } from './XGrid'
-import { useDemoData, DataRowModel } from '@mui/x-data-grid-generator'
+import { useDemoData } from '@mui/x-data-grid-generator'
+import { GridRowModel } from '@mui/x-data-grid-pro'
 
 export default {
   title: 'Lab/XGrid',
@@ -50,12 +51,12 @@ const Template: Story<XGridProps> = (args) => {
   }
 
   const [searchText, setSearchText] = React.useState('')
-  const [rows, setRows] = React.useState<DataRowModel[]>(data.rows)
+  const [rows, setRows] = React.useState<GridRowModel[]>(data.rows)
 
   const requestSearch = (searchValue: string): void => {
     setSearchText(searchValue)
     const searchRegex = new RegExp(escapeRegExp(searchValue), 'i')
-    const filteredRows = data.rows.filter((row: DataRowModel) => {
+    const filteredRows = data.rows.filter((row: GridRowModel) => {
       return Object.keys(row).some((field) => {
         return searchRegex.test(row[field].toString())
       })
