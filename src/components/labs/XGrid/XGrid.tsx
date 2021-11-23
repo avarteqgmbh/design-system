@@ -10,15 +10,24 @@ import {
   GridToolbarColumnsButton,
   GridToolbarFilterButton,
   GridToolbarDensitySelector,
-  GridCsvExportOptions
+  GridCsvExportOptions,
+  useGridApiRef,
+  GridApiRef
 } from '@mui/x-data-grid-pro'
 import GlobalStyles from '@mui/material/GlobalStyles'
 import { GRID_DE_LOCALE_TEXT } from './locales'
 import { makeStyles } from '../../../theme/ThemeProvider'
 import { Theme } from '../../../theme/types'
 import { QuickSearch } from './QuickSearch'
+import {
+  useLocalStorage,
+  LocalStorageEvents,
+  LoadLocalStorage
+} from './localStorageHelper'
 
 export interface XGridProps extends DataGridProProps {
+  apiRef?: GridApiRef
+  localStorageKey?: string
   language?: 'DE' | 'EN'
   toolbar?: boolean
   csvOptions?: GridCsvExportOptions
@@ -31,6 +40,8 @@ export interface XGridProps extends DataGridProProps {
 
 export function XGrid(props: XGridProps): JSX.Element {
   const {
+    apiRef,
+    localStorageKey = '',
     autoHeight = true,
     language = 'EN',
     csvOptions,
@@ -42,7 +53,11 @@ export function XGrid(props: XGridProps): JSX.Element {
     toolbar = false
   } = props
   const classes = useStyles()
-
+  const dsApiRef = useGridApiRef(apiRef)
+  const [tableConfig, setTableConfig] = useLocalStorage<object>(
+    localStorageKey,
+    {}
+  )
   const CustomToolbar = (): JSX.Element => {
     return (
       <GridToolbarContainer>
@@ -72,10 +87,23 @@ export function XGrid(props: XGridProps): JSX.Element {
     lang = GRID_DE_LOCALE_TEXT
   }
 
+  React.useEffect(() => {
+    if (localStorageKey) {
+      LocalStorageEvents(dsApiRef, tableConfig, setTableConfig)
+    }
+  }, [dsApiRef])
+
+  React.useEffect(() => {
+    if (localStorageKey) {
+      LoadLocalStorage(dsApiRef, localStorageKey, tableConfig)
+    }
+  })
+
   return (
     <>
       {GridGlobalStyles}
       <DataGridPro
+        apiRef={dsApiRef}
         localeText={lang}
         autoHeight={autoHeight}
         autoPageSize={autoHeight}
