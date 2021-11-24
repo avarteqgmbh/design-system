@@ -204,5 +204,6 @@ const useStyles = makeStyles((theme: Theme) => {
 export {
   getGridStringOperators,
   getGridNumericColumnOperators,
-  getGridDateOperators
+  getGridDateOperators,
+  useGridApiRef
 }
