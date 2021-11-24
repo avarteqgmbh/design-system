@@ -131,7 +131,6 @@ export function LoadLocalStorage(
     if (tableConfig.orderedColumns) {
       Object.entries(tableConfig.orderedColumns).forEach(
         (value: [string, unknown]): void => {
-          console.log(value)
           if (typeof value !== 'undefined') {
             dsApiRef.current.setColumnIndex(
               value[1] as string,
