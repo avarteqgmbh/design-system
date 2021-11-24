@@ -63,7 +63,7 @@ export function LocalStorageEvents(
   dsApiRef.current.subscribeEvent(
     'columnVisibilityChange',
     (params: GridColumnVisibilityChangeParams): void => {
-      const hiddenColumns = { [params.field]: !params.isVisible }
+      const hiddenColumns = { [params.field]: params.isVisible }
 
       tableConfig.hiddenColumns = {
         ...tableConfig.hiddenColumns,

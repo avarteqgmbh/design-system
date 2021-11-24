@@ -88,13 +88,13 @@ export function XGrid(props: XGridProps): JSX.Element {
   }
 
   React.useEffect(() => {
-    if (localStorageKey) {
+    if (localStorageKey !== '') {
       LocalStorageEvents(dsApiRef, tableConfig, setTableConfig)
     }
   }, [dsApiRef])
 
   React.useEffect(() => {
-    if (localStorageKey) {
+    if (localStorageKey !== '') {
       LoadLocalStorage(dsApiRef, localStorageKey, tableConfig)
     }
   })
