@@ -43,8 +43,8 @@ export function useLocalStorage<T>(key: string, initialValue: T): any {
   return [storedValue, setValue] as const
 }
 
-// LocalStorageEvents
-export function LocalStorageEvents(
+// RegisterLocalStorageEvents
+export function RegisterLocalStorageEvents(
   dsApiRef: GridApiRef,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   tableConfig: any,

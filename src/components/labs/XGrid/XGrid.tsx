@@ -21,12 +21,12 @@ import { Theme } from '../../../theme/types'
 import { QuickSearch } from './QuickSearch'
 import {
   useLocalStorage,
-  LocalStorageEvents,
+  RegisterLocalStorageEvents,
   LoadLocalStorage
 } from './localStorageHelper'
 
 export interface XGridProps extends DataGridProProps {
-  apiRef?: GridApiRef
+  customApiRef?: GridApiRef
   localStorageKey?: string
   language?: 'DE' | 'EN'
   toolbar?: boolean
@@ -40,7 +40,7 @@ export interface XGridProps extends DataGridProProps {
 
 export function XGrid(props: XGridProps): JSX.Element {
   const {
-    apiRef,
+    customApiRef,
     localStorageKey = '',
     autoHeight = true,
     language = 'EN',
@@ -53,7 +53,7 @@ export function XGrid(props: XGridProps): JSX.Element {
     toolbar = false
   } = props
   const classes = useStyles()
-  const dsApiRef = useGridApiRef(apiRef)
+  const dsApiRef = useGridApiRef(customApiRef || undefined)
   const [tableConfig, setTableConfig] = useLocalStorage<object>(
     localStorageKey,
     {}
@@ -88,13 +88,21 @@ export function XGrid(props: XGridProps): JSX.Element {
   }
 
   React.useEffect(() => {
-    if (localStorageKey !== '') {
-      LocalStorageEvents(dsApiRef, tableConfig, setTableConfig)
+    if (
+      localStorageKey !== '' &&
+      localStorageKey !== 'null' &&
+      localStorageKey !== null
+    ) {
+      RegisterLocalStorageEvents(dsApiRef, tableConfig, setTableConfig)
     }
-  }, [dsApiRef])
+  }, [dsApiRef, localStorageKey])
 
   React.useEffect(() => {
-    if (localStorageKey !== '') {
+    if (
+      localStorageKey !== '' &&
+      localStorageKey !== 'null' &&
+      localStorageKey !== null
+    ) {
       LoadLocalStorage(dsApiRef, localStorageKey, tableConfig)
     }
   })

@@ -71,7 +71,7 @@ const Template: Story<XGridProps> = (args) => {
   return (
     <XGrid
       {...args}
-      localStorageKey='fooBar'
+      localStorageKey={rows && 'fooBar'}
       rows={rows}
       columns={data.columns}
       searchText={searchText}
