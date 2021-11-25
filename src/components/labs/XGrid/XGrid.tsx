@@ -30,6 +30,7 @@ export interface XGridProps extends DataGridProProps {
   localStorageKey?: string
   language?: 'DE' | 'EN'
   toolbar?: boolean
+  csvExport?: boolean
   csvOptions?: GridCsvExportOptions
   quickSearch?: boolean
   searchText: string
@@ -44,6 +45,7 @@ export function XGrid(props: XGridProps): JSX.Element {
     localStorageKey = '',
     autoHeight = true,
     language = 'EN',
+    csvExport = true,
     csvOptions,
     quickSearch = true,
     clearSearch,
@@ -64,11 +66,9 @@ export function XGrid(props: XGridProps): JSX.Element {
         <GridToolbarColumnsButton />
         <GridToolbarFilterButton />
         <GridToolbarDensitySelector />
-        {csvOptions ? (
-          <GridToolbarExport csvOptions={csvOptions} />
-        ) : (
-          <GridToolbarExport />
-        )}
+        {csvOptions
+          ? csvExport && <GridToolbarExport csvOptions={csvOptions} />
+          : csvExport && <GridToolbarExport />}
         {quickSearch && (
           <QuickSearch
             clearSearch={clearSearch}
