@@ -1,25 +1,8 @@
 import React from 'react'
-import {
-  AccordionActions as MuiAccordionActions,
+import MuiAccordionActions, {
   AccordionActionsProps
-} from '@mui/material'
-import makeStyles from '@mui/styles/makeStyles'
-import { Theme } from '../../../theme/types'
+} from '@mui/material/AccordionActions'
 
 export function AccordionActions(props: AccordionActionsProps): JSX.Element {
-  const classes = useStyles()
-  return (
-    <MuiAccordionActions
-      classes={{
-        root: classes.root
-      }}
-      {...props}
-    />
-  )
+  return <MuiAccordionActions {...props} />
 }
-
-const useStyles = makeStyles<Theme>(() => {
-  return {
-    root: {}
-  }
-})

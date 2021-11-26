@@ -11,7 +11,7 @@ import { Typography } from './Typography/Typography'
 import { Tooltip } from './Tooltip/Tooltip'
 import { Avatar } from './Avatar/Avatar'
 import { AvatarGroup } from './Avatar/AvatarGroup'
-import { Icon, icons } from './Icons/Icon'
+import { Icon } from './Icons/Icon'
 import { SvgIcon } from './Icons/SvgIcon'
 import * as customIcons from './Icons/assets'
 import { IconButton } from './Icons/IconButton'
@@ -34,7 +34,6 @@ export {
   Avatar,
   AvatarGroup,
   Icon,
-  icons,
   customIcons,
   SvgIcon,
   Slides,

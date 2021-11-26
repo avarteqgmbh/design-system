@@ -1,8 +1,7 @@
 import React from 'react'
-import {
-  BottomNavigation as MuiBottomNavigation,
+import MuiBottomNavigation, {
   BottomNavigationProps
-} from '@mui/material'
+} from '@mui/material/BottomNavigation'
 
 export function BottomNavigation(props: BottomNavigationProps): JSX.Element {
   return <MuiBottomNavigation {...props} />

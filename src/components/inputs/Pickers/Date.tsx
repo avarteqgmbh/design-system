@@ -1,18 +1,18 @@
 import React from 'react'
 import MuiDatePicker, { DatePickerProps } from '@mui/lab/DatePicker'
-import Moment from '@mui/lab/AdapterMoment'
+import DateAdapter from '@mui/lab/AdapterDayjs'
 import LocalizationProvider from '@mui/lab/LocalizationProvider'
 
 export function DatePicker(props: DatePickerProps): JSX.Element {
-  const [selectedDate, setDate] = React.useState<Moment | null>()
+  const [selectedDate, setDate] = React.useState<DateAdapter | null>()
 
   return (
-    <LocalizationProvider dateAdapter={Moment}>
+    <LocalizationProvider dateAdapter={DateAdapter}>
       <MuiDatePicker
         {...props}
         value={selectedDate}
         onChange={(newDate): void => {
-          return setDate(newDate as Moment)
+          return setDate(newDate as DateAdapter)
         }}
       />
     </LocalizationProvider>
