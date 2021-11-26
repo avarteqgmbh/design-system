@@ -80,7 +80,6 @@ import {
   AvatarGroup,
   Icon,
   IconButton,
-  icons,
   customIcons,
   Slides,
   SvgIcon,
@@ -185,7 +184,6 @@ export {
   AvatarGroup,
   Icon,
   IconButton,
-  icons,
   customIcons,
   Slides,
   SvgIcon
