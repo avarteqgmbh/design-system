@@ -1,22 +1,6 @@
 import React from 'react'
-import { Accordion as MuiAccordion, AccordionProps } from '@mui/material'
-import makeStyles from '@mui/styles/makeStyles'
-import { Theme } from '../../../theme/types'
+import MuiAccordion, { AccordionProps } from '@mui/material/Accordion'
 
 export function Accordion(props: AccordionProps): JSX.Element {
-  const classes = useStyles()
-  return (
-    <MuiAccordion
-      classes={{
-        root: classes.root
-      }}
-      {...props}
-    />
-  )
+  return <MuiAccordion {...props} />
 }
-
-const useStyles = makeStyles<Theme>(() => {
-  return {
-    root: {}
-  }
-})

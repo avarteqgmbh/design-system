@@ -1,11 +1,12 @@
 import React from 'react'
-import {
-  BottomNavigationAction as MuiBottomNavigationAction,
+import MuiBottomNavigationAction, {
   BottomNavigationActionProps
-} from '@mui/material'
+} from '@mui/material/BottomNavigationAction'
 
-export function BottomNavigationAction(
-  props: BottomNavigationActionProps
-): JSX.Element {
+const BottomNavigationAction: React.FC<BottomNavigationActionProps> = (
+  props
+) => {
   return <MuiBottomNavigationAction {...props} />
 }
+
+export default BottomNavigationAction

@@ -1,25 +1,8 @@
 import React from 'react'
-import {
-  AccordionDetails as MuiAccordionDetails,
+import MuiAccordionDetails, {
   AccordionDetailsProps
-} from '@mui/material'
-import makeStyles from '@mui/styles/makeStyles'
-import { Theme } from '../../../theme/types'
+} from '@mui/material/AccordionDetails'
 
 export function AccordionDetails(props: AccordionDetailsProps): JSX.Element {
-  const classes = useStyles()
-  return (
-    <MuiAccordionDetails
-      classes={{
-        root: classes.root
-      }}
-      {...props}
-    />
-  )
+  return <MuiAccordionDetails {...props} />
 }
-
-const useStyles = makeStyles<Theme>(() => {
-  return {
-    root: {}
-  }
-})
