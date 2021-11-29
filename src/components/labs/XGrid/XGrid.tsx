@@ -72,14 +72,12 @@ export function XGrid(props: XGridProps): JSX.Element {
             setValue={setSearchText}
           />
         )}
-        <div className='toolbar-buttons'>
-          <GridToolbarColumnsButton />
-          <GridToolbarFilterButton />
-          <GridToolbarDensitySelector />
-          {csvOptions
-            ? csvExport && <GridToolbarExport csvOptions={csvOptions} />
-            : csvExport && <GridToolbarExport />}
-        </div>
+        <GridToolbarColumnsButton />
+        <GridToolbarFilterButton />
+        <GridToolbarDensitySelector />
+        {csvOptions
+          ? csvExport && <GridToolbarExport csvOptions={csvOptions} />
+          : csvExport && <GridToolbarExport />}
       </GridToolbarContainer>
     )
   }
@@ -131,14 +129,6 @@ const GridGlobalStyles = (
     styles={{
       '& .MuiGridMenu-root .MuiPaper-root': {
         background: 'white'
-      },
-      '& .MuiDataGrid-toolbarContainer': {
-        flexDirection: 'column',
-        alignItems: 'flex-start !important',
-        '& .toolbar-buttons': {
-          display: 'flex',
-          flexDirection: 'row'
-        }
       },
       '& .MuiGridPanel-paper': {
         '& .MuiSwitch-colorPrimary.Mui-checked + .MuiSwitch-track': {
