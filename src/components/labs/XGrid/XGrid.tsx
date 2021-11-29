@@ -5,6 +5,7 @@ import {
   getGridStringOperators,
   getGridNumericColumnOperators,
   getGridDateOperators,
+  GridLinkOperator,
   GridToolbarExport,
   GridToolbarContainer,
   GridToolbarColumnsButton,
@@ -63,12 +64,6 @@ export function XGrid(props: XGridProps): JSX.Element {
   const CustomToolbar = (): JSX.Element => {
     return (
       <GridToolbarContainer>
-        <GridToolbarColumnsButton />
-        <GridToolbarFilterButton />
-        <GridToolbarDensitySelector />
-        {csvOptions
-          ? csvExport && <GridToolbarExport csvOptions={csvOptions} />
-          : csvExport && <GridToolbarExport />}
         {quickSearch && (
           <QuickSearch
             clearSearch={clearSearch}
@@ -77,6 +72,14 @@ export function XGrid(props: XGridProps): JSX.Element {
             setValue={setSearchText}
           />
         )}
+        <div className='toolbar-buttons'>
+          <GridToolbarColumnsButton />
+          <GridToolbarFilterButton />
+          <GridToolbarDensitySelector />
+          {csvOptions
+            ? csvExport && <GridToolbarExport csvOptions={csvOptions} />
+            : csvExport && <GridToolbarExport />}
+        </div>
       </GridToolbarContainer>
     )
   }
@@ -128,6 +131,14 @@ const GridGlobalStyles = (
     styles={{
       '& .MuiGridMenu-root .MuiPaper-root': {
         background: 'white'
+      },
+      '& .MuiDataGrid-toolbarContainer': {
+        flexDirection: 'column',
+        alignItems: 'flex-start !important',
+        '& .toolbar-buttons': {
+          display: 'flex',
+          flexDirection: 'row'
+        }
       },
       '& .MuiGridPanel-paper': {
         '& .MuiSwitch-colorPrimary.Mui-checked + .MuiSwitch-track': {
@@ -213,5 +224,6 @@ export {
   getGridStringOperators,
   getGridNumericColumnOperators,
   getGridDateOperators,
+  GridLinkOperator,
   useGridApiRef
 }
