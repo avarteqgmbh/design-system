@@ -1,5 +1,5 @@
 import { Paper } from './Paper/Paper'
-import { Card } from './Card/Card'
+import Card from './Card/Card'
 import { CardMedia } from './Card/CardMedia'
 import { CardHeader } from './Card/CardHeader'
 import { CardActions } from './Card/CardActions'
