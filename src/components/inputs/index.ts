@@ -1,3 +1,4 @@
+import { Autocomplete } from './Autocomplete/Autocomplete'
 import { Button } from './Button/Button'
 import { ButtonGroup } from './ButtonGroup/ButtonGroup'
 import { Checkbox } from './Checkbox/Checkbox'
@@ -17,6 +18,7 @@ import { InputLabel } from './FormControl/InputLabel'
 import { Input } from './FormControl/Input'
 
 export {
+  Autocomplete,
   Button,
   ButtonGroup,
   Checkbox,

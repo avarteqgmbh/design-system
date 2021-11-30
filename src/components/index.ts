@@ -1,4 +1,5 @@
 import {
+  Autocomplete,
   Button,
   ButtonGroup,
   Checkbox,
@@ -101,6 +102,7 @@ import {
 import { onClickOutsideHook } from './utils'
 
 export {
+  Autocomplete,
   Button,
   ButtonGroup,
   Checkbox,
