@@ -9,7 +9,7 @@ export const GRID_DE_LOCALE_TEXT: GridLocaleText = {
   toolbarDensity: 'Dichte',
   toolbarDensityLabel: 'Dichte',
   toolbarDensityCompact: 'Kompakt',
-  toolbarDensityStandard: 'Standart',
+  toolbarDensityStandard: 'Standard',
   toolbarDensityComfortable: 'Komfortabel',
 
   // Columns selector toolbar button text

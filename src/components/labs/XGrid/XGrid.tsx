@@ -5,23 +5,33 @@ import {
   getGridStringOperators,
   getGridNumericColumnOperators,
   getGridDateOperators,
+  GridLinkOperator,
   GridToolbarExport,
   GridToolbarContainer,
   GridToolbarColumnsButton,
   GridToolbarFilterButton,
   GridToolbarDensitySelector,
   GridCsvExportOptions,
-  useGridApiRef
+  useGridApiRef,
+  GridApiRef
 } from '@mui/x-data-grid-pro'
 import GlobalStyles from '@mui/material/GlobalStyles'
 import { GRID_DE_LOCALE_TEXT } from './locales'
 import { makeStyles } from '../../../theme/ThemeProvider'
 import { Theme } from '../../../theme/types'
 import { QuickSearch } from './QuickSearch'
+import {
+  useLocalStorage,
+  RegisterLocalStorageEvents,
+  LoadLocalStorage
+} from './localStorageHelper'
 
 export interface XGridProps extends DataGridProProps {
+  customApiRef?: GridApiRef
+  localStorageKey?: string
   language?: 'DE' | 'EN'
   toolbar?: boolean
+  csvExport?: boolean
   csvOptions?: GridCsvExportOptions
   quickSearch?: boolean
   searchText: string
@@ -32,8 +42,11 @@ export interface XGridProps extends DataGridProProps {
 
 export function XGrid(props: XGridProps): JSX.Element {
   const {
+    customApiRef,
+    localStorageKey = '',
     autoHeight = true,
     language = 'EN',
+    csvExport = true,
     csvOptions,
     quickSearch = true,
     clearSearch,
@@ -43,18 +56,14 @@ export function XGrid(props: XGridProps): JSX.Element {
     toolbar = false
   } = props
   const classes = useStyles()
-
+  const dsApiRef = useGridApiRef(customApiRef || undefined)
+  const [tableConfig, setTableConfig] = useLocalStorage<object>(
+    localStorageKey,
+    {}
+  )
   const CustomToolbar = (): JSX.Element => {
     return (
       <GridToolbarContainer>
-        <GridToolbarColumnsButton />
-        <GridToolbarFilterButton />
-        <GridToolbarDensitySelector />
-        {csvOptions ? (
-          <GridToolbarExport csvOptions={csvOptions} />
-        ) : (
-          <GridToolbarExport />
-        )}
         {quickSearch && (
           <QuickSearch
             clearSearch={clearSearch}
@@ -63,6 +72,12 @@ export function XGrid(props: XGridProps): JSX.Element {
             setValue={setSearchText}
           />
         )}
+        <GridToolbarColumnsButton />
+        <GridToolbarFilterButton />
+        <GridToolbarDensitySelector />
+        {csvOptions
+          ? csvExport && <GridToolbarExport csvOptions={csvOptions} />
+          : csvExport && <GridToolbarExport />}
       </GridToolbarContainer>
     )
   }
@@ -73,10 +88,31 @@ export function XGrid(props: XGridProps): JSX.Element {
     lang = GRID_DE_LOCALE_TEXT
   }
 
+  React.useEffect(() => {
+    if (
+      localStorageKey !== '' &&
+      localStorageKey !== 'null' &&
+      localStorageKey !== null
+    ) {
+      RegisterLocalStorageEvents(dsApiRef, tableConfig, setTableConfig)
+    }
+  }, [dsApiRef, localStorageKey])
+
+  React.useEffect(() => {
+    if (
+      localStorageKey !== '' &&
+      localStorageKey !== 'null' &&
+      localStorageKey !== null
+    ) {
+      LoadLocalStorage(dsApiRef, localStorageKey, tableConfig)
+    }
+  })
+
   return (
     <>
       {GridGlobalStyles}
       <DataGridPro
+        apiRef={dsApiRef}
         localeText={lang}
         autoHeight={autoHeight}
         autoPageSize={autoHeight}
@@ -178,5 +214,6 @@ export {
   getGridStringOperators,
   getGridNumericColumnOperators,
   getGridDateOperators,
+  GridLinkOperator,
   useGridApiRef
 }

@@ -5,6 +5,7 @@ import {
   getGridNumericColumnOperators,
   getGridStringOperators,
   getGridDateOperators,
+  GridLinkOperator,
   useGridApiRef
 } from './XGrid/XGrid'
 import { Skeleton } from './Skeleton/Skeleton'
@@ -19,6 +20,7 @@ export {
   getGridNumericColumnOperators,
   getGridStringOperators,
   getGridDateOperators,
+  GridLinkOperator,
   useGridApiRef,
   Skeleton,
   Pagination,

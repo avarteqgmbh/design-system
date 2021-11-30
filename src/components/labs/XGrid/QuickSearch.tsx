@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme: Theme) => {
       display: 'flex',
       alignItems: 'center',
       flexWrap: 'wrap',
-      marginLeft: 'auto',
+      marginRight: '1rem',
       '& .MuiInput-input': {
         fontFamily: theme.typography.fontFamily
       }
