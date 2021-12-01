@@ -16,6 +16,7 @@ import { TransferList } from './TransferList/TransferList'
 import { FormControl } from './FormControl/FormControl'
 import { InputLabel } from './FormControl/InputLabel'
 import { Input } from './FormControl/Input'
+import { OutlinedInput } from './FormControl/OutlinedInput'
 
 export {
   Autocomplete,
@@ -35,6 +36,7 @@ export {
   TransferList,
   FormControl,
   Input,
-  InputLabel
+  InputLabel,
+  OutlinedInput
 }
 export type { SelectChangeEvent }
