@@ -17,7 +17,8 @@ import {
   DateTimePicker,
   FormControl,
   Input,
-  InputLabel
+  InputLabel,
+  OutlinedInput
 } from './inputs/index'
 
 import {
@@ -120,7 +121,8 @@ export {
   DateTimePicker,
   FormControl,
   Input,
-  InputLabel
+  InputLabel,
+  OutlinedInput
 }
 
 export {
