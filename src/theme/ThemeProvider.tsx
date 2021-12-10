@@ -5,7 +5,7 @@ import {
   DeprecatedThemeOptions,
   createTheme
 } from '@mui/material/styles'
-import { CssBaseline } from '@mui/material'
+import { CssBaseline, ThemeOptions } from '@mui/material'
 import muiMakeStyles from '@mui/styles/makeStyles'
 
 import { Theme } from './types'
@@ -25,12 +25,7 @@ import { theme as tesla } from './themes/tesla'
 import { ThemeProviderProps as MuiThemeProviderProps } from '@mui/material/styles/ThemeProvider'
 
 declare module '@mui/styles/defaultTheme' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface DefaultTheme extends Theme {}
-}
-declare module '@mui/styles/defaultTheme' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface DefaultTheme extends Theme {}
+  type DefaultTheme = Theme
 }
 
 export type CustomThemeName =
@@ -68,13 +63,13 @@ const THEMES: { [key in CustomThemeName]: DeprecatedThemeOptions } = {
 
 export interface ThemeProviderProps
   extends Omit<MuiThemeProviderProps, 'theme'> {
-  theme?: Theme | CustomThemeName
+  theme?: ThemeOptions | CustomThemeName
 }
 
 export const ThemeProvider = (props: ThemeProviderProps): JSX.Element => {
   const { theme = 'anynines' } = props
 
-  function getTheme(): DeprecatedThemeOptions {
+  function getTheme(): ThemeOptions {
     if (typeof theme === 'string') {
       return THEMES[theme]
     }
