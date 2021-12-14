@@ -1,4 +1,4 @@
-import { overrides } from '../overrides'
+import { overrides } from './overrides'
 
 const TYPE = 'light'
 
@@ -9,23 +9,23 @@ const COLOR_COMMON_WHITE = '#ffffff'
 const COLOR_COMMON_BLACK = '#000000'
 const COLOR_COMMON_TRANSPARENT = '#00000000'
 
-const COLOR_GREY_50 = '#F7F7F8'
-const COLOR_GREY_100 = '#E6E6E9'
-const COLOR_GREY_200 = '#CCCCD4'
-const COLOR_GREY_300 = '#B3B3BE'
-const COLOR_GREY_400 = '#9999A8'
-const COLOR_GREY_500 = '#808092'
-const COLOR_GREY_600 = '#66677D'
-const COLOR_GREY_700 = '#4D4D67'
-const COLOR_GREY_800 = '#333451'
-const COLOR_GREY_900 = '#1A1A3C'
-const COLOR_GREY_1000 = '#000126'
+const COLOR_GREY_50 = '#f6f8fc'
+const COLOR_GREY_100 = '#e8eefb'
+const COLOR_GREY_200 = '#e0e4ed'
+const COLOR_GREY_300 = '#b8c2d6'
+const COLOR_GREY_400 = '#b0bfd9'
+const COLOR_GREY_500 = '#909fbe'
+const COLOR_GREY_600 = '#677695'
+const COLOR_GREY_700 = '#485776'
+const COLOR_GREY_800 = '#293858'
+const COLOR_GREY_900 = '#131f37'
+const COLOR_GREY_1000 = '#0d1424'
 
-const COLOR_PRIMARY_LIGHTER = '#59FFFF'
-const COLOR_PRIMARY_LIGHT = '#11E5E5'
-const COLOR_PRIMARY_MAIN = '#00CCCC'
-const COLOR_PRIMARY_DARK = '#04B1B1'
-const COLOR_PRIMARY_DARKER = '#04B1B1'
+const COLOR_PRIMARY_LIGHTER = '#f5c9ab'
+const COLOR_PRIMARY_LIGHT = '#eda674'
+const COLOR_PRIMARY_MAIN = '#e4833e'
+const COLOR_PRIMARY_DARK = '#c56521'
+const COLOR_PRIMARY_DARKER = '#613313'
 
 const COLOR_ERROR_LIGHT = '#fba69e'
 const COLOR_ERROR_MAIN = '#f67367'
@@ -53,19 +53,19 @@ const GRADIENT_PRIMARY = `linear-gradient(65deg, ${COLOR_PRIMARY_MAIN} 15%, ${CO
 
 const palette = {
   background: {
-    paper: COLOR_COMMON_WHITE,
-    default: COLOR_GREY_50,
-    light: COLOR_GREY_100,
-    medium: COLOR_GREY_200,
-    border: COLOR_GREY_200,
-    gradient: GRADIENT_LIGHT
+    paper: COLOR_GREY_1000,
+    default: COLOR_GREY_900,
+    light: COLOR_GREY_800,
+    medium: COLOR_GREY_700,
+    border: COLOR_GREY_700,
+    gradient: GRADIENT_DARK
   },
   text: {
-    primary: COLOR_GREY_1000,
-    secondary: COLOR_GREY_700,
+    primary: COLOR_COMMON_WHITE,
+    secondary: COLOR_GREY_300,
     disabled: COLOR_GREY_500,
-    hint: COLOR_GREY_300,
-    divider: COLOR_GREY_300
+    hint: COLOR_GREY_700,
+    divider: COLOR_GREY_700
   },
   grey: {
     50: COLOR_GREY_50,
@@ -133,18 +133,21 @@ const palette = {
 // --------------------------------------------
 // T Y P O G R A P H Y
 // ------------------
-const FONT_FAMILY_HEADLINE = 'Inter'
-const FONT_FAMILY_BODY = 'Inter'
+const FONT_FAMILY_HEADLINE = 'Lato'
+const FONT_FAMILY_BODY = 'Lato'
 
 const FONT_WEIGHT_HEADLINE = 800
 const FONT_WEIGHT_BODY = 400
-const FONT_WEIGHT_BUTTON = 700
+const FONT_WEIGHT_BUTTON = 600
 
 const LINE_HEIGHT_HEADLINE = 1.15
 const LINE_HEIGHT_BODY = 1.5
+const LINE_HEIGHT_NONE = 1
 
 const LETTER_SPACING_HEADLINE = '0em'
 const LETTER_SPACING_BODY = '0em'
+// const LETTER_SPACING_OVERLINE = '0.1em'
+// const LETTER_SPACING_NONE = '0em'
 
 const TYPE_SPACING = [10, 12, 14, 16, 20, 24, 32, 40, 48, 62, 124]
 
@@ -163,7 +166,7 @@ const BASE_BODY_STYLES = {
 const BASE_BUTTON_STYLES = {
   fontFamily: FONT_FAMILY_BODY,
   fontWeight: FONT_WEIGHT_BUTTON,
-  lineHeight: 1.1,
+  lineHeight: LINE_HEIGHT_NONE,
   letterSpacing: LETTER_SPACING_HEADLINE
 }
 
@@ -199,11 +202,11 @@ const spacing = [0, 4, 8, 12, 16, 24, 32, 40, 60, 80, 120, 160]
 
 const radius = {
   none: 0,
-  small: 2,
-  medium: 4,
-  large: 8,
-  button: 4,
-  card: 8
+  small: 4,
+  medium: 8,
+  large: 12,
+  button: 8,
+  card: 12
 }
 
 export const theme = {
