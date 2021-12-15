@@ -27,9 +27,7 @@ import {
   LoadLocalStorage
 } from './localStorageHelper'
 
-LicenseInfo.setLicenseKey(
-  'dfcaaf2c1409cf119dc087ab587e539fT1JERVI6MzIzNzEsRVhQSVJZPTE2NjgxNzc2NjcwMDAsS0VZVkVSU0lPTj0x'
-)
+LicenseInfo.setLicenseKey(process.env.REACT_APP_MUI_LICENSE || '')
 
 export interface XGridProps extends DataGridProProps {
   customApiRef?: GridApiRef
