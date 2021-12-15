@@ -13,7 +13,8 @@ import {
   GridToolbarDensitySelector,
   GridCsvExportOptions,
   useGridApiRef,
-  GridApiRef
+  GridApiRef,
+  LicenseInfo
 } from '@mui/x-data-grid-pro'
 import GlobalStyles from '@mui/material/GlobalStyles'
 import { GRID_DE_LOCALE_TEXT } from './locales'
@@ -25,6 +26,8 @@ import {
   RegisterLocalStorageEvents,
   LoadLocalStorage
 } from './localStorageHelper'
+
+LicenseInfo.setLicenseKey(process.env.REACT_APP_MUI_LICENSE || '')
 
 export interface XGridProps extends DataGridProProps {
   customApiRef?: GridApiRef
@@ -185,10 +188,13 @@ const useStyles = makeStyles((theme: Theme) => {
         backgroundColor: `${theme.palette.background.light} !important`
       },
 
-      '& .MuiDataGrid-columnHeaderTitle, .MuiDataGrid-cell, .MuiDataGrid-footerContainer *':
-        {
-          fontSize: 16
-        },
+      '& .MuiDataGrid-columnHeaderTitle, .MuiDataGrid-cell': {
+        fontSize: 16
+      },
+
+      '.MuiDataGrid-footerContainer *': {
+        fontSize: 16
+      },
 
       '& .MuiBadge-colorPrimary': {
         backgroundColor: theme.palette.primary.main
