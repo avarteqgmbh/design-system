@@ -1,7 +1,6 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { StaticDateRangePickerProps } from '@mui/lab/StaticDateRangePicker'
 import { DateRangePicker } from './inputs/Pickers/DateRange'
 
 export default {
@@ -17,7 +16,7 @@ export default {
   }
 }
 
-const Template: Story<StaticDateRangePickerProps> = (args) => {
+const Template: Story = (args) => {
   return <DateRangePicker {...args} />
 }
 
