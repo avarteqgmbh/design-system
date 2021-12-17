@@ -3,6 +3,7 @@ import TextField from '@mui/material/TextField'
 import StaticDateRangePicker from '@mui/lab/StaticDateRangePicker'
 import DateAdapter from '@mui/lab/AdapterDayjs'
 import LocalizationProvider from '@mui/lab/LocalizationProvider'
+import { LicenseInfo } from '@mui/x-data-grid-pro'
 import Box from '@mui/material/Box'
 import { DateRange } from '@mui/lab/DateRangePicker'
 import { makeStyles } from '../../../theme/ThemeProvider'
@@ -11,6 +12,8 @@ import { Theme } from '../../../theme/types'
 export function DateRangePicker(): JSX.Element {
   const [value, setValue] = React.useState<DateRange<Date>>([null, null])
   const classes = useStyles()
+
+  LicenseInfo.setLicenseKey(process.env.REACT_APP_MUI_LICENSE || '')
 
   return (
     <LocalizationProvider dateAdapter={DateAdapter}>
