@@ -10,6 +10,7 @@ import { InputAdornment } from './TextField/InputAdornment'
 import { Radio } from './Radio/Radio'
 import { Slider } from './Slider/Slider'
 import { DatePicker } from './Pickers/Date'
+import { DateRangePicker } from './Pickers/DateRange'
 import { TimePicker } from './Pickers/Time'
 import { DateTimePicker } from './Pickers/DateTime'
 import { TransferList } from './TransferList/TransferList'
@@ -31,6 +32,7 @@ export {
   Slider,
   Switch,
   DatePicker,
+  DateRangePicker,
   TimePicker,
   DateTimePicker,
   TransferList,
