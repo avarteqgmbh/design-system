@@ -20,8 +20,10 @@ export function IconButton(props: IconButtonProps): JSX.Element {
   )
 }
 
-const useStyles = makeStyles<Theme>(() => {
+const useStyles = makeStyles<Theme>((theme: Theme) => {
   return {
-    root: {}
+    root: {
+      color: `${theme.palette.text.primary} !important`
+    }
   }
 })
