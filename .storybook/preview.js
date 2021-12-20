@@ -1,7 +1,6 @@
 import { theme as anyninesDark } from '../src/theme/dark'
 import { theme as anyninesLight } from '../src/theme/light'
 import { ThemeProvider, createTheme, StyledEngineProvider} from '@mui/material/styles'
-import { addDecorator } from '@storybook/react'
 import { withThemes } from '@react-theming/storybook-addon'
 
 export const parameters = {
@@ -19,11 +18,24 @@ export const parameters = {
   }
 }
 
+export const onThemeSwitch = context => {
+  const { theme } = context
+
+  const parameters = {
+    backgrounds: {
+      default: theme.palette.background.paper,
+    },
+  }
+  return {
+    parameters,
+  }
+}
+
 const providerFn = ({ theme, children }) => {
   const muTheme = createTheme(theme)
   return (
     <StyledEngineProvider injectFirst>
-      <ThemeProvider theme={(muTheme)}>
+      <ThemeProvider theme={muTheme}>
         {children}
       </ThemeProvider>
     </StyledEngineProvider>
@@ -32,6 +44,6 @@ const providerFn = ({ theme, children }) => {
 
 addDecorator(
   withThemes(null, [anyninesDark, anyninesLight], {
-    providerFn
+    providerFn, onThemeSwitch
   })
 )
