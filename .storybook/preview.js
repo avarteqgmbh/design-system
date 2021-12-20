@@ -1,6 +1,7 @@
 import { theme as anyninesDark } from '../src/theme/dark'
 import { theme as anyninesLight } from '../src/theme/light'
 import { ThemeProvider, createTheme, StyledEngineProvider} from '@mui/material/styles'
+import { addDecorator } from '@storybook/react'
 import { withThemes } from '@react-theming/storybook-addon'
 
 export const parameters = {
