@@ -19,11 +19,24 @@ export const parameters = {
   }
 }
 
+export const onThemeSwitch = context => {
+  const { theme } = context
+
+  const parameters = {
+    backgrounds: {
+      default: theme.palette.background.paper,
+    },
+  }
+  return {
+    parameters,
+  }
+}
+
 const providerFn = ({ theme, children }) => {
   const muTheme = createTheme(theme)
   return (
     <StyledEngineProvider injectFirst>
-      <ThemeProvider theme={(muTheme)}>
+      <ThemeProvider theme={muTheme}>
         {children}
       </ThemeProvider>
     </StyledEngineProvider>
@@ -32,6 +45,6 @@ const providerFn = ({ theme, children }) => {
 
 addDecorator(
   withThemes(null, [anyninesDark, anyninesLight], {
-    providerFn
+    providerFn, onThemeSwitch
   })
 )
