@@ -2,9 +2,7 @@ import { Alert } from './Alert/Alert'
 import { AlertTitle } from './Alert/AlertTitle'
 import {
   XGrid,
-  getGridNumericColumnOperators,
   getGridStringOperators,
-  getGridDateOperators,
   GridLinkOperator,
   useGridApiRef
 } from './XGrid/XGrid'
@@ -17,9 +15,7 @@ export {
   Alert,
   AlertTitle,
   XGrid,
-  getGridNumericColumnOperators,
   getGridStringOperators,
-  getGridDateOperators,
   GridLinkOperator,
   useGridApiRef,
   Skeleton,

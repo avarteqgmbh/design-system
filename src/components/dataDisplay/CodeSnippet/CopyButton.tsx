@@ -2,12 +2,10 @@ import React, { useState } from 'react'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { CodeSnippetProps } from './CodeSnippetProps'
 import FileCopyIcon from '@mui/icons-material/FileCopy'
-import makeStyles from '@mui/styles/makeStyles'
 import { Tooltip } from '../Tooltip/Tooltip'
-import { Theme } from '../../../theme/types'
+import { Box } from '@mui/material'
 
 export function CopyButton({ value }: CodeSnippetProps): JSX.Element {
-  const classes = useStyles()
   const [title, setTitle] = useState('copy')
 
   const changeText = (): void => {
@@ -23,28 +21,20 @@ export function CopyButton({ value }: CodeSnippetProps): JSX.Element {
   return (
     <div onMouseLeave={handleUnHover}>
       <CopyToClipboard text={value}>
-        <Tooltip
-          title={title}
-          aria-label='copy'
-          placement='top'
-          className={classes.root}
-        >
-          <button type='button' onClick={changeText}>
-            <FileCopyIcon fontSize='small' className={classes.icon} />
-          </button>
+        <Tooltip title={title} aria-label='copy' placement='top'>
+          <Box
+            sx={{
+              cursor: 'pointer',
+              '& .MuiSvgIcon-root': {
+                color: 'text.primary'
+              }
+            }}
+            onClick={changeText}
+          >
+            <FileCopyIcon fontSize='small' />
+          </Box>
         </Tooltip>
       </CopyToClipboard>
     </div>
   )
 }
-
-const useStyles = makeStyles((theme: Theme) => {
-  return {
-    root: {
-      cursor: 'pointer'
-    },
-    icon: {
-      color: theme.palette.primary.main
-    }
-  }
-})

@@ -1,7 +1,5 @@
 import React from 'react'
-import { Slide as MuiSlide } from '@mui/material'
-import makeStyles from '@mui/styles/makeStyles'
-import { Theme } from '../../../theme/types'
+import { Box, Slide as MuiSlide } from '@mui/material'
 import { Link } from '../../navigation/index'
 
 export interface SlideProps {
@@ -11,17 +9,34 @@ export interface SlideProps {
 
 export const Slide: React.FC<SlideProps> = (props) => {
   const { src, link, children } = props
-  const classes = useStyles()
 
   const renderSlide = (): JSX.Element => {
     return (
       <MuiSlide direction='left' in>
-        <div
-          className={classes.root}
-          style={{ backgroundImage: `url(${src})` }}
+        <Box
+          sx={{
+            backgroundPosition: 'center',
+            minWidth: '100%',
+            height: '100%',
+            backgroundSize: 'cover',
+            backgroundImage: `url(${src})`
+          }}
         >
-          {children && <div className={classes.overlay}>{children}</div>}
-        </div>
+          {children && (
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                bgcolor: 'rgba(0, 0, 0, .7)',
+                width: '100%',
+                height: '100%'
+              }}
+            >
+              {children}
+            </Box>
+          )}
+        </Box>
       </MuiSlide>
     )
   }
@@ -36,29 +51,3 @@ export const Slide: React.FC<SlideProps> = (props) => {
 
   return renderSlide()
 }
-const useStyles = makeStyles((theme: Theme) => {
-  return {
-    root: {
-      backgroundPosition: 'center',
-      minWidth: '100%',
-      height: '100%',
-      backgroundSize: 'cover'
-    },
-    overlay: {
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: 'rgba(0, 0, 0, .7)',
-      width: '100%',
-      height: '100%'
-    },
-    link: {
-      minWidth: '100%',
-      textDecoration: 'none',
-      color: theme.palette.common.white,
-      '&:hover': {
-        cursor: 'pointer'
-      }
-    }
-  }
-})

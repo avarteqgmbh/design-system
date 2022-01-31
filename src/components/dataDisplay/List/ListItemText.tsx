@@ -3,23 +3,7 @@ import {
   ListItemText as MuiListItemText,
   ListItemTextProps
 } from '@mui/material'
-import makeStyles from '@mui/styles/makeStyles'
-import { Theme } from '../../../theme/types'
 
-export function ListItemText(props: ListItemTextProps): JSX.Element {
-  const classes = useStyles()
-  return (
-    <MuiListItemText
-      classes={{
-        root: classes.root
-      }}
-      {...props}
-    />
-  )
+export const ListItemText: React.FC<ListItemTextProps> = (props) => {
+  return <MuiListItemText {...props} />
 }
-
-const useStyles = makeStyles<Theme>(() => {
-  return {
-    root: {}
-  }
-})

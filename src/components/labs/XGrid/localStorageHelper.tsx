@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { useState } from 'react'
 import {
   GridColumnResizeParams,

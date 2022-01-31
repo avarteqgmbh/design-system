@@ -3,23 +3,19 @@ import {
   DataGridPro,
   DataGridProProps,
   getGridStringOperators,
-  getGridNumericColumnOperators,
-  getGridDateOperators,
   GridLinkOperator,
   GridToolbarExport,
   GridToolbarContainer,
   GridToolbarColumnsButton,
   GridToolbarFilterButton,
   GridToolbarDensitySelector,
+  getGridNumericOperators,
   GridCsvExportOptions,
   useGridApiRef,
-  GridApiRef,
   LicenseInfo
 } from '@mui/x-data-grid-pro'
 import GlobalStyles from '@mui/material/GlobalStyles'
 import { GRID_DE_LOCALE_TEXT } from './locales'
-import { makeStyles } from '../../../theme/ThemeProvider'
-import { Theme } from '../../../theme/types'
 import { QuickSearch } from './QuickSearch'
 import {
   useLocalStorage,
@@ -30,7 +26,6 @@ import {
 LicenseInfo.setLicenseKey(process.env.REACT_APP_MUI_LICENSE || '')
 
 export interface XGridProps extends DataGridProProps {
-  customApiRef?: GridApiRef
   localStorageKey?: string
   language?: 'DE' | 'EN'
   toolbar?: boolean
@@ -45,7 +40,6 @@ export interface XGridProps extends DataGridProProps {
 
 export function XGrid(props: XGridProps): JSX.Element {
   const {
-    customApiRef,
     localStorageKey = '',
     autoHeight = true,
     language = 'EN',
@@ -58,8 +52,7 @@ export function XGrid(props: XGridProps): JSX.Element {
     setSearchText,
     toolbar = false
   } = props
-  const classes = useStyles()
-  const dsApiRef = useGridApiRef(customApiRef || undefined)
+  const dsApiRef = useGridApiRef()
   const [tableConfig, setTableConfig] = useLocalStorage<object>(
     localStorageKey,
     {}
@@ -99,6 +92,7 @@ export function XGrid(props: XGridProps): JSX.Element {
     ) {
       RegisterLocalStorageEvents(dsApiRef, tableConfig, setTableConfig)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dsApiRef, localStorageKey])
 
   React.useEffect(() => {
@@ -120,7 +114,54 @@ export function XGrid(props: XGridProps): JSX.Element {
         autoHeight={autoHeight}
         autoPageSize={autoHeight}
         components={toolbar ? { Toolbar: CustomToolbar } : {}}
-        className={classes.root}
+        sx={{
+          borderColor: 'bg.border',
+          '& .MuiDataGrid-columnHeaderTitle': {
+            color: 'white !important'
+          },
+          '& .MuiDataGrid-columnHeader:focus, .MuiDataGrid-cell:focus': {
+            outline: (theme): string => {
+              return `solid ${theme.palette.primary.main} 1px`
+            }
+          },
+
+          '& .MuiCheckbox-colorPrimary.Mui-checked': {
+            color: 'primary.main'
+          },
+
+          '& .MuiDataGrid-row:hover': {
+            bgcolor: 'bg.default'
+          },
+
+          '& .MuiDataGrid-row.Mui-selected': {
+            bgcolor: 'bg.light'
+          },
+
+          '& .MuiDataGrid-columnHeaderTitle, .MuiDataGrid-cell': {
+            fontSize: 16
+          },
+
+          '.MuiDataGrid-footerContainer *': {
+            fontSize: 16
+          },
+
+          '& .MuiBadge-colorPrimary': {
+            bgcolor: 'primary.main'
+          },
+
+          '& .MuiDataGrid-toolbarContainer': {
+            bgcolor: 'bg.paper',
+
+            '& .MuiButton-textPrimary': {
+              color: 'primary.main',
+              bgcolor: 'bg.paper',
+
+              '&:hover': {
+                bgcolor: 'bg.light'
+              }
+            }
+          }
+        }}
         {...props}
       />
     </>
@@ -131,11 +172,11 @@ const GridGlobalStyles = (
   <GlobalStyles
     styles={{
       '& .MuiGridMenu-root .MuiPaper-root': {
-        background: 'white'
+        bgcolor: 'white'
       },
       '& .MuiGridPanel-paper': {
         '& .MuiSwitch-colorPrimary.Mui-checked + .MuiSwitch-track': {
-          backgroundColor: '#cdcdcd'
+          bgcolor: '#cdcdcd'
         },
         '& .MuiFormControl-root': {
           '& .MuiFormLabel-root.Mui-focused': {
@@ -147,13 +188,13 @@ const GridGlobalStyles = (
         },
         '& .MuiButton-textPrimary': {
           color: '#2e2e2e',
-          backgroundColor: 'white',
+          bgcolor: 'white',
           '&:hover': {
-            backgroundColor: '#efefef'
+            bgcolor: '#efefef'
           }
         },
         '& .MuiInputBase-input': {
-          backgroundColor: 'transparent'
+          bgcolor: 'transparent'
         },
         '& .MuiSwitch-colorPrimary.Mui-checked': {
           color: '#2e2e2e'
@@ -162,64 +203,9 @@ const GridGlobalStyles = (
     }}
   />
 )
-
-const useStyles = makeStyles((theme: Theme) => {
-  return {
-    root: {
-      borderColor: theme.palette.background.border,
-
-      '& *': {
-        fontFamily: theme.typography.fontFamily
-      },
-
-      '& .MuiDataGrid-columnHeader:focus, .MuiDataGrid-cell:focus': {
-        outline: `solid ${theme.palette.primary.main} 1px`
-      },
-
-      '& .MuiCheckbox-colorPrimary.Mui-checked': {
-        color: theme.palette.primary.main
-      },
-
-      '& .MuiDataGrid-row:hover': {
-        backgroundColor: `${theme.palette.background.default} !important`
-      },
-
-      '& .MuiDataGrid-row.Mui-selected': {
-        backgroundColor: `${theme.palette.background.light} !important`
-      },
-
-      '& .MuiDataGrid-columnHeaderTitle, .MuiDataGrid-cell': {
-        fontSize: 16
-      },
-
-      '.MuiDataGrid-footerContainer *': {
-        fontSize: 16
-      },
-
-      '& .MuiBadge-colorPrimary': {
-        backgroundColor: theme.palette.primary.main
-      },
-
-      '& .MuiDataGrid-toolbarContainer': {
-        backgroundColor: theme.palette.background.paper,
-
-        '& .MuiButton-textPrimary': {
-          color: theme.palette.primary.main,
-          backgroundColor: theme.palette.background.paper,
-
-          '&:hover': {
-            backgroundColor: theme.palette.background.light
-          }
-        }
-      }
-    }
-  }
-})
-
 export {
   getGridStringOperators,
-  getGridNumericColumnOperators,
-  getGridDateOperators,
+  getGridNumericOperators,
   GridLinkOperator,
   useGridApiRef
 }

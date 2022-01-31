@@ -1,6 +1,4 @@
 import React from 'react'
-import makeStyles from '@mui/styles/makeStyles'
-import { Theme } from '../../../theme/types'
 import { Grid } from '../../layout/index'
 import { SlideItem } from './SlideItem'
 import { Slide } from './Slide'
@@ -10,7 +8,6 @@ import { Paper } from '../../surfaces'
 export const Slides: React.FC<SlidesProps> = (props) => {
   const { slides } = props
   const [currentSlideIndex, setCurrentSlideIndex] = React.useState(0)
-  const classes = useStyles()
 
   const onSlideItemClick = (slideIndex: number): void => {
     setCurrentSlideIndex(slideIndex)
@@ -31,9 +28,26 @@ export const Slides: React.FC<SlidesProps> = (props) => {
   }, [slides.length, currentSlideIndex, setCurrentSlideIndex])
 
   return (
-    <Grid container className={classes.root}>
+    <Grid
+      container
+      sx={{
+        justifyContent: 'space-between',
+        alignItems: 'center'
+      }}
+    >
       <Grid item sm={9}>
-        <Paper className={classes.slideContainer}>
+        <Paper
+          sx={{
+            flexGrow: 1,
+            position: 'relative',
+            overflow: 'hidden',
+            marginRight: 6,
+            height: 450,
+            borderRadius: (theme): string => {
+              return `${theme.radius.large}px`
+            }
+          }}
+        >
           <Slide
             src={slides[currentSlideIndex].src}
             link={slides[currentSlideIndex].link}
@@ -42,7 +56,17 @@ export const Slides: React.FC<SlidesProps> = (props) => {
           </Slide>
         </Paper>
       </Grid>
-      <Grid item className={classes.slides} sm={3}>
+      <Grid
+        item
+        sx={{
+          justifyContent: 'center',
+          alignItems: 'center',
+          overflowX: 'hidden',
+          msOverflowX: 'hidden',
+          maxHeight: 450
+        }}
+        sm={3}
+      >
         {slides.map((slide, index) => {
           return (
             <SlideItem
@@ -59,27 +83,3 @@ export const Slides: React.FC<SlidesProps> = (props) => {
     </Grid>
   )
 }
-
-const useStyles = makeStyles((theme: Theme) => {
-  return {
-    root: {
-      justifyContent: 'space-between',
-      alignItems: 'center'
-    },
-    slideContainer: {
-      flexGrow: 1,
-      position: 'relative',
-      overflow: 'hidden',
-      marginRight: theme.spacing(6),
-      height: 450,
-      borderRadius: theme.radius.large
-    },
-    slides: {
-      justifyContent: 'center',
-      alignItems: 'center',
-      overflowX: 'hidden',
-      msOverflowX: 'hidden',
-      maxHeight: 450
-    }
-  }
-})

@@ -1,6 +1,5 @@
 import React from 'react'
-import { Theme } from '../../../theme/types'
-import makeStyles from '@mui/styles/makeStyles'
+import { Box } from '../../layout/Box/Box'
 
 // A
 import ArrowUpRight from './assets/arrowUpRight'
@@ -339,30 +338,28 @@ export const AnyIcon: React.FC<IconProps> = ({
   size = 'sm',
   style
 }) => {
-  const classes = useStyles()
-
   return (
-    <i className={`icon ${classes.root} ${className} ${size}`} style={style}>
-      {ICONS[icon]}
-    </i>
+    <Box
+      sx={{
+        '& i': {
+          width: 4,
+          height: 4,
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+
+          '& svg': {
+            width: 'inherit',
+            height: 'inherit',
+            maxWidth: 4,
+            maxHeight: 4
+          }
+        }
+      }}
+    >
+      <i className={`icon ${className} ${size}`} style={style}>
+        {ICONS[icon]}
+      </i>
+    </Box>
   )
 }
-
-const useStyles = makeStyles((theme: Theme) => {
-  return {
-    root: {
-      width: theme.spacing(4),
-      height: theme.spacing(4),
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-
-      '& svg': {
-        width: 'inherit',
-        height: 'inherit',
-        maxWidth: theme.spacing(4),
-        maxHeight: theme.spacing(4)
-      }
-    }
-  }
-})

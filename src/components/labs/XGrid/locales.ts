@@ -108,6 +108,21 @@ export const GRID_DE_LOCALE_TEXT: GridLocaleText = {
 
   actionsCellMore: 'Mehr',
 
+  pinToLeft: 'Links anheften',
+  pinToRight: 'Rechts anheften',
+  filterOperatorIsAnyOf: '',
+  unpin: '',
+  treeDataGroupingHeaderName: '',
+  treeDataExpand: '',
+  treeDataCollapse: '',
+  groupingColumnHeaderName: '',
+  groupColumn: (name: string) => {
+    return name
+  },
+  unGroupColumn: (name: string) => {
+    return name
+  },
+
   // Used core components translation keys
   MuiTablePagination: {}
 }

@@ -1,31 +1,7 @@
-/* eslint-disable
-  @typescript-eslint/no-explicit-any,
-  @typescript-eslint/explicit-module-boundary-types
-*/
-
 import React from 'react'
-import { ListItem as MuiListItem } from '@mui/material'
-import makeStyles from '@mui/styles/makeStyles'
-import { Theme } from '../../../theme/types'
+import { ListItem as MuiListItem, ListItemProps } from '@mui/material'
 
-// TODO: Resolve issue with ListItemProps to replace any type usage
-export function ListItem(props: any): JSX.Element {
-  const classes = useStyles()
+export const ListItem: React.FC<ListItemProps> = (props) => {
   const { children } = props
-  return (
-    <MuiListItem
-      classes={{
-        root: classes.root
-      }}
-      {...props}
-    >
-      {children}
-    </MuiListItem>
-  )
+  return <MuiListItem {...props}>{children}</MuiListItem>
 }
-
-const useStyles = makeStyles<Theme>(() => {
-  return {
-    root: {}
-  }
-})

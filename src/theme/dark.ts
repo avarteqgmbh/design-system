@@ -54,6 +54,10 @@ const GRADIENT_PRIMARY = `linear-gradient(65deg, ${COLOR_PRIMARY_MAIN} 15%, ${CO
 const palette = {
   background: {
     paper: COLOR_GREY_1000,
+    default: COLOR_GREY_900
+  },
+  bg: {
+    paper: COLOR_GREY_1000,
     default: COLOR_GREY_900,
     light: COLOR_GREY_800,
     medium: COLOR_GREY_700,

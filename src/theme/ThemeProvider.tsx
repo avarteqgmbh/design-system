@@ -2,38 +2,74 @@ import React from 'react'
 import {
   ThemeProvider as MuiThemeProvider,
   StyledEngineProvider,
-  createTheme
+  createTheme,
+  useTheme as muiUseTheme,
+  Palette as MuiPalette
 } from '@mui/material/styles'
-import { CssBaseline, ThemeOptions } from '@mui/material'
-import muiMakeStyles from '@mui/styles/makeStyles'
-
-import { Theme } from './types'
+import { CssBaseline, ThemeOptions as MuiThemeOptions } from '@mui/material'
 import { theme as anyninesLight } from './light'
 import { theme as anyninesDark } from './dark'
 import { ThemeProviderProps as MuiThemeProviderProps } from '@mui/material/styles/ThemeProvider'
+import { DefaultTheme } from '@mui/styles'
 
-declare module '@mui/styles/defaultTheme' {
-  type DefaultTheme = Theme
+declare module '@mui/material/styles' {
+  interface Theme extends DefaultTheme {
+    radius: {
+      none: number
+      small: number
+      medium: number
+      large: number
+      button: number
+      card: number
+    }
+  }
+
+  interface Palette extends MuiPalette {
+    bg: {
+      paper: string
+      default: string
+      light: string
+      medium: string
+      border: string
+      gradient: string
+    }
+    gradient: {
+      light: string
+      dark: string
+      primary: string
+    }
+  }
+
+  // allow configuration using `createTheme`
+  interface ThemeOptions {
+    radius?: {
+      none?: number
+      small?: number
+      medium?: number
+      large?: number
+      button?: number
+      card?: number
+    }
+  }
 }
-
 export type CustomThemeName = 'light' | 'dark'
 
-export const makeStyles = muiMakeStyles
+export const useTheme = muiUseTheme()
 
-const THEMES: { [key in CustomThemeName]: ThemeOptions } = {
+const THEMES: { [key in CustomThemeName]: MuiThemeOptions } = {
   light: anyninesLight,
   dark: anyninesDark
 }
 
 export interface ThemeProviderProps
   extends Omit<MuiThemeProviderProps, 'theme'> {
-  theme?: ThemeOptions | CustomThemeName
+  theme?: MuiThemeOptions | CustomThemeName
 }
 
 export const ThemeProvider = (props: ThemeProviderProps): JSX.Element => {
   const { theme = 'dark' } = props
 
-  function getTheme(): ThemeOptions {
+  function getTheme(): MuiThemeOptions {
     if (typeof theme === 'string') {
       return THEMES[theme]
     }

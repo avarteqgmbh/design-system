@@ -1,7 +1,4 @@
 import React, { MouseEventHandler } from 'react'
-import { Theme } from '@mui/material/styles'
-import makeStyles from '@mui/styles/makeStyles'
-import createStyles from '@mui/styles/createStyles'
 import Card from '@mui/material/Card'
 import CardHeader from '@mui/material/CardHeader'
 import ListItem from '@mui/material/ListItem'
@@ -33,12 +30,10 @@ export function CustomList({
   numberOfChecked,
   handleToggle
 }: CustomListProps): JSX.Element {
-  const classes = useStyles()
-
   return (
     <Card>
       <CardHeader
-        className={classes.cardHeader}
+        sx={{ py: 1, px: 2 }}
         avatar={
           <Checkbox
             {...checkboxProps}
@@ -58,7 +53,17 @@ export function CustomList({
         subheader={`${numberOfChecked(items)}/${items.length} selected`}
       />
       <Divider />
-      <List className={classes.list} dense component='div' role='list'>
+      <List
+        sx={{
+          width: 200,
+          height: 230,
+          bgcolor: 'bg.paper',
+          overflow: 'auto'
+        }}
+        dense
+        component='div'
+        role='list'
+      >
         {items.map((item: never) => {
           const { id, name } = item as never
           const labelId = `transfer-list-all-item-${id}-label`
@@ -88,17 +93,3 @@ export function CustomList({
     </Card>
   )
 }
-
-const useStyles = makeStyles((theme: Theme) => {
-  return createStyles({
-    cardHeader: {
-      padding: theme.spacing(1, 2)
-    },
-    list: {
-      width: 200,
-      height: 230,
-      backgroundColor: theme.palette.background.paper,
-      overflow: 'auto'
-    }
-  })
-})
