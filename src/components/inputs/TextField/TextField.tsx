@@ -10,14 +10,10 @@ export function TextField(props: MuiTextFieldProps): JSX.Element {
     <MuiTextField
       sx={{
         bgcolor: 'inherit',
-        borderRadius: (theme): string => {
-          return `${theme.radius.medium}px`
-        },
+        borderRadius: '8px',
 
         '& .MuiFilledInput-root': {
-          borderRadius: (theme): string => {
-            return `${theme.radius.medium}px`
-          },
+          borderRadius: '8px',
           overflow: 'hidden',
           '&:before': {
             opacity: 0

@@ -14,9 +14,7 @@ export function ButtonGroup(props: ButtonGroupProps): JSX.Element {
         '& .MuiButton-root.MuiButton-text': {
           borderColor: 'transparent'
         },
-        borderRadius: (theme): string => {
-          return `${theme.radius.button}px`
-        },
+        borderRadius: '8px',
         '& .MuiButton-root.MuiButton-outlinedPrimary': {
           borderColor: 'primary.main'
         },

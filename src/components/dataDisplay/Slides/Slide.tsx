@@ -25,10 +25,7 @@ export const Slide: React.FC<SlideProps> = (props) => {
           {children && (
             <Box
               sx={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                bgcolor: 'rgba(0, 0, 0, .7)',
+                bgcolor: 'rgba(0, 0, 0, 0.6)',
                 width: '100%',
                 height: '100%'
               }}

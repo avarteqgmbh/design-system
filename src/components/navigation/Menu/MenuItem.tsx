@@ -16,9 +16,7 @@ export function MenuItem(props: MenuItemProps): JSX.Element {
       sx={{
         bgcolor: 'transparent',
         padding: 2,
-        borderRadius: (theme): string => {
-          return `${theme.radius.small}px`
-        },
+        borderRadius: '4px',
 
         '& .MuiListItemIcon-root': {
           minWidth: 'auto',

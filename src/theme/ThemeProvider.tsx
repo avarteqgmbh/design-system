@@ -3,7 +3,6 @@ import {
   ThemeProvider as MuiThemeProvider,
   StyledEngineProvider,
   createTheme,
-  useTheme as muiUseTheme,
   Palette as MuiPalette
 } from '@mui/material/styles'
 import { CssBaseline, ThemeOptions as MuiThemeOptions } from '@mui/material'
@@ -53,8 +52,6 @@ declare module '@mui/material/styles' {
   }
 }
 export type CustomThemeName = 'light' | 'dark'
-
-export const useTheme = muiUseTheme()
 
 const THEMES: { [key in CustomThemeName]: MuiThemeOptions } = {
   light: anyninesLight,

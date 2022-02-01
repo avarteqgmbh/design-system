@@ -202,8 +202,6 @@ const typography = {
   overline: { ...BASE_BODY_STYLES, fontSize: TYPE_SPACING[1] }
 }
 
-const spacing = [0, 4, 8, 12, 16, 24, 32, 40, 60, 80, 120, 160]
-
 const radius = {
   none: 0,
   small: 4,
@@ -218,6 +216,5 @@ export const theme = {
   palette,
   overrides: { ...overrides },
   typography,
-  spacing,
   radius
 }

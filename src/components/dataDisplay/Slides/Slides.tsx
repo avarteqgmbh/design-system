@@ -43,9 +43,7 @@ export const Slides: React.FC<SlidesProps> = (props) => {
             overflow: 'hidden',
             marginRight: 6,
             height: 450,
-            borderRadius: (theme): string => {
-              return `${theme.radius.large}px`
-            }
+            borderRadius: '8px'
           }}
         >
           <Slide

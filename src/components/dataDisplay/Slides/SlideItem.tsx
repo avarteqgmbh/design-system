@@ -36,11 +36,9 @@ export const SlideItem: React.FC<SlideItemProps> = (props) => {
         marginBottom: 5,
         bgcolor: 'bg.light',
         cursor: 'pointer',
-        padding: 4,
+        padding: 2,
         width: '90%',
-        borderRadius: (theme): string => {
-          return `${theme.radius.card}px`
-        },
+        borderRadius: '8px',
         '&:last-child': {
           marginBottom: 0
         },
@@ -60,7 +58,7 @@ export const SlideItem: React.FC<SlideItemProps> = (props) => {
         <Typography
           variant='subtitle1'
           sx={{
-            marginBottom: 5,
+            marginBottom: 2,
             color: 'text.primary',
             fontWeight: 'bold'
           }}
@@ -71,11 +69,9 @@ export const SlideItem: React.FC<SlideItemProps> = (props) => {
           <LinearProgress
             variant='determinate'
             sx={{
-              marginTop: 5,
+              marginTop: 2,
               width: '100%',
-              borderRadius: (theme): string => {
-                return `${theme.radius.large}px`
-              }
+              borderRadius: '8px'
             }}
             value={progress}
           />

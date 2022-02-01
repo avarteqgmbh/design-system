@@ -18,9 +18,7 @@ export const CodeSnippet: React.FC<CodeSnippetProps> = ({
   return (
     <Box
       sx={{
-        borderRadius: (theme): string => {
-          return `${theme.radius.button}px`
-        },
+        borderRadius: '8px',
         bgcolor: 'bg.light',
         color: 'text.primary'
       }}
