@@ -61,6 +61,7 @@ export const GRID_DE_LOCALE_TEXT: GridLocaleText = {
   filterOperatorOnOrBefore: 'ist auf oder vor',
   filterOperatorIsEmpty: 'ist leer',
   filterOperatorIsNotEmpty: 'ist nicht leer',
+  filterOperatorIsAnyOf: 'ist (mehrere Eingaben möglich)',
 
   // Filter values text
   filterValueAny: '',
@@ -101,12 +102,39 @@ export const GRID_DE_LOCALE_TEXT: GridLocaleText = {
 
   // Checkbox selection text
   checkboxSelectionHeaderName: 'Checkbox Auswahl',
+  checkboxSelectionSelectAllRows: 'Alle Reihen auswählen',
+  checkboxSelectionUnselectAllRows: 'Alle Reihen abwählen',
+  checkboxSelectionSelectRow: 'Reihe auswählen',
+  checkboxSelectionUnselectRow: 'Reihe abwählen',
 
   // Boolean cell text
   booleanCellTrueLabel: 'wahr',
   booleanCellFalseLabel: 'falsch',
 
   actionsCellMore: 'Mehr',
+
+  // Column pinning text
+  pinToLeft: 'Nach links heften',
+  pinToRight: 'Nach rechts heften',
+  unpin: 'Heften aufheben',
+
+  // Tree Data
+  treeDataGroupingHeaderName: 'Gruppe',
+  treeDataExpand: 'Elemente anzeigen',
+  treeDataCollapse: 'Elemente verstecken',
+
+  // Grouping columns
+  groupingColumnHeaderName: 'Gruppe',
+  groupColumn: (name) => {
+    return `Gruppierung nach ${name}`
+  },
+  unGroupColumn: (name) => {
+    return `Gruppierung nach ${name} aufheben`
+  },
+
+  // Master/detail
+  expandDetailPanel: 'Erweitern',
+  collapseDetailPanel: 'Verstecken',
 
   // Used core components translation keys
   MuiTablePagination: {}
