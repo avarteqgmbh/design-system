@@ -3,7 +3,7 @@ import {
   DataGridPro,
   DataGridProProps,
   getGridStringOperators,
-  getGridNumericColumnOperators,
+  getGridNumericOperators,
   getGridDateOperators,
   GridLinkOperator,
   GridToolbarExport,
@@ -218,7 +218,7 @@ const useStyles = makeStyles((theme: Theme) => {
 
 export {
   getGridStringOperators,
-  getGridNumericColumnOperators,
+  getGridNumericOperators,
   getGridDateOperators,
   GridLinkOperator,
   useGridApiRef

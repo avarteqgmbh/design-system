@@ -2,7 +2,6 @@ import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { XGrid, XGridProps } from './XGrid'
-import { useDemoData } from '@mui/x-data-grid-generator'
 import { GridRowModel } from '@mui/x-data-grid-pro'
 
 export default {
@@ -41,22 +40,28 @@ export default {
 }
 
 const Template: Story<XGridProps> = (args) => {
-  const { data } = useDemoData({
-    dataSet: 'Commodity',
-    rowLength: 100,
-    maxColumns: 6
-  })
+  const sampleRows = [
+    { id: 1, col1: 'Hello', col2: 'World' },
+    { id: 2, col1: 'DataGridPro', col2: 'is Awesome' },
+    { id: 3, col1: 'MUI', col2: 'is Amazing' }
+  ]
+
+  const sampleColumns = [
+    { field: 'col1', headerName: 'Column 1', width: 150 },
+    { field: 'col2', headerName: 'Column 2', width: 150 }
+  ]
+
   function escapeRegExp(value: string): string {
     return value.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&')
   }
 
   const [searchText, setSearchText] = React.useState('')
-  const [rows, setRows] = React.useState<GridRowModel[]>(data.rows)
+  const [rows, setRows] = React.useState<GridRowModel[]>(sampleRows)
 
   const requestSearch = (searchValue: string): void => {
     setSearchText(searchValue)
     const searchRegex = new RegExp(escapeRegExp(searchValue), 'i')
-    const filteredRows = data.rows.filter((row: GridRowModel) => {
+    const filteredRows = sampleRows.filter((row: GridRowModel) => {
       return Object.keys(row).some((field) => {
         return searchRegex.test(row[field].toString())
       })
@@ -65,15 +70,15 @@ const Template: Story<XGridProps> = (args) => {
   }
 
   React.useEffect(() => {
-    setRows(data.rows)
-  }, [data.rows])
+    setRows(sampleRows)
+  }, [sampleRows])
 
   return (
     <XGrid
       {...args}
       localStorageKey={rows && 'fooBar'}
       rows={rows}
-      columns={data.columns}
+      columns={sampleColumns}
       searchText={searchText}
       setSearchText={setSearchText}
       onSearchClick={(): void => {
