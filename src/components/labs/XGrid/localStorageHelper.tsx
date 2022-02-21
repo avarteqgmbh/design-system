@@ -75,8 +75,12 @@ export function RegisterLocalStorageEvents(
   )
 
   dsApiRef.current.subscribeEvent('columnOrderChange', (): void => {
-    // columns = columns.splice(index, 0, item)
     tableConfig.orderedColumns = dsApiRef.current.state.columns.all
+    setTableConfig(tableConfig)
+  })
+
+  dsApiRef.current.subscribeEvent('pinnedColumnsChange', (): void => {
+    tableConfig.pinnedColumns = dsApiRef.current.state.pinnedColumns
     setTableConfig(tableConfig)
   })
 
@@ -143,6 +147,10 @@ export function LoadLocalStorage(
 
     if (tableConfig.filterModel) {
       dsApiRef.current.setFilterModel(tableConfig.filterModel)
+    }
+
+    if (tableConfig.pinnedColumns) {
+      dsApiRef.current.setPinnedColumns(tableConfig.pinnedColumns)
     }
   }
 }
