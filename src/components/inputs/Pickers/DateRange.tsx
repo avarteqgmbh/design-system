@@ -1,6 +1,7 @@
 import React from 'react'
 import MuiDateRangePicker, { DateRange } from '@mui/lab/DateRangePicker'
-import DateAdapter from '@mui/lab/AdapterDayjs'
+import AdapterDateFns from '@mui/lab/AdapterDateFns'
+import deLocale from 'date-fns/locale/de'
 import LocalizationProvider from '@mui/lab/LocalizationProvider'
 import TextField from '@mui/material/TextField'
 
@@ -13,7 +14,7 @@ export const DateRangePicker: React.FC<DatetimeProps> = (props) => {
   const { dateRange, onChange } = props
 
   return (
-    <LocalizationProvider dateAdapter={DateAdapter}>
+    <LocalizationProvider locale={deLocale} dateAdapter={AdapterDateFns}>
       <MuiDateRangePicker
         startText='Von'
         endText='Bis'
