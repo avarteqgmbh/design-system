@@ -1,27 +1,59 @@
-import * as React from 'react'
-import MuiDateRangePicker, {
-  DateRangePickerProps
-} from '@mui/lab/DateRangePicker'
-import { LicenseInfo } from '@mui/x-data-grid-pro'
-import { makeStyles } from '../../../theme/ThemeProvider'
-import { Theme } from '../../../theme/types'
+import React from 'react'
+import MuiDateRangePicker, { DateRange } from '@mui/lab/DateRangePicker'
+import DateAdapter from '@mui/lab/AdapterDayjs'
+import LocalizationProvider from '@mui/lab/LocalizationProvider'
+import TextField from '@mui/material/TextField'
 
-export function DateRangePicker(
-  props: DateRangePickerProps<Date>
-): JSX.Element {
-  const classes = useStyles()
-
-  LicenseInfo.setLicenseKey(process.env.REACT_APP_MUI_LICENSE || '')
-
-  return <MuiDateRangePicker {...props} className={classes.root} />
+export interface DatetimeProps {
+  dateRange: DateRange<Date>
+  onChange: (dateRange: DateRange<Date>) => void
 }
 
-const useStyles = makeStyles((theme: Theme) => {
-  return {
-    root: {
-      '& .MuiButtonBase-root.MuiIconButton-root': {
-        color: theme.palette.text.secondary
-      }
-    }
-  }
-})
+export const DateRangePicker: React.FC<DatetimeProps> = (props) => {
+  const { dateRange, onChange } = props
+
+  return (
+    <LocalizationProvider dateAdapter={DateAdapter}>
+      <MuiDateRangePicker
+        startText='Von'
+        endText='Bis'
+        value={dateRange}
+        toolbarTitle='Wähle einen Zeitraum'
+        okText='Anwenden'
+        cancelText='Abbrechen'
+        onChange={(newValue): void => {
+          onChange(newValue)
+        }}
+        renderInput={(startProps, endProps): JSX.Element => {
+          return (
+            <>
+              <TextField
+                {...startProps}
+                label='Von'
+                variant='filled'
+                sx={{
+                  boxShadow: 1,
+                  marginRight: 4,
+                  '& .MuiFilledInput-input': {
+                    backgroundColor: 'background.paper'
+                  }
+                }}
+              />
+              <TextField
+                {...endProps}
+                label='Bis'
+                variant='filled'
+                sx={{
+                  boxShadow: 1,
+                  '& .MuiFilledInput-input': {
+                    backgroundColor: 'background.paper'
+                  }
+                }}
+              />
+            </>
+          )
+        }}
+      />
+    </LocalizationProvider>
+  )
+}
