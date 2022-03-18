@@ -1,16 +1,13 @@
 import React, { useState } from 'react'
-import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { CodeSnippetProps } from './CodeSnippetProps'
 import FileCopyIcon from '@mui/icons-material/FileCopy'
-import makeStyles from '@mui/styles/makeStyles'
 import { Tooltip } from '../Tooltip/Tooltip'
-import { Theme } from '../../../theme/types'
 
 export function CopyButton({ value }: CodeSnippetProps): JSX.Element {
-  const classes = useStyles()
   const [title, setTitle] = useState('copy')
 
-  const changeText = (): void => {
+  const makeCopy = (): void => {
+    navigator.clipboard.writeText(value)
     setTitle('copied')
   }
 
@@ -22,29 +19,14 @@ export function CopyButton({ value }: CodeSnippetProps): JSX.Element {
 
   return (
     <div onMouseLeave={handleUnHover}>
-      <CopyToClipboard text={value}>
-        <Tooltip
-          title={title}
-          aria-label='copy'
-          placement='top'
-          className={classes.root}
-        >
-          <button type='button' onClick={changeText}>
-            <FileCopyIcon fontSize='small' className={classes.icon} />
-          </button>
-        </Tooltip>
-      </CopyToClipboard>
+      <Tooltip title={title} aria-label='copy' placement='top'>
+        <button type='button' onClick={makeCopy}>
+          <FileCopyIcon
+            fontSize='small'
+            sx={{ color: 'primary.main', cursor: 'pointer' }}
+          />
+        </button>
+      </Tooltip>
     </div>
   )
 }
-
-const useStyles = makeStyles((theme: Theme) => {
-  return {
-    root: {
-      cursor: 'pointer'
-    },
-    icon: {
-      color: theme.palette.primary.main
-    }
-  }
-})
