@@ -23,7 +23,7 @@ export function CopyButton({ value }: CodeSnippetProps): JSX.Element {
         <button type='button' onClick={makeCopy}>
           <FileCopyIcon
             fontSize='small'
-            sx={{ color: 'primary.main', cursor: 'pointer' }}
+            sx={{ color: 'palette.text.secondary', cursor: 'pointer' }}
           />
         </button>
       </Tooltip>

@@ -21,7 +21,11 @@ export const CodeSnippet: React.FC<CodeSnippetProps> = ({
       sx={{
         background: 'palette.background.light',
         borderRadius: 'radius.button',
-        my: 2
+        my: 2,
+        '& pre': {
+          p: '0 !important',
+          maxWidth: '-webkit-fill-available'
+        }
       }}
     >
       <Grid container direction='column'>
@@ -89,5 +93,7 @@ const SyntaxHighlighterStyle = {
 }
 const codeStyleProps = {
   display: 'inline-table',
-  maxWidth: '-webkit-fill-available'
+  width: '-webkit-fill-available',
+  background: '#0D1424',
+  padding: '10px 5px'
 }
