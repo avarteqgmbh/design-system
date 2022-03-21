@@ -1,7 +1,7 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { XGrid, XGridProps } from './XGrid'
+import { XGrid, XGridProps, useGridApiRef } from './XGrid'
 import { useDemoData } from '@mui/x-data-grid-generator'
 import { GridRowModel } from '@mui/x-data-grid-pro'
 
@@ -41,16 +41,21 @@ export default {
 }
 
 const Template: Story<XGridProps> = (args) => {
-  const { data } = useDemoData({
+  const customApiRef = useGridApiRef()
+
+  const { loading, data } = useDemoData({
     dataSet: 'Commodity',
-    rowLength: 100,
-    maxColumns: 6
+    rowLength: 20,
+    maxColumns: 40,
+    editable: true
   })
+
   function escapeRegExp(value: string): string {
     return value.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&')
   }
 
   const [searchText, setSearchText] = React.useState('')
+
   const [rows, setRows] = React.useState<GridRowModel[]>(data.rows)
 
   const requestSearch = (searchValue: string): void => {
@@ -71,6 +76,7 @@ const Template: Story<XGridProps> = (args) => {
   return (
     <XGrid
       {...args}
+      customApiRef={customApiRef}
       localStorageKey={rows && 'fooBar'}
       rows={rows}
       columns={data.columns}
@@ -81,6 +87,11 @@ const Template: Story<XGridProps> = (args) => {
       }}
       clearSearch={(): void => {
         return requestSearch('')
+      }}
+      loading={loading}
+      initialState={{
+        ...data.initialState,
+        pinnedColumns: { left: ['__check__', 'desk'] }
       }}
     />
   )
