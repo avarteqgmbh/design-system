@@ -3,7 +3,7 @@ import {
   DataGridPro,
   DataGridProProps,
   getGridStringOperators,
-  getGridNumericColumnOperators,
+  getGridNumericOperators,
   getGridDateOperators,
   GridLinkOperator,
   GridToolbarExport,
@@ -30,7 +30,7 @@ import {
 LicenseInfo.setLicenseKey(process.env.REACT_APP_MUI_LICENSE || '')
 
 export interface XGridProps extends DataGridProProps {
-  customApiRef?: GridApiRef
+  customApiRef: GridApiRef
   localStorageKey?: string
   language?: 'DE' | 'EN'
   toolbar?: boolean
@@ -59,7 +59,6 @@ export function XGrid(props: XGridProps): JSX.Element {
     toolbar = false
   } = props
   const classes = useStyles()
-  const dsApiRef = useGridApiRef(customApiRef || undefined)
   const [tableConfig, setTableConfig] = useLocalStorage<object>(
     localStorageKey,
     {}
@@ -97,9 +96,9 @@ export function XGrid(props: XGridProps): JSX.Element {
       localStorageKey !== 'null' &&
       localStorageKey !== null
     ) {
-      RegisterLocalStorageEvents(dsApiRef, tableConfig, setTableConfig)
+      RegisterLocalStorageEvents(customApiRef, tableConfig, setTableConfig)
     }
-  }, [dsApiRef, localStorageKey])
+  }, [customApiRef, localStorageKey])
 
   React.useEffect(() => {
     if (
@@ -107,7 +106,7 @@ export function XGrid(props: XGridProps): JSX.Element {
       localStorageKey !== 'null' &&
       localStorageKey !== null
     ) {
-      LoadLocalStorage(dsApiRef, localStorageKey, tableConfig)
+      LoadLocalStorage(customApiRef, localStorageKey, tableConfig)
     }
   })
 
@@ -115,7 +114,7 @@ export function XGrid(props: XGridProps): JSX.Element {
     <>
       {GridGlobalStyles}
       <DataGridPro
-        apiRef={dsApiRef}
+        apiRef={customApiRef}
         localeText={lang}
         autoHeight={autoHeight}
         autoPageSize={autoHeight}
@@ -218,7 +217,7 @@ const useStyles = makeStyles((theme: Theme) => {
 
 export {
   getGridStringOperators,
-  getGridNumericColumnOperators,
+  getGridNumericOperators,
   getGridDateOperators,
   GridLinkOperator,
   useGridApiRef
