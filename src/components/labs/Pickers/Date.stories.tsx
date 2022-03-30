@@ -5,7 +5,7 @@ import { DateRange } from '@mui/lab/DateRangePicker'
 import { DateRangePicker, DatetimeProps } from './DateRange'
 
 export default {
-  title: 'Inputs/DateTime',
+  title: 'Lab/DateTime',
   component: DateRangePicker,
   decorators: [withDesign]
 }
