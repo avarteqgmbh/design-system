@@ -9,13 +9,10 @@ import {
   TextField,
   InputAdornment,
   Radio,
+  Rating,
   Slider,
   Switch,
   TransferList,
-  DatePicker,
-  DateRangePicker,
-  TimePicker,
-  DateTimePicker,
   FormControl,
   Input,
   InputLabel,
@@ -23,18 +20,16 @@ import {
 } from './inputs/index'
 
 import {
-  Alert,
-  AlertTitle,
+  DatePicker,
+  DateRangePicker,
+  TimePicker,
+  DateTimePicker,
   XGrid,
   getGridNumericOperators,
   getGridStringOperators,
   getGridDateOperators,
   GridLinkOperator,
-  useGridApiRef,
-  Skeleton,
-  Pagination,
-  Badge,
-  Rating
+  useGridApiRef
 } from './labs/index'
 
 import {
@@ -46,6 +41,7 @@ import {
   BottomNavigation,
   BottomNavigationAction,
   Drawer,
+  Pagination,
   Tabs,
   Tab,
   TabPanel,
@@ -75,6 +71,7 @@ import {
 
 import {
   AnyIcon,
+  Badge,
   Chip,
   CodeSnippet,
   List,
@@ -96,9 +93,13 @@ import {
 } from './dataDisplay/index'
 
 import {
+  Alert,
+  AlertTitle,
   Backdrop,
   CircularProgress,
+  Dialog,
   LinearProgress,
+  Skeleton,
   Snackbar
 } from './feedback/index'
 
@@ -114,13 +115,10 @@ export {
   TextField,
   InputAdornment,
   Radio,
+  Rating,
   Slider,
   Switch,
   TransferList,
-  DatePicker,
-  DateRangePicker,
-  TimePicker,
-  DateTimePicker,
   FormControl,
   Input,
   InputLabel,
@@ -128,18 +126,16 @@ export {
 }
 
 export {
-  Alert,
-  AlertTitle,
+  DatePicker,
+  DateRangePicker,
+  TimePicker,
+  DateTimePicker,
   XGrid,
   getGridNumericOperators,
   getGridStringOperators,
   getGridDateOperators,
   GridLinkOperator,
-  useGridApiRef,
-  Skeleton,
-  Pagination,
-  Badge,
-  Rating
+  useGridApiRef
 }
 
 export {
@@ -151,6 +147,7 @@ export {
   BottomNavigation,
   BottomNavigationAction,
   Drawer,
+  Pagination,
   Tab,
   Tabs,
   TabPanel,
@@ -179,6 +176,7 @@ export {
 }
 export {
   AnyIcon,
+  Badge,
   Chip,
   CodeSnippet,
   List,
@@ -198,6 +196,15 @@ export {
   Slides,
   SvgIcon
 }
-export { Backdrop, CircularProgress, LinearProgress, Snackbar }
+export {
+  Alert,
+  AlertTitle,
+  Backdrop,
+  CircularProgress,
+  Dialog,
+  LinearProgress,
+  Skeleton,
+  Snackbar
+}
 
 export { onClickOutsideHook }
