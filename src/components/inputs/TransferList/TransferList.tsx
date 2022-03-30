@@ -12,7 +12,6 @@ export interface TransferListProps {
   rightList: []
   checkedList?: never[]
   checkboxProps?: CheckboxProps
-  checkKey?: string
   onChange: (leftList: [], rightList: []) => void
 }
 
