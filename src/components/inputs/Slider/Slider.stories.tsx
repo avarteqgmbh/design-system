@@ -16,6 +16,7 @@ export default {
     }
   }
 }
+
 const Template: Story<SliderProps> = (args) => {
   return <Slider {...args} />
 }

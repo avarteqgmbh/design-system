@@ -22,6 +22,7 @@ export default {
     }
   }
 }
+
 const Template: Story<RadioProps> = (args) => {
   return (
     <>

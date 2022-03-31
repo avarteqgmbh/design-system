@@ -16,6 +16,7 @@ export default {
     }
   }
 }
+
 const Template: Story<RatingProps> = (args) => {
   return <Rating {...args} />
 }

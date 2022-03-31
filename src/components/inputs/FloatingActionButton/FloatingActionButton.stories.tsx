@@ -17,14 +17,14 @@ export default {
     }
   }
 }
+
 const Template: Story<FabProps> = (args) => {
-  return (
-    <>
-      <FloatingActionButton {...args}>
-        <FavoriteIcon />
-      </FloatingActionButton>
-    </>
-  )
+  return <FloatingActionButton {...args} />
 }
 
+const FabChildren = <FavoriteIcon />
+
 export const Default = Template.bind({})
+Default.args = {
+  children: FabChildren
+}

@@ -17,6 +17,7 @@ export default {
     }
   }
 }
+
 const Template: Story<CheckboxProps> = (args) => {
   return (
     <>
@@ -27,4 +28,9 @@ const Template: Story<CheckboxProps> = (args) => {
   )
 }
 
+const CheckboxLabel = <span>Label</span>
+
 export const Default = Template.bind({})
+Default.args = {
+  children: CheckboxLabel
+}

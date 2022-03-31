@@ -17,6 +17,7 @@ export default {
     }
   }
 }
+
 const Template: Story<SwitchProps> = (args) => {
   return (
     <>

@@ -17,16 +17,20 @@ export default {
     }
   }
 }
+
 const Template: Story<ButtonGroupProps> = (args) => {
-  return (
-    <>
-      <ButtonGroup {...args}>
-        <Button>One</Button>
-        <Button>Two</Button>
-        <Button>Three</Button>
-      </ButtonGroup>
-    </>
-  )
+  return <ButtonGroup {...args} />
 }
 
+const ButtonGroupChildren = (
+  <>
+    <Button>One</Button>
+    <Button>Two</Button>
+    <Button>Three</Button>
+  </>
+)
+
 export const Default = Template.bind({})
+Default.args = {
+  children: ButtonGroupChildren
+}

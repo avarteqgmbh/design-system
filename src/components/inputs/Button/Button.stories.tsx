@@ -16,12 +16,14 @@ export default {
     }
   }
 }
+
 const Template: Story<ButtonProps> = (args) => {
-  return (
-    <>
-      <Button {...args}>Button</Button>
-    </>
-  )
+  return <Button {...args} />
 }
 
+const ButtonLabel = <span>Label</span>
+
 export const Default = Template.bind({})
+Default.args = {
+  children: ButtonLabel
+}

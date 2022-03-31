@@ -17,17 +17,21 @@ export default {
     }
   }
 }
+
 const Template: Story<FormControlProps> = (args) => {
-  return (
-    <>
-      <FormControl {...args}>
-        <TextField id='standard-basic' label='E-Mail' variant='standard' />
-        <FormHelperText id='my-helper-text'>
-          <span>We would never share your email.</span>
-        </FormHelperText>
-      </FormControl>
-    </>
-  )
+  return <FormControl {...args} />
 }
 
+const FormControlChildren = (
+  <>
+    <TextField id='standard-basic' label='E-Mail' variant='standard' />
+    <FormHelperText id='my-helper-text'>
+      <span>We would never share your email.</span>
+    </FormHelperText>
+  </>
+)
+
 export const Default = Template.bind({})
+Default.args = {
+  children: FormControlChildren
+}
