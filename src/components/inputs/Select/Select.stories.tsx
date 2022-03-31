@@ -20,7 +20,7 @@ export default {
   }
 }
 
-const Template: Story<SelectProps> = (args) => {
+const Template: Story<SelectProps> = () => {
   const [age, setAge] = React.useState('')
 
   const handleChange = (event): void => {
@@ -37,22 +37,14 @@ const Template: Story<SelectProps> = (args) => {
           value={age}
           label='Age'
           onChange={handleChange}
-          {...args}
-        />
+        >
+          <MenuItem value={10}>Ten</MenuItem>
+          <MenuItem value={20}>Twenty</MenuItem>
+          <MenuItem value={30}>Thirty</MenuItem>
+        </Select>
       </FormControl>
     </>
   )
 }
 
-const SelectOptions = (
-  <>
-    <MenuItem value={10}>Ten</MenuItem>
-    <MenuItem value={20}>Twenty</MenuItem>
-    <MenuItem value={30}>Thirty</MenuItem>
-  </>
-)
-
 export const Default = Template.bind({})
-Default.args = {
-  children: SelectOptions
-}
