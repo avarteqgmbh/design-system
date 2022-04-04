@@ -8,11 +8,7 @@ export default {
   component: CodeSnippet,
   argTypes: {},
   parameters: {
-    controls: { expanded: true },
-    design: {
-      type: 'figma',
-      url: ''
-    }
+    controls: { expanded: true }
   }
 }
 

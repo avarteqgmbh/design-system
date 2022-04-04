@@ -13,33 +13,29 @@ export default {
     controls: { expanded: true },
     design: {
       type: 'figma',
-      url: ''
+      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%93%9A-Design-System?node-id=884%3A7613'
     }
   }
 }
 
 const Template: Story<AvatarProps> = (args) => {
-  return (
-    <Avatar
-      alt='Remy Sharp'
-      src='https://mui.com/static/images/avatar/1.jpg'
-      {...args}
-    />
-  )
+  return <Avatar {...args} />
 }
 
 export const Default = Template.bind({})
-
-export const Letter: Story<AvatarProps> = (args) => {
-  return <Avatar {...args}>H</Avatar>
+Default.args = {
+  alt: 'Remy Sharp',
+  src: 'https://mui.com/static/images/avatar/1.jpg'
 }
 
-export const Icon: Story<AvatarProps> = (args) => {
-  return (
-    <Avatar {...args}>
-      <FolderIcon />
-    </Avatar>
-  )
+export const Letter = Template.bind({})
+Letter.args = {
+  children: <span>H</span>
+}
+
+export const Icon = Template.bind({})
+Icon.args = {
+  children: <FolderIcon />
 }
 
 export const Group: Story<AvatarProps> = (args) => {
