@@ -1,50 +1,61 @@
-import { theme as anyninesDark } from '../src/theme/dark'
-import { theme as anyninesLight } from '../src/theme/light'
-import { ThemeProvider, createTheme, StyledEngineProvider} from '@mui/material/styles'
-import { addDecorator } from '@storybook/react'
-import { withThemes } from '@react-theming/storybook-addon'
+import { anyninesLight, anyninesDark, santanderLight, santanderDark, toyotaLight, toyotaDark } from '@avarteqgmbh/happy-token-system'
+import { useDarkMode } from 'storybook-dark-mode'
+import { ThemeProvider } from '../src/theme/ThemeProvider'
+import React from 'react'
 
 export const parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
-  controls: {
-    matchers: {
-      color: /(background|color)$/i,
-      date: /Date$/
+    actions: { argTypesRegex: '^on[A-Z].*' },
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/
+      }
+    },
+    options: {
+      storySort: {
+        order: ['👋 Get started', 'Layout', 'Inputs', 'Navigation', 'Surfaces', 'Feedback', 'Data Display', 'Lab'],
+      },
     }
+  }
+
+export const globalTypes = {
+  theme: {
+    name: 'Theme',
+    description: 'Global theme for components',
+    defaultValue: 'light',
+    toolbar: {
+      icon: 'circlehollow',
+      items: ['anynines', 'santander','toyota'],
+      showName: true,
+    },
   },
-  options: {
-    storySort: {
-      order: ['👋 Get started', 'Layout', 'Inputs', 'Navigation', 'Surfaces', 'Feedback', 'Data Display', 'Lab'],
-    },
+};
+
+const getTheme = (themeName) => {
+  const mode = useDarkMode() ? 'Dark' : 'Light'
+
+  const themeNameWithMode = themeName + mode
+
+  const tokenThemes = {
+    'anyninesLight': anyninesLight,
+    'anyninesDark': anyninesDark,
+    'santanderLight': santanderLight,
+    'santanderDark': santanderDark,
+    'toyotaLight': toyotaLight,
+    'toyotaDark': toyotaDark,
   }
+
+  return tokenThemes[themeNameWithMode]
 }
 
-export const onThemeSwitch = context => {
-  const { theme } = context
+const withThemeProvider=(Story,context)=>{
+  const theme = getTheme(context.globals.theme)
 
-  const parameters = {
-    backgrounds: {
-      default: theme.palette.background.paper,
-    },
-  }
-  return {
-    parameters,
-  }
-}
-
-const providerFn = ({ theme, children }) => {
-  const muTheme = createTheme(theme)
   return (
-    <StyledEngineProvider injectFirst>
-      <ThemeProvider theme={muTheme}>
-        {children}
-      </ThemeProvider>
-    </StyledEngineProvider>
+    <ThemeProvider theme={theme}>
+      <Story {...context} />
+    </ThemeProvider>
   )
 }
 
-addDecorator(
-  withThemes(null, [anyninesDark, anyninesLight], {
-    providerFn, onThemeSwitch
-  })
-)
+export const decorators = [withThemeProvider];
