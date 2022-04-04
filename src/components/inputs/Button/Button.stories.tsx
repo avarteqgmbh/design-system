@@ -3,6 +3,7 @@ import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { Button } from './Button'
 import { ButtonProps } from '@mui/material'
+import { Check, Delete } from '@mui/icons-material'
 
 export default {
   title: 'Inputs/Button',
@@ -12,7 +13,7 @@ export default {
     controls: { expanded: true },
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%8E%A8-Design-System?node-id=392%3A24801'
+      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%93%9A-Design-System?node-id=1630%3A14396'
     }
   }
 }
@@ -26,4 +27,16 @@ const ButtonLabel = <span>Label</span>
 export const Default = Template.bind({})
 Default.args = {
   children: ButtonLabel
+}
+
+export const WithStartIcon = Template.bind({})
+WithStartIcon.args = {
+  children: ButtonLabel,
+  startIcon: <Check />
+}
+
+export const WithEndIcon = Template.bind({})
+WithEndIcon.args = {
+  children: ButtonLabel,
+  endIcon: <Delete />
 }
