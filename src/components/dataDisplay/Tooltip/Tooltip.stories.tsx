@@ -1,6 +1,5 @@
 import React from 'react'
 import { Story } from '@storybook/react'
-import { withDesign } from 'storybook-addon-designs'
 import { TooltipProps } from '@mui/material'
 import Fade from '@mui/material/Fade'
 import Zoom from '@mui/material/Zoom'
@@ -136,13 +135,8 @@ export default {
       }
     }
   },
-  decorators: [withDesign],
   parameters: {
-    controls: { expanded: true },
-    design: {
-      type: 'figma',
-      url: ''
-    }
+    controls: { expanded: true }
   }
 }
 

@@ -38,7 +38,7 @@ export default {
     controls: { expanded: true },
     design: {
       type: 'figma',
-      url: ''
+      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%93%9A-Design-System?node-id=102%3A791'
     }
   }
 }
