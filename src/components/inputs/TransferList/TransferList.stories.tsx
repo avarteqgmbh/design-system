@@ -1,19 +1,12 @@
 import React from 'react'
 import { Story } from '@storybook/react'
-import { withDesign } from 'storybook-addon-designs'
 import { TransferList, TransferListProps } from './TransferList'
 
 export default {
   title: 'Inputs/TransferList',
   component: TransferList,
-  argTypes: {},
-  decorators: [withDesign],
   parameters: {
-    controls: { expanded: true },
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%8E%A8-Design-System?node-id=385%3A5870'
-    }
+    controls: { expanded: true }
   }
 }
 

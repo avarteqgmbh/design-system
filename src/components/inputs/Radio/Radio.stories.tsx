@@ -13,12 +13,50 @@ import {
 export default {
   title: 'Inputs/Radio',
   component: Radio,
+  argTypes: {
+    size: {
+      control: { type: 'select' },
+      options: ['small', 'medium'],
+      defaultValue: 'medium',
+      table: {
+        type: { summary: 'select' },
+        defaultValue: { summary: 'medium' }
+      }
+    },
+    color: {
+      control: { type: 'select' },
+      options: ['default', 'primary', 'secondary'],
+      defaultValue: 'secondary',
+      table: {
+        type: { summary: 'select' },
+        defaultValue: { summary: 'secondary' }
+      }
+    },
+    checked: {
+      control: { type: 'boolean' },
+      options: ['true', 'false'],
+      defaultValue: false,
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false }
+      }
+    },
+    disabled: {
+      control: { type: 'boolean' },
+      options: ['true', 'false'],
+      defaultValue: false,
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false }
+      }
+    }
+  },
   decorators: [withDesign],
   parameters: {
     controls: { expanded: true },
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%8E%A8-Design-System?node-id=392%3A24801'
+      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%93%9A-Design-System?node-id=384%3A10377'
     }
   }
 }
