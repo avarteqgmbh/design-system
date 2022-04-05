@@ -39,7 +39,8 @@ export default {
     design: {
       type: 'figma',
       url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%93%9A-Design-System?node-id=102%3A791'
-    }
+    },
+    muiDocSrc: 'https://mui.com/components/typography/'
   }
 }
 

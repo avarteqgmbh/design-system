@@ -14,7 +14,8 @@ export default {
     design: {
       type: 'figma',
       url: 'https://www.figma.com/file/Mn3vM3hPdsVrAAj7SwiLNi/Happy-Icons?node-id=1%3A427'
-    }
+    },
+    muiDocSrc: 'https://mui.com/components/icons/'
   }
 }
 
