@@ -7,9 +7,11 @@ import { DateRangePicker, DatetimeProps } from './DateRange'
 export default {
   title: 'Lab/DateTime',
   component: DateRangePicker,
-  decorators: [withDesign]
+  decorators: [withDesign],
+  parameters: {
+    muiDocSrc: 'https://mui.com/components/date-picker/'
+  }
 }
-
 const Template: Story<DatetimeProps> = (args) => {
   const getInitialDateFilters = (): DateRange<Date> => {
     const thirtyDaysInMilliSeconds = 30 * 24 * 60 * 60000

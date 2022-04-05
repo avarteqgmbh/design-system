@@ -2,6 +2,8 @@ import { anyninesLight, anyninesDark, santanderLight, santanderDark, toyotaLight
 import { useDarkMode } from 'storybook-dark-mode'
 import { ThemeProvider } from '../src/theme/ThemeProvider'
 import React from 'react'
+import { useToolbarActions } from 'storybook-addon-toolbar-actions'
+import Google from '@mui/icons-material/Google'
 
 export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -11,6 +13,7 @@ export const parameters = {
         date: /Date$/
       }
     },
+    muiDocSrc: 'https://mui.com/components/',
     options: {
       storySort: {
         order: ['👋 Get started', 'Layout', 'Inputs', 'Navigation', 'Surfaces', 'Feedback', 'Data Display', 'Lab'],
@@ -29,7 +32,7 @@ export const globalTypes = {
       showName: true,
     },
   },
-};
+}
 
 const getTheme = (themeName) => {
   const mode = useDarkMode() ? 'Dark' : 'Light'
@@ -51,6 +54,16 @@ const getTheme = (themeName) => {
 const withThemeProvider=(Story,context)=>{
   const theme = getTheme(context.globals.theme)
 
+  useToolbarActions(
+    'icon-id',
+    <Google style={{ fill: 'currentColor' }} />,
+    {
+      onClick:() => {
+        window.open(context.parameters.muiDocSrc, '_blank').focus();
+      } 
+    } 
+  )
+
   return (
     <ThemeProvider theme={theme}>
       <Story {...context} />
@@ -58,4 +71,4 @@ const withThemeProvider=(Story,context)=>{
   )
 }
 
-export const decorators = [withThemeProvider];
+export const decorators = [withThemeProvider]
