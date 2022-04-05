@@ -141,7 +141,8 @@ export default {
     design: {
       type: 'figma',
       url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%93%9A-Design-System?node-id=1382%3A12286'
-    }
+    },
+    muiDocSrc: 'https://mui.com/components/text-fields/'
   }
 }
 

@@ -8,7 +8,8 @@ export default {
   title: 'Inputs/FormControl',
   component: FormControl,
   parameters: {
-    controls: { expanded: true }
+    controls: { expanded: true },
+    muiDocSrc: 'https://mui.com/components/text-fields/#useformcontrol'
   }
 }
 

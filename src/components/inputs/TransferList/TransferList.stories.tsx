@@ -6,7 +6,8 @@ export default {
   title: 'Inputs/TransferList',
   component: TransferList,
   parameters: {
-    controls: { expanded: true }
+    controls: { expanded: true },
+    muiDocSrc: 'https://mui.com/components/transfer-list/'
   }
 }
 
