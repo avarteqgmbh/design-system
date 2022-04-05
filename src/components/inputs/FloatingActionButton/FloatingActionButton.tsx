@@ -21,14 +21,25 @@ export function FloatingActionButton(props: MuiFabProps): JSX.Element {
 const useStyles = makeStyles((theme: Theme) => {
   return {
     root: {
-      background: theme.palette.background.light,
       boxShadow: 'none',
       borderStyle: 'solid',
       borderWidth: 1,
       borderColor: theme.palette.background.border,
 
-      '& .MuiSvgIcon-root': {
-        color: theme.palette.text.primary
+      '& .MuiFab-primary': {
+        background: theme.palette.background.light,
+
+        '& .MuiSvgIcon-root': {
+          color: theme.palette.primary.contrastText
+        }
+      },
+
+      '& .MuiFab-default': {
+        background: theme.palette.background.light,
+
+        '& .MuiSvgIcon-root': {
+          color: theme.palette.text.primary
+        }
       },
 
       '&:hover': {
