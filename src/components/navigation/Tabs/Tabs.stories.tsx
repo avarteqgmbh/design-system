@@ -1,17 +1,9 @@
 import React from 'react'
-import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { TabsProps } from '@mui/material'
 
 import { Tabs } from './Tabs'
 import { Tab } from './Tab'
 import { TabPanel } from './TabPanel'
-
-const TabChildren = [
-  <Tab label='Item One' id='simple-tab-0' key='simple-tab-0' />,
-  <Tab label='Item Two' id='simple-tab-1' key='simple-tab-1' />,
-  <Tab label='Item Three' id='simple-tab-2' key='simple-tab-2' />
-]
 
 export default {
   title: 'Navigation/Tabs',
@@ -27,7 +19,7 @@ export default {
   }
 }
 
-const Template: Story<TabsProps> = (args) => {
+function Template(): React.ReactNode {
   const [value, setValue] = React.useState(0)
 
   const handleChange = (event: React.ChangeEvent, newValue: number): void => {
@@ -36,7 +28,11 @@ const Template: Story<TabsProps> = (args) => {
 
   return (
     <>
-      <Tabs value={value} onChange={handleChange} {...args} />
+      <Tabs value={value} onChange={handleChange}>
+        <Tab label='Item One' id='simple-tab-0' key='simple-tab-0' />
+        <Tab label='Item Two' id='simple-tab-1' key='simple-tab-1' />
+        <Tab label='Item Three' id='simple-tab-2' key='simple-tab-2' />
+      </Tabs>
       <TabPanel value={value} index={0}>
         Item One
       </TabPanel>
@@ -50,7 +46,4 @@ const Template: Story<TabsProps> = (args) => {
   )
 }
 
-export const Default = Template.bind({})
-Default.args = {
-  children: TabChildren
-}
+export const Default = Template
