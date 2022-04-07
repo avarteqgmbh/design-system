@@ -25,6 +25,12 @@ const sharedThemeContext = {
 
 export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },
+    backgrounds: {
+      disable: true,
+      grid: {
+        disable: true,
+      },
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,
