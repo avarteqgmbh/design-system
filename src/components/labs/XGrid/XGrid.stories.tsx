@@ -1,6 +1,5 @@
 import React from 'react'
 import { Story } from '@storybook/react'
-import { withDesign } from 'storybook-addon-designs'
 import { XGrid, XGridProps, useGridApiRef } from './XGrid'
 import { useDemoData } from '@mui/x-data-grid-generator'
 import { GridRowModel } from '@mui/x-data-grid-pro'
@@ -31,12 +30,7 @@ export default {
       defaultValue: true
     }
   },
-  decorators: [withDesign],
   parameters: {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%8E%A8-Design-System?node-id=285%3A1900'
-    },
     muiDocSrc: 'https://mui.com/components/data-grid/'
   }
 }
