@@ -22,4 +22,4 @@ jobs:
           yarn lint
           yarn test
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_PKG_TOKEN: ${{ secrets.NPM_TOKEN }}
