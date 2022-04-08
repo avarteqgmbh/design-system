@@ -21,3 +21,5 @@ jobs:
           yarn check:types
           yarn lint
           yarn test
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
