@@ -127,7 +127,9 @@ function HorizontalLinearStepper(): React.ReactNode {
           } = {}
           if (isStepOptional(index)) {
             labelProps.optional = (
-              <Typography variant='caption'>Optional</Typography>
+              <Typography variant='caption' color='textPrimary'>
+                Optional
+              </Typography>
             )
           }
           if (isStepSkipped(index)) {
@@ -142,7 +144,7 @@ function HorizontalLinearStepper(): React.ReactNode {
       </Stepper>
       {activeStep === steps.length ? (
         <>
-          <Typography sx={{ mt: 2, mb: 1 }}>
+          <Typography sx={{ mt: 2, mb: 1 }} color='textPrimary'>
             All steps completed - you&apos;re finished
           </Typography>
           <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
@@ -152,7 +154,9 @@ function HorizontalLinearStepper(): React.ReactNode {
         </>
       ) : (
         <>
-          <Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography>
+          <Typography sx={{ mt: 2, mb: 1 }} color='textPrimary'>
+            Step {activeStep + 1}
+          </Typography>
           <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
             <Button
               color='inherit'

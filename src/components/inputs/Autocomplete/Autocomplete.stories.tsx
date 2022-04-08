@@ -226,33 +226,6 @@ DisableClearable.args = {
   }
 }
 
-export const AutoSelect = Template.bind({})
-AutoSelect.args = {
-  autoSelect: true,
-  options,
-  renderInput: (params): React.ReactNode => {
-    return <TextField {...params} label='Movies' />
-  }
-}
-
-export const Disabled = Template.bind({})
-Disabled.args = {
-  disabled: true,
-  options,
-  renderInput: (params): React.ReactNode => {
-    return <TextField {...params} label='Movies' />
-  }
-}
-
-export const BlurOnSelect = Template.bind({})
-BlurOnSelect.args = {
-  blurOnSelect: true,
-  options,
-  renderInput: (params): React.ReactNode => {
-    return <TextField {...params} label='Movies' />
-  }
-}
-
 export const Grouped = Template.bind({})
 Grouped.args = {
   groupBy: (option): string => {
@@ -277,15 +250,6 @@ DisabledOptions.args = {
   }
 }
 
-export const Multiple = Template.bind({})
-Multiple.args = {
-  multiple: true,
-  options,
-  renderInput: (params): React.ReactNode => {
-    return <TextField {...params} label='Movies' />
-  }
-}
-
 export const MultipleCheckboxes = Template.bind({})
 MultipleCheckboxes.args = {
   multiple: true,
@@ -298,16 +262,6 @@ MultipleCheckboxes.args = {
       </li>
     )
   },
-  renderInput: (params): React.ReactNode => {
-    return <TextField {...params} label='Movies' />
-  }
-}
-
-export const LimitTags = Template.bind({})
-LimitTags.args = {
-  multiple: true,
-  limitTags: 2,
-  options,
   renderInput: (params): React.ReactNode => {
     return <TextField {...params} label='Movies' />
   }

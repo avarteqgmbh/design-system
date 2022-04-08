@@ -4,6 +4,7 @@ import { withDesign } from 'storybook-addon-designs'
 import { Tabs } from './Tabs'
 import { Tab } from './Tab'
 import { TabPanel } from './TabPanel'
+import { Typography } from '../../index'
 
 export default {
   title: 'Navigation/Tabs',
@@ -34,13 +35,13 @@ function Template(): React.ReactNode {
         <Tab label='Item Three' id='simple-tab-2' key='simple-tab-2' />
       </Tabs>
       <TabPanel value={value} index={0}>
-        Item One
+        <Typography>Item One</Typography>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        <Typography>Item Two</Typography>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        <Typography>Item Three</Typography>
       </TabPanel>
     </>
   )

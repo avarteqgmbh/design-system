@@ -15,9 +15,12 @@ export default {
       }
     },
     color: {
-      defaultValue: 'initial',
+      control: { type: 'select' },
+      options: ['inherit', 'textPrimary', 'textSecondary'],
+      defaultValue: 'textPrimary',
       table: {
-        defaultValue: { summary: 'initial' }
+        type: { summary: 'select' },
+        defaultValue: { summary: 'textPrimary' }
       }
     },
     display: {
@@ -50,11 +53,13 @@ const Template: Story<TypographyProps> = (args) => {
 
 export const Default = Template.bind({})
 Default.args = {
+  color: 'textPrimary',
   children: 'default'
 }
 
 export const Variant = Template.bind({})
 Variant.args = {
+  color: 'textPrimary',
   children: 'default',
   variant: 'h2'
 }

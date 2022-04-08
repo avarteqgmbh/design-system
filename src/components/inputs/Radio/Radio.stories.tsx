@@ -1,14 +1,15 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { Radio } from './Radio'
-import { FormControl } from '../FormControl/FormControl'
 import {
   FormLabel,
   FormControlLabel,
   RadioGroup,
   RadioProps
 } from '@mui/material'
+
+import { Radio } from './Radio'
+import { FormControl, Typography } from '../../index'
 
 export default {
   title: 'Inputs/Radio',
@@ -75,17 +76,17 @@ const Template: Story<RadioProps> = (args) => {
           <FormControlLabel
             value='female'
             control={<Radio {...args} />}
-            label='Female'
+            label={<Typography color='textPrimary'>Female</Typography>}
           />
           <FormControlLabel
             value='male'
             control={<Radio {...args} />}
-            label='Male'
+            label={<Typography color='textPrimary'>Male</Typography>}
           />
           <FormControlLabel
             value='other'
             control={<Radio {...args} />}
-            label='Other'
+            label={<Typography color='textPrimary'>Other</Typography>}
           />
         </RadioGroup>
       </FormControl>

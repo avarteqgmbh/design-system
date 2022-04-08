@@ -7,6 +7,7 @@ export function Typography(props: TypographyProps): JSX.Element {
   const classes = useStyles()
   return (
     <MuiTypography
+      color='textPrimary'
       classes={{
         root: classes.root
       }}

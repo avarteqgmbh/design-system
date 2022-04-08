@@ -1,10 +1,11 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { Checkbox } from './Checkbox'
-import { FormControl } from '../FormControl/FormControl'
 import { CheckboxProps, FormControlLabel } from '@mui/material'
 import { Check, Delete } from '@mui/icons-material'
+
+import { Checkbox } from './Checkbox'
+import { FormControl, Typography } from '../../index'
 
 export default {
   title: 'Inputs/Checkbox',
@@ -20,22 +21,26 @@ export default {
   }
 }
 
+const CheckboxLabel = (
+  <Typography variant='body1' color='textPrimary'>
+    Label
+  </Typography>
+)
+
 const Template: Story<CheckboxProps> = (args) => {
   return (
     <>
       <FormControl>
-        <FormControlLabel control={<Checkbox {...args} />} label='Label' />
+        <FormControlLabel
+          control={<Checkbox {...args} />}
+          label={CheckboxLabel}
+        />
       </FormControl>
     </>
   )
 }
 
-const CheckboxLabel = <span>Label</span>
-
 export const Default = Template.bind({})
-Default.args = {
-  children: CheckboxLabel
-}
 
 export const CustomIcon = Template.bind({})
 CustomIcon.args = {

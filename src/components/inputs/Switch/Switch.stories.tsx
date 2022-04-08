@@ -1,10 +1,11 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { Switch } from './Switch'
-import { FormControl } from '../FormControl/FormControl'
 import { FormControlLabel, SwitchProps } from '@mui/material'
 import Check from '@mui/icons-material/Check'
+
+import { Switch } from './Switch'
+import { FormControl, Typography } from '../../index'
 
 export default {
   title: 'Inputs/Switch',
@@ -24,7 +25,10 @@ const Template: Story<SwitchProps> = (args) => {
   return (
     <>
       <FormControl>
-        <FormControlLabel control={<Switch {...args} />} label='Label' />
+        <FormControlLabel
+          control={<Switch {...args} />}
+          label={<Typography color='textPrimary'>Label</Typography>}
+        />
       </FormControl>
     </>
   )
