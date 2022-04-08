@@ -1,5 +1,6 @@
 import React from 'react'
-import { anyninesLight, anyninesDark, santanderLight, santanderDark, toyotaLight, toyotaDark } from '@avarteqgmbh/happy-token-system'
+import { anyninesLight, anyninesDark } from '@avarteqgmbh/happy-token-system'
+import * as happyTokenThemes from '@avarteqgmbh/happy-token-system'
 import { ThemeProvider } from '../src/theme/ThemeProvider'
 import { Box } from "@mui/material"
 
@@ -71,7 +72,19 @@ export const globalTypes = {
     defaultValue: 'anynines',
     toolbar: {
       icon: 'circlehollow',
-      items: ['anynines', 'santander','toyota'],
+      items: [
+        'anynines',
+        'bosch',
+        'bum',
+        'heartPoints',
+        'hyundai',
+        'kia',
+        'mazda',
+        'santander',
+        'siemens',
+        'thomsit',
+        'toyota'
+      ],
       showName: true,
     },
   },
@@ -82,16 +95,7 @@ const getTheme = (themeName) => {
 
   const themeNameWithMode = themeName + mode
 
-  const tokenThemes = {
-    'anyninesLight': anyninesLight,
-    'anyninesDark': anyninesDark,
-    'santanderLight': santanderLight,
-    'santanderDark': santanderDark,
-    'toyotaLight': toyotaLight,
-    'toyotaDark': toyotaDark,
-  }
-
-  return tokenThemes[themeNameWithMode]
+  return happyTokenThemes[themeNameWithMode]
 }
 
 const withThemeProvider = (Story, context) => {
