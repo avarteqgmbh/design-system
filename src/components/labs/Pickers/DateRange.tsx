@@ -1,9 +1,15 @@
 import React from 'react'
-import MuiDateRangePicker, { DateRange } from '@mui/lab/DateRangePicker'
-import AdapterDateFns from '@mui/lab/AdapterDateFns'
+import {
+  DateRange,
+  DateRangePicker as MuiDateRangePicker
+} from '@mui/x-date-pickers-pro/DateRangePicker'
+import { LicenseInfo } from '@mui/x-license-pro'
 import deLocale from 'date-fns/locale/de'
-import LocalizationProvider from '@mui/lab/LocalizationProvider'
-import TextField from '@mui/material/TextField'
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
+import TextField, { TextFieldProps } from '@mui/material/TextField'
+
+LicenseInfo.setLicenseKey(process.env.REACT_APP_MUI_LICENSE_KEY as string)
 
 export interface DatetimeProps {
   dateRange: DateRange<Date>
@@ -22,10 +28,13 @@ export const DateRangePicker: React.FC<DatetimeProps> = (props) => {
         toolbarTitle='Wähle einen Zeitraum'
         okText='Anwenden'
         cancelText='Abbrechen'
-        onChange={(newValue): void => {
+        onChange={(newValue: DateRange<Date>): void => {
           onChange(newValue)
         }}
-        renderInput={(startProps, endProps): JSX.Element => {
+        renderInput={(
+          startProps: TextFieldProps,
+          endProps: TextFieldProps
+        ): JSX.Element => {
           return (
             <>
               <TextField
