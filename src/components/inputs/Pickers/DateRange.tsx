@@ -3,10 +3,10 @@ import {
   DateRange,
   DateRangePicker as MuiDateRangePicker
 } from '@mui/x-date-pickers-pro/DateRangePicker'
-import { LicenseInfo } from '@mui/x-date-pickers-pro'
-import AdapterDateFns from '@mui/lab/AdapterDateFns'
+import { LicenseInfo } from '@mui/x-license-pro'
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'
 import deLocale from 'date-fns/locale/de'
-import LocalizationProvider from '@mui/lab/LocalizationProvider'
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import TextField, { TextFieldProps } from '@mui/material/TextField'
 
 LicenseInfo.setLicenseKey(process.env.REACT_APP_MUI_LICENSE_KEY as string)
