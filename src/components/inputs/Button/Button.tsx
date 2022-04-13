@@ -36,9 +36,6 @@ const useStyles = makeStyles((theme: Theme) => {
       paddingBottom: theme.spacing(3),
       paddingLeft: theme.spacing(5),
       paddingRight: theme.spacing(5),
-      borderWidth: 1,
-      borderStyle: 'solid',
-      borderColor: theme.palette.background.border,
       borderRadius: theme.radius.button,
       background: theme.palette.background.paper,
       boxShadow: 'none',
@@ -75,7 +72,9 @@ const useStyles = makeStyles((theme: Theme) => {
       paddingRight: theme.spacing(4)
     },
     outlined: {
-      borderColor: theme.palette.text.primary,
+      borderWidth: 1,
+      borderStyle: 'solid',
+      borderColor: theme.palette.background.border,
       color: theme.palette.text.primary,
       '&:hover': {
         background: theme.palette.background.light,
@@ -83,11 +82,13 @@ const useStyles = makeStyles((theme: Theme) => {
       }
     },
     outlinedPrimary: {
+      borderWidth: 1,
+      borderStyle: 'solid',
       borderColor: theme.palette.primary.main,
       color: theme.palette.primary.main,
       '&:hover': {
         background: theme.palette.primary.main,
-        color: theme.palette.background.paper,
+        color: theme.palette.common.white,
         borderColor: theme.palette.primary.dark
       }
     },
