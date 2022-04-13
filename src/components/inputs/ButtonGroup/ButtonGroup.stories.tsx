@@ -20,18 +20,13 @@ export default {
 }
 
 const Template: Story<ButtonGroupProps> = (args) => {
-  return <ButtonGroup {...args} />
+  return (
+    <ButtonGroup {...args}>
+      <Button variant={args.variant}>One</Button>
+      <Button variant={args.variant}>Two</Button>
+      <Button variant={args.variant}>Three</Button>
+    </ButtonGroup>
+  )
 }
-
-const ButtonGroupChildren = (
-  <>
-    <Button>One</Button>
-    <Button>Two</Button>
-    <Button>Three</Button>
-  </>
-)
 
 export const Default = Template.bind({})
-Default.args = {
-  children: ButtonGroupChildren
-}
