@@ -117,7 +117,7 @@ export function TransferList({
   return (
     <Grid
       container
-      spacing={2}
+      spacing={4}
       justifyContent='center'
       alignItems='center'
       className={classes.root}
@@ -134,30 +134,33 @@ export function TransferList({
         />
       </Grid>
       <Grid item>
-        <Grid container direction='column' alignItems='center'>
-          <Button
-            variant='outlined'
-            size='small'
-            className={classes.button}
-            onClick={handleCheckedRight}
-            disabled={leftChecked.length === 0}
-            aria-label='move selected right'
-          >
-            &gt;
-          </Button>
-          <Button
-            variant='outlined'
-            size='small'
-            className={classes.button}
-            onClick={handleCheckedLeft}
-            disabled={rightChecked.length === 0}
-            aria-label='move selected left'
-          >
-            &lt;
-          </Button>
+        <Grid item container direction='column' alignItems='center' spacing={4}>
+          <Grid item>
+            <Button
+              variant='outlined'
+              size='small'
+              className={classes.button}
+              onClick={handleCheckedRight}
+              disabled={leftChecked.length === 0}
+              aria-label='move selected right'
+            >
+              &gt;
+            </Button>
+          </Grid>
+          <Grid item>
+            <Button
+              variant='outlined'
+              size='small'
+              className={classes.button}
+              onClick={handleCheckedLeft}
+              disabled={rightChecked.length === 0}
+              aria-label='move selected left'
+            >
+              &lt;
+            </Button>
+          </Grid>
         </Grid>
       </Grid>
-
       <Grid item>
         <CustomList
           items={right}
