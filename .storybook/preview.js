@@ -1,18 +1,9 @@
-import React from 'react'
 import { anyninesLight, anyninesDark } from '@avarteqgmbh/happy-token-system'
-import * as happyTokenThemes from '@avarteqgmbh/happy-token-system'
-import { ThemeProvider } from '../src/theme/ThemeProvider'
-import { Box } from "@mui/material"
+import { withThemeProvider } from './decorators'
 
-import { GlobalStyle } from './globalStyle/GlobalStyle'
+import { themes } from '@storybook/theming'
 import logoDark from './logo_dark.svg'
 import logoLight from './logo_light.svg'
-
-import { useDarkMode } from 'storybook-dark-mode'
-import { useToolbarActions } from 'storybook-addon-toolbar-actions'
-import { themes } from '@storybook/theming'
-
-import Google from '@mui/icons-material/Google'
 
 const sharedThemeContext = {
   brandTitle: 'Storybook by anynines',
@@ -88,37 +79,6 @@ export const globalTypes = {
       showName: true,
     },
   },
-}
-
-const getTheme = (themeName) => {
-  const mode = useDarkMode() ? 'Dark' : 'Light'
-
-  const themeNameWithMode = themeName + mode
-
-  return happyTokenThemes[themeNameWithMode]
-}
-
-const withThemeProvider = (Story, context) => {
-  const theme = getTheme(context.globals.theme)
-
-  useToolbarActions(
-    'icon-id',
-    <Google style={{ fill: 'currentColor' }} />,
-    {
-      onClick:() => {
-        window.open(context.parameters.muiDocSrc, '_blank').focus();
-      } 
-    } 
-  )
-
-  return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Box bgcolor="background.default" height="100vh" pt='20px' sx={{padding: 5}}>
-        <Story {...context} />
-      </Box>
-    </ThemeProvider>
-  )
 }
 
 export const decorators = [withThemeProvider]
