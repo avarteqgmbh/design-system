@@ -10,6 +10,61 @@ import { FormControl, Typography } from '../../index'
 export default {
   title: 'Inputs/Checkbox',
   component: Checkbox,
+  argTypes: {
+    id: {
+      control: { type: 'text' },
+      table: { type: { summary: 'string' } }
+    },
+    color: {
+      control: 'radio',
+      options: ['default', 'primary', 'secondary'],
+      table: {
+        type: { summary: 'default | primary | secondary' },
+        defaultValue: { summary: 'secondary' }
+      }
+    },
+    disabled: {
+      control: { type: 'boolean' },
+      defaultValue: false,
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false }
+      }
+    },
+    disableRipple: {
+      control: { type: 'boolean' },
+      defaultValue: false,
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false }
+      }
+    },
+    indeterminate: {
+      control: { type: 'boolean' },
+      defaultValue: false,
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false }
+      }
+    },
+    required: {
+      control: { type: 'boolean' },
+      defaultValue: false,
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false }
+      }
+    },
+    size: {
+      control: 'radio',
+      options: ['medium', 'small'],
+      defaultValue: 'medium',
+      table: {
+        type: { summary: 'medium | small' },
+        defaultValue: { summary: 'medium' }
+      }
+    }
+  },
   decorators: [withDesign],
   parameters: {
     controls: { expanded: true },
@@ -21,11 +76,7 @@ export default {
   }
 }
 
-const CheckboxLabel = (
-  <Typography variant='body1' color='textPrimary'>
-    Label
-  </Typography>
-)
+const CheckboxLabel = <Typography variant='body1'>Label</Typography>
 
 const Template: Story<CheckboxProps> = (args) => {
   return (
