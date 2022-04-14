@@ -6,6 +6,7 @@ import { Theme } from '../../../theme/types'
 export function Button(props: ButtonProps): JSX.Element {
   const { variant = 'contained', color = 'primary' } = props
   const classes = useStyles()
+
   return (
     <MuiButton
       classes={{
