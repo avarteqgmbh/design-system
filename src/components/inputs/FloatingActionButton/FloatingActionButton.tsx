@@ -26,24 +26,25 @@ const useStyles = makeStyles((theme: Theme) => {
       borderWidth: 1,
       borderColor: theme.palette.background.border,
 
-      '& .MuiFab-primary': {
-        background: theme.palette.background.light,
-
-        '& .MuiSvgIcon-root': {
-          color: theme.palette.primary.contrastText
-        }
+      '&.MuiFab-default': {
+        background: theme.palette.background.medium,
+        color: theme.palette.text.primary
       },
 
-      '& .MuiFab-default': {
-        background: theme.palette.background.light,
+      '&.MuiFab-primary': {
+        background: theme.palette.primary.main,
+        borderColor: theme.palette.primary.main,
+        color: theme.palette.primary.contrastText,
 
-        '& .MuiSvgIcon-root': {
-          color: theme.palette.text.primary
+        '&:hover': {
+          background: theme.palette.primary.dark,
+          borderColor: theme.palette.primary.dark
         }
       },
 
       '&:hover': {
-        background: theme.palette.background.medium
+        background: theme.palette.background.light,
+        borderColor: theme.palette.background.light
       }
     }
   }
