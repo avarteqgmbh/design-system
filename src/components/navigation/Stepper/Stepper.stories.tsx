@@ -57,9 +57,9 @@ export default {
   parameters: {
     design: {
       type: 'figma',
-      url: ''
+      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%93%9A-Design-System?node-id=405%3A6928'
     },
-    muiDocSrc: ''
+    muiDocSrc: 'https://mui.com/material-ui/react-stepper/'
   }
 }
 

@@ -2,8 +2,7 @@ import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { BreadcrumbsProps } from '@mui/material'
-import { ArrowRight } from '@mui/icons-material'
-
+import { ArrowRight, Home } from '@mui/icons-material'
 import { Typography } from '../../index'
 import { Breadcrumbs } from './Breadcrumbs'
 import { Link } from '../Link/Link'
@@ -55,7 +54,7 @@ export const Custom: Story<BreadcrumbsProps> = (args): JSX.Element => {
         href='/?path=/story/navigation-breadcrumbs--custom'
         onClick={args.onClick}
       >
-        Material-UI
+        <Home sx={{ display: 'flex', margin: 0 }} fontSize='inherit' />
       </Link>
       <Link
         color='inherit'
@@ -63,6 +62,42 @@ export const Custom: Story<BreadcrumbsProps> = (args): JSX.Element => {
         onClick={args.onClick}
       >
         Core
+      </Link>
+      <Typography color='primary'>Breadcrumb</Typography>
+    </Breadcrumbs>
+  )
+}
+
+export const Collapsed: Story<BreadcrumbsProps> = (args): JSX.Element => {
+  return (
+    <Breadcrumbs maxItems={2} aria-label='breadcrumb'>
+      <Link
+        color='inherit'
+        href='/?path=/story/navigation-breadcrumbs--collapsed'
+        onClick={args.onClick}
+      >
+        Material-UI
+      </Link>
+      <Link
+        color='inherit'
+        href='/?path=/story/navigation-breadcrumbs--collapsed'
+        onClick={args.onClick}
+      >
+        Core
+      </Link>
+      <Link
+        color='inherit'
+        href='/?path=/story/navigation-breadcrumbs--collapsed'
+        onClick={args.onClick}
+      >
+        Icons
+      </Link>
+      <Link
+        color='inherit'
+        href='/?path=/story/navigation-breadcrumbs--collapsed'
+        onClick={args.onClick}
+      >
+        Material-Icons
       </Link>
       <Typography color='primary'>Breadcrumb</Typography>
     </Breadcrumbs>

@@ -7,39 +7,9 @@ import { Home, Mail, Shop } from '@mui/icons-material'
 import { BottomNavigation } from './BottomNavigation'
 import BottomNavigationAction from './BottomNavigationAction'
 
-const Icons = [
-  <BottomNavigationAction
-    label='Home'
-    icon={<Home />}
-    centerRipple
-    value='home'
-  />,
-  <BottomNavigationAction
-    label='News'
-    icon={<Mail />}
-    centerRipple
-    value='news'
-  />,
-  <BottomNavigationAction
-    label='Shop'
-    icon={<Shop />}
-    centerRipple
-    value='shop'
-  />
-]
-
 export default {
   title: 'Navigation/BottomNavigation',
   component: BottomNavigation,
-  args: {
-    showLabels: {
-      control: { type: 'node' },
-      table: {
-        type: { summary: 'node' }
-      }
-    },
-    onChange: { action: 'clicked' }
-  },
   decorators: [withDesign],
   parameters: {
     design: {
@@ -50,11 +20,41 @@ export default {
   }
 }
 
-const Template: Story<BottomNavigationProps> = (args) => {
-  return <BottomNavigation {...args} />
+const Template: Story<BottomNavigationProps> = () => {
+  const [value, setValue] = React.useState(0)
+  const Icons = [
+    <BottomNavigationAction
+      label='Home'
+      icon={<Home />}
+      centerRipple
+      value='home'
+    />,
+    <BottomNavigationAction
+      label='News'
+      icon={<Mail />}
+      centerRipple
+      counter
+      value='news'
+    />,
+    <BottomNavigationAction
+      label='Shop'
+      icon={<Shop />}
+      centerRipple
+      value='shop'
+    />
+  ]
+
+  return (
+    <BottomNavigation
+      showLabels
+      value={value}
+      onChange={(event, newValue): void => {
+        setValue(newValue)
+      }}
+    >
+      {Icons}
+    </BottomNavigation>
+  )
 }
 
 export const Default = Template.bind({})
-Default.args = {
-  children: Icons
-}
