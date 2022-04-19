@@ -42,6 +42,17 @@ const useStyles = makeStyles((theme: Theme) => {
         }
       },
 
+      '&.MuiFab-secondary': {
+        background: theme.palette.secondary.main,
+        borderColor: theme.palette.secondary.main,
+        color: theme.palette.secondary.contrastText,
+
+        '&:hover': {
+          background: theme.palette.secondary.dark,
+          borderColor: theme.palette.secondary.dark
+        }
+      },
+
       '&:hover': {
         background: theme.palette.background.light,
         borderColor: theme.palette.background.light

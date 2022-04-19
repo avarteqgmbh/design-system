@@ -15,6 +15,7 @@ export function Button(props: ButtonProps): JSX.Element {
         textPrimary: classes.textPrimary,
         outlined: classes.outlined,
         outlinedPrimary: classes.outlinedPrimary,
+        outlinedSecondary: classes.outlinedSecondary,
         contained: classes.contained,
         containedPrimary: classes.containedPrimary,
         containedSecondary: classes.containedSecondary,
@@ -93,6 +94,17 @@ const useStyles = makeStyles((theme: Theme) => {
         borderColor: theme.palette.primary.dark
       }
     },
+    outlinedSecondary: {
+      borderWidth: 1,
+      borderStyle: 'solid',
+      borderColor: theme.palette.secondary.main,
+      color: theme.palette.secondary.main,
+      '&:hover': {
+        background: theme.palette.secondary.main,
+        color: theme.palette.common.white,
+        borderColor: theme.palette.secondary.dark
+      }
+    },
     contained: {
       background: theme.palette.background.paper,
       color: theme.palette.text.primary,
@@ -110,9 +122,9 @@ const useStyles = makeStyles((theme: Theme) => {
       }
     },
     containedSecondary: {
-      background: theme.palette.background.light,
+      background: theme.palette.secondary.light,
       '&:hover': {
-        background: theme.palette.background.medium
+        background: theme.palette.secondary.main
       }
     },
     disabled: {

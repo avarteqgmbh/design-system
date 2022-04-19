@@ -37,7 +37,6 @@ export const parameters = {
         appBg: anyninesDark.palette.background.medium,
         appContentBg: anyninesDark.palette.background.paper,
         barBg: anyninesDark.palette.background.paper,
-        
       },
       light: {
         ...themes.light,
@@ -71,6 +70,7 @@ export const globalTypes = {
         'hyundai',
         'kia',
         'mazda',
+        'neutral',
         'santander',
         'siemens',
         'thomsit',

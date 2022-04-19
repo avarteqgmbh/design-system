@@ -80,7 +80,7 @@
     ]
   },
   "devDependencies": {
-    "@avarteqgmbh/happy-token-system": "1.0.11",
+    "@avarteqgmbh/happy-token-system": "1.0.15",
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.17.8",
     "@babel/plugin-proposal-class-properties": "^7.8.3",

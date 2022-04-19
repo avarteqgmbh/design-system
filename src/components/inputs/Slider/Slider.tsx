@@ -19,7 +19,6 @@ export function Slider(props: SliderProps): JSX.Element {
 const useStyles = makeStyles((theme: Theme) => {
   return {
     root: {
-      color: theme.palette.primary.main,
       height: 8,
       '& .MuiSlider-thumb': {
         '&:before': {
@@ -34,7 +33,6 @@ const useStyles = makeStyles((theme: Theme) => {
         width: 32,
         height: 32,
         borderRadius: '50% 50% 50% 0',
-        backgroundColor: theme.palette.primary.main,
         transformOrigin: 'bottom left',
         transform: 'translate(50%, -100%) rotate(-45deg) scale(0)',
         '&:before': { display: 'none' },
@@ -43,6 +41,16 @@ const useStyles = makeStyles((theme: Theme) => {
         },
         '& > *': {
           transform: 'rotate(45deg)'
+        }
+      },
+      '& .MuiSlider-thumbColorPrimary': {
+        '& .MuiSlider-valueLabel': {
+          backgroundColor: theme.palette.primary.main
+        }
+      },
+      '& .MuiSlider-thumbColorSecondary': {
+        '& .MuiSlider-valueLabel': {
+          backgroundColor: theme.palette.secondary.main
         }
       }
     }
