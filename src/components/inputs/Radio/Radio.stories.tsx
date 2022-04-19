@@ -33,15 +33,6 @@ export default {
         defaultValue: { summary: 'secondary' }
       }
     },
-    checked: {
-      control: { type: 'boolean' },
-      options: ['true', 'false'],
-      defaultValue: false,
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false }
-      }
-    },
     disabled: {
       control: { type: 'boolean' },
       options: ['true', 'false'],

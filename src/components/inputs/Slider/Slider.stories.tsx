@@ -2,11 +2,22 @@ import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { Slider } from './Slider'
-import { SliderProps } from '@mui/material'
+import { Box, SliderProps } from '@mui/material'
 
 export default {
   title: 'Inputs/Slider',
   component: Slider,
+  argTypes: {
+    valueLabelDisplay: {
+      control: { type: 'select' },
+      options: ['on', 'auto', 'off'],
+      defaultValue: 'auto',
+      table: {
+        type: { summary: 'select' },
+        defaultValue: { summary: 'auto' }
+      }
+    }
+  },
   decorators: [withDesign],
   parameters: {
     controls: { expanded: true },
@@ -19,7 +30,14 @@ export default {
 }
 
 const Template: Story<SliderProps> = (args) => {
-  return <Slider {...args} />
+  return (
+    <Box marginTop={5}>
+      <Slider {...args} />
+    </Box>
+  )
 }
 
 export const Default = Template.bind({})
+Default.args = {
+  valueLabelDisplay: 'auto'
+}
