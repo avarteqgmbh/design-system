@@ -6,6 +6,7 @@ import { Theme } from '../../../theme/types'
 export function Button(props: ButtonProps): JSX.Element {
   const { variant = 'contained', color = 'primary' } = props
   const classes = useStyles()
+
   return (
     <MuiButton
       classes={{
@@ -14,6 +15,7 @@ export function Button(props: ButtonProps): JSX.Element {
         textPrimary: classes.textPrimary,
         outlined: classes.outlined,
         outlinedPrimary: classes.outlinedPrimary,
+        outlinedSecondary: classes.outlinedSecondary,
         contained: classes.contained,
         containedPrimary: classes.containedPrimary,
         containedSecondary: classes.containedSecondary,
@@ -36,9 +38,6 @@ const useStyles = makeStyles((theme: Theme) => {
       paddingBottom: theme.spacing(3),
       paddingLeft: theme.spacing(5),
       paddingRight: theme.spacing(5),
-      borderWidth: 1,
-      borderStyle: 'solid',
-      borderColor: theme.palette.background.border,
       borderRadius: theme.radius.button,
       background: theme.palette.background.paper,
       boxShadow: 'none',
@@ -75,7 +74,9 @@ const useStyles = makeStyles((theme: Theme) => {
       paddingRight: theme.spacing(4)
     },
     outlined: {
-      borderColor: theme.palette.text.primary,
+      borderWidth: 1,
+      borderStyle: 'solid',
+      borderColor: theme.palette.background.border,
       color: theme.palette.text.primary,
       '&:hover': {
         background: theme.palette.background.light,
@@ -83,12 +84,25 @@ const useStyles = makeStyles((theme: Theme) => {
       }
     },
     outlinedPrimary: {
+      borderWidth: 1,
+      borderStyle: 'solid',
       borderColor: theme.palette.primary.main,
       color: theme.palette.primary.main,
       '&:hover': {
         background: theme.palette.primary.main,
-        color: theme.palette.background.paper,
+        color: theme.palette.common.white,
         borderColor: theme.palette.primary.dark
+      }
+    },
+    outlinedSecondary: {
+      borderWidth: 1,
+      borderStyle: 'solid',
+      borderColor: theme.palette.secondary.main,
+      color: theme.palette.secondary.main,
+      '&:hover': {
+        background: theme.palette.secondary.main,
+        color: theme.palette.common.white,
+        borderColor: theme.palette.secondary.dark
       }
     },
     contained: {
@@ -108,9 +122,9 @@ const useStyles = makeStyles((theme: Theme) => {
       }
     },
     containedSecondary: {
-      background: theme.palette.background.light,
+      background: theme.palette.secondary.light,
       '&:hover': {
-        background: theme.palette.background.medium
+        background: theme.palette.secondary.main
       }
     },
     disabled: {

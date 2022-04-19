@@ -4,23 +4,11 @@ import { Theme } from '../../../theme/types'
 import { makeStyles } from '../../../theme/ThemeProvider'
 
 export function ButtonGroup(props: ButtonGroupProps): JSX.Element {
-  const { className, sx } = props
+  const { className } = props
   const classes = useStyles()
 
   return (
-    <MuiButtonGroup
-      {...props}
-      className={`${classes.root} ${className}`}
-      sx={{
-        '& .MuiButton-root.MuiButton-contained': {
-          borderColor: 'transparent'
-        },
-        '& .MuiButton-root.MuiButton-text': {
-          borderColor: 'transparent'
-        },
-        ...sx
-      }}
-    />
+    <MuiButtonGroup {...props} className={`${classes.root} ${className}`} />
   )
 }
 

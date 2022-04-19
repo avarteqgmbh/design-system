@@ -10,6 +10,62 @@ import { FormControl, Typography } from '../../index'
 export default {
   title: 'Inputs/Switch',
   component: Switch,
+  argTypes: {
+    id: {
+      control: { type: 'text' },
+      table: { type: { summary: 'string' } }
+    },
+    color: {
+      control: 'radio',
+      options: ['default', 'primary', 'secondary', 'success'],
+      table: {
+        type: { summary: 'default | primary | secondary | success' },
+        defaultValue: { summary: 'primary' }
+      }
+    },
+    disabled: {
+      control: { type: 'boolean' },
+      defaultValue: false,
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false }
+      }
+    },
+    disableRipple: {
+      control: { type: 'boolean' },
+      defaultValue: false,
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false }
+      }
+    },
+    edge: {
+      control: 'radio',
+      options: ['end', 'start', false],
+      defaultValue: false,
+      table: {
+        type: { summary: 'end | start | false' },
+        defaultValue: { summary: false }
+      }
+    },
+    required: {
+      control: { type: 'boolean' },
+      defaultValue: false,
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false }
+      }
+    },
+    size: {
+      control: 'radio',
+      options: ['medium', 'small'],
+      defaultValue: 'medium',
+      table: {
+        type: { summary: 'medium | small' },
+        defaultValue: { summary: 'medium' }
+      }
+    }
+  },
   decorators: [withDesign],
   parameters: {
     controls: { expanded: true },
