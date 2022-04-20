@@ -30,6 +30,15 @@ export default {
         defaultValue: { summary: false }
       }
     },
+    disableGutters: {
+      control: { type: 'boolean' },
+      description: 'Enable/ Disable static Header',
+      defaultValue: false,
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false }
+      }
+    },
     expanded: {
       control: { type: 'boolean' },
       table: {
@@ -64,7 +73,7 @@ const Template: Story<AccordionProps> = (args) => {
         aria-controls='panel1a-content'
         id='panel1a-header'
       >
-        <Typography>Accordion Header</Typography>
+        <Typography variant='h6'>Accordion Header</Typography>
       </AccordionSummary>
       <AccordionDetails>
         <Typography>
@@ -89,7 +98,7 @@ export const AccordionAction: Story<AccordionProps> = (args) => {
         aria-controls='panel1a-content'
         id='panel1a-header'
       >
-        <Typography>Accordion Header</Typography>
+        <Typography variant='h6'>Accordion Header</Typography>
       </AccordionSummary>
       <AccordionDetails>
         <Typography>
