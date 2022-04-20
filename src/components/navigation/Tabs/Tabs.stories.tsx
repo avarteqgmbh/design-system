@@ -30,7 +30,7 @@ const Template: Story<TabsProps> = (args) => {
 
   return (
     <Box sx={{ bgcolor: 'background.paper', width: 500 }}>
-      <AppBar position='static'>
+      <AppBar sx={{ bgcolor: 'background.medium' }} position='static'>
         <Tabs {...args} value={value} onChange={handleChange}>
           <Tab label='Item One' id='simple-tab-0' key='simple-tab-0' />
           <Tab label='Item Two' id='simple-tab-1' key='simple-tab-1' />
