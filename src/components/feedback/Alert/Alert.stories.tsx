@@ -91,6 +91,10 @@ ActionClose.args = {
 export const ActionUndo = Template.bind({})
 ActionUndo.args = {
   severity: 'error',
-  action: <Button size='small'>UNDO</Button>,
+  action: (
+    <Button variant='text' color='error' size='small'>
+      UNDO
+    </Button>
+  ),
   children: ErrorTag
 }
