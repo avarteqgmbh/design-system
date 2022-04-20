@@ -36,11 +36,13 @@ const Template: Story<TabsProps> = (args) => {
           <Tab label='Item Two' id='simple-tab-1' key='simple-tab-1' />
           <Tab label='Item Three' id='simple-tab-2' key='simple-tab-2' />
           {args.variant === 'scrollable' && (
-            <>
-              <Tab label='Item Four' id='simple-tab-3' key='simple-tab-3' />
-              <Tab label='Item Five' id='simple-tab-4' key='simple-tab-4' />
-              <Tab label='Item Six' id='simple-tab-5' key='simple-tab-5' />
-            </>
+            <Tab label='Item Four' id='simple-tab-3' key='simple-tab-3' />
+          )}
+          {args.variant === 'scrollable' && (
+            <Tab label='Item Five' id='simple-tab-4' key='simple-tab-4' />
+          )}
+          {args.variant === 'scrollable' && (
+            <Tab label='Item Six' id='simple-tab-5' key='simple-tab-5' />
           )}
         </Tabs>
       </AppBar>
@@ -53,6 +55,21 @@ const Template: Story<TabsProps> = (args) => {
       <TabPanel value={value} index={2}>
         <Typography>Item Three</Typography>
       </TabPanel>
+      {args.variant === 'scrollable' && (
+        <TabPanel value={value} index={3}>
+          <Typography>Item Four</Typography>
+        </TabPanel>
+      )}
+      {args.variant === 'scrollable' && (
+        <TabPanel value={value} index={4}>
+          <Typography>Item Five</Typography>
+        </TabPanel>
+      )}
+      {args.variant === 'scrollable' && (
+        <TabPanel value={value} index={5}>
+          <Typography>Item Six</Typography>
+        </TabPanel>
+      )}
     </Box>
   )
 }
