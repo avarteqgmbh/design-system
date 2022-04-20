@@ -2,11 +2,18 @@ import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { DateRange } from '@mui/lab/DateRangePicker'
-import { DateRangePicker, DatetimeProps } from './DateRange'
+import { TextField } from '../../index'
+
+import { DatePicker } from './Date'
+import { DateTimePicker as DsDateTimePicker } from './DateTime'
+import {
+  DateRangePicker as DsDateRangePicker,
+  DatetimeProps
+} from './DateRange'
 
 export default {
   title: 'Lab/DateTime',
-  component: DateRangePicker,
+  component: DsDateRangePicker,
   decorators: [withDesign],
   parameters: {
     design: {
@@ -16,7 +23,44 @@ export default {
     muiDocSrc: 'https://mui.com/components/date-picker/'
   }
 }
-const Template: Story<DatetimeProps> = (args) => {
+
+export const BasicDatePicker: Story<DatetimeProps> = (args) => {
+  const [value, setValue] = React.useState<Date | null>(new Date())
+
+  return (
+    <DatePicker
+      {...args}
+      label='Basic Date Picker'
+      value={value}
+      onChange={(newValue): void => {
+        setValue(newValue as React.SetStateAction<Date>)
+      }}
+      renderInput={(params): React.ReactElement => {
+        return <TextField {...params} />
+      }}
+    />
+  )
+}
+
+export const DateTimePicker: Story<DatetimeProps> = (args) => {
+  const [value, setValue] = React.useState<Date | null>(new Date())
+
+  return (
+    <DsDateTimePicker
+      {...args}
+      label='Date Time Picker'
+      value={value}
+      onChange={(newValue): void => {
+        setValue(newValue as React.SetStateAction<Date>)
+      }}
+      renderInput={(params): React.ReactElement => {
+        return <TextField {...params} />
+      }}
+    />
+  )
+}
+
+export const DateRangePicker: Story<DatetimeProps> = (args) => {
   const getInitialDateFilters = (): DateRange<Date> => {
     const thirtyDaysInMilliSeconds = 30 * 24 * 60 * 60000
     const from = new Date(Date.now() - thirtyDaysInMilliSeconds)
@@ -34,7 +78,7 @@ const Template: Story<DatetimeProps> = (args) => {
   )
 
   return (
-    <DateRangePicker
+    <DsDateRangePicker
       {...args}
       dateRange={dates}
       onChange={(dateRange): void => {
@@ -46,5 +90,3 @@ const Template: Story<DatetimeProps> = (args) => {
     />
   )
 }
-
-export const Default = Template.bind({})
