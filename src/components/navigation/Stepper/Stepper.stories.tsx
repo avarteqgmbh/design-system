@@ -1,5 +1,7 @@
 import React from 'react'
+import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
+import { StepperProps } from '@mui/material'
 
 import { Stepper, Step, StepLabel, Typography, Button, Box } from '../../index'
 
@@ -15,26 +17,10 @@ export default {
       control: { type: 'object' },
       table: { type: { summary: 'object' } }
     },
-    activeStep: {
-      control: { type: 'number' },
-      defaultValue: 0,
-      table: {
-        type: { summary: 'number' },
-        defaultValue: { summary: 0 }
-      }
-    },
     orientation: {
       control: 'select',
       options: ['horizontal', 'vertical'],
       defaultValue: 'horizontal'
-    },
-    connector: {
-      control: { type: 'element' },
-      defaultValue: '<StepConnector />',
-      table: {
-        type: { summary: 'element' },
-        defaultValue: { summary: '<StepConnector />' }
-      }
     },
     alternativeLabel: {
       control: { type: 'boolean' },
@@ -57,15 +43,15 @@ export default {
   parameters: {
     design: {
       type: 'figma',
-      url: ''
+      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%93%9A-Design-System?node-id=405%3A6928'
     },
-    muiDocSrc: ''
+    muiDocSrc: 'https://mui.com/material-ui/react-stepper/'
   }
 }
 
 const steps = ['Select campaign settings', 'Create an ad group', 'Create an ad']
 
-function HorizontalLinearStepper(): React.ReactNode {
+export const Default: Story<StepperProps> = (args): JSX.Element => {
   const [activeStep, setActiveStep] = React.useState(0)
   const [skipped, setSkipped] = React.useState(new Set<number>())
 
@@ -119,7 +105,7 @@ function HorizontalLinearStepper(): React.ReactNode {
 
   return (
     <>
-      <Stepper activeStep={activeStep}>
+      <Stepper {...args} activeStep={activeStep}>
         {steps.map((label, index) => {
           const stepProps: { completed?: boolean } = {}
           const labelProps: {
@@ -127,7 +113,16 @@ function HorizontalLinearStepper(): React.ReactNode {
           } = {}
           if (isStepOptional(index)) {
             labelProps.optional = (
-              <Typography variant='caption' color='textPrimary'>
+              <Typography
+                variant='caption'
+                color='textPrimary'
+                sx={{
+                  display: 'flex',
+                  justifyContent: args.alternativeLabel
+                    ? 'center'
+                    : 'flex-start'
+                }}
+              >
                 Optional
               </Typography>
             )
@@ -180,8 +175,4 @@ function HorizontalLinearStepper(): React.ReactNode {
       )}
     </>
   )
-}
-
-export const Default: React.ReactNode = () => {
-  return HorizontalLinearStepper()
 }
