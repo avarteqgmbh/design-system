@@ -18,8 +18,10 @@ export function ListItemText(props: ListItemTextProps): JSX.Element {
   )
 }
 
-const useStyles = makeStyles<Theme>(() => {
+const useStyles = makeStyles<Theme>((theme: Theme) => {
   return {
-    root: {}
+    root: {
+      color: theme.palette.text.primary
+    }
   }
 })

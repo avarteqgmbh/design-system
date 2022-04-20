@@ -6,6 +6,7 @@ import { Theme } from '../../../theme/types'
 export function Badge(props: BadgeProps): JSX.Element {
   const classes = useStyles()
   const { color = 'primary' } = props
+
   return (
     <MuiBadge
       classes={{
@@ -17,8 +18,12 @@ export function Badge(props: BadgeProps): JSX.Element {
   )
 }
 
-const useStyles = makeStyles<Theme>(() => {
+const useStyles = makeStyles<Theme>((theme: Theme) => {
   return {
-    root: {}
+    root: {
+      '& .MuiBadge-badge': {
+        border: `1px solid ${theme.palette.background.paper}`
+      }
+    }
   }
 })
