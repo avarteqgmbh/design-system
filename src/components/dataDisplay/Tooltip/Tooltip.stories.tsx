@@ -1,5 +1,6 @@
 import React from 'react'
 import { Story } from '@storybook/react'
+import { styled } from '@mui/material/styles'
 import { TooltipProps } from '@mui/material'
 import Fade from '@mui/material/Fade'
 import Zoom from '@mui/material/Zoom'
@@ -141,10 +142,18 @@ export default {
   }
 }
 
+const StyledIcon = styled(Add)(({ theme }) => {
+  return {
+    '&.MuiSvgIcon-root': {
+      color: theme.palette.text.primary
+    }
+  }
+})
+
 const Template: Story<TooltipProps> = (args) => {
   return (
     <Tooltip {...args} aria-label='add' style={{ margin: '80px' }}>
-      <Add />
+      <StyledIcon />
     </Tooltip>
   )
 }

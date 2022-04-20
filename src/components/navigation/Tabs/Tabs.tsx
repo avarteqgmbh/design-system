@@ -22,7 +22,7 @@ export function Tabs(props: TabsProps): JSX.Element {
 const useStyles = makeStyles((theme: Theme) => {
   return createStyles({
     root: {
-      '&.MuiTabs-root .MuiTabs-scrollButtons': {
+      '& .MuiTabs-scrollButtons': {
         color: theme.palette.text.primary
       }
     }
