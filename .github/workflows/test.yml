@@ -16,6 +16,9 @@ jobs:
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
       - name: Run tests
+        env:
+          PKG_ACCESS_TOKEN: ${{ secrets.PKG_ACCESS_TOKEN }}
+
         run: |
           echo "//npm.pkg.github.com/:_authToken=${PKG_ACCESS_TOKEN}" >> ~/.npmrc
           yarn config set "@avarteqgmbh:registry" "https://npm.pkg.github.com"
