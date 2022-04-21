@@ -6,7 +6,6 @@ import { CodeSnippet } from './CodeSnippet'
 export default {
   title: 'Data Display/CodeSnippet',
   component: CodeSnippet,
-  argTypes: {},
   parameters: {
     controls: { expanded: true }
   }

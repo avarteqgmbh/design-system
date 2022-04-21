@@ -1,15 +1,14 @@
 import React from 'react'
 import { Fab as MuiFab, FabProps as MuiFabProps } from '@mui/material'
-import makeStyles from '@mui/styles/makeStyles'
-import { Theme } from '../../../theme/types'
 
 export function FloatingActionButton(props: MuiFabProps): JSX.Element {
-  const classes = useStyles()
-  const { children } = props
+  const { children, sx } = props
+
   return (
     <MuiFab
-      classes={{
-        root: classes.root
+      sx={{
+        ...sx,
+        ...styles
       }}
       {...props}
     >
@@ -18,45 +17,35 @@ export function FloatingActionButton(props: MuiFabProps): JSX.Element {
   )
 }
 
-const useStyles = makeStyles((theme: Theme) => {
-  return {
-    root: {
-      boxShadow: 'none',
-      borderStyle: 'solid',
-      borderWidth: 1,
-      borderColor: theme.palette.background.border,
+const styles = {
+  boxShadow: 'none',
+  borderStyle: 'solid',
+  borderWidth: 1,
+  borderColor: 'background.border',
 
-      '&.MuiFab-default': {
-        background: theme.palette.background.medium,
-        color: theme.palette.text.primary
-      },
-
-      '&.MuiFab-primary': {
-        background: theme.palette.primary.main,
-        borderColor: theme.palette.primary.main,
-        color: theme.palette.primary.contrastText,
-
-        '&:hover': {
-          background: theme.palette.primary.dark,
-          borderColor: theme.palette.primary.dark
-        }
-      },
-
-      '&.MuiFab-secondary': {
-        background: theme.palette.secondary.main,
-        borderColor: theme.palette.secondary.main,
-        color: theme.palette.secondary.contrastText,
-
-        '&:hover': {
-          background: theme.palette.secondary.dark,
-          borderColor: theme.palette.secondary.dark
-        }
-      },
-
-      '&:hover': {
-        background: theme.palette.background.light,
-        borderColor: theme.palette.background.light
-      }
+  '&.MuiFab-primary': {
+    bgcolor: 'primary.light',
+    borderColor: 'primary.main',
+    color: 'primary.contrastText',
+    '&:hover': {
+      bgcolor: 'primary.dark',
+      borderColor: 'primary.dark'
     }
+  },
+
+  '&.MuiFab-secondary': {
+    bgcolor: 'secondary.main',
+    borderColor: 'secondary.main',
+    color: 'secondary.contrastText',
+
+    '&:hover': {
+      bgcolor: 'secondary.dark',
+      borderColor: 'secondary.dark'
+    }
+  },
+
+  '&:hover': {
+    bgcolor: 'background.light',
+    borderColor: 'background.light'
   }
-})
+}
