@@ -7,6 +7,14 @@ import { LinkProps } from '@mui/material'
 export default {
   title: 'Navigation/Link',
   component: Link,
+  argTypes: {
+    onClick: {
+      action: { type: 'onClick' },
+      table: {
+        type: { summary: 'func' }
+      }
+    }
+  },
   decorators: [withDesign],
   parameters: {
     controls: { expanded: true },

@@ -68,6 +68,12 @@ export default {
         defaultValue: { summary: false }
       }
     },
+    onClick: {
+      action: { type: 'onClick' },
+      table: {
+        type: { summary: 'func' }
+      }
+    },
     page: {
       control: { type: 'number' },
       table: {

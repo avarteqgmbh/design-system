@@ -45,6 +45,12 @@ export default {
         type: { summary: 'boolean' }
       }
     },
+    onClick: {
+      action: { type: 'onClick' },
+      table: {
+        type: { summary: 'func' }
+      }
+    },
     square: {
       control: { type: 'boolean' },
       defaultValue: false,

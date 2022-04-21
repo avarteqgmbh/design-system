@@ -18,6 +18,14 @@ import { MenuItem } from './MenuItem'
 export default {
   title: 'Navigation/Menu',
   component: Menu,
+  argTypes: {
+    onClick: {
+      action: { type: 'onClick' },
+      table: {
+        type: { summary: 'func' }
+      }
+    }
+  },
   decorators: [withDesign],
   parameters: {
     controls: { expanded: true },

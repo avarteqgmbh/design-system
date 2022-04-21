@@ -14,6 +14,14 @@ import { Checkbox } from '../../index'
 export default {
   title: 'Data Display/List',
   component: List,
+  argTypes: {
+    onClick: {
+      action: { type: 'onClick' },
+      table: {
+        type: { summary: 'func' }
+      }
+    }
+  },
   parameters: {
     controls: { expanded: true },
     muiDocSrc: 'https://mui.com/components/lists/'

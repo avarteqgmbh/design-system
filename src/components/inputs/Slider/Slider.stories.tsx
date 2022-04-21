@@ -8,6 +8,12 @@ export default {
   title: 'Inputs/Slider',
   component: Slider,
   argTypes: {
+    onChange: {
+      action: { type: 'onChange' },
+      table: {
+        type: { summary: 'func' }
+      }
+    },
     valueLabelDisplay: {
       control: { type: 'select' },
       options: ['on', 'auto', 'off'],

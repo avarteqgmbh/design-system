@@ -8,6 +8,14 @@ import FavoriteIcon from '@mui/icons-material/Favorite'
 export default {
   title: 'Inputs/FloatingActionButton',
   component: FloatingActionButton,
+  argTypes: {
+    onClick: {
+      action: { type: 'onClick' },
+      table: {
+        type: { summary: 'func' }
+      }
+    }
+  },
   decorators: [withDesign],
   parameters: {
     controls: { expanded: true },

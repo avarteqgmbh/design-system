@@ -8,6 +8,14 @@ import { ButtonGroupProps } from '@mui/material'
 export default {
   title: 'Inputs/ButtonGroup',
   component: ButtonGroup,
+  argTypes: {
+    onClick: {
+      action: { type: 'onClick' },
+      table: {
+        type: { summary: 'func' }
+      }
+    }
+  },
   decorators: [withDesign],
   parameters: {
     controls: { expanded: true },

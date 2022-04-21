@@ -8,6 +8,14 @@ import { Check, Delete } from '@mui/icons-material'
 export default {
   title: 'Inputs/Button',
   component: Button,
+  argTypes: {
+    onClick: {
+      action: { type: 'onClick' },
+      table: {
+        type: { summary: 'func' }
+      }
+    }
+  },
   decorators: [withDesign],
   parameters: {
     controls: { expanded: true },

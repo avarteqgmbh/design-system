@@ -3,14 +3,20 @@ import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { BreadcrumbsProps } from '@mui/material'
 import { ArrowRight, Home } from '@mui/icons-material'
-import { Typography } from '../../index'
+import { Link, Typography } from '../../index'
 import { Breadcrumbs } from './Breadcrumbs'
-import { Link } from '../Link/Link'
 
 export default {
   title: 'Navigation/Breadcrumbs',
   component: Breadcrumbs,
-  argTypes: { onClick: { action: 'clicked' } },
+  argTypes: {
+    onClick: {
+      action: { type: 'onClick' },
+      table: {
+        type: { summary: 'func' }
+      }
+    }
+  },
   decorators: [withDesign],
   parameters: {
     design: {
