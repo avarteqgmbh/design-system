@@ -9,6 +9,14 @@ import { SvgIcon as MUISvgIcon } from './SvgIcon'
 export default {
   title: 'Data Display/Icon',
   component: MUIIconButton,
+  argTypes: {
+    onClick: {
+      action: { type: 'onClick' },
+      table: {
+        type: { summary: 'func' }
+      }
+    }
+  },
   parameters: {
     controls: { expanded: true },
     design: {

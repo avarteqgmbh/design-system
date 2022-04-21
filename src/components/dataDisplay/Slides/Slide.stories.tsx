@@ -9,7 +9,6 @@ import { SlideProps, SlidesProps } from './types'
 export default {
   title: 'Data Display/Slides',
   component: Slides,
-  argTypes: {},
   parameters: {
     controls: { expanded: true }
   }
