@@ -41,6 +41,12 @@ export default {
         type: { summary: 'boolean' },
         defaultValue: { summary: false }
       }
+    },
+    onChange: {
+      action: { type: 'onChange' },
+      table: {
+        type: { summary: 'func' }
+      }
     }
   },
   decorators: [withDesign],

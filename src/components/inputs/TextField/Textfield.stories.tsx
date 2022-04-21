@@ -54,6 +54,12 @@ export default {
         defaultValue: { summary: false }
       }
     },
+    onChange: {
+      action: { type: 'onChange' },
+      table: {
+        type: { summary: 'func' }
+      }
+    },
     autoFocus: {
       control: { type: 'boolean' },
       defaultValue: false,

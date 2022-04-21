@@ -40,6 +40,12 @@ export default {
         defaultValue: { summary: 5 }
       }
     },
+    onChange: {
+      action: { type: 'onChange' },
+      table: {
+        type: { summary: 'func' }
+      }
+    },
     precision: {
       control: 'number',
       defaultValue: 1,

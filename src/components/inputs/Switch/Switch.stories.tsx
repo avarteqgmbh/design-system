@@ -48,6 +48,12 @@ export default {
         defaultValue: { summary: false }
       }
     },
+    onChange: {
+      action: { type: 'onChange' },
+      table: {
+        type: { summary: 'func' }
+      }
+    },
     required: {
       control: { type: 'boolean' },
       defaultValue: false,
