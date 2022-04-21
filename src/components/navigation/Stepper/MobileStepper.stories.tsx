@@ -10,6 +10,14 @@ export default {
   title: 'Navigation/Mobile Stepper',
   component: MobileStepper,
   decorators: [withDesign],
+  argTypes: {
+    onClick: {
+      action: { type: 'onClick' },
+      table: {
+        type: { summary: 'func' }
+      }
+    }
+  },
   parameters: {
     design: {
       type: 'figma',

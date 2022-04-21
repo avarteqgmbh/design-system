@@ -17,6 +17,12 @@ export default {
       control: { type: 'object' },
       table: { type: { summary: 'object' } }
     },
+    onClick: {
+      action: { type: 'onClick' },
+      table: {
+        type: { summary: 'func' }
+      }
+    },
     orientation: {
       control: 'select',
       options: ['horizontal', 'vertical'],

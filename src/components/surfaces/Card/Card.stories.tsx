@@ -16,6 +16,12 @@ export default {
   title: 'Surfaces/Card',
   component: Card,
   argTypes: {
+    onClick: {
+      action: { type: 'onClick' },
+      table: {
+        type: { summary: 'func' }
+      }
+    },
     raised: {
       control: { type: 'boolean' },
       defaultValue: false,
