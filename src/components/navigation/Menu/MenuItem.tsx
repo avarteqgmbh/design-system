@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from 'react'
 import {
   MenuItem as MuiMenuItem,
@@ -13,6 +14,7 @@ export function MenuItem(props: MenuItemProps): JSX.Element {
   const { children, sx } = props
 
   return (
+    // @ts-ignore
     <MuiMenuItem {...props} sx={{ ...sx, ...styles }}>
       {children}
     </MuiMenuItem>

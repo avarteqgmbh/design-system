@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from 'react'
 import { Button as MuiButton, ButtonProps } from '@mui/material'
 import { Theme } from '../../../theme/types'
@@ -7,10 +8,8 @@ export function Button(props: ButtonProps): JSX.Element {
 
   return (
     <MuiButton
-      sx={{
-        ...sx,
-        ...styles
-      }}
+      // @ts-ignore
+      sx={{ ...sx, ...styles }}
       variant={variant}
       color={color}
       {...props}

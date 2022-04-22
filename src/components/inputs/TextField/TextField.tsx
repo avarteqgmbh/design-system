@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from 'react'
 import {
   TextField as MuiTextField,
@@ -10,11 +11,12 @@ export function TextField(props: MuiTextFieldProps): JSX.Element {
 
   return (
     <MuiTextField
-      variant={variant}
+      // @ts-ignore
       sx={{
         ...sx,
         ...styles
       }}
+      variant={variant}
       {...props}
     />
   )
