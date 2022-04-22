@@ -1,14 +1,12 @@
 import React, { MouseEventHandler } from 'react'
-import Card from '@mui/material/Card'
-import CardHeader from '@mui/material/CardHeader'
 import ListItem from '@mui/material/ListItem'
 import ListItemText from '@mui/material/ListItemText'
 import ListItemIcon from '@mui/material/ListItemIcon'
-import Divider from '@mui/material/Divider'
 import { CheckboxProps, SxProps } from '@mui/material'
 import { Theme } from '../../../theme/types'
 import { Checkbox } from '../Checkbox/Checkbox'
-import { List } from '../../dataDisplay/index'
+import { Divider, List } from '../../dataDisplay/index'
+import { Card, CardHeader } from '../../surfaces/index'
 
 export interface CustomListProps {
   items: []
@@ -30,13 +28,11 @@ export function CustomList({
   checkboxProps = {},
   handleToggleAll,
   numberOfChecked,
-  handleToggle,
-  sx
+  handleToggle
 }: CustomListProps): JSX.Element {
   return (
-    <Card sx={{ ...sx, ...styles }}>
+    <Card sx={styles}>
       <CardHeader
-        className='cardHeader'
         avatar={
           <Checkbox
             {...checkboxProps}
@@ -56,7 +52,7 @@ export function CustomList({
         subheader={`${numberOfChecked(items)}/${items.length} selected`}
       />
       <Divider />
-      <List className='list' dense component='div' role='list'>
+      <List dense component='div' role='list'>
         {items.map((item: never) => {
           const { id, name } = item as never
           const labelId = `transfer-list-all-item-${id}-label`
@@ -88,10 +84,10 @@ export function CustomList({
 }
 
 const styles = {
-  '& .cardHeader': {
+  '& .MuiCardHeader-root': {
     padding: 2
   },
-  '& .list': {
+  '& .MuiList-root': {
     width: 200,
     height: 230,
     bgcolor: 'background.paper',

@@ -1,6 +1,4 @@
 import React from 'react'
-import { SxProps } from '@mui/material'
-import { Theme } from '../../../theme/types'
 
 // A
 import ArrowUpRight from './assets/arrowUpRight'
@@ -136,7 +134,6 @@ import Wishlist from './assets/wishlist'
 export interface IconProps {
   icon?: IconName
   size?: IconSize
-  sx?: SxProps<Theme>
   className?: string
 }
 
@@ -336,11 +333,10 @@ const ICONS: { [key in IconName]: JSX.Element } = {
 export const AnyIcon: React.FC<IconProps> = ({
   className,
   icon = 'menu',
-  size = 'sm',
-  sx
+  size = 'sm'
 }) => {
   return (
-    <i className={`icon ${className} ${size}`} sx={{ ...sx, ...styles }}>
+    <i className={`icon ${className} ${size}`} style={styles}>
       {ICONS[icon]}
     </i>
   )
