@@ -37,7 +37,7 @@ export const withThemeProvider = (Story, context) => {
     <ThemeProvider theme={theme}>
       {withIcon(context)}
       <GlobalStyle />
-      <Box bgcolor="background.paper" height="100vh" pt='20px' sx={{padding: 5}}>
+      <Box bgcolor="background.paper" minHeight="100vh" pt='20px' sx={{padding: 5}}>
         <Story {...context} />
       </Box>
     </ThemeProvider>
