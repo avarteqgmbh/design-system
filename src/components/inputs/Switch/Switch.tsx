@@ -25,7 +25,7 @@ export function Switch(props: SwitchProps): JSX.Element {
 
 const styles = {
   '&.inline': {
-    padding: 8,
+    padding: '8px',
     '& .MuiSwitch-track': {
       borderRadius: 22 / 2,
       '&:before, &:after': {
@@ -33,15 +33,15 @@ const styles = {
         position: 'absolute',
         top: '50%',
         transform: 'translateY(-50%)',
-        width: 16,
-        height: 16
+        width: '16px',
+        height: '16px'
       }
     },
     '& .MuiSwitch-thumb': {
       boxShadow: 'none',
-      width: 16,
-      height: 16,
-      margin: 2
+      width: '16px',
+      height: '16px',
+      margin: '2px'
     }
   }
 }
