@@ -3,7 +3,6 @@ import {
   MenuItem as MuiMenuItem,
   MenuItemProps as MuiMenuItemProps
 } from '@mui/material'
-import makeStyles from '@mui/styles/makeStyles'
 import { Theme } from '../../../theme/types'
 
 export interface MenuItemProps extends MuiMenuItemProps {
@@ -11,27 +10,25 @@ export interface MenuItemProps extends MuiMenuItemProps {
 }
 
 export function MenuItem(props: MenuItemProps): JSX.Element {
-  const { children, className } = props
-  const classes = useStyles()
+  const { children, sx } = props
+
   return (
-    <MuiMenuItem {...props} className={`${classes.root} ${className}`}>
+    <MuiMenuItem {...props} sx={{ ...sx, ...styles }}>
       {children}
     </MuiMenuItem>
   )
 }
 
-const useStyles = makeStyles<Theme>((theme) => {
-  return {
-    root: {
-      background: 'transparent',
-      padding: theme.spacing(2),
-      borderRadius: theme.radius.small,
+const styles = {
+  background: 'transparent',
+  padding: 2,
+  borderRadius: (theme: Theme): string => {
+    return `${theme.radius.small}px`
+  },
 
-      '& .MuiListItemIcon-root': {
-        minWidth: 'auto',
-        marginRight: theme.spacing(2),
-        color: theme.palette.text.primary
-      }
-    }
+  '& .MuiListItemIcon-root': {
+    minWidth: 'auto',
+    marginRight: 2,
+    color: 'text.primary'
   }
-})
+}

@@ -12,10 +12,7 @@ const styles = {
   display: 'flex',
   alignItems: 'center',
   flexWrap: 'wrap',
-  marginRight: '1rem',
-  '& .MuiInput-input': {
-    fontFamily: 'typography.fontFamily'
-  }
+  marginRight: '1rem'
 }
 
 export interface QuickSearchProps {

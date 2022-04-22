@@ -16,7 +16,7 @@ export function Slider(props: SliderProps): JSX.Element {
 }
 
 const styles = {
-  height: 8,
+  height: 6,
   '& .MuiSlider-thumb': {
     '&:before': {
       display: 'none'
@@ -27,8 +27,8 @@ const styles = {
     fontSize: 12,
     background: 'unset',
     padding: 0,
-    width: 32,
-    height: 32,
+    width: '32px',
+    height: '32px',
     borderRadius: '50% 50% 50% 0',
     transformOrigin: 'bottom left',
     transform: 'translate(50%, -100%) rotate(-45deg) scale(0)',
@@ -42,12 +42,12 @@ const styles = {
   },
   '& .MuiSlider-thumbColorPrimary': {
     '& .MuiSlider-valueLabel': {
-      backgroundColor: 'primary.main'
+      bgcolor: 'primary.main'
     }
   },
   '& .MuiSlider-thumbColorSecondary': {
     '& .MuiSlider-valueLabel': {
-      backgroundColor: 'secondary.main'
+      bgcolor: 'secondary.main'
     }
   }
 }
