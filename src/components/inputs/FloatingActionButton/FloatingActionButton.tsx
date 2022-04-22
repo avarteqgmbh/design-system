@@ -22,9 +22,11 @@ const styles = {
   borderStyle: 'solid',
   borderWidth: 1,
   borderColor: 'background.border',
+  bgcolor: 'background.border',
+  color: 'text.primary',
 
   '&.MuiFab-primary': {
-    bgcolor: 'primary.light',
+    bgcolor: 'primary.main',
     borderColor: 'primary.main',
     color: 'primary.contrastText',
     '&:hover': {
