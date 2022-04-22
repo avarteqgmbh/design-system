@@ -3,50 +3,50 @@ import {
   TextField as MuiTextField,
   TextFieldProps as MuiTextFieldProps
 } from '@mui/material'
-import makeStyles from '@mui/styles/makeStyles'
 import { Theme } from '../../../theme/types'
 
 export function TextField(props: MuiTextFieldProps): JSX.Element {
-  const { variant = 'outlined' } = props
-  const classes = useStyles()
+  const { variant = 'outlined', sx } = props
+
   return (
     <MuiTextField
-      classes={{
-        root: classes.root
-      }}
       variant={variant}
+      sx={{
+        ...sx,
+        ...styles
+      }}
       {...props}
     />
   )
 }
 
-const useStyles = makeStyles((theme: Theme) => {
-  return {
-    root: {
-      backgroundColor: 'inherit',
-      borderRadius: theme.radius.medium,
+const styles = {
+  backgroundColor: 'inherit',
+  borderRadius: (theme: Theme): string => {
+    return `${theme.radius.medium}px`
+  },
 
-      '& .MuiFilledInput-root': {
-        borderRadius: theme.radius.medium,
-        overflow: 'hidden',
-        '&:before': {
-          opacity: 0
-        }
-      },
+  '& .MuiFilledInput-root': {
+    borderRadius: (theme: Theme): string => {
+      return `${theme.radius.medium}px`
+    },
+    overflow: 'hidden',
+    '&:before': {
+      opacity: 0
+    }
+  },
 
-      '& .MuiInputLabel-root': {
-        color: theme.palette.text.secondary,
+  '& .MuiInputLabel-root': {
+    color: 'text.secondary',
 
-        '&.Mui-focused': {
-          color: theme.palette.primary.main
-        }
-      },
+    '&.Mui-focused': {
+      color: 'primary.main'
+    }
+  },
 
-      '&:hover': {
-        '& .MuiInputLabel-root': {
-          color: theme.palette.text.primary
-        }
-      }
+  '&:hover': {
+    '& .MuiInputLabel-root': {
+      color: 'text.primary'
     }
   }
-})
+}
