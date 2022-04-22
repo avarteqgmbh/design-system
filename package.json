@@ -8,6 +8,7 @@
     "dist"
   ],
   "dependencies": {
+    "@avarteqgmbh/happy-token-system": "1.0.15",
     "@date-io/date-fns": "^1.3.13",
     "@date-io/moment": "^1.3.13",
     "@emotion/react": "^11.8.2",
@@ -80,7 +81,6 @@
     ]
   },
   "devDependencies": {
-    "@avarteqgmbh/happy-token-system": "1.0.15",
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.17.8",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
