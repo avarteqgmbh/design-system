@@ -41,7 +41,7 @@ export default {
 
 const Template: Story<BackdropProps> = (args) => {
   return (
-    <Backdrop {...args} sx={{ color: '#fff' }}>
+    <Backdrop {...args}>
       <CircularProgress color='inherit' />
     </Backdrop>
   )
