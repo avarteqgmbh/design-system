@@ -17,7 +17,6 @@ import {
   LicenseInfo
 } from '@mui/x-data-grid-pro'
 import { GRID_DE_LOCALE_TEXT } from './locales'
-import { makeStyles } from '../../../theme/ThemeProvider'
 import { QuickSearch } from './QuickSearch'
 import {
   useLocalStorage,
@@ -54,10 +53,10 @@ export function XGrid(props: XGridProps): JSX.Element {
     onSearchClick,
     searchText,
     setSearchText,
+    sx,
     toolbar = false
   } = props
 
-  const classes = useStyles()
   const [tableConfig, setTableConfig] = useLocalStorage<object>(
     localStorageKey,
     {}
@@ -118,34 +117,30 @@ export function XGrid(props: XGridProps): JSX.Element {
         autoHeight={autoHeight}
         autoPageSize={autoHeight}
         components={toolbar ? { Toolbar: CustomToolbar } : {}}
-        className={classes.root}
+        sx={{ ...sx, ...styles }}
         {...props}
       />
     </>
   )
 }
 
-const useStyles = makeStyles(() => {
-  return {
-    root: {
-      '& .MuiDataGrid-columnHeaderTitle, .MuiDataGrid-cell': {
-        fontSize: 16
-      },
+const styles = {
+  '& .MuiDataGrid-columnHeaderTitle, .MuiDataGrid-cell': {
+    fontSize: 16
+  },
 
-      '.MuiDataGrid-footerContainer *': {
-        fontSize: 16
-      },
+  '.MuiDataGrid-footerContainer *': {
+    fontSize: 16
+  },
 
-      '& .MuiDataGrid-toolbarContainer': {
-        padding: 8,
+  '& .MuiDataGrid-toolbarContainer': {
+    padding: 2,
 
-        '& .MuiButton-root.MuiButton-text': {
-          marginRight: 8
-        }
-      }
+    '& .MuiButton-root.MuiButton-text': {
+      marginRight: 2
     }
   }
-})
+}
 
 export {
   getGridStringOperators,
