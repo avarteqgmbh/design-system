@@ -10,7 +10,7 @@ export interface AvatarProps extends MuiAvatarProps {
 }
 
 export function Avatar(props: AvatarProps): JSX.Element {
-  const { badge } = props
+  const { badge = false } = props
 
   return badge ? (
     <Badge

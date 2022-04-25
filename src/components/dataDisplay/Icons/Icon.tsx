@@ -5,13 +5,7 @@ export function Icon(props: IconProps): JSX.Element {
   const { children, sx } = props
 
   return (
-    <MuiIcon
-      sx={{
-        ...sx,
-        ...styles
-      }}
-      {...props}
-    >
+    <MuiIcon sx={{ ...sx, ...styles }} {...props}>
       {children}
     </MuiIcon>
   )

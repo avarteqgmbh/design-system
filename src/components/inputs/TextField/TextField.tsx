@@ -12,10 +12,7 @@ export function TextField(props: MuiTextFieldProps): JSX.Element {
   return (
     <MuiTextField
       // @ts-ignore
-      sx={{
-        ...sx,
-        ...styles
-      }}
+      sx={{ ...sx, ...styles }}
       variant={variant}
       {...props}
     />

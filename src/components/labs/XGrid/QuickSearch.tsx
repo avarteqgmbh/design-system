@@ -48,9 +48,7 @@ export function QuickSearch(props: QuickSearchProps): JSX.Element {
             </IconButton>
           )
         }}
-        sx={{
-          flex: 1
-        }}
+        sx={{ flex: 1 }}
       />
       <IconButton
         title='Search'

@@ -14,10 +14,7 @@ export function Switch(props: SwitchProps): JSX.Element {
   return (
     <MuiSwitch
       className={inline ? 'inline' : ''}
-      sx={{
-        ...sx,
-        ...styles
-      }}
+      sx={{ ...sx, ...styles }}
       {...props}
     />
   )

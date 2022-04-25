@@ -15,7 +15,7 @@ export function MenuItem(props: MenuItemProps): JSX.Element {
 
   return (
     // @ts-ignore
-    <MuiMenuItem {...props} sx={{ ...sx, ...styles }}>
+    <MuiMenuItem sx={{ ...sx, ...styles }} {...props}>
       {children}
     </MuiMenuItem>
   )

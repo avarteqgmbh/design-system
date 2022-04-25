@@ -4,7 +4,7 @@ import { Badge as MuiBadge, BadgeProps } from '@mui/material'
 export function Badge(props: BadgeProps): JSX.Element {
   const { color = 'primary', sx } = props
 
-  return <MuiBadge sx={{ ...sx, ...styles }} {...props} color={color} />
+  return <MuiBadge sx={{ ...sx, ...styles }} color={color} {...props} />
 }
 
 const styles = {

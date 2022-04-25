@@ -5,13 +5,7 @@ export function FloatingActionButton(props: MuiFabProps): JSX.Element {
   const { children, sx } = props
 
   return (
-    <MuiFab
-      sx={{
-        ...sx,
-        ...styles
-      }}
-      {...props}
-    >
+    <MuiFab sx={{ ...sx, ...styles }} {...props}>
       {children}
     </MuiFab>
   )

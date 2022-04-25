@@ -7,15 +7,7 @@ import {
 export function Dialog(props: MuiDialogProps): JSX.Element {
   const { sx } = props
 
-  return (
-    <MuiDialog
-      sx={{
-        ...sx,
-        ...styles
-      }}
-      {...props}
-    />
-  )
+  return <MuiDialog sx={{ ...sx, ...styles }} {...props} />
 }
 
 const styles = {
