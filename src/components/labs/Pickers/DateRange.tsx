@@ -41,25 +41,9 @@ export const DateRangePicker: React.FC<DatetimeProps> = (props) => {
                 {...startProps}
                 label='Von'
                 variant='filled'
-                sx={{
-                  boxShadow: 1,
-                  marginRight: 4,
-                  '& .MuiFilledInput-input': {
-                    backgroundColor: 'background.paper'
-                  }
-                }}
+                sx={{ marginRight: 4 }}
               />
-              <TextField
-                {...endProps}
-                label='Bis'
-                variant='filled'
-                sx={{
-                  boxShadow: 1,
-                  '& .MuiFilledInput-input': {
-                    backgroundColor: 'background.paper'
-                  }
-                }}
-              />
+              <TextField {...endProps} label='Bis' variant='filled' />
             </>
           )
         }}

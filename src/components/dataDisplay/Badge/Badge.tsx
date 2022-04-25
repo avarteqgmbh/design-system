@@ -1,29 +1,20 @@
 import React from 'react'
 import { Badge as MuiBadge, BadgeProps } from '@mui/material'
-import makeStyles from '@mui/styles/makeStyles'
-import { Theme } from '../../../theme/types'
 
 export function Badge(props: BadgeProps): JSX.Element {
-  const classes = useStyles()
-  const { color = 'primary' } = props
+  const { color = 'primary', sx } = props
 
-  return (
-    <MuiBadge
-      classes={{
-        root: classes.root
-      }}
-      {...props}
-      color={color}
-    />
-  )
+  return <MuiBadge sx={{ ...sx, ...styles }} color={color} {...props} />
 }
 
-const useStyles = makeStyles<Theme>((theme: Theme) => {
-  return {
-    root: {
-      '& .MuiBadge-badge': {
-        border: `1px solid ${theme.palette.background.paper}`
-      }
-    }
+const styles = {
+  '& .MuiBadge-badge': {
+    border: '1px solid',
+    borderColor: 'background.paper'
+  },
+  '& .MuiBadge-dot': {
+    height: '10px',
+    minWidth: '10px',
+    borderRadius: '8px'
   }
-})
+}

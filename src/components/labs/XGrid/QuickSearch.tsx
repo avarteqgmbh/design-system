@@ -1,36 +1,19 @@
 import * as React from 'react'
-import IconButton from '@mui/material/IconButton'
-import TextField from '@mui/material/TextField'
+
 import ClearIcon from '@mui/icons-material/Clear'
 import SearchIcon from '@mui/icons-material/Search'
-import { makeStyles } from '@mui/styles'
-import { Theme } from '../../../theme/types'
+import { Box } from '../../layout'
+import { TextField } from '../../inputs'
+import { IconButton } from '../../dataDisplay'
 
-const useStyles = makeStyles((theme: Theme) => {
-  return {
-    root: {
-      padding: 1,
-      justifyContent: 'space-between',
-      display: 'flex',
-      alignItems: 'center',
-      flexWrap: 'wrap',
-      marginRight: '1rem',
-      '& .MuiInput-input': {
-        fontFamily: theme.typography.fontFamily
-      }
-    },
-    textField: {
-      flex: 1,
-      margin: 2,
-      '& .MuiSvgIcon-root': {
-        marginRight: 2
-      },
-      '& .MuiInput-underline:before': {
-        borderBottom: `1px solid ${theme.palette.grey}`
-      }
-    }
-  }
-})
+const styles = {
+  padding: 1,
+  justifyContent: 'space-between',
+  display: 'flex',
+  alignItems: 'center',
+  flexWrap: 'wrap',
+  marginRight: '1rem'
+}
 
 export interface QuickSearchProps {
   clearSearch: () => void
@@ -40,11 +23,10 @@ export interface QuickSearchProps {
 }
 
 export function QuickSearch(props: QuickSearchProps): JSX.Element {
-  const classes = useStyles()
   const { clearSearch, onClick, value, setValue } = props
 
   return (
-    <div className={classes.root}>
+    <Box sx={{ ...styles }}>
       <TextField
         variant='standard'
         value={value}
@@ -53,7 +35,6 @@ export function QuickSearch(props: QuickSearchProps): JSX.Element {
           return setValue(event.target.value)
         }}
         placeholder='Suchen…'
-        className={classes.textField}
         InputProps={{
           endAdornment: (
             <IconButton
@@ -67,6 +48,7 @@ export function QuickSearch(props: QuickSearchProps): JSX.Element {
             </IconButton>
           )
         }}
+        sx={{ flex: 1 }}
       />
       <IconButton
         title='Search'
@@ -78,6 +60,6 @@ export function QuickSearch(props: QuickSearchProps): JSX.Element {
       >
         <SearchIcon fontSize='medium' />
       </IconButton>
-    </div>
+    </Box>
   )
 }

@@ -1,6 +1,4 @@
 import React from 'react'
-import { Theme } from '../../../theme/types'
-import makeStyles from '@mui/styles/makeStyles'
 
 // A
 import ArrowUpRight from './assets/arrowUpRight'
@@ -136,7 +134,6 @@ import Wishlist from './assets/wishlist'
 export interface IconProps {
   icon?: IconName
   size?: IconSize
-  style?: React.CSSProperties
   className?: string
 }
 
@@ -336,33 +333,26 @@ const ICONS: { [key in IconName]: JSX.Element } = {
 export const AnyIcon: React.FC<IconProps> = ({
   className,
   icon = 'menu',
-  size = 'sm',
-  style
+  size = 'sm'
 }) => {
-  const classes = useStyles()
-
   return (
-    <i className={`icon ${classes.root} ${className} ${size}`} style={style}>
+    <i className={`icon ${className} ${size}`} style={styles}>
       {ICONS[icon]}
     </i>
   )
 }
 
-const useStyles = makeStyles((theme: Theme) => {
-  return {
-    root: {
-      width: theme.spacing(4),
-      height: theme.spacing(4),
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
+const styles = {
+  width: 4,
+  height: 4,
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
 
-      '& svg': {
-        width: 'inherit',
-        height: 'inherit',
-        maxWidth: theme.spacing(4),
-        maxHeight: theme.spacing(4)
-      }
-    }
+  '& svg': {
+    width: 'inherit',
+    height: 'inherit',
+    maxWidth: 4,
+    maxHeight: 4
   }
-})
+}

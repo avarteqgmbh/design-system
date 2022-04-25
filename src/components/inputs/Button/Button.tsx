@@ -1,28 +1,15 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from 'react'
 import { Button as MuiButton, ButtonProps } from '@mui/material'
-import makeStyles from '@mui/styles/makeStyles'
 import { Theme } from '../../../theme/types'
 
 export function Button(props: ButtonProps): JSX.Element {
-  const { variant = 'contained', color = 'primary' } = props
-  const classes = useStyles()
+  const { variant = 'contained', color = 'primary', sx } = props
 
   return (
     <MuiButton
-      classes={{
-        root: classes.root,
-        text: classes.text,
-        textPrimary: classes.textPrimary,
-        outlined: classes.outlined,
-        outlinedPrimary: classes.outlinedPrimary,
-        outlinedSecondary: classes.outlinedSecondary,
-        contained: classes.contained,
-        containedPrimary: classes.containedPrimary,
-        containedSecondary: classes.containedSecondary,
-        sizeSmall: classes.sizeSmall,
-        sizeLarge: classes.sizeLarge,
-        disabled: classes.disabled
-      }}
+      // @ts-ignore
+      sx={{ ...sx, ...styles }}
       variant={variant}
       color={color}
       {...props}
@@ -30,109 +17,27 @@ export function Button(props: ButtonProps): JSX.Element {
   )
 }
 
-const useStyles = makeStyles((theme: Theme) => {
-  return {
-    root: {
-      display: 'flex',
-      paddingTop: theme.spacing(3),
-      paddingBottom: theme.spacing(3),
-      paddingLeft: theme.spacing(5),
-      paddingRight: theme.spacing(5),
-      borderRadius: theme.radius.button,
-      background: theme.palette.background.paper,
-      boxShadow: 'none',
-      '&:hover': {
-        background: theme.shadows[0]
-      }
-    },
-    text: {
-      borderColor: 'transparent',
-      background: 'transparent',
-      '&:hover': {
-        background: theme.palette.background.light
-      }
-    },
-    textPrimary: {
-      borderColor: 'transparent',
-      background: 'transparent',
-      color: theme.palette.primary.main,
-      '&:hover': {
-        color: theme.palette.common.white,
-        background: theme.palette.primary.main
-      }
-    },
-    sizeLarge: {
-      paddingTop: theme.spacing(4),
-      paddingBottom: theme.spacing(4),
-      paddingLeft: theme.spacing(6),
-      paddingRight: theme.spacing(6)
-    },
-    sizeSmall: {
-      paddingTop: theme.spacing(2),
-      paddingBottom: theme.spacing(2),
-      paddingLeft: theme.spacing(4),
-      paddingRight: theme.spacing(4)
-    },
-    outlined: {
-      borderWidth: 1,
-      borderStyle: 'solid',
-      borderColor: theme.palette.background.border,
-      color: theme.palette.text.primary,
-      '&:hover': {
-        background: theme.palette.background.light,
-        borderColor: theme.palette.text.primary
-      }
-    },
-    outlinedPrimary: {
-      borderWidth: 1,
-      borderStyle: 'solid',
-      borderColor: theme.palette.primary.main,
-      color: theme.palette.primary.main,
-      '&:hover': {
-        background: theme.palette.primary.main,
-        color: theme.palette.common.white,
-        borderColor: theme.palette.primary.dark
-      }
-    },
-    outlinedSecondary: {
-      borderWidth: 1,
-      borderStyle: 'solid',
-      borderColor: theme.palette.secondary.main,
-      color: theme.palette.secondary.main,
-      '&:hover': {
-        background: theme.palette.secondary.main,
-        color: theme.palette.common.white,
-        borderColor: theme.palette.secondary.dark
-      }
-    },
-    contained: {
-      background: theme.palette.background.paper,
-      color: theme.palette.text.primary,
-      '&:hover': {
-        background: theme.palette.background.light
-      }
-    },
-    containedPrimary: {
-      background: theme.palette.primary.main,
-      color: theme.palette.common.white,
-      borderColor: theme.palette.primary.light,
-      '&:hover': {
-        color: theme.palette.common.white,
-        background: theme.palette.primary.dark
-      }
-    },
-    containedSecondary: {
-      background: theme.palette.secondary.light,
-      '&:hover': {
-        background: theme.palette.secondary.main
-      }
-    },
-    disabled: {
-      '&$disabled': {
-        color: theme.palette.text.disabled,
-        background: theme.palette.background.default,
-        borderColor: theme.palette.background.border
-      }
-    }
+const styles = {
+  display: 'flex',
+  paddingTop: 3,
+  paddingBottom: 3,
+  paddingLeft: 5,
+  paddingRight: 5,
+  borderRadius: (theme: Theme): string => {
+    return `${theme.radius.button}px`
+  },
+  boxShadow: 'none',
+
+  '&.MuiButton-sizeLarge': {
+    paddingTop: 4,
+    paddingBottom: 4,
+    paddingLeft: 6,
+    paddingRight: 6
+  },
+  '&.MuiButton-sizeSmall': {
+    paddingTop: 2,
+    paddingBottom: 2,
+    paddingLeft: 4,
+    paddingRight: 4
   }
-})
+}
