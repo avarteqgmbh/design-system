@@ -331,20 +331,20 @@ const ICONS: { [key in IconName]: JSX.Element } = {
 
 // C O M P O N E N T
 export const AnyIcon: React.FC<IconProps> = ({
-  className,
+  className = '',
   icon = 'menu',
   size = 'sm'
 }) => {
   return (
-    <i className={`icon ${className} ${size}`} style={styles}>
+    <i className={`icon ${size} ${className}`} style={styles}>
       {ICONS[icon]}
     </i>
   )
 }
 
 const styles = {
-  width: 4,
-  height: 4,
+  width: '16px',
+  height: '16px',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -352,7 +352,7 @@ const styles = {
   '& svg': {
     width: 'inherit',
     height: 'inherit',
-    maxWidth: 4,
-    maxHeight: 4
+    maxWidth: '16px',
+    maxHeight: '16px'
   }
 }
