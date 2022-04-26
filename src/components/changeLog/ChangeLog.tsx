@@ -2,6 +2,7 @@ import React from 'react'
 import { styled } from '@mui/material/styles'
 import {
   ContactMail,
+  ColorLens,
   Dashboard,
   Error,
   Keyboard,
@@ -35,6 +36,7 @@ export type ChangeType =
   | 'DataDisplay'
   | 'Lab'
   | 'Template'
+  | 'Theme'
   | 'Default'
 
 export interface ChangeLogProps {
@@ -66,6 +68,8 @@ export const ChangeLog: React.FC<ChangeLogProps> = ({
         return <Science color='secondary' />
       case 'Template':
         return <Dashboard color='secondary' />
+      case 'Theme':
+        return <ColorLens color='secondary' />
       default:
         return <Settings color='secondary' />
     }
@@ -110,7 +114,7 @@ export const ChangeLog: React.FC<ChangeLogProps> = ({
         sx={{ padding: '16px 24px' }}
         title={
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <Typography variant='h4'>Design System v{version}</Typography>
+            <Typography variant='h4'>Storybook v{version}</Typography>
             {isLatestVersion && (
               <Chip
                 color='success'
