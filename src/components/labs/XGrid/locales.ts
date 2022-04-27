@@ -136,6 +136,7 @@ export const GRID_DE_LOCALE_TEXT: GridLocaleText = {
   // Master/detail
   expandDetailPanel: 'Erweitern',
   collapseDetailPanel: 'Verstecken',
+  rowReorderingHeaderName: 'Neu Ordnen',
 
   // Used core components translation keys
   MuiTablePagination: {}

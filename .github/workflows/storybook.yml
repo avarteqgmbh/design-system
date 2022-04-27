@@ -3,8 +3,6 @@ on:
   push:
     branches:
       - "main"
-    tags:
-      - v*.*.*
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -14,13 +12,17 @@ jobs:
         with:
           persist-credentials: false
       - name: Install and Build 🔧
+        env:
+          PKG_ACCESS_TOKEN: ${{ secrets.PKG_ACCESS_TOKEN }}
         run: |
+          echo "//npm.pkg.github.com/:_authToken=${PKG_ACCESS_TOKEN}" >> ~/.npmrc
+          yarn config set "@avarteqgmbh:registry" "https://npm.pkg.github.com"
           yarn install
           yarn build-storybook
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.6.2
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PKG_ACCESS_TOKEN }}
           BRANCH: gh-pages
           FOLDER: storybook-static
           CLEAN: true

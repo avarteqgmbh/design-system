@@ -32,11 +32,16 @@ Builds the app for production or publishing to the `build` folder.\
 
 ## 🚀 Publishing
 
-To publish the Design System to the **[npm registry](https://www.npmjs.com/package/@anynines/a9s-design-system)** run
+To publish a new version of the Design System, you first need to set a access token.
+You can find one in Onepassword (NPM avarteq private github package management).
+
+```
+launchctl setenv PKG_ACCESS_TOKEN Github Access Token with Package Read/Write & Repo
+```
+
+Restart your terminal afterwards. Then run:
 
 #### `yarn publish`
-
-> You need to be logged in with `npm login` first. If you don't have an account or are not yet member of the npm organization, please drop DL a line.
 
 ## 💎 Use Premium Features
 

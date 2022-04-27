@@ -53,7 +53,7 @@ import {
   MobileStepper
 } from './navigation/index'
 
-import { Box, Container, Grid, GridDirection, Hidden } from './layout/index'
+import { Box, Container, Grid, GridDirection } from './layout/index'
 
 import {
   Card,
@@ -158,7 +158,7 @@ export {
   StepContent,
   MobileStepper
 }
-export { Box, Container, Grid, Hidden }
+export { Box, Container, Grid }
 export type { GridDirection, SelectChangeEvent }
 
 export {
