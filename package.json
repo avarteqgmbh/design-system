@@ -1,7 +1,7 @@
 {
-  "name": "@anynines/a9s-design-system",
-  "version": "1.0.1",
-  "private": true,
+  "name": "@avarteqgmbh/a9s-design-system",
+  "repository": "https://github.com/avarteqgmbh/design-system.git",
+  "version": "1.0.3",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -122,5 +122,5 @@
     "react-docgen-typescript": "^2.0.0"
   },
   "author": "",
-  "license": "ISC"
+  "license": "UNLICENSED"
 }
