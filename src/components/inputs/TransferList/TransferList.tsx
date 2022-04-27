@@ -1,7 +1,4 @@
 import React from 'react'
-import { Theme } from '@mui/material/styles'
-import makeStyles from '@mui/styles/makeStyles'
-import createStyles from '@mui/styles/createStyles'
 import { CheckboxProps } from '@mui/material'
 import { Button } from '../Button/Button'
 import { Grid } from '../../layout/index'
@@ -12,7 +9,6 @@ export interface TransferListProps {
   rightList: []
   checkedList?: never[]
   checkboxProps?: CheckboxProps
-  checkKey?: string
   onChange: (leftList: [], rightList: []) => void
 }
 
@@ -45,7 +41,6 @@ export function TransferList({
   checkboxProps = {},
   onChange
 }: TransferListProps): JSX.Element {
-  const classes = useStyles()
   const [checked, setChecked] = React.useState<never[]>(checkedList)
   const [left, setLeft] = React.useState<[]>(leftList)
   const [right, setRight] = React.useState<[]>(rightList)
@@ -116,13 +111,7 @@ export function TransferList({
   }
 
   return (
-    <Grid
-      container
-      spacing={2}
-      justifyContent='center'
-      alignItems='center'
-      className={classes.root}
-    >
+    <Grid container spacing={4} justifyContent='center' alignItems='center'>
       <Grid item>
         <CustomList
           items={left}
@@ -135,30 +124,31 @@ export function TransferList({
         />
       </Grid>
       <Grid item>
-        <Grid container direction='column' alignItems='center'>
-          <Button
-            variant='outlined'
-            size='small'
-            className={classes.button}
-            onClick={handleCheckedRight}
-            disabled={leftChecked.length === 0}
-            aria-label='move selected right'
-          >
-            &gt;
-          </Button>
-          <Button
-            variant='outlined'
-            size='small'
-            className={classes.button}
-            onClick={handleCheckedLeft}
-            disabled={rightChecked.length === 0}
-            aria-label='move selected left'
-          >
-            &lt;
-          </Button>
+        <Grid item container direction='column' alignItems='center' spacing={4}>
+          <Grid item>
+            <Button
+              variant='outlined'
+              size='small'
+              onClick={handleCheckedRight}
+              disabled={leftChecked.length === 0}
+              aria-label='move selected right'
+            >
+              &gt;
+            </Button>
+          </Grid>
+          <Grid item>
+            <Button
+              variant='outlined'
+              size='small'
+              onClick={handleCheckedLeft}
+              disabled={rightChecked.length === 0}
+              aria-label='move selected left'
+            >
+              &lt;
+            </Button>
+          </Grid>
         </Grid>
       </Grid>
-
       <Grid item>
         <CustomList
           items={right}
@@ -173,14 +163,3 @@ export function TransferList({
     </Grid>
   )
 }
-
-const useStyles = makeStyles((theme: Theme) => {
-  return createStyles({
-    root: {
-      margin: 'auto'
-    },
-    button: {
-      margin: theme.spacing(0.5, 0)
-    }
-  })
-})

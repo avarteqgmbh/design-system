@@ -10,5 +10,6 @@ export interface MuiCardActionAreaProps extends CardActionAreaProps {
 
 export function CardActionArea(props: MuiCardActionAreaProps): JSX.Element {
   const { children } = props
+
   return <MuiCardActionArea {...props}>{children}</MuiCardActionArea>
 }

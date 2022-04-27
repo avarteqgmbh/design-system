@@ -3,23 +3,26 @@ import {
   Backdrop as MuiBackdrop,
   BackdropProps as MuiBackdropProps
 } from '@mui/material'
-import makeStyles from '@mui/styles/makeStyles'
-import { Theme } from '../../../theme/types'
 
-export function Backdrop(props: MuiBackdropProps): JSX.Element {
-  const classes = useStyles()
+export interface BackdropProps extends MuiBackdropProps {
+  primary?: boolean | undefined
+}
+
+export function Backdrop(props: BackdropProps): JSX.Element {
+  const { primary = true, sx } = props
+
   return (
     <MuiBackdrop
-      classes={{
-        root: classes.root
-      }}
+      className={primary ? 'primary' : ''}
+      sx={{ ...sx, ...styles }}
       {...props}
     />
   )
 }
 
-const useStyles = makeStyles<Theme>(() => {
-  return {
-    root: {}
+const styles = {
+  color: 'text.primary',
+  '&.primary': {
+    color: 'primary.main'
   }
-})
+}

@@ -47,6 +47,7 @@ export const GRID_DE_LOCALE_TEXT: GridLocaleText = {
   filterPanelColumns: 'Spalten',
   filterPanelInputLabel: 'Wert',
   filterPanelInputPlaceholder: 'Wert filtern',
+  filterPanelLinkOperator: '',
 
   // Filter operators text
   filterOperatorContains: 'Enthält',

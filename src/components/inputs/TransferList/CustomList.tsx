@@ -1,16 +1,12 @@
 import React, { MouseEventHandler } from 'react'
-import { Theme } from '@mui/material/styles'
-import makeStyles from '@mui/styles/makeStyles'
-import createStyles from '@mui/styles/createStyles'
-import Card from '@mui/material/Card'
-import CardHeader from '@mui/material/CardHeader'
 import ListItem from '@mui/material/ListItem'
 import ListItemText from '@mui/material/ListItemText'
 import ListItemIcon from '@mui/material/ListItemIcon'
-import Divider from '@mui/material/Divider'
-import { CheckboxProps } from '@mui/material'
+import { CheckboxProps, SxProps } from '@mui/material'
+import { Theme } from '../../../theme/types'
 import { Checkbox } from '../Checkbox/Checkbox'
-import { List } from '../../dataDisplay/index'
+import { Divider, List } from '../../dataDisplay/index'
+import { Card, CardHeader } from '../../surfaces/index'
 
 export interface CustomListProps {
   items: []
@@ -22,6 +18,7 @@ export interface CustomListProps {
   ) => React.MouseEventHandler<HTMLButtonElement> | undefined
   numberOfChecked: (items: []) => number
   handleToggle: (value: never) => MouseEventHandler<HTMLDivElement> | undefined
+  sx?: SxProps<Theme>
 }
 
 export function CustomList({
@@ -33,12 +30,9 @@ export function CustomList({
   numberOfChecked,
   handleToggle
 }: CustomListProps): JSX.Element {
-  const classes = useStyles()
-
   return (
-    <Card>
+    <Card sx={styles}>
       <CardHeader
-        className={classes.cardHeader}
         avatar={
           <Checkbox
             {...checkboxProps}
@@ -58,7 +52,7 @@ export function CustomList({
         subheader={`${numberOfChecked(items)}/${items.length} selected`}
       />
       <Divider />
-      <List className={classes.list} dense component='div' role='list'>
+      <List dense component='div' role='list'>
         {items.map((item: never) => {
           const { id, name } = item as never
           const labelId = `transfer-list-all-item-${id}-label`
@@ -89,16 +83,14 @@ export function CustomList({
   )
 }
 
-const useStyles = makeStyles((theme: Theme) => {
-  return createStyles({
-    cardHeader: {
-      padding: theme.spacing(1, 2)
-    },
-    list: {
-      width: 200,
-      height: 230,
-      backgroundColor: theme.palette.background.paper,
-      overflow: 'auto'
-    }
-  })
-})
+const styles = {
+  '& .MuiCardHeader-root': {
+    padding: 2
+  },
+  '& .MuiList-root': {
+    width: 200,
+    height: 230,
+    bgcolor: 'background.paper',
+    overflow: 'auto'
+  }
+}

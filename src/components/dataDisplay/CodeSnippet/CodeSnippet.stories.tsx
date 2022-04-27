@@ -1,20 +1,13 @@
 import React from 'react'
 import { Story } from '@storybook/react'
-import { withDesign } from 'storybook-addon-designs'
 import { CodeSnippetProps } from './CodeSnippetProps'
 import { CodeSnippet } from './CodeSnippet'
 
 export default {
   title: 'Data Display/CodeSnippet',
   component: CodeSnippet,
-  argTypes: {},
-  decorators: [withDesign],
   parameters: {
-    controls: { expanded: true },
-    design: {
-      type: 'figma',
-      url: ''
-    }
+    controls: { expanded: true }
   }
 }
 
