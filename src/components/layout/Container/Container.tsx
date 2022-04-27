@@ -1,18 +1,9 @@
 import React from 'react'
 import {
   Container as MuiContainer,
-  ContainerProps as MuiContainerProps,
-  makeStyles
-} from '@material-ui/core'
-import { Theme } from '../../../theme/types'
+  ContainerProps as MuiContainerProps
+} from '@mui/material'
 
 export function Container(props: MuiContainerProps): JSX.Element {
-  const classes = useStyles()
-  return <MuiContainer className={`${classes.root}`} {...props} />
+  return <MuiContainer {...props} />
 }
-
-const useStyles = makeStyles<Theme>(() => {
-  return {
-    root: {}
-  }
-})

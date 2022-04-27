@@ -1,33 +1,26 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { SwitchProps } from '@material-ui/core'
+import { FormControlLabel, SwitchProps } from '@mui/material'
+import Check from '@mui/icons-material/Check'
+
 import { Switch } from './Switch'
-import CancelIcon from '@material-ui/icons/Cancel'
-import CheckCircleIcon from '@material-ui/icons/CheckCircle'
+import { FormControl, Typography } from '../../index'
 
 export default {
-  title: 'Input/Switch',
+  title: 'Inputs/Switch',
   component: Switch,
   argTypes: {
     id: {
       control: { type: 'text' },
       table: { type: { summary: 'string' } }
     },
-    checked: {
-      control: { type: 'boolean' },
-      defaultValue: false,
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false }
-      }
-    },
     color: {
       control: 'radio',
-      options: ['default', 'primary', 'secondary'],
+      options: ['default', 'primary', 'secondary', 'success'],
       table: {
-        type: { summary: 'default | primary | secondary' },
-        defaultValue: { summary: 'secondary' }
+        type: { summary: 'default | primary | secondary | success' },
+        defaultValue: { summary: 'primary' }
       }
     },
     disabled: {
@@ -55,6 +48,12 @@ export default {
         defaultValue: { summary: false }
       }
     },
+    onChange: {
+      action: { type: 'onChange' },
+      table: {
+        type: { summary: 'func' }
+      }
+    },
     required: {
       control: { type: 'boolean' },
       defaultValue: false,
@@ -71,68 +70,37 @@ export default {
         type: { summary: 'medium | small' },
         defaultValue: { summary: 'medium' }
       }
-    },
-    value: {
-      control: { type: 'text' },
-      table: { type: { summary: 'string' } }
-    },
-    onChange: { action: 'checked' }
+    }
   },
   decorators: [withDesign],
   parameters: {
     controls: { expanded: true },
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%8E%A8-Design-System?node-id=388%3A6093'
-    }
+      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%93%9A-Design-System?node-id=388%3A6093'
+    },
+    muiDocSrc: 'https://mui.com/components/switches/'
   }
 }
-// TODO: - adding examples with FormControlLabel
-//         https://material-ui.com/components/switches/#switch-with-formcontrollabel
 
 const Template: Story<SwitchProps> = (args) => {
-  return <Switch {...args} inputProps={{ 'aria-label': 'primary Switch' }} />
+  return (
+    <>
+      <FormControl>
+        <FormControlLabel
+          control={<Switch {...args} />}
+          label={<Typography color='textPrimary'>Label</Typography>}
+        />
+      </FormControl>
+    </>
+  )
 }
 
 export const Default = Template.bind({})
-Default.args = {
-  id: 'Switch-default'
-}
-
-export const Primary = Template.bind({})
-Primary.args = {
-  id: 'Switch-Primary',
-  checked: true,
-  color: 'primary'
-}
-
-export const Secondary = Template.bind({})
-Secondary.args = {
-  id: 'switch-secondary',
-  checked: true,
-  color: 'secondary'
-}
-
-export const Disabled = Template.bind({})
-Disabled.args = {
-  id: 'Switch-Disabled',
-  checked: true,
-  disabled: true
-}
 
 export const CustomIcon = Template.bind({})
 CustomIcon.args = {
   id: 'Switch-CustomIcon',
   color: 'default',
-  icon: <CancelIcon fontSize='small' />,
-  checkedIcon: <CheckCircleIcon fontSize='small' />
-}
-
-export const StatefulSwitch: Story<SwitchProps> = (args) => {
-  const [checked, setChecked] = React.useState(true)
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    setChecked(event.target.checked)
-  }
-  return <Switch {...args} checked={checked} onChange={handleChange} />
+  checkedIcon: <Check fontSize='small' />
 }

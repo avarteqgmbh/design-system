@@ -1,60 +1,67 @@
 # 🎨 Design System 2.0
 
-This project was bootstrapped with Create React App (CRA). It builds on Material UI (MUI) to provide a maintained and bullet proven set of UI components. It follows the MUI standards in terms of folder structure, component names and props. For accessability and documentation it extends upon the official MUI documentation by adding an interactive and multi-themeable instance of storybook.
+The Design System 2.0 builds on Material UI (MUI) to provide a maintained and bullet proven set of UI components. It extends on the foundation of MUI to provide additional components documented with Storybook
+
+> **Intention**
+> It is not providing any business logic but instead is meant to help you focus on the business logic by providing comprehensive UI components. It's foundation is [Material UI](www.mui.com) while we extend on it to customize for anynines' needs.
+
+## 📦 Installation
+
+```bash
+# yarn
+yarn add anynines/a9s-design-system
+
+# npm
+npm install anynines/a9s-design-system
+```
 
 ## ✨ Available Scripts
 
 In the project directory, you can run:
 
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-
-### `yarn storybook`
+#### `yarn storybook`
 
 Runs the storybook in the development mode.\
 Open [http://localhost:6006](http://localhost:6006) to view it in the browser.
 
 The page will reload if you make edits.
 
-### `yarn test`
+#### `yarn build`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Builds the app for production or publishing to the `build` folder.\
 
-### `yarn build`
+## 🚀 Publishing
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To publish the Design System to the **[npm registry](https://www.npmjs.com/package/@anynines/a9s-design-system)** run
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### `yarn publish`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+> You need to be logged in with `npm login` first. If you don't have an account or are not yet member of the npm organization, please drop DL a line.
 
-### `yarn eject`
+## 💎 Use Premium Features
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+To use MUI premium components like the `XGrid` or `DateRangePicker` you need to add a .env file to your root directory and add your MUI License key like this:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+REACT_APP_MUI_LICENSE="..."
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Find license key in 1Password as _MUI License key_, if you don't have access pm DL.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## ℹ️ More Info
 
-## 🎓 Learn More
+#### **Material UI** (MUI)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+You can use any component from **[Material UI](www.mui.com)** and simply import it from `@anynines/a9s-design-system` instead of `@mui/material`. If a component or type from MUI is not part of the design system you can also import it right from MUI, by default all components should just work fine.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### **Storybook**
 
-## ✅ To be done
+On top of Material UI we have built more helpful components. The documentation can be found here (TODO: Add deployed version of storybook here). Locally you can start storybook with `yarn storybook` on port `localhost:6006`.
 
-- Add publishing workflow and scripts
-  - Run when merged in main with a tag
-  - Update npm package
-  - Deploy latest build
-- Add test
+#### **Boilerplate**
+
+A React Boilerplate using Typescript proper ESLint and Prettier setup as well as the Design System to quickstart a basic frontend applciation, can be found [here](https://github.com/anynines/a9s-react-boilerplate).
+
+#### **Token System**
+
+The Design System comes with a light and dark mode following the anynines Corporate Identity. Anynines team can access the [Token System](https://github.com/avarteqgmbh/happy-token-system) to easily switch to the branding of one of our customers.

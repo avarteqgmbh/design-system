@@ -1,7 +1,7 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { LinearProgressProps } from '@material-ui/core'
+import { LinearProgressProps } from '@mui/material'
 import { LinearProgress } from './LinearProgress'
 
 export default {
@@ -52,8 +52,9 @@ export default {
     controls: { expanded: true },
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%8E%A8-Design-System?node-id=383%3A3833'
-    }
+      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%93%9A-Design-System?node-id=917%3A7572'
+    },
+    muiDocSrc: 'https://mui.com/components/progress/'
   }
 }
 
@@ -64,25 +65,9 @@ const Template: Story<LinearProgressProps> = (args) => {
 export const Default = Template.bind({})
 Default.args = {}
 
-export const Secondary = Template.bind({})
-Secondary.args = {
-  color: 'secondary'
-}
-
-export const Determinate = Template.bind({})
-Determinate.args = {
-  variant: 'determinate',
-  value: 30
-}
-
 export const Buffer = Template.bind({})
 Buffer.args = {
   variant: 'buffer',
   value: 30,
   valueBuffer: 47
-}
-
-export const Query = Template.bind({})
-Query.args = {
-  variant: 'query'
 }

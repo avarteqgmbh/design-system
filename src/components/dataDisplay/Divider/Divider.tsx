@@ -1,25 +1,6 @@
 import React from 'react'
-import {
-  Divider as MuiDivider,
-  DividerProps,
-  makeStyles
-} from '@material-ui/core'
-import { Theme } from '../../../theme/types'
+import { Divider as MuiDivider, DividerProps } from '@mui/material'
 
 export function Divider(props: DividerProps): JSX.Element {
-  const classes = useStyles()
-  return (
-    <MuiDivider
-      classes={{
-        root: classes.root
-      }}
-      {...props}
-    />
-  )
+  return <MuiDivider {...props} />
 }
-
-const useStyles = makeStyles<Theme>(() => {
-  return {
-    root: {}
-  }
-})

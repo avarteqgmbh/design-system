@@ -1,24 +1,11 @@
 import React from 'react'
 import {
   StepButton as MuiStepButton,
-  StepButtonProps as MuiStepButtonProps,
-  makeStyles,
-  createStyles
-} from '@material-ui/core'
+  StepButtonProps as MuiStepButtonProps
+} from '@mui/material'
 
 export function StepButton(props: MuiStepButtonProps): JSX.Element {
-  const classes = useStyles()
   const { children } = props
 
-  return (
-    <MuiStepButton {...props} className={classes.root}>
-      {children}
-    </MuiStepButton>
-  )
+  return <MuiStepButton {...props}>{children}</MuiStepButton>
 }
-
-const useStyles = makeStyles(() => {
-  return createStyles({
-    root: {}
-  })
-})

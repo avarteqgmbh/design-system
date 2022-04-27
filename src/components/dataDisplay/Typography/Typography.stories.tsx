@@ -1,7 +1,7 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { TypographyProps } from '@material-ui/core'
+import { TypographyProps } from '@mui/material'
 import { Typography } from './Typography'
 
 export default {
@@ -15,9 +15,12 @@ export default {
       }
     },
     color: {
-      defaultValue: 'initial',
+      control: { type: 'select' },
+      options: ['inherit', 'textPrimary', 'textSecondary'],
+      defaultValue: 'textPrimary',
       table: {
-        defaultValue: { summary: 'initial' }
+        type: { summary: 'select' },
+        defaultValue: { summary: 'textPrimary' }
       }
     },
     display: {
@@ -38,13 +41,11 @@ export default {
     controls: { expanded: true },
     design: {
       type: 'figma',
-      url: ''
-    }
+      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%93%9A-Design-System?node-id=102%3A791'
+    },
+    muiDocSrc: 'https://mui.com/components/typography/'
   }
 }
-
-// TODO: - adding Typography Theme
-//         https://material-ui.com/customization/typography/
 
 const Template: Story<TypographyProps> = (args) => {
   return <Typography {...args} />
@@ -52,96 +53,13 @@ const Template: Story<TypographyProps> = (args) => {
 
 export const Default = Template.bind({})
 Default.args = {
+  color: 'textPrimary',
   children: 'default'
 }
 
-export const H1 = Template.bind({})
-H1.args = {
-  children: 'h1. Heading',
-  variant: 'h1'
-}
-
-export const H2 = Template.bind({})
-H2.args = {
-  children: 'h2. Heading',
+export const Variant = Template.bind({})
+Variant.args = {
+  color: 'textPrimary',
+  children: 'default',
   variant: 'h2'
-}
-
-export const H3 = Template.bind({})
-H3.args = {
-  children: 'h3. Heading',
-  variant: 'h3'
-}
-
-export const H4 = Template.bind({})
-H4.args = {
-  children: 'h4. Heading',
-  variant: 'h4'
-}
-
-export const H5 = Template.bind({})
-H5.args = {
-  children: 'h5. Heading',
-  variant: 'h5'
-}
-
-export const H6 = Template.bind({})
-H6.args = {
-  children: 'h6. Heading',
-  variant: 'h6'
-}
-
-export const Subtitle1 = Template.bind({})
-Subtitle1.args = {
-  children:
-    'subtitle1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur',
-  variant: 'subtitle1'
-}
-
-export const Subtitle2 = Template.bind({})
-Subtitle2.args = {
-  children:
-    'subtitle2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur',
-  variant: 'subtitle2'
-}
-
-export const body1 = Template.bind({})
-body1.args = {
-  children:
-    'body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur',
-  variant: 'body1'
-}
-
-export const body2 = Template.bind({})
-body2.args = {
-  children:
-    'body2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur',
-  variant: 'body2'
-}
-
-export const Button = Template.bind({})
-Button.args = {
-  children: 'button text',
-  variant: 'button',
-  display: 'block'
-}
-
-export const Caption = Template.bind({})
-Caption.args = {
-  children: 'caption text',
-  variant: 'caption',
-  display: 'block'
-}
-
-export const Overline = Template.bind({})
-Overline.args = {
-  children: 'overline text',
-  variant: 'overline',
-  display: 'block'
-}
-
-export const VariantMapping = Template.bind({})
-VariantMapping.args = {
-  children: 'h1. Heading',
-  variant: 'h1'
 }

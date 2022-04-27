@@ -1,24 +1,10 @@
 import React from 'react'
-import {
-  Breadcrumbs as MuiBreadcrumbs,
-  BreadcrumbsProps as MuiBreadcrumbsProps,
-  makeStyles,
-  createStyles
-} from '@material-ui/core'
+import MuiBreadcrumbs, {
+  BreadcrumbsProps as MuiBreadcrumbsProps
+} from '@mui/material/Breadcrumbs'
 
 export function Breadcrumbs(props: MuiBreadcrumbsProps): JSX.Element {
-  const classes = useStyles()
   const { children } = props
 
-  return (
-    <MuiBreadcrumbs {...props} className={classes.root}>
-      {children}
-    </MuiBreadcrumbs>
-  )
+  return <MuiBreadcrumbs {...props}>{children}</MuiBreadcrumbs>
 }
-
-const useStyles = makeStyles(() => {
-  return createStyles({
-    root: {}
-  })
-})

@@ -1,212 +1,94 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
+import { MenuProps } from '@mui/material'
+import Divider from '@mui/material/Divider'
+import ListItemText from '@mui/material/ListItemText'
+import ListItemIcon from '@mui/material/ListItemIcon'
+import Typography from '@mui/material/Typography'
+import ContentCut from '@mui/icons-material/ContentCut'
+import ContentCopy from '@mui/icons-material/ContentCopy'
+import ContentPaste from '@mui/icons-material/ContentPaste'
+import Cloud from '@mui/icons-material/Cloud'
 
 import { Menu } from './Menu'
-import { MenuProps } from '@material-ui/core'
+import { MenuList } from './MenuList'
 import { MenuItem } from './MenuItem'
-
-import { Button } from '../../index'
 
 export default {
   title: 'Navigation/Menu',
   component: Menu,
   argTypes: {
-    anchorEl: {
-      control: { type: 'text' },
+    onClick: {
+      action: { type: 'onClick' },
       table: {
-        type: { summary: 'HTML element | function' }
-      }
-    },
-    autoFocus: {
-      control: { type: 'boolean' },
-      defaultValue: true,
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: true }
-      }
-    },
-    children: {
-      control: { type: 'node' },
-      table: { type: { summary: 'node' } }
-    },
-    classes: {
-      control: { type: 'object' },
-      table: { type: { summary: 'object' } }
-    },
-    disableAutoFocusItem: {
-      control: { type: 'boolean' },
-      defaultValue: false,
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false }
-      }
-    },
-    MenuListProps: {
-      control: { type: 'object' },
-      defaultValue: {},
-      table: {
-        type: { summary: 'object' },
-        defaultValue: { summary: {} }
-      }
-    },
-    onClose: {
-      control: { type: 'function' },
-      table: {
-        type: { summary: 'function' }
-      }
-    },
-    open: {
-      control: { type: 'boolean' },
-      table: {
-        type: { summary: 'boolean' }
-      }
-    },
-    PopoverClasses: {
-      control: { type: 'object' },
-      table: { type: { summary: 'object' } }
-    },
-    transitionDuration: {
-      control: {
-        type: 'text'
-      },
-      defaultValue: 'auto',
-      table: {
-        type: {
-          summary:
-            'auto | number | { appear?: number, enter?: number, exit?: number }'
-        },
-        defaultValue: { summary: 'auto' }
-      }
-    },
-    TransitionProps: {
-      control: { type: 'object' },
-      defaultValue: {},
-      table: {
-        type: { summary: 'object' },
-        defaultValue: { summary: {} }
-      }
-    },
-    variant: {
-      control: { type: 'text' },
-      defaultValue: 'selectedMenu',
-      table: {
-        type: { summary: 'selectedMenu | menu' },
-        defaultValue: { summary: 'selectedMenu' }
+        type: { summary: 'func' }
       }
     }
   },
   decorators: [withDesign],
   parameters: {
+    controls: { expanded: true },
     design: {
       type: 'figma',
-      url: ''
-    }
+      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%93%9A-Design-System?node-id=404%3A30059'
+    },
+    muiDocSrc: 'https://mui.com/components/menus/'
   }
 }
 
-export const Default: Story<MenuProps> = (args) => {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
+const MenuChildren = (
+  <MenuList>
+    <MenuItem>
+      <ListItemIcon>
+        <ContentCut fontSize='small' />
+      </ListItemIcon>
+      <ListItemText>Cut</ListItemText>
+      <Typography variant='body2' color='text.secondary'>
+        ⌘X
+      </Typography>
+    </MenuItem>
+    <MenuItem>
+      <ListItemIcon>
+        <ContentCopy fontSize='small' />
+      </ListItemIcon>
+      <ListItemText>Copy</ListItemText>
+      <Typography variant='body2' color='text.secondary'>
+        ⌘C
+      </Typography>
+    </MenuItem>
+    <MenuItem>
+      <ListItemIcon>
+        <ContentPaste fontSize='small' />
+      </ListItemIcon>
+      <ListItemText>Paste</ListItemText>
+      <Typography variant='body2' color='text.secondary'>
+        ⌘V
+      </Typography>
+    </MenuItem>
+    <Divider />
+    <MenuItem>
+      <ListItemIcon>
+        <Cloud fontSize='small' />
+      </ListItemIcon>
+      <ListItemText>Web Clipboard</ListItemText>
+    </MenuItem>
+  </MenuList>
+)
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
-    setAnchorEl(event.currentTarget)
-  }
-
-  const handleClose = (): void => {
-    setAnchorEl(null)
-  }
-
-  return (
-    <>
-      <Button
-        aria-controls='simple-menu'
-        aria-haspopup='true'
-        onClick={handleClick}
-      >
-        Open Menu
-      </Button>
-      <Menu
-        {...args}
-        id='simple-menu'
-        anchorEl={anchorEl}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-      >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
-      </Menu>
-    </>
-  )
+const Template: Story<MenuProps> = (args) => {
+  return <Menu {...args} />
 }
 
-const options = [
-  'None',
-  'Atria',
-  'Callisto',
-  'Dione',
-  'Ganymede',
-  'Hangouts Call',
-  'Luna',
-  'Oberon',
-  'Phobos',
-  'Pyxis',
-  'Sedna',
-  'Titania',
-  'Triton',
-  'Umbriel'
-]
-const ITEM_HEIGHT = 48
+export const Default = Template.bind({})
+Default.args = {
+  children: MenuChildren,
+  open: true
+}
 
-export const MaxHeight: Story<MenuProps> = (args): JSX.Element => {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
-  const open = Boolean(anchorEl)
-
-  const handleClick = (event: React.MouseEvent<HTMLElement>): void => {
-    setAnchorEl(event.currentTarget)
-  }
-
-  const handleClose = (): void => {
-    setAnchorEl(null)
-  }
-
-  return (
-    <div>
-      <Button
-        aria-label='more'
-        aria-controls='long-menu'
-        aria-haspopup='true'
-        onClick={handleClick}
-      >
-        Open Menu
-      </Button>
-      <Menu
-        {...args}
-        id='long-menu'
-        anchorEl={anchorEl}
-        keepMounted
-        open={open}
-        onClose={handleClose}
-        PaperProps={{
-          style: {
-            maxHeight: ITEM_HEIGHT * 4.5,
-            width: '20ch'
-          }
-        }}
-      >
-        {options.map((option) => {
-          return (
-            <MenuItem
-              key={option}
-              selected={option === 'Pyxis'}
-              onClick={handleClose}
-            >
-              {option}
-            </MenuItem>
-          )
-        })}
-      </Menu>
-    </div>
-  )
+export const Anchor = Template.bind({})
+Anchor.args = {
+  children: MenuChildren,
+  open: true,
+  anchorOrigin: { horizontal: 'right', vertical: 'bottom' }
 }

@@ -1,11 +1,11 @@
 import React from 'react'
 import { Story } from '@storybook/react'
-import { withDesign } from 'storybook-addon-designs'
-import { XGrid, XGridProps } from './XGrid'
-import { rows, columns } from './mocks'
+import { XGrid, XGridProps, useGridApiRef } from './XGrid'
+import { useDemoData } from '@mui/x-data-grid-generator'
+import { GridRowModel } from '@mui/x-data-grid-pro'
 
 export default {
-  title: 'Labs/XGrid',
+  title: 'Lab/XGrid',
   component: XGrid,
   argTypes: {
     autoHeight: {
@@ -30,31 +30,84 @@ export default {
       defaultValue: true
     }
   },
-  decorators: [withDesign],
   parameters: {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%8E%A8-Design-System?node-id=285%3A1900'
-    }
+    muiDocSrc: 'https://mui.com/components/data-grid/'
   }
 }
 
 const Template: Story<XGridProps> = (args) => {
-  return <XGrid {...args} />
+  const customApiRef = useGridApiRef()
+
+  const { loading, data } = useDemoData({
+    dataSet: 'Commodity',
+    rowLength: 20,
+    maxColumns: 40,
+    editable: true
+  })
+
+  function escapeRegExp(value: string): string {
+    return value.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&')
+  }
+
+  const [searchText, setSearchText] = React.useState('')
+
+  const [rows, setRows] = React.useState<GridRowModel[]>(data.rows)
+
+  const requestSearch = (searchValue: string): void => {
+    setSearchText(searchValue)
+    const searchRegex = new RegExp(escapeRegExp(searchValue), 'i')
+    const filteredRows = data.rows.filter((row: GridRowModel) => {
+      return Object.keys(row).some((field) => {
+        return searchRegex.test(row[field].toString())
+      })
+    })
+    setRows(filteredRows)
+  }
+
+  React.useEffect(() => {
+    setRows(data.rows)
+  }, [data.rows])
+
+  return (
+    <XGrid
+      {...args}
+      customApiRef={customApiRef}
+      localStorageKey={rows && 'fooBar'}
+      rows={rows}
+      columns={data.columns}
+      searchText={searchText}
+      setSearchText={setSearchText}
+      onSearchClick={(): void => {
+        return requestSearch(searchText)
+      }}
+      clearSearch={(): void => {
+        return requestSearch('')
+      }}
+      loading={loading}
+      initialState={{
+        ...data.initialState,
+        pinnedColumns: { left: ['__check__', 'desk'] }
+      }}
+    />
+  )
 }
 
 export const Default = Template.bind({})
-Default.args = {
-  rows,
-  columns
-}
 
 export const Toolbar = Template.bind({})
 Toolbar.args = {
-  rows,
-  columns,
+  checkboxSelection: true,
+  toolbar: true,
+  csvOptions: { delimiter: ';' },
+  rowsPerPageOptions: [5, 10],
+  pageSize: 5
+}
+
+export const DE = Template.bind({})
+DE.args = {
   checkboxSelection: true,
   toolbar: true,
   rowsPerPageOptions: [5, 10],
-  pageSize: 5
+  pageSize: 5,
+  language: 'DE'
 }

@@ -1,18 +1,16 @@
 import React from 'react'
-import {
-  Link as MuiLink,
-  LinkProps,
-  makeStyles,
-  createStyles
-} from '@material-ui/core'
+import { Link as MuiLink, LinkProps as MuiLinkProps } from '@mui/material'
 
-export function Link(props: LinkProps): JSX.Element {
-  const classes = useStyles()
-  return <MuiLink className={classes.root} {...props} />
+export interface LinkProps extends MuiLinkProps {
+  component?: string
 }
 
-const useStyles = makeStyles(() => {
-  return createStyles({
-    root: {}
-  })
-})
+export function Link(props: LinkProps): JSX.Element {
+  const { sx } = props
+
+  return <MuiLink sx={{ ...sx, ...styles }} {...props} />
+}
+
+const styles = {
+  fontFamily: 'fontFamily'
+}

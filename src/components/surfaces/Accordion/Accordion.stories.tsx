@@ -1,13 +1,13 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { AccordionProps, Divider } from '@material-ui/core'
+import { AccordionProps, Divider, Typography } from '@mui/material'
+import ExpandMore from '@mui/icons-material/ExpandMore'
 
 import { Accordion } from './Accordion'
 import { AccordionActions } from './AccordionActions'
 import { AccordionDetails } from './AccordionDetails'
 import { AccordionSummary } from './AccordionSummary'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import { Button } from '../../index'
 
 export default {
@@ -30,10 +30,25 @@ export default {
         defaultValue: { summary: false }
       }
     },
+    disableGutters: {
+      control: { type: 'boolean' },
+      description: 'Enable/ Disable static Header',
+      defaultValue: false,
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false }
+      }
+    },
     expanded: {
       control: { type: 'boolean' },
       table: {
         type: { summary: 'boolean' }
+      }
+    },
+    onClick: {
+      action: { type: 'onClick' },
+      table: {
+        type: { summary: 'func' }
       }
     },
     square: {
@@ -50,8 +65,9 @@ export default {
     controls: { expanded: true },
     design: {
       type: 'figma',
-      url: ''
-    }
+      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%93%9A-Design-System?node-id=701%3A6919'
+    },
+    muiDocSrc: 'https://mui.com/components/accordion/'
   }
 }
 
@@ -59,17 +75,19 @@ const Template: Story<AccordionProps> = (args) => {
   return (
     <Accordion {...args}>
       <AccordionSummary
-        expandIcon={<ExpandMoreIcon />}
+        expandIcon={<ExpandMore />}
         aria-controls='panel1a-content'
         id='panel1a-header'
       >
-        Accordion Header
+        <Typography variant='h6'>Accordion Header</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        In order to put an action such as a Checkbox or a button inside of the
-        AccordionSummary, you need to stop the propagation of the focus and
-        click events to prevent the accordion from expanding/collapsing when
-        using the action.
+        <Typography>
+          In order to put an action such as a Checkbox or a button inside of the
+          AccordionSummary, you need to stop the propagation of the focus and
+          click events to prevent the accordion from expanding/collapsing when
+          using the action.
+        </Typography>
       </AccordionDetails>
     </Accordion>
   )
@@ -78,37 +96,23 @@ const Template: Story<AccordionProps> = (args) => {
 export const Default = Template.bind({})
 Default.args = {}
 
-export const Disabled = Template.bind({})
-Disabled.args = {
-  disabled: true
-}
-
-export const DefaultExpanded = Template.bind({})
-DefaultExpanded.args = {
-  defaultExpanded: true
-}
-
-export const Square = Template.bind({})
-Square.args = {
-  square: true,
-  defaultExpanded: true
-}
-
 export const AccordionAction: Story<AccordionProps> = (args) => {
   return (
     <Accordion {...args}>
       <AccordionSummary
-        expandIcon={<ExpandMoreIcon />}
+        expandIcon={<ExpandMore />}
         aria-controls='panel1a-content'
         id='panel1a-header'
       >
-        Accordion Header
+        <Typography variant='h6'>Accordion Header</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        In order to put an action such as a Checkbox or a button inside of the
-        AccordionSummary, you need to stop the propagation of the focus and
-        click events to prevent the accordion from expanding/collapsing when
-        using the action.
+        <Typography>
+          In order to put an action such as a Checkbox or a button inside of the
+          AccordionSummary, you need to stop the propagation of the focus and
+          click events to prevent the accordion from expanding/collapsing when
+          using the action.
+        </Typography>
       </AccordionDetails>
       <Divider />
       <AccordionActions>

@@ -1,29 +1,10 @@
 import React from 'react'
-import {
-  List as MuiList,
-  ListProps as MuiListProps,
-  makeStyles
-} from '@material-ui/core'
-import { Theme } from '../../../theme/types'
+import { List as MuiList, ListProps as MuiListProps } from '@mui/material'
 
 export interface ListProps extends MuiListProps {
   component?: string | undefined
 }
 
 export function List(props: ListProps): JSX.Element {
-  const classes = useStyles()
-  return (
-    <MuiList
-      classes={{
-        root: classes.root
-      }}
-      {...props}
-    />
-  )
+  return <MuiList {...props} />
 }
-
-const useStyles = makeStyles<Theme>(() => {
-  return {
-    root: {}
-  }
-})

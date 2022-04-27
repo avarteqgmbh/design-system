@@ -1,14 +1,12 @@
 import React, { MouseEventHandler } from 'react'
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles'
-import Card from '@material-ui/core/Card'
-import CardHeader from '@material-ui/core/CardHeader'
-import ListItem from '@material-ui/core/ListItem'
-import ListItemText from '@material-ui/core/ListItemText'
-import ListItemIcon from '@material-ui/core/ListItemIcon'
-import Divider from '@material-ui/core/Divider'
-import { CheckboxProps } from '@material-ui/core'
+import ListItem from '@mui/material/ListItem'
+import ListItemText from '@mui/material/ListItemText'
+import ListItemIcon from '@mui/material/ListItemIcon'
+import { CheckboxProps, SxProps } from '@mui/material'
+import { Theme } from '../../../theme/types'
 import { Checkbox } from '../Checkbox/Checkbox'
-import { List } from '../../dataDisplay/index'
+import { Divider, List } from '../../dataDisplay/index'
+import { Card, CardHeader } from '../../surfaces/index'
 
 export interface CustomListProps {
   items: []
@@ -20,6 +18,7 @@ export interface CustomListProps {
   ) => React.MouseEventHandler<HTMLButtonElement> | undefined
   numberOfChecked: (items: []) => number
   handleToggle: (value: never) => MouseEventHandler<HTMLDivElement> | undefined
+  sx?: SxProps<Theme>
 }
 
 export function CustomList({
@@ -31,12 +30,9 @@ export function CustomList({
   numberOfChecked,
   handleToggle
 }: CustomListProps): JSX.Element {
-  const classes = useStyles()
-
   return (
-    <Card>
+    <Card sx={styles}>
       <CardHeader
-        className={classes.cardHeader}
         avatar={
           <Checkbox
             {...checkboxProps}
@@ -56,8 +52,8 @@ export function CustomList({
         subheader={`${numberOfChecked(items)}/${items.length} selected`}
       />
       <Divider />
-      <List className={classes.list} dense component='div' role='list'>
-          {items.map((item: any) => { // eslint-disable-line
+      <List dense component='div' role='list'>
+        {items.map((item: never) => {
           const { id, name } = item as never
           const labelId = `transfer-list-all-item-${id}-label`
 
@@ -87,16 +83,14 @@ export function CustomList({
   )
 }
 
-const useStyles = makeStyles((theme: Theme) => {
-  return createStyles({
-    cardHeader: {
-      padding: theme.spacing(1, 2)
-    },
-    list: {
-      width: 200,
-      height: 230,
-      backgroundColor: theme.palette.background.paper,
-      overflow: 'auto'
-    }
-  })
-})
+const styles = {
+  '& .MuiCardHeader-root': {
+    padding: 2
+  },
+  '& .MuiList-root': {
+    width: 200,
+    height: 230,
+    bgcolor: 'background.paper',
+    overflow: 'auto'
+  }
+}

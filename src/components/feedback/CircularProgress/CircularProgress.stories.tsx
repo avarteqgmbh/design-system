@@ -1,7 +1,7 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { CircularProgressProps } from '@material-ui/core'
+import { CircularProgressProps } from '@mui/material'
 import { CircularProgress } from './CircularProgress'
 
 export default {
@@ -72,8 +72,9 @@ export default {
     controls: { expanded: true },
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%8E%A8-Design-System?node-id=383%3A3833'
-    }
+      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%93%9A-Design-System?node-id=917%3A7572'
+    },
+    muiDocSrc: 'https://mui.com/components/progress/'
   }
 }
 
@@ -83,43 +84,3 @@ const Template: Story<CircularProgressProps> = (args) => {
 
 export const Default = Template.bind({})
 Default.args = {}
-
-export const Secondary = Template.bind({})
-Secondary.args = {
-  color: 'secondary'
-}
-
-export const Shrink = Template.bind({})
-Shrink.args = {
-  disableShrink: true
-}
-
-export const Determinate = Template.bind({})
-Determinate.args = {
-  variant: 'determinate',
-  value: 42
-}
-
-export const Progress: Story<CircularProgressProps> = (args) => {
-  return (
-    <>
-      <CircularProgress {...args} variant='determinate' value={10} />
-      <CircularProgress {...args} variant='determinate' value={20} />
-      <CircularProgress {...args} variant='determinate' value={40} />
-      <CircularProgress {...args} variant='determinate' value={60} />
-      <CircularProgress {...args} variant='determinate' value={80} />
-    </>
-  )
-}
-
-export const Size: Story<CircularProgressProps> = (args) => {
-  return (
-    <>
-      <CircularProgress {...args} size='20px' />
-      <CircularProgress {...args} size='40px' />
-      <CircularProgress {...args} size='60px' />
-      <CircularProgress {...args} size='80px' />
-      <CircularProgress {...args} size='100px' />
-    </>
-  )
-}

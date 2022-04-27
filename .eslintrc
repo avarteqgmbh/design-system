@@ -187,6 +187,7 @@
     "@typescript-eslint/camelcase": "off",
     "@typescript-eslint/no-explicit-any": "error",
     "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/ban-types": "off",
     // jest rules -> https://github.com/jest-community/eslint-plugin-jest
     "jest/no-disabled-tests": "warn",
     "jest/no-focused-tests": "error",

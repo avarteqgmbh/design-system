@@ -1,43 +1,26 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import {
-  CardProps,
-  makeStyles,
-  Avatar,
-  IconButton,
-  Collapse
-} from '@material-ui/core'
-import clsx from 'clsx'
-import { red } from '@material-ui/core/colors'
-import {
-  Favorite as FavoriteIcon,
-  Share as ShareIcon,
-  MoreVert as MoreVertIcon,
-  ExpandMore as ExpandMoreIcon
-} from '@material-ui/icons'
-import { createStyles } from '@material-ui/core/styles'
+import { CardProps, Avatar, IconButton, Collapse } from '@mui/material'
+import { Check, Share, Favorite, ExpandMore } from '@mui/icons-material'
 
 import { Typography, Button } from '../../index'
-import { Card } from './Card'
+import Card from './Card'
 import { CardContent } from './CardContent'
 import { CardActions } from './CardActions'
 import { CardActionArea } from './CardActionArea'
 import { CardHeader } from './CardHeader'
 import { CardMedia } from './CardMedia'
-import { Theme } from '../../../theme/types'
 
 export default {
   title: 'Surfaces/Card',
   component: Card,
   argTypes: {
-    children: {
-      control: { type: 'node' },
-      table: { type: { summary: 'node' } }
-    },
-    classes: {
-      control: { type: 'object' },
-      table: { type: { summary: 'object' } }
+    onClick: {
+      action: { type: 'onClick' },
+      table: {
+        type: { summary: 'func' }
+      }
     },
     raised: {
       control: { type: 'boolean' },
@@ -58,43 +41,15 @@ export default {
   }
 }
 
-const useStyles = makeStyles({
-  root: {
-    maxWidth: 275
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)'
-  },
-  title: {
-    fontSize: 14
-  },
-  pos: {
-    marginBottom: 12
-  }
-})
-
 export const Default: Story<CardProps> = (args) => {
-  const classes = useStyles()
-  const bull = <span className={classes.bullet}>•</span>
-
   return (
-    <Card className={classes.root} {...args}>
+    <Card {...args}>
       <CardContent>
-        <Typography
-          className={classes.title}
-          color='textSecondary'
-          gutterBottom
-        >
+        <Typography color='textSecondary' gutterBottom>
           Word of the Day
         </Typography>
-        <Typography variant='h5'>
-          be{bull}nev{bull}o{bull}lent
-        </Typography>
-        <Typography className={classes.pos} color='textSecondary'>
-          adjective
-        </Typography>
+        <Typography variant='h5'>Lorem Ipsum</Typography>
+        <Typography color='textSecondary'>adjective</Typography>
         <Typography variant='body2'>
           well meaning and kindly.
           <br />a benevolent smile
@@ -107,50 +62,14 @@ export const Default: Story<CardProps> = (args) => {
   )
 }
 
-const useComplexInteractionStyles = makeStyles((theme: Theme) => {
-  return createStyles({
-    root: {
-      maxWidth: 345
-    },
-    media: {
-      height: 0,
-      paddingTop: '56.25%' // 16:9
-    },
-    expand: {
-      transform: 'rotate(0deg)',
-      marginLeft: 'auto',
-      transition: theme.transitions.create('transform', {
-        duration: theme.transitions.duration.shortest
-      })
-    },
-    expandOpen: {
-      transform: 'rotate(180deg)'
-    },
-    avatar: {
-      backgroundColor: red[500]
-    }
-  })
-})
-
-const useMediaStyles = makeStyles({
-  root: {
-    maxWidth: 345
-  },
-  media: {
-    height: 220
-  }
-})
-
 export const Media: Story<CardProps> = (args) => {
-  const classes = useMediaStyles()
-
   return (
-    <Card className={classes.root} {...args}>
+    <Card {...args}>
       <CardActionArea>
         <CardMedia
-          className={classes.media}
           image='https://img.freepik.com/free-photo/green-chameleon-branch_73152-1609.jpg?size=626&ext=jpg'
           title='Contemplative Reptile'
+          sx={{ height: 194 }}
         />
         <CardContent>
           <Typography gutterBottom variant='h5'>
@@ -175,7 +94,6 @@ export const Media: Story<CardProps> = (args) => {
 }
 
 export const ComplexInteraction: Story<CardProps> = (args) => {
-  const classes = useComplexInteractionStyles()
   const [expanded, setExpanded] = React.useState(false)
 
   const handleExpandClick = (): void => {
@@ -183,25 +101,21 @@ export const ComplexInteraction: Story<CardProps> = (args) => {
   }
 
   return (
-    <Card className={classes.root} {...args}>
+    <Card {...args}>
       <CardHeader
-        avatar={
-          <Avatar aria-label='recipe' className={classes.avatar}>
-            R
-          </Avatar>
-        }
+        avatar={<Avatar aria-label='recipe'>R</Avatar>}
         action={
           <IconButton aria-label='settings'>
-            <MoreVertIcon />
+            <Check />
           </IconButton>
         }
         title='Shrimp and Chorizo Paella'
         subheader='September 14, 2016'
       />
       <CardMedia
-        className={classes.media}
         image='https://www.sainsburysmagazine.co.uk/uploads/media/2400x1800/06/10696-Smoky_Prawn_Paella_2.jpg?v=1-0'
         title='Paella dish'
+        sx={{ height: 194 }}
       />
       <CardContent>
         <Typography variant='body2' color='textSecondary'>
@@ -212,20 +126,17 @@ export const ComplexInteraction: Story<CardProps> = (args) => {
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label='add to favorites'>
-          <FavoriteIcon />
+          <Favorite />
         </IconButton>
         <IconButton aria-label='share'>
-          <ShareIcon />
+          <Share />
         </IconButton>
         <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded
-          })}
           onClick={handleExpandClick}
           aria-expanded={expanded}
           aria-label='show more'
         >
-          <ExpandMoreIcon />
+          <ExpandMore />
         </IconButton>
       </CardActions>
       <Collapse in={expanded} timeout='auto' unmountOnExit>

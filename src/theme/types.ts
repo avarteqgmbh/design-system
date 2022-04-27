@@ -1,13 +1,10 @@
 import {
   Color,
   Theme as MuiTheme,
-  ThemeOptions as MuiThemeOptions
-} from '@material-ui/core'
-import {
-  Palette as MuiPalette,
-  PaletteColor,
-  TypeBackground
-} from '@material-ui/core/styles/createPalette'
+  DeprecatedThemeOptions as MuiThemeOptions
+} from '@mui/material'
+import { Palette as MuiPalette, PaletteColor } from '@mui/material/styles'
+import { TypeBackground } from '@mui/material/styles/createPalette'
 
 export interface Background extends TypeBackground {
   light?: string
@@ -24,6 +21,7 @@ export interface Gradients {
   midnight?: string
   primary?: string
 }
+
 export interface Primary extends PaletteColor {
   lighter?: string
   darker?: string
@@ -49,7 +47,8 @@ export interface Theme extends MuiTheme {
   palette: Palette
   radius: Radius
 }
-export interface ThemeOptions extends MuiThemeOptions {
+
+export interface DeprecatedThemeOptions extends MuiThemeOptions {
   palette: Palette
   radius: Radius
 }

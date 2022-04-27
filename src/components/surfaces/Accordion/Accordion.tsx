@@ -1,25 +1,21 @@
 import React from 'react'
-import {
-  Accordion as MuiAccordion,
-  AccordionProps,
-  makeStyles
-} from '@material-ui/core'
-import { Theme } from '../../../theme/types'
+import MuiAccordion, { AccordionProps } from '@mui/material/Accordion'
 
 export function Accordion(props: AccordionProps): JSX.Element {
-  const classes = useStyles()
-  return (
-    <MuiAccordion
-      classes={{
-        root: classes.root
-      }}
-      {...props}
-    />
-  )
+  const { sx } = props
+
+  return <MuiAccordion sx={{ ...sx, ...styles }} {...props} />
 }
 
-const useStyles = makeStyles<Theme>(() => {
-  return {
-    root: {}
+const styles = {
+  padding: '0 8px 0 16px',
+  '& .MuiCollapse-root': {
+    padding: '0 16px 0 8px',
+    '& .MuiAccordionDetails-root': {
+      padding: '4px 0 8px'
+    },
+    '& .MuiAccordionActions-root': {
+      padding: '16px 0'
+    }
   }
-})
+}

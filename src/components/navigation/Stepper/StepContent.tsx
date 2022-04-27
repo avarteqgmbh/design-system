@@ -1,24 +1,11 @@
 import React from 'react'
 import {
   StepContent as MuiStepContent,
-  StepContentProps as MuiStepContentProps,
-  makeStyles,
-  createStyles
-} from '@material-ui/core'
+  StepContentProps as MuiStepContentProps
+} from '@mui/material'
 
 export function StepContent(props: MuiStepContentProps): JSX.Element {
-  const classes = useStyles()
   const { children } = props
 
-  return (
-    <MuiStepContent {...props} className={classes.root}>
-      {children}
-    </MuiStepContent>
-  )
+  return <MuiStepContent {...props}>{children}</MuiStepContent>
 }
-
-const useStyles = makeStyles(() => {
-  return createStyles({
-    root: {}
-  })
-})

@@ -1,28 +1,15 @@
 import React from 'react'
-import {
-  CardActionArea as MuiCardActionArea,
-  CardActionAreaProps,
-  makeStyles
-} from '@material-ui/core'
-import { Theme } from '../../../theme/types'
+import MuiCardActionArea, {
+  CardActionAreaProps
+} from '@mui/material/CardActionArea'
 
-export function CardActionArea(props: CardActionAreaProps): JSX.Element {
-  const classes = useStyles()
-  const { children } = props
-  return (
-    <MuiCardActionArea
-      classes={{
-        root: classes.root
-      }}
-      {...props}
-    >
-      {children}
-    </MuiCardActionArea>
-  )
+export interface MuiCardActionAreaProps extends CardActionAreaProps {
+  href?: string
+  target?: string
 }
 
-const useStyles = makeStyles<Theme>(() => {
-  return {
-    root: {}
-  }
-})
+export function CardActionArea(props: MuiCardActionAreaProps): JSX.Element {
+  const { children } = props
+
+  return <MuiCardActionArea {...props}>{children}</MuiCardActionArea>
+}

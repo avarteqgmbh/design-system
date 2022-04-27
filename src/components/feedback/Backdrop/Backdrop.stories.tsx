@@ -1,7 +1,6 @@
 import React from 'react'
 import { Story } from '@storybook/react'
-import { withDesign } from 'storybook-addon-designs'
-import { BackdropProps } from '@material-ui/core'
+import { BackdropProps } from '@mui/material'
 import { Button, CircularProgress } from '../../index'
 import { Backdrop } from './Backdrop'
 
@@ -34,13 +33,9 @@ export default {
       }
     }
   },
-  decorators: [withDesign],
   parameters: {
     controls: { expanded: true },
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%8E%A8-Design-System?node-id=383%3A3833'
-    }
+    muiDocSrc: 'https://mui.com/components/backdrop/'
   }
 }
 

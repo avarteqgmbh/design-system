@@ -1,6 +1,5 @@
 import React from 'react'
-import { Box } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles'
+import { Box } from '@mui/material'
 
 interface TabPanelProps {
   children: React.ReactNode
@@ -10,11 +9,9 @@ interface TabPanelProps {
 
 export const TabPanel = (props: TabPanelProps): JSX.Element => {
   const { children, value, index, ...other } = props
-  const classes = useStyles()
 
   return (
     <div
-      className={classes.root}
       role='tabpanel'
       hidden={value !== index}
       id={`tabpanel-${index}`}
@@ -25,9 +22,3 @@ export const TabPanel = (props: TabPanelProps): JSX.Element => {
     </div>
   )
 }
-
-const useStyles = makeStyles(() => {
-  return {
-    root: {}
-  }
-})

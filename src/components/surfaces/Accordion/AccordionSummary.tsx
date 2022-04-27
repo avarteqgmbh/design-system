@@ -1,25 +1,8 @@
 import React from 'react'
-import {
-  AccordionSummary as MuiAccordionSummary,
-  AccordionSummaryProps,
-  makeStyles
-} from '@material-ui/core'
-import { Theme } from '../../../theme/types'
+import MuiAccordionSummary, {
+  AccordionSummaryProps
+} from '@mui/material/AccordionSummary'
 
 export function AccordionSummary(props: AccordionSummaryProps): JSX.Element {
-  const classes = useStyles()
-  return (
-    <MuiAccordionSummary
-      classes={{
-        root: classes.root
-      }}
-      {...props}
-    />
-  )
+  return <MuiAccordionSummary {...props} />
 }
-
-const useStyles = makeStyles<Theme>(() => {
-  return {
-    root: {}
-  }
-})

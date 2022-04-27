@@ -1,9 +1,11 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { SnackbarProps } from '@material-ui/core'
+import { SnackbarProps } from '@mui/material'
+import MuiAlert, { AlertProps } from '@mui/material/Alert'
+
 import { Snackbar } from './Snackbar'
-import { Alert, Button } from '../../index'
+import { Button } from '../../index'
 
 export default {
   title: 'Feedback/Snackbar',
@@ -47,13 +49,11 @@ export default {
     controls: { expanded: true },
     design: {
       type: 'figma',
-      url: ''
-    }
+      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%93%9A-Design-System?node-id=842%3A7724'
+    },
+    muiDocSrc: 'https://mui.com/components/snackbars/'
   }
 }
-
-const successAlert = <Alert severity='success'>success message!</Alert>
-const errorAlert = <Alert severity='error'>error message!</Alert>
 
 const Template: Story<SnackbarProps> = (args) => {
   return <Snackbar {...args} />
@@ -65,71 +65,28 @@ Default.args = {
   message: 'My Snackbar message'
 }
 
-export const AlertSuccess = Template.bind({})
-AlertSuccess.args = {
-  open: true,
-  children: successAlert
-}
-
-export const AlertError = Template.bind({})
-AlertError.args = {
-  open: true,
-  children: errorAlert
-}
-
-export const TopCenter = Template.bind({})
-TopCenter.args = {
-  open: true,
-  children: successAlert,
-  anchorOrigin: { vertical: 'top', horizontal: 'center' }
-}
-
-export const TopRight = Template.bind({})
-TopRight.args = {
-  open: true,
-  children: successAlert,
-  anchorOrigin: { vertical: 'top', horizontal: 'right' }
-}
-
-export const TopLeft = Template.bind({})
-TopLeft.args = {
-  open: true,
-  children: successAlert,
-  anchorOrigin: { vertical: 'top', horizontal: 'left' }
-}
-
-export const BottomCenter = Template.bind({})
-BottomCenter.args = {
-  open: true,
-  children: successAlert,
-  anchorOrigin: { vertical: 'bottom', horizontal: 'center' }
-}
-
-export const BottomRight = Template.bind({})
-BottomRight.args = {
-  open: true,
-  children: successAlert,
-  anchorOrigin: { vertical: 'bottom', horizontal: 'right' }
-}
-
-export const BottomLeft = Template.bind({})
-BottomLeft.args = {
-  open: true,
-  children: successAlert,
-  anchorOrigin: { vertical: 'bottom', horizontal: 'left' }
-}
-
-export const StatefulSnackbar: Story<SnackbarProps> = (args) => {
+export const AlertSnackbar: Story<SnackbarProps> = () => {
   const [open, setOpen] = React.useState(false)
+
+  const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
+    props,
+    ref
+  ) {
+    return <MuiAlert elevation={6} ref={ref} variant='filled' {...props} />
+  })
 
   const handleClick = (): void => {
     setOpen(true)
   }
 
-  const handleClose = (event?: React.SyntheticEvent, reason?: string): void => {
+  const handleClose = (
+    event?: React.SyntheticEvent | Event,
+    reason?: string
+  ): void => {
     if (reason === 'clickaway') {
       return
     }
+
     setOpen(false)
   }
 
@@ -138,13 +95,8 @@ export const StatefulSnackbar: Story<SnackbarProps> = (args) => {
       <Button variant='outlined' onClick={handleClick}>
         Open success snackbar
       </Button>
-      <Snackbar
-        {...args}
-        open={open}
-        autoHideDuration={6000}
-        onClose={handleClose}
-      >
-        <Alert onClose={handleClose} severity='success'>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity='success' sx={{ width: '100%' }}>
           This is a success message!
         </Alert>
       </Snackbar>

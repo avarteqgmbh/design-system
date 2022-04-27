@@ -2,24 +2,11 @@ import React from 'react'
 import {
   Grid as MuiGrid,
   GridProps as MuiGridProps,
-  makeStyles
-} from '@material-ui/core'
-import { Theme } from '../../../theme/types'
+  GridDirection
+} from '@mui/material'
 
 export function Grid(props: MuiGridProps): JSX.Element {
-  const classes = useStyles()
-  return (
-    <MuiGrid
-      classes={{
-        root: classes.root
-      }}
-      {...props}
-    />
-  )
+  return <MuiGrid {...props} />
 }
 
-const useStyles = makeStyles<Theme>(() => {
-  return {
-    root: {}
-  }
-})
+export type { GridDirection }

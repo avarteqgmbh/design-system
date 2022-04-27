@@ -1,13 +1,20 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { Radio, RadioProps } from '@material-ui/core'
+import {
+  FormLabel,
+  FormControlLabel,
+  RadioGroup,
+  RadioProps
+} from '@mui/material'
+
+import { Radio } from './Radio'
+import { FormControl, Typography } from '../../index'
 
 export default {
-  title: 'Input/Radio',
+  title: 'Inputs/Radio',
   component: Radio,
   argTypes: {
-    id: 'radio',
     size: {
       control: { type: 'select' },
       options: ['small', 'medium'],
@@ -26,15 +33,6 @@ export default {
         defaultValue: { summary: 'secondary' }
       }
     },
-    checked: {
-      control: { type: 'boolean' },
-      options: ['true', 'false'],
-      defaultValue: false,
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false }
-      }
-    },
     disabled: {
       control: { type: 'boolean' },
       options: ['true', 'false'],
@@ -45,7 +43,10 @@ export default {
       }
     },
     onChange: {
-      action: { argTypesRegex: '^on.*' }
+      action: { type: 'onChange' },
+      table: {
+        type: { summary: 'func' }
+      }
     }
   },
   decorators: [withDesign],
@@ -53,54 +54,41 @@ export default {
     controls: { expanded: true },
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%8E%A8-Design-System?node-id=384%3A10377'
-    }
+      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%93%9A-Design-System?node-id=384%3A10377'
+    },
+    muiDocSrc: 'https://mui.com/components/radio-buttons/'
   }
 }
 
 const Template: Story<RadioProps> = (args) => {
-  return <Radio {...args} />
+  return (
+    <>
+      <FormControl>
+        <FormLabel id='demo-radio-buttons-group-label'>Gender</FormLabel>
+        <RadioGroup
+          aria-labelledby='demo-radio-buttons-group-label'
+          defaultValue='female'
+          name='radio-buttons-group'
+        >
+          <FormControlLabel
+            value='female'
+            control={<Radio {...args} />}
+            label={<Typography color='textPrimary'>Female</Typography>}
+          />
+          <FormControlLabel
+            value='male'
+            control={<Radio {...args} />}
+            label={<Typography color='textPrimary'>Male</Typography>}
+          />
+          <FormControlLabel
+            value='other'
+            control={<Radio {...args} />}
+            label={<Typography color='textPrimary'>Other</Typography>}
+          />
+        </RadioGroup>
+      </FormControl>
+    </>
+  )
 }
 
 export const Default = Template.bind({})
-Default.args = {
-  color: 'secondary',
-  size: 'medium',
-  checked: true
-}
-
-export const Primary = Template.bind({})
-Primary.args = {
-  color: 'primary',
-  size: 'medium',
-  checked: true
-}
-
-export const Small = Template.bind({})
-Small.args = {
-  size: 'small',
-  color: 'primary',
-  checked: true
-}
-
-export const Medium = Template.bind({})
-Medium.args = {
-  size: 'medium',
-  color: 'primary',
-  checked: true
-}
-
-export const Unchecked = Template.bind({})
-Unchecked.args = {
-  size: 'medium',
-  color: 'primary',
-  checked: false
-}
-
-export const Disabled = Template.bind({})
-Disabled.args = {
-  size: 'medium',
-  color: 'primary',
-  checked: true,
-  disabled: true
-}

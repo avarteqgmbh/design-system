@@ -1,18 +1,6 @@
 import React from 'react'
-import {
-  Box as MuiBox,
-  BoxProps as MuiBoxProps,
-  makeStyles
-} from '@material-ui/core'
-import { Theme } from '../../../theme/types'
+import { Box as MuiBox, BoxProps as MuiBoxProps } from '@mui/material'
 
 export function Box(props: MuiBoxProps): JSX.Element {
-  const classes = useStyles()
-  return <MuiBox className={`${classes.root}`} {...props} />
+  return <MuiBox {...props} />
 }
-
-const useStyles = makeStyles<Theme>(() => {
-  return {
-    root: {}
-  }
-})

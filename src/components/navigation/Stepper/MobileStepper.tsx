@@ -1,19 +1,9 @@
 import React from 'react'
 import {
   MobileStepper as MuiMobileStepper,
-  MobileStepperProps as MuiMobileStepperProps,
-  makeStyles,
-  createStyles
-} from '@material-ui/core'
+  MobileStepperProps as MuiMobileStepperProps
+} from '@mui/material'
 
 export function MobileStepper(props: MuiMobileStepperProps): JSX.Element {
-  const classes = useStyles()
-
-  return <MuiMobileStepper {...props} className={classes.root} />
+  return <MuiMobileStepper {...props} />
 }
-
-const useStyles = makeStyles(() => {
-  return createStyles({
-    root: {}
-  })
-})

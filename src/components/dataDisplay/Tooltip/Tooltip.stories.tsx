@@ -1,13 +1,12 @@
 import React from 'react'
 import { Story } from '@storybook/react'
-import { withDesign } from 'storybook-addon-designs'
-import { TooltipProps } from '@material-ui/core'
-import Fade from '@material-ui/core/Fade'
-import Zoom from '@material-ui/core/Zoom'
+import { styled } from '@mui/material/styles'
+import { TooltipProps } from '@mui/material'
+import Fade from '@mui/material/Fade'
+import Zoom from '@mui/material/Zoom'
+import Add from '@mui/icons-material/Add'
 
 import { Tooltip } from './Tooltip'
-import { FloatingActionButton as Fab } from '../../index'
-import AddIcon from '@material-ui/icons/Add'
 
 export default {
   title: 'Data Display/Tooltip',
@@ -123,26 +122,38 @@ export default {
         type: { summary: 'number' },
         defaultValue: { summary: 100 }
       }
+    },
+    onClose: {
+      action: { type: 'closed' },
+      table: {
+        type: { summary: 'func' }
+      }
+    },
+    onOpen: {
+      action: { type: 'opended' },
+      table: {
+        type: { summary: 'func' }
+      }
     }
   },
-  decorators: [withDesign],
   parameters: {
     controls: { expanded: true },
-    design: {
-      type: 'figma',
-      url: ''
-    }
+    muiDocSrc: 'https://mui.com/components/tooltips/'
   }
 }
-const FAB = (
-  <Fab color='primary'>
-    <AddIcon />
-  </Fab>
-)
+
+const StyledIcon = styled(Add)(({ theme }) => {
+  return {
+    '&.MuiSvgIcon-root': {
+      color: theme.palette.text.primary
+    }
+  }
+})
+
 const Template: Story<TooltipProps> = (args) => {
   return (
     <Tooltip {...args} aria-label='add' style={{ margin: '80px' }}>
-      {FAB}
+      <StyledIcon />
     </Tooltip>
   )
 }
@@ -150,30 +161,6 @@ const Template: Story<TooltipProps> = (args) => {
 export const Default = Template.bind({})
 Default.args = {
   title: 'Add'
-}
-
-export const Arrow = Template.bind({})
-Arrow.args = {
-  title: 'Add',
-  arrow: true
-}
-
-export const Right = Template.bind({})
-Right.args = {
-  title: 'Add',
-  placement: 'right'
-}
-
-export const Top = Template.bind({})
-Top.args = {
-  title: 'Add',
-  placement: 'top'
-}
-
-export const Left = Template.bind({})
-Left.args = {
-  title: 'Add',
-  placement: 'left'
 }
 
 export const GrowTransition = Template.bind({})
@@ -197,10 +184,4 @@ export const ZoomTransition = Template.bind({})
 ZoomTransition.args = {
   title: 'Zoom',
   TransitionComponent: Zoom
-}
-
-export const LightTooltip = Template.bind({})
-LightTooltip.args = {
-  title: 'Light',
-  className: 'classes.LightTooltip'
 }

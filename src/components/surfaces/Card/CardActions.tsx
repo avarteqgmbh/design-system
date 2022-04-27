@@ -1,28 +1,12 @@
 import React from 'react'
-import {
-  CardActions as MuiCardActions,
-  CardActionsProps,
-  makeStyles
-} from '@material-ui/core'
-import { Theme } from '../../../theme/types'
+import MuiCardActions, { CardActionsProps } from '@mui/material/CardActions'
 
 export function CardActions(props: CardActionsProps): JSX.Element {
-  const classes = useStyles()
   const { children } = props
+
   return (
-    <MuiCardActions
-      classes={{
-        root: classes.root
-      }}
-      {...props}
-    >
+    <MuiCardActions sx={{ padding: '4px 16px 16px 16px' }} {...props}>
       {children}
     </MuiCardActions>
   )
 }
-
-const useStyles = makeStyles<Theme>(() => {
-  return {
-    root: {}
-  }
-})

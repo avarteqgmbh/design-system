@@ -1,114 +1,51 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { ButtonProps } from '@material-ui/core'
 import { Button } from './Button'
-import WbSunnyIcon from '@material-ui/icons/WbSunny'
+import { ButtonProps } from '@mui/material'
+import { Check, Delete } from '@mui/icons-material'
 
 export default {
-  title: 'Input/Button',
+  title: 'Inputs/Button',
   component: Button,
   argTypes: {
-    size: {
-      control: 'select',
-      options: ['small', 'medium', 'large'],
-      defaultValue: 'medium'
-    },
-    color: {
-      control: 'select',
-      options: ['primary', 'secondary', 'default', 'inherit'],
-      defaultValue: 'primary'
-    },
-    variant: {
-      control: 'select',
-      options: ['contained', 'outlined', 'text'],
-      defaultValue: 'contained'
-    },
-    onClick: { action: { type: 'clicked' } }
+    onClick: {
+      action: { type: 'onClick' },
+      table: {
+        type: { summary: 'func' }
+      }
+    }
   },
   decorators: [withDesign],
   parameters: {
+    controls: { expanded: true },
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%8E%A8-Design-System?node-id=181%3A375'
-    }
+      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%93%9A-Design-System?node-id=1630%3A14396'
+    },
+    muiDocSrc: 'https://mui.com/components/buttons/'
   }
 }
 
 const Template: Story<ButtonProps> = (args) => {
-  return <Button {...args}>Button</Button>
+  return <Button {...args} />
 }
+
+const ButtonLabel = <span>Label</span>
 
 export const Default = Template.bind({})
 Default.args = {
-  color: 'default',
-  variant: 'contained'
+  children: ButtonLabel
 }
 
-export const Primary = Template.bind({})
-Primary.args = {
-  color: 'primary',
-  variant: 'contained'
+export const WithStartIcon = Template.bind({})
+WithStartIcon.args = {
+  children: ButtonLabel,
+  startIcon: <Check />
 }
 
-export const Secondary = Template.bind({})
-Secondary.args = {
-  color: 'secondary',
-  variant: 'contained'
-}
-
-export const Inherit = Template.bind({})
-Inherit.args = {
-  color: 'inherit',
-  variant: 'contained'
-}
-
-export const Large = Template.bind({})
-Large.args = {
-  size: 'large'
-}
-
-export const Medium = Template.bind({})
-Medium.args = {
-  size: 'medium'
-}
-
-export const Small = Template.bind({})
-Small.args = {
-  size: 'small'
-}
-
-export const FullWidth = Template.bind({})
-FullWidth.args = {
-  fullWidth: true
-}
-
-export const Disabled = Template.bind({})
-Disabled.args = {
-  disabled: true
-}
-
-export const Contained = Template.bind({})
-Contained.args = {
-  variant: 'contained'
-}
-
-export const Outlined = Template.bind({})
-Outlined.args = {
-  variant: 'outlined'
-}
-
-export const Text = Template.bind({})
-Text.args = {
-  variant: 'text'
-}
-
-export const StartIconMui = Template.bind({})
-StartIconMui.args = {
-  startIcon: <WbSunnyIcon />
-}
-
-export const EndIconMui = Template.bind({})
-EndIconMui.args = {
-  endIcon: <WbSunnyIcon />
+export const WithEndIcon = Template.bind({})
+WithEndIcon.args = {
+  children: ButtonLabel,
+  endIcon: <Delete />
 }

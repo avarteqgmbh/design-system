@@ -1,24 +1,11 @@
 import React from 'react'
 import {
   Stepper as MuiStepper,
-  StepperProps as MuiStepperProps,
-  makeStyles,
-  createStyles
-} from '@material-ui/core'
+  StepperProps as MuiStepperProps
+} from '@mui/material'
 
 export function Stepper(props: MuiStepperProps): JSX.Element {
-  const classes = useStyles()
   const { children } = props
 
-  return (
-    <MuiStepper {...props} className={classes.root}>
-      {children}
-    </MuiStepper>
-  )
+  return <MuiStepper {...props}>{children}</MuiStepper>
 }
-
-const useStyles = makeStyles(() => {
-  return createStyles({
-    root: {}
-  })
-})

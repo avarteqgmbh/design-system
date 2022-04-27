@@ -2,30 +2,23 @@ import React from 'react'
 import {
   Select as MuiSelect,
   SelectProps as MuiSelectProps,
-  makeStyles
-} from '@material-ui/core'
-import { Theme } from '../../../theme/types'
+  SelectChangeEvent
+} from '@mui/material'
 
-export function Select(props: MuiSelectProps): JSX.Element {
-  const classes = useStyles()
-  const { variant = 'outlined' } = props
-  return (
-    <MuiSelect
-      classes={{
-        root: classes.root
-      }}
-      variant={variant}
-      {...props}
-    />
-  )
+export interface SelectProps extends Omit<MuiSelectProps, 'onChange'> {
+  onChange?: (event: SelectChangeEvent<unknown>, child: React.ReactNode) => void
 }
 
-const useStyles = makeStyles((theme: Theme) => {
-  return {
-    root: {
-      '& .MuiSelect-iconFilled': {
-        color: theme.palette.text.primary
-      }
-    }
+export function Select(props: SelectProps): JSX.Element {
+  const { variant = 'outlined', sx } = props
+
+  return <MuiSelect sx={{ ...sx, ...styles }} variant={variant} {...props} />
+}
+
+export type { SelectChangeEvent }
+
+const styles = {
+  '& .MuiSelect-icon': {
+    color: 'text.primary'
   }
-})
+}

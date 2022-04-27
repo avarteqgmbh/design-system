@@ -1,23 +1,21 @@
 import React from 'react'
-import {
-  Tabs as MuiTabs,
-  TabsProps,
-  makeStyles,
-  createStyles
-} from '@material-ui/core'
+import { Tabs as MuiTabs, TabsProps as MuiTabsProps } from '@mui/material'
+
+export interface TabsProps extends Omit<MuiTabsProps, 'onChange'> {
+  onChange: (event: React.ChangeEvent<{}>, newValue: number) => void
+}
 
 export function Tabs(props: TabsProps): JSX.Element {
-  const classes = useStyles()
-  const { children } = props
+  const { children, sx } = props
   return (
-    <MuiTabs className={classes.root} {...props}>
+    <MuiTabs sx={{ ...sx, ...styles }} {...props}>
       {children}
     </MuiTabs>
   )
 }
 
-const useStyles = makeStyles(() => {
-  return createStyles({
-    root: {}
-  })
-})
+const styles = {
+  '& .MuiTabs-scrollButtons': {
+    color: 'text.primary'
+  }
+}

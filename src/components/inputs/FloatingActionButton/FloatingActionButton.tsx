@@ -1,42 +1,47 @@
 import React from 'react'
-import {
-  Fab as MuiFab,
-  FabProps as MuiFabProps,
-  makeStyles
-} from '@material-ui/core'
-import { Theme } from '../../../theme/types'
+import { Fab as MuiFab, FabProps as MuiFabProps } from '@mui/material'
 
 export function FloatingActionButton(props: MuiFabProps): JSX.Element {
-  const classes = useStyles()
-  const { children } = props
+  const { children, sx } = props
+
   return (
-    <MuiFab
-      classes={{
-        root: classes.root
-      }}
-      {...props}
-    >
+    <MuiFab sx={{ ...sx, ...styles }} {...props}>
       {children}
     </MuiFab>
   )
 }
 
-const useStyles = makeStyles((theme: Theme) => {
-  return {
-    root: {
-      background: theme.palette.background.light,
-      boxShadow: 'none',
-      borderStyle: 'solid',
-      borderWidth: 1,
-      borderColor: theme.palette.background.border,
+const styles = {
+  boxShadow: 'none',
+  borderStyle: 'solid',
+  borderWidth: 1,
+  borderColor: 'background.border',
+  bgcolor: 'background.border',
+  color: 'text.primary',
 
-      '& .MuiSvgIcon-root': {
-        color: theme.palette.text.primary
-      },
-
-      '&:hover': {
-        background: theme.palette.background.medium
-      }
+  '&.MuiFab-primary': {
+    bgcolor: 'primary.main',
+    borderColor: 'primary.main',
+    color: 'primary.contrastText',
+    '&:hover': {
+      bgcolor: 'primary.dark',
+      borderColor: 'primary.dark'
     }
+  },
+
+  '&.MuiFab-secondary': {
+    bgcolor: 'secondary.main',
+    borderColor: 'secondary.main',
+    color: 'secondary.contrastText',
+
+    '&:hover': {
+      bgcolor: 'secondary.dark',
+      borderColor: 'secondary.dark'
+    }
+  },
+
+  '&:hover': {
+    bgcolor: 'background.light',
+    borderColor: 'background.light'
   }
-})
+}

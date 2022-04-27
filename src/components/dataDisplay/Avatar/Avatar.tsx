@@ -1,21 +1,26 @@
 import React from 'react'
-import { Avatar as MuiAvatar, AvatarProps, makeStyles } from '@material-ui/core'
-import { Theme } from '../../../theme/types'
+import {
+  Avatar as MuiAvatar,
+  AvatarProps as MuiAvatarProps
+} from '@mui/material'
+import { Badge } from '../Badge/Badge'
 
-export function Avatar(props: AvatarProps): JSX.Element {
-  const classes = useStyles()
-  return (
-    <MuiAvatar
-      classes={{
-        root: classes.root
-      }}
-      {...props}
-    />
-  )
+export interface AvatarProps extends MuiAvatarProps {
+  badge?: boolean | undefined
 }
 
-const useStyles = makeStyles<Theme>(() => {
-  return {
-    root: {}
-  }
-})
+export function Avatar(props: AvatarProps): JSX.Element {
+  const { badge = false } = props
+
+  return badge ? (
+    <Badge
+      overlap='circular'
+      anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+      variant='dot'
+    >
+      <MuiAvatar {...props} />
+    </Badge>
+  ) : (
+    <MuiAvatar {...props} />
+  )
+}

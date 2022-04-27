@@ -8,24 +8,8 @@ import {
   DialogContentText,
   DialogProps as MuiDialogProps,
   DialogTitle
-} from '@material-ui/core'
+} from '@mui/material'
 import { Button } from '../../index'
-
-const head = `Lorem Ipsum`
-
-const body = ` Cras mattis consectetur purus sit amet fermentum.Cras justo odio
-dapibus ac facilisis in, egestas eget quam.Morbi leo risus, porta
-ac consectetur ac, vestibulum at eros.Praesent commodo cursus
-magna, vel scelerisque nisl consectetur et.Cras mattis consectetur purus sit amet fermentum.Cras justo odio,
-  dapibus ac facilisis in, egestas eget quam.Morbi leo risus, porta
-ac consectetur ac, vestibulum at eros.Praesent commodo cursus
-magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum.Cras justo odio
-dapibus ac facilisis in, egestas eget quam.Morbi leo risus, porta
-ac consectetur ac, vestibulum at eros.Praesent commodo cursus
-magna, vel scelerisque nisl consectetur et.Cras mattis consectetur purus sit amet fermentum.Cras justo odio,
-  dapibus ac facilisis in, egestas eget quam.Morbi leo risus, porta
-ac consectetur ac, vestibulum at eros.Praesent commodo cursus
-magna, vel scelerisque nisl consectetur et.`
 
 export default {
   title: 'Feedback/Dialog',
@@ -94,10 +78,27 @@ export default {
     controls: { expanded: true },
     design: {
       type: 'figma',
-      url: ''
-    }
+      url: 'https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/%F0%9F%93%9A-Design-System?node-id=762%3A7043'
+    },
+    muiDocSrc: 'https://mui.com/components/dialogs/'
   }
 }
+
+const head = `Lorem Ipsum`
+
+const body = ` Cras mattis consectetur purus sit amet fermentum.Cras justo odio
+dapibus ac facilisis in, egestas eget quam.Morbi leo risus, porta
+ac consectetur ac, vestibulum at eros.Praesent commodo cursus
+magna, vel scelerisque nisl consectetur et.Cras mattis consectetur purus sit amet fermentum.Cras justo odio,
+  dapibus ac facilisis in, egestas eget quam.Morbi leo risus, porta
+ac consectetur ac, vestibulum at eros.Praesent commodo cursus
+magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum.Cras justo odio
+dapibus ac facilisis in, egestas eget quam.Morbi leo risus, porta
+ac consectetur ac, vestibulum at eros.Praesent commodo cursus
+magna, vel scelerisque nisl consectetur et.Cras mattis consectetur purus sit amet fermentum.Cras justo odio,
+  dapibus ac facilisis in, egestas eget quam.Morbi leo risus, porta
+ac consectetur ac, vestibulum at eros.Praesent commodo cursus
+magna, vel scelerisque nisl consectetur et.`
 
 const AlertTemplate: Story<MuiDialogProps> = (args) => {
   const [open, setOpen] = React.useState(false)
@@ -131,45 +132,3 @@ const AlertTemplate: Story<MuiDialogProps> = (args) => {
 
 export const Default = AlertTemplate.bind({})
 Default.args = {}
-
-export const DisabledEsc = AlertTemplate.bind({})
-DisabledEsc.args = {
-  'aria-describedby': 'alert-dialog-description',
-  'aria-labelledby': 'alert-dialog-title',
-  disableEscapeKeyDown: true
-}
-
-export const FullScreen = AlertTemplate.bind({})
-FullScreen.args = {
-  'aria-describedby': 'alert-dialog-description',
-  'aria-labelledby': 'alert-dialog-title',
-  fullScreen: true
-}
-
-export const xlWidth = AlertTemplate.bind({})
-xlWidth.args = {
-  'aria-describedby': 'alert-dialog-description',
-  'aria-labelledby': 'alert-dialog-title',
-  maxWidth: 'xl'
-}
-
-export const xsWidth = AlertTemplate.bind({})
-xsWidth.args = {
-  'aria-describedby': 'alert-dialog-description',
-  'aria-labelledby': 'alert-dialog-title',
-  maxWidth: 'xs'
-}
-
-export const scrollBody = AlertTemplate.bind({})
-scrollBody.args = {
-  'aria-describedby': 'alert-dialog-description',
-  'aria-labelledby': 'alert-dialog-title',
-  scroll: 'body'
-}
-
-export const scrollPaper = AlertTemplate.bind({})
-scrollPaper.args = {
-  'aria-describedby': 'alert-dialog-description',
-  'aria-labelledby': 'alert-dialog-title',
-  scroll: 'paper'
-}

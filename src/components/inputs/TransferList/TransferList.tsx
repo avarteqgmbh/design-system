@@ -1,6 +1,5 @@
 import React from 'react'
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles'
-import { CheckboxProps } from '@material-ui/core'
+import { CheckboxProps } from '@mui/material'
 import { Button } from '../Button/Button'
 import { Grid } from '../../layout/index'
 import { CustomList } from './CustomList'
@@ -10,7 +9,6 @@ export interface TransferListProps {
   rightList: []
   checkedList?: never[]
   checkboxProps?: CheckboxProps
-  checkKey?: string
   onChange: (leftList: [], rightList: []) => void
 }
 
@@ -43,7 +41,6 @@ export function TransferList({
   checkboxProps = {},
   onChange
 }: TransferListProps): JSX.Element {
-  const classes = useStyles()
   const [checked, setChecked] = React.useState<never[]>(checkedList)
   const [left, setLeft] = React.useState<[]>(leftList)
   const [right, setRight] = React.useState<[]>(rightList)
@@ -75,7 +72,9 @@ export function TransferList({
 
   const handleToggleAll = (items: never[]) => {
     return (): void => {
-      const c: any = items.map((value: any) => { // eslint-disable-line
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const c: any = items.map((value: any) => {
+        // eslint-disable-line
         return value.id
       })
 
@@ -89,7 +88,9 @@ export function TransferList({
 
   const handleCheckedRight = (): void => {
     const r: any = right // eslint-disable-line
-    const c: any = left.filter((value: any) => { // eslint-disable-line
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const c: any = left.filter((value: any) => {
+      // eslint-disable-line
       return leftChecked.indexOf(value.id) !== -1
     })
     setRight(r.concat(c))
@@ -99,7 +100,9 @@ export function TransferList({
 
   const handleCheckedLeft = (): void => {
     const l: any = left // eslint-disable-line
-    const c: any = right.filter((value: any) => { // eslint-disable-line
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const c: any = right.filter((value: any) => {
+      // eslint-disable-line
       return rightChecked.indexOf(value.id) !== -1
     })
     setLeft(l.concat(c))
@@ -108,13 +111,7 @@ export function TransferList({
   }
 
   return (
-    <Grid
-      container
-      spacing={2}
-      justify='center'
-      alignItems='center'
-      className={classes.root}
-    >
+    <Grid container spacing={4} justifyContent='center' alignItems='center'>
       <Grid item>
         <CustomList
           items={left}
@@ -127,30 +124,31 @@ export function TransferList({
         />
       </Grid>
       <Grid item>
-        <Grid container direction='column' alignItems='center'>
-          <Button
-            variant='outlined'
-            size='small'
-            className={classes.button}
-            onClick={handleCheckedRight}
-            disabled={leftChecked.length === 0}
-            aria-label='move selected right'
-          >
-            &gt;
-          </Button>
-          <Button
-            variant='outlined'
-            size='small'
-            className={classes.button}
-            onClick={handleCheckedLeft}
-            disabled={rightChecked.length === 0}
-            aria-label='move selected left'
-          >
-            &lt;
-          </Button>
+        <Grid item container direction='column' alignItems='center' spacing={4}>
+          <Grid item>
+            <Button
+              variant='outlined'
+              size='small'
+              onClick={handleCheckedRight}
+              disabled={leftChecked.length === 0}
+              aria-label='move selected right'
+            >
+              &gt;
+            </Button>
+          </Grid>
+          <Grid item>
+            <Button
+              variant='outlined'
+              size='small'
+              onClick={handleCheckedLeft}
+              disabled={rightChecked.length === 0}
+              aria-label='move selected left'
+            >
+              &lt;
+            </Button>
+          </Grid>
         </Grid>
       </Grid>
-
       <Grid item>
         <CustomList
           items={right}
@@ -165,14 +163,3 @@ export function TransferList({
     </Grid>
   )
 }
-
-const useStyles = makeStyles((theme: Theme) => {
-  return createStyles({
-    root: {
-      margin: 'auto'
-    },
-    button: {
-      margin: theme.spacing(0.5, 0)
-    }
-  })
-})
