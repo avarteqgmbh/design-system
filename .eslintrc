@@ -29,7 +29,6 @@
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "tsconfigRootDir": "./design-system-poc",
     "ecmaFeatures": {
       "jsx": true
     },
