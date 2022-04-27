@@ -1,50 +1,84 @@
-import { theme as anyninesDark } from '../src/theme/dark'
-import { theme as anyninesLight } from '../src/theme/light'
-import { ThemeProvider, createTheme, StyledEngineProvider} from '@mui/material/styles'
-import { addDecorator } from '@storybook/react'
-import { withThemes } from '@react-theming/storybook-addon'
+import { anyninesLight, anyninesDark } from '@avarteqgmbh/happy-token-system'
+import { withThemeProvider } from './decorators'
+
+import { themes } from '@storybook/theming'
+import logoDark from './logo_dark.svg'
+import logoLight from './logo_light.svg'
+
+const sharedThemeContext = {
+  brandTitle: 'Storybook by anynines',
+  brandUrl: 'https://www.anynines.com/',
+  brandTarget: '_self',
+  colorPrimary: anyninesLight.palette.primary.main,
+  colorSecondary: anyninesLight.palette.primary.main,
+  inputBg: anyninesLight.palette.primary.main,
+  appBorderColor: anyninesLight.palette.primary.main
+}
 
 export const parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
-  controls: {
-    matchers: {
-      color: /(background|color)$/i,
-      date: /Date$/
-    }
-  },
-  options: {
-    storySort: {
-      order: ['👋 Get started', 'Layout', 'Inputs', 'Navigation', 'Surfaces', 'Feedback', 'Data Display', 'Lab'],
-    },
-  }
-}
-
-export const onThemeSwitch = context => {
-  const { theme } = context
-
-  const parameters = {
+    actions: { argTypesRegex: '^on[A-Z].*' },
     backgrounds: {
-      default: theme.palette.background.paper,
+      disable: true,
+      grid: {
+        disable: true,
+      },
     },
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/
+      }
+    },
+    darkMode: {
+      dark: {
+        ...themes.dark,
+        ...sharedThemeContext,
+        brandImage: logoDark,
+        appBg: anyninesDark.palette.background.medium,
+        appContentBg: anyninesDark.palette.background.paper,
+        barBg: anyninesDark.palette.background.paper,
+      },
+      light: {
+        ...themes.light,
+        ...sharedThemeContext,
+        brandImage: logoLight,
+        appBg: anyninesLight.palette.background.medium,
+        appContentBg: anyninesLight.palette.background.paper,
+        barBg: anyninesLight.palette.background.paper,
+      }
+    },
+    muiDocSrc: 'https://mui.com/components/',
+    options: {
+      storySort: {
+        order: ['👋 Get started', 'Layout', 'Inputs', 'Navigation', 'Surfaces', 'Feedback', 'Data Display', 'Lab'],
+      },
+    }
   }
-  return {
-    parameters,
-  }
+
+export const globalTypes = {
+  theme: {
+    name: 'Theme',
+    description: 'Global theme for components',
+    defaultValue: 'anynines',
+    toolbar: {
+      icon: 'circlehollow',
+      items: [
+        'anynines',
+        'bosch',
+        'bum',
+        'heartPoints',
+        'hyundai',
+        'kia',
+        'mazda',
+        'neutral',
+        'santander',
+        'siemens',
+        'thomsit',
+        'toyota'
+      ],
+      showName: true,
+    },
+  },
 }
 
-const providerFn = ({ theme, children }) => {
-  const muTheme = createTheme(theme)
-  return (
-    <StyledEngineProvider injectFirst>
-      <ThemeProvider theme={muTheme}>
-        {children}
-      </ThemeProvider>
-    </StyledEngineProvider>
-  )
-}
-
-addDecorator(
-  withThemes(null, [anyninesDark, anyninesLight], {
-    providerFn, onThemeSwitch
-  })
-)
+export const decorators = [withThemeProvider]

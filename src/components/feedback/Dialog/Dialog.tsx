@@ -5,5 +5,13 @@ import {
 } from '@mui/material'
 
 export function Dialog(props: MuiDialogProps): JSX.Element {
-  return <MuiDialog {...props} />
+  const { sx } = props
+
+  return <MuiDialog sx={{ ...sx, ...styles }} {...props} />
+}
+
+const styles = {
+  '& .MuiDialogActions-root': {
+    padding: '16px 24px'
+  }
 }

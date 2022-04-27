@@ -3,23 +3,42 @@ import {
   Switch as MuiSwitch,
   SwitchProps as MuiSwitchProps
 } from '@mui/material'
-import makeStyles from '@mui/styles/makeStyles'
-import { Theme } from '../../../theme/types'
 
-export function Switch(props: MuiSwitchProps): JSX.Element {
-  const classes = useStyles()
+export interface SwitchProps extends MuiSwitchProps {
+  inline?: boolean | undefined
+}
+
+export function Switch(props: SwitchProps): JSX.Element {
+  const { inline, sx } = props
+
   return (
     <MuiSwitch
-      classes={{
-        root: classes.root
-      }}
+      className={inline ? 'inline' : ''}
+      sx={{ ...sx, ...styles }}
       {...props}
     />
   )
 }
 
-const useStyles = makeStyles<Theme>(() => {
-  return {
-    root: {}
+const styles = {
+  '&.inline': {
+    padding: '8px',
+    '& .MuiSwitch-track': {
+      borderRadius: 22 / 2,
+      '&:before, &:after': {
+        content: '""',
+        position: 'absolute',
+        top: '50%',
+        transform: 'translateY(-50%)',
+        width: '16px',
+        height: '16px'
+      }
+    },
+    '& .MuiSwitch-thumb': {
+      boxShadow: 'none',
+      width: '16px',
+      height: '16px',
+      margin: '2px'
+    }
   }
-})
+}

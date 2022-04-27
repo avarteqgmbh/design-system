@@ -2,12 +2,9 @@ import React, { useState } from 'react'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { CodeSnippetProps } from './CodeSnippetProps'
 import FileCopyIcon from '@mui/icons-material/FileCopy'
-import makeStyles from '@mui/styles/makeStyles'
 import { Tooltip } from '../Tooltip/Tooltip'
-import { Theme } from '../../../theme/types'
 
 export function CopyButton({ value }: CodeSnippetProps): JSX.Element {
-  const classes = useStyles()
   const [title, setTitle] = useState('copy')
 
   const changeText = (): void => {
@@ -27,24 +24,13 @@ export function CopyButton({ value }: CodeSnippetProps): JSX.Element {
           title={title}
           aria-label='copy'
           placement='top'
-          className={classes.root}
+          sx={{ cursor: 'pointer' }}
         >
           <button type='button' onClick={changeText}>
-            <FileCopyIcon fontSize='small' className={classes.icon} />
+            <FileCopyIcon fontSize='small' color='primary' />
           </button>
         </Tooltip>
       </CopyToClipboard>
     </div>
   )
 }
-
-const useStyles = makeStyles((theme: Theme) => {
-  return {
-    root: {
-      cursor: 'pointer'
-    },
-    icon: {
-      color: theme.palette.primary.main
-    }
-  }
-})
