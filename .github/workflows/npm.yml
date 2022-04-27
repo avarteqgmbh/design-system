@@ -13,8 +13,11 @@ jobs:
         with:
           node-version: "12.x"
           registry-url: "https://npm.pkg.github.com"
-      - run: yarn
+      - run:
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.PKG_ACCESS_TOKEN }}" >> ~/.npmrc
+          yarn config set "@avarteqgmbh:registry" "https://npm.pkg.github.com"
+          yarn
       - run: yarn build
-      - run: yarn publish --access public
+      - run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.PKG_ACCESS_TOKEN }}
