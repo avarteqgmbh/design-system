@@ -1,7 +1,9 @@
 import React from 'react'
 import { Box, Container } from '../../../index'
 
+export type LayoutVariant = 'background' | 'center' | 'left'
 export interface AuthProps {
+  variant: LayoutVariant
   bgImage?: string
   footer?: JSX.Element
   logo?: JSX.Element
@@ -11,39 +13,71 @@ export const Auth: React.FC<AuthProps> = ({
   children,
   bgImage,
   footer,
-  logo
+  logo,
+  variant = 'center'
 }) => {
+  const classes = {
+    root: {
+      height: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      '&.background, &.left': {
+        backgroundImage: `url(${bgImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      },
+      '&.left': {
+        alignItems: 'flex-start',
+        height: '100%',
+        '& .MuiContainer-root': {
+          maxWidth: '500px',
+          marginLeft: 0,
+          padding: 0
+        }
+      }
+    },
+    loginBoxWrapper: {
+      bgcolor: 'background.default',
+      borderRadius: '8px',
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'stretch',
+      overflow: 'hidden',
+      boxShadow: 7,
+      margin: 'auto',
+      '&.background': {
+        width: '450px'
+      },
+      '&.left': {
+        borderRadius: 0,
+        boxShadow: 0,
+        marginLeft: 0,
+        height: '100vh'
+      }
+    },
+    loginBoxContent: {
+      flex: 1,
+      minHeight: 500,
+      p: 6,
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-between',
+      alignItems: 'stretch'
+    },
+    bgImageBox: {
+      flex: 1,
+      backgroundImage: `url(${bgImage})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      minHeight: '100%'
+    }
+  }
+
   return (
-    <Box
-      sx={{
-        height: '100vh',
-        display: 'flex',
-        alignItems: 'center'
-      }}
-    >
+    <Box sx={classes.root} className={variant}>
       <Container maxWidth='md'>
-        <Box
-          sx={{
-            bgcolor: 'background.default',
-            borderRadius: '8px',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'stretch',
-            overflow: 'hidden',
-            boxShadow: 7
-          }}
-        >
-          <Box
-            sx={{
-              minHeight: 500,
-              width: '50%',
-              p: 6,
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between',
-              alignItems: 'stretch'
-            }}
-          >
+        <Box sx={classes.loginBoxWrapper} className={variant}>
+          <Box sx={classes.loginBoxContent}>
             {logo && <Box mb={4}>{logo}</Box>}
             <Box
               sx={{
@@ -54,17 +88,7 @@ export const Auth: React.FC<AuthProps> = ({
             </Box>
             {footer && <Box mt={4}>{footer}</Box>}
           </Box>
-          {bgImage && (
-            <Box
-              sx={{
-                backgroundImage: `url(${bgImage})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                minHeight: '100%',
-                width: '50%'
-              }}
-            />
-          )}
+          {bgImage && variant === 'center' && <Box sx={classes.bgImageBox} />}
         </Box>
       </Container>
     </Box>
