@@ -1,3 +1,3 @@
-// import { Auth } from './layouts/index'
+import { Auth } from './layouts/index'
 
-// export { Auth }
+export { Auth }
