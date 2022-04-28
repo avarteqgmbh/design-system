@@ -1,8 +1,16 @@
 import React from 'react'
 import { Story } from '@storybook/react'
+import { AccountBox, Key } from '@mui/icons-material'
 import { withDesign } from 'storybook-addon-designs'
 import { Auth, AuthProps } from './Auth'
-import { Link } from '../../../index'
+import {
+  Box,
+  Button,
+  Link,
+  Typography,
+  TextField,
+  InputAdornment
+} from '../../../index'
 
 export default {
   title: 'Templates/Layouts/Auth',
@@ -24,29 +32,58 @@ const Template: Story<AuthProps> = (args) => {
 
 const footer = (
   <>
-    <Link
-      href='/'
-      tabIndex={0}
-      label='Registrierung'
-      link='/signup'
-      sx={{ mb: 1 }}
-    />
-    <Link tabIndex={0} label='Passwort vergessen' link='/forgot-password' />
-  </>
-)
-
-const logo = (
-  <>
-    <Link tabIndex={0} label='Registrierung' link='/signup' sx={{ mb: 1 }} />
-    <Link tabIndex={0} label='Passwort vergessen' link='/forgot-password' />
+    <Link href='/' tabIndex={0} sx={{ mb: 1 }}>
+      <Typography>Registrieren</Typography>
+    </Link>
+    <Link href='/' tabIndex={0} sx={{ mb: 1 }}>
+      <Typography>Passwort vergessen</Typography>
+    </Link>
   </>
 )
 
 const children = (
-  <>
-    <Link tabIndex={0} label='Registrierung' link='/signup' sx={{ mb: 1 }} />
-    <Link tabIndex={0} label='Passwort vergessen' link='/forgot-password' />
-  </>
+  <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+    <Typography mb={5} variant='h4' fontWeight={900}>
+      Anmelden
+    </Typography>
+    <TextField
+      id='username'
+      onChange={(): void => {
+        console.log('User')
+      }}
+      InputProps={{
+        startAdornment: (
+          <InputAdornment position='start'>
+            <AccountBox />
+          </InputAdornment>
+        )
+      }}
+      sx={{ marginBottom: 5, bgcolor: 'background.input' }}
+    />
+    <TextField
+      id='password'
+      label='Passwort'
+      type='password'
+      onChange={(): void => {
+        console.log('Password')
+      }}
+      InputProps={{
+        startAdornment: (
+          <InputAdornment position='start'>
+            <Key />
+          </InputAdornment>
+        )
+      }}
+      sx={{ marginBottom: 5, bgcolor: 'background.input' }}
+    />
+    <Button
+      onClick={(): void => {
+        console.log('Login')
+      }}
+    >
+      Anmelden
+    </Button>
+  </Box>
 )
 
 export const Default = Template.bind({})
@@ -54,6 +91,5 @@ Default.args = {
   bgImage:
     'https://images.pexels.com/photos/6481652/pexels-photo-6481652.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
   footer,
-  logo,
   children
 }

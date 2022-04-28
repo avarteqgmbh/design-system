@@ -24,13 +24,13 @@ export const Auth: React.FC<AuthProps> = ({
       <Container maxWidth='md'>
         <Box
           sx={{
-            bgcolor: 'background.paper',
+            bgcolor: 'background.default',
             borderRadius: '8px',
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'stretch',
             overflow: 'hidden',
-            boxShadow: 1
+            boxShadow: 7
           }}
         >
           <Box

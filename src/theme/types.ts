@@ -11,6 +11,7 @@ export interface Background extends TypeBackground {
   medium?: string
   border?: string
   gradient?: string
+  input?: string
 }
 export interface Grey extends Color {
   1000?: string
