@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Container } from '../../../index'
 
-export type LayoutVariant = 'background' | 'center' | 'left'
+export type LayoutVariant = 'background' | 'center' | 'left' | 'right'
 export interface AuthProps {
   variant: LayoutVariant
   bgImage?: string
@@ -21,19 +21,23 @@ export const Auth: React.FC<AuthProps> = ({
       height: '100vh',
       display: 'flex',
       alignItems: 'center',
-      '&.background, &.left': {
+      '&.background, &.left, &.right': {
         backgroundImage: `url(${bgImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center'
       },
-      '&.left': {
-        alignItems: 'flex-start',
+      '&.left, &.right': {
         height: '100%',
         '& .MuiContainer-root': {
           maxWidth: '500px',
-          marginLeft: 0,
           padding: 0
         }
+      },
+      '&.left .MuiContainer-root': {
+        marginLeft: 0
+      },
+      '&.right .MuiContainer-root': {
+        marginRight: 0
       }
     },
     loginBoxWrapper: {
@@ -48,7 +52,7 @@ export const Auth: React.FC<AuthProps> = ({
       '&.background': {
         width: '450px'
       },
-      '&.left': {
+      '&.left, &.right': {
         borderRadius: 0,
         boxShadow: 0,
         marginLeft: 0,
