@@ -70,6 +70,7 @@ export const Auth: React.FC<AuthProps> = ({
     },
     bgImageBox: {
       flex: 1,
+      p: 6,
       backgroundImage: `url(${bgImage})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
