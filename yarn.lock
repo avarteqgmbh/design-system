@@ -10,10 +10,10 @@
     "@jridgewell/gen-mapping" "^0.1.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@avarteqgmbh/happy-token-system@1.0.16":
-  version "1.0.16"
-  resolved "https://npm.pkg.github.com/download/@avarteqgmbh/happy-token-system/1.0.16/fa6a0ad1cb3b9210d658b43c9790c56139062be80c612483661d19b544f17257#322d96096a146836772a47a09d6404ae3dace95a"
-  integrity sha512-S4DYEWOiTecimFdjXOOX/SRFsuf1aePb03MurVLbwfExFK1BqElgZbEswFZ0mVkiXqd6tmTEpoJZ6V73pX95TA==
+"@avarteqgmbh/happy-token-system@1.0.17":
+  version "1.0.17"
+  resolved "https://npm.pkg.github.com/download/@avarteqgmbh/happy-token-system/1.0.17/4d3691454bf54723c5740d4474fce40de913e2ad64388a59934d455ca6f24aa1#31d6517c72e3d1fbe13b7f1978d4bebd98c1fdd9"
+  integrity sha512-Gj0m3ivUGJL59GRRDCY0BqRjb7KkwBtCp2pQC8VcEbd6a1mN4fBHz3SbpCIliNYoRSjeasNyInMjc1ctRcML1g==
 
 "@babel/cli@^7.8.4":
   version "7.17.6"
