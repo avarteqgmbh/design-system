@@ -18,13 +18,15 @@ export const Auth: React.FC<AuthProps> = ({
 }) => {
   const classes = {
     root: {
-      height: '100vh',
       display: 'flex',
+      height: { xs: '100%', sm: '100vh' },
       alignItems: 'center',
-      '&.background, &.left, &.right': {
-        backgroundImage: `url(${bgImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center'
+      '@media screen and (min-width: 600px)': {
+        '&.background, &.left, &.right': {
+          backgroundImage: `url(${bgImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }
       },
       '&.left, &.right': {
         height: '100%',
@@ -41,16 +43,19 @@ export const Auth: React.FC<AuthProps> = ({
       }
     },
     loginBoxWrapper: {
-      bgcolor: 'background.default',
-      borderRadius: '8px',
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'stretch',
+      bgcolor: 'background.default',
+      borderRadius: { xs: 0, sm: '8px' },
       overflow: 'hidden',
-      boxShadow: 7,
+      boxShadow: {
+        xs: 0,
+        sm: 7
+      },
       margin: 'auto',
       '&.background': {
-        width: '450px'
+        width: { xs: '100%', sm: '450px' }
       },
       '&.left, &.right': {
         borderRadius: 0,
@@ -69,6 +74,10 @@ export const Auth: React.FC<AuthProps> = ({
       alignItems: 'stretch'
     },
     bgImageBox: {
+      display: {
+        xs: 'none',
+        sm: 'flex'
+      },
       flex: 1,
       p: 6,
       backgroundImage: `url(${bgImage})`,
