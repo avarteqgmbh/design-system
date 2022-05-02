@@ -2,7 +2,8 @@ import React from 'react'
 import { Story } from '@storybook/react'
 
 import { withDesign } from 'storybook-addon-designs'
-import { logoWrapper, footer, children } from './StoryHelper'
+import Logo from '../../Logo'
+import { actions, footer, children } from './StoryHelper'
 import { Auth, AuthProps } from './Auth'
 
 export default {
@@ -39,9 +40,10 @@ const Template: Story<AuthProps> = (args) => {
 
 export const Default = Template.bind({})
 Default.args = {
+  actions,
   bgImage:
     'https://images.pexels.com/photos/6481652/pexels-photo-6481652.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
   footer,
   children,
-  logo: logoWrapper
+  logo: <Logo />
 }
