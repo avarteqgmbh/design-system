@@ -21,15 +21,22 @@ const styles = {
   display: 'flex',
   py: 3,
   px: 5,
+  fontWeight: 'bold',
   borderRadius: (theme: Theme): string => {
     return `${theme.radius.button}px`
   },
   boxShadow: 'none',
 
+  '&.MuiButton-containedSecondary': {
+    bgcolor: 'background.light',
+    color: 'text.primary'
+  },
+
   '&.MuiButton-sizeLarge': {
     py: 4,
     px: 6
   },
+
   '&.MuiButton-sizeSmall': {
     py: 2,
     px: 4
