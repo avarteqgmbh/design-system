@@ -343,8 +343,8 @@ export const AnyIcon: React.FC<IconProps> = ({
 }
 
 const styles = {
-  width: 4,
-  height: 4,
+  width: 16,
+  height: 16,
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -352,7 +352,7 @@ const styles = {
   '& svg': {
     width: 'inherit',
     height: 'inherit',
-    maxWidth: 4,
-    maxHeight: 4
+    maxWidth: 16,
+    maxHeight: 16
   }
 }
