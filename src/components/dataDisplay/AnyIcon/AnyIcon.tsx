@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Box } from '../../layout/Box/Box'
+
 // A
 import ArrowUpRight from './assets/arrowUpRight'
 
@@ -336,23 +338,55 @@ export const AnyIcon: React.FC<IconProps> = ({
   size = 'sm'
 }) => {
   return (
-    <i className={`icon ${className} ${size}`} style={styles}>
+    <Box className={`icon ${className} ${size}`} sx={styles}>
       {ICONS[icon]}
-    </i>
+    </Box>
   )
 }
 
 const styles = {
   width: 16,
   height: 16,
+  maxWidth: 16,
+  maxHeight: 16,
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+  color: 'text.primary',
 
   '& svg': {
     width: 'inherit',
     height: 'inherit',
-    maxWidth: 16,
-    maxHeight: 16
+    color: 'inherit',
+    maxWidth: 'inherit',
+    maxHeight: 'inherit'
+  },
+
+  '&.xs': {
+    width: 8,
+    height: 8,
+    maxWidth: 8,
+    maxHeight: 8
+  },
+
+  '&.sm': {
+    width: 12,
+    height: 12,
+    maxWidth: 12,
+    maxHeight: 12
+  },
+
+  '&.lg': {
+    width: 20,
+    height: 20,
+    maxWidth: 20,
+    maxHeight: 20
+  },
+
+  '&.xl': {
+    width: 24,
+    height: 24,
+    maxWidth: 24,
+    maxHeight: 24
   }
 }
