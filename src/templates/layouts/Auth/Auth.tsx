@@ -20,7 +20,7 @@ export const Auth: React.FC<AuthProps> = ({
   logo,
   variant = 'center'
 }) => {
-  // if no bgImage
+  // If no bgImage is set, the center layout falls back to background for better container width.
   if (!bgImage && variant === 'center') {
     variant = 'background'
   }
