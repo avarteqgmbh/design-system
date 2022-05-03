@@ -230,7 +230,7 @@
       }
     ],
     "react/prop-types": "off", // would be nice but to many props are missing currently
-    "react/require-default-props": "warn", // TODO: Set to error
+    "react/require-default-props": "off",
     "react/destructuring-assignment": "warn",
     "react/jsx-props-no-spreading": "off",
     "react-hooks/rules-of-hooks": "error",
