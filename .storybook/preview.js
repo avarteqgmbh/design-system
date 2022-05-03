@@ -16,44 +16,53 @@ const sharedThemeContext = {
 }
 
 export const parameters = {
-    actions: { argTypesRegex: '^on[A-Z].*' },
-    backgrounds: {
-      disable: true,
-      grid: {
-        disable: true,
-      },
+  actions: { argTypesRegex: '^on[A-Z].*' },
+  backgrounds: {
+    disable: true,
+    grid: {
+      disable: true
+    }
+  },
+  controls: {
+    matchers: {
+      color: /(background|color)$/i,
+      date: /Date$/
+    }
+  },
+  darkMode: {
+    dark: {
+      ...themes.dark,
+      ...sharedThemeContext,
+      brandImage: logoDark,
+      appBg: anyninesDark.palette.background.light,
+      appContentBg: anyninesDark.palette.background.default,
+      barBg: anyninesDark.palette.background.default
     },
-    controls: {
-      matchers: {
-        color: /(background|color)$/i,
-        date: /Date$/
-      }
-    },
-    darkMode: {
-      dark: {
-        ...themes.dark,
-        ...sharedThemeContext,
-        brandImage: logoDark,
-        appBg: anyninesDark.palette.background.medium,
-        appContentBg: anyninesDark.palette.background.paper,
-        barBg: anyninesDark.palette.background.paper,
-      },
-      light: {
-        ...themes.light,
-        ...sharedThemeContext,
-        brandImage: logoLight,
-        appBg: anyninesLight.palette.background.medium,
-        appContentBg: anyninesLight.palette.background.paper,
-        barBg: anyninesLight.palette.background.paper,
-      }
-    },
-    muiDocSrc: 'https://mui.com/components/',
-    options: {
-      storySort: {
-        order: ['👋 Get started', 'Layout', 'Inputs', 'Navigation', 'Surfaces', 'Feedback', 'Data Display', 'Lab'],
-      },
+    light: {
+      ...themes.light,
+      ...sharedThemeContext,
+      brandImage: logoLight,
+      appBg: anyninesLight.palette.background.default,
+      appContentBg: anyninesLight.palette.background.paper,
+      barBg: anyninesLight.palette.background.paper
+    }
+  },
+  muiDocSrc: 'https://mui.com/components/',
+  options: {
+    storySort: {
+      order: [
+        '👋 Get started',
+        'Layout',
+        'Inputs',
+        'Navigation',
+        'Surfaces',
+        'Feedback',
+        'Data Display',
+        'Lab'
+      ]
     }
   }
+}
 
 export const globalTypes = {
   theme: {
@@ -76,9 +85,9 @@ export const globalTypes = {
         'thomsit',
         'toyota'
       ],
-      showName: true,
-    },
-  },
+      showName: true
+    }
+  }
 }
 
 export const decorators = [withThemeProvider]
