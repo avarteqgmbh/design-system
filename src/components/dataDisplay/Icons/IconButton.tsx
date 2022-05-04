@@ -12,5 +12,11 @@ export function IconButton(props: IconButtonProps): JSX.Element {
 }
 
 const styles = {
-  color: 'text.primary'
+  bgcolor: 'background.light',
+  color: 'text.primary',
+  border: '1px solid',
+  borderColor: 'background.border',
+  '&:hover': {
+    bgcolor: 'background.medium'
+  }
 }

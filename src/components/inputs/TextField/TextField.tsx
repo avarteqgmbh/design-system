@@ -20,7 +20,7 @@ export function TextField(props: MuiTextFieldProps): JSX.Element {
 }
 
 const styles = {
-  bgcolor: 'inherit',
+  bgcolor: 'background.input',
   borderRadius: (theme: Theme): string => {
     return `${theme.radius.medium}px`
   },
