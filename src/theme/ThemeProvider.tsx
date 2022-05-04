@@ -11,6 +11,8 @@ import { anyninesLight } from '@avarteqgmbh/happy-token-system'
 import { Theme } from './types'
 import { ThemeProviderProps as MuiThemeProviderProps } from '@mui/material/styles/ThemeProvider'
 
+export type { ThemeOptions } from '@mui/material'
+
 declare module '@mui/styles/defaultTheme' {
   type DefaultTheme = Theme
 }

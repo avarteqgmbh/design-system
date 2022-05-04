@@ -49,3 +49,14 @@ WithEndIcon.args = {
   children: ButtonLabel,
   endIcon: <Delete />
 }
+
+export const Custom = Template.bind({})
+Custom.args = {
+  children: 'Custom Button',
+  variant: 'secondary',
+  sx: {
+    bgcolor: 'background.light',
+    color: 'text.primary'
+  },
+  startIcon: <Delete />
+}

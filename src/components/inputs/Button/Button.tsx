@@ -8,36 +8,37 @@ export function Button(props: ButtonProps): JSX.Element {
 
   return (
     <MuiButton
-      // @ts-ignore
-      sx={{ ...sx, ...styles }}
+      {...props}
       variant={variant}
       color={color}
-      {...props}
+      // @ts-ignore
+      sx={{ ...styles, ...sx }}
     />
   )
 }
 
 const styles = {
   display: 'flex',
-  paddingTop: 3,
-  paddingBottom: 3,
-  paddingLeft: 5,
-  paddingRight: 5,
+  py: 3,
+  px: 5,
+  fontWeight: 'bold',
   borderRadius: (theme: Theme): string => {
     return `${theme.radius.button}px`
   },
   boxShadow: 'none',
 
-  '&.MuiButton-sizeLarge': {
-    paddingTop: 4,
-    paddingBottom: 4,
-    paddingLeft: 6,
-    paddingRight: 6
+  '&.MuiButton-containedSecondary': {
+    bgcolor: 'background.light',
+    color: 'text.primary'
   },
+
+  '&.MuiButton-sizeLarge': {
+    py: 4,
+    px: 6
+  },
+
   '&.MuiButton-sizeSmall': {
-    paddingTop: 2,
-    paddingBottom: 2,
-    paddingLeft: 4,
-    paddingRight: 4
+    py: 2,
+    px: 4
   }
 }
