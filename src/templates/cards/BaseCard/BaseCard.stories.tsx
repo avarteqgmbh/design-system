@@ -3,7 +3,6 @@ import { Story } from '@storybook/react'
 
 import { withDesign } from 'storybook-addon-designs'
 import { BaseCard, CardProps } from './BaseCard'
-import Points from '../ProductCard/Points'
 
 export default {
   title: 'Templates/Cards/Base',
@@ -42,16 +41,4 @@ Default.args = {
     { primary: true, title: 'Neu' },
     { primary: false, title: 'TKG' }
   ]
-}
-
-export const Product = Template.bind({})
-Product.args = {
-  title: 'Product XY',
-  image:
-    'https://images.pexels.com/photos/2468056/pexels-photo-2468056.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-  tags: [
-    { primary: true, title: 'Neu' },
-    { primary: false, title: 'TKG' }
-  ],
-  children: <Points points={1500} />
 }
