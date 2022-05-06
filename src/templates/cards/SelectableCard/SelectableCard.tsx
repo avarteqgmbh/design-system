@@ -1,4 +1,5 @@
 import React from 'react'
+import TextTruncate from 'react-text-truncate'
 import { Card, CardContent, Radio, Typography } from '../../../index'
 
 export interface SelectableCardProps {
@@ -34,7 +35,7 @@ export const SelectableCard: React.FC<SelectableCardProps> = (props) => {
           sx={{ p: 0, mr: 2 }}
         />
         <Typography fontWeight={800} sx={{ flex: 1 }}>
-          {title}
+          <TextTruncate line={2} truncateText='…' text={title} />
         </Typography>
         {options && options}
       </CardContent>
