@@ -7,7 +7,7 @@ interface Props {
   size?: 'small' | 'large'
 }
 
-const Points = ({ points, size = 'small' }: Props): JSX.Element => {
+export const Points = ({ points, size = 'small' }: Props): JSX.Element => {
   const height = size === 'large' ? 20 : 16
 
   return (
@@ -38,5 +38,3 @@ const Points = ({ points, size = 'small' }: Props): JSX.Element => {
 Points.defaultProps = {
   points: null
 }
-
-export default Points

@@ -3,7 +3,7 @@ import React from 'react'
 import TextTruncate from 'react-text-truncate'
 import { Theme } from '../../../theme/types'
 import { Box, Chip, Typography } from '../../../index'
-import Points from '../Points'
+import { Points } from '../Points'
 
 export interface ProductCardProps {
   name: string

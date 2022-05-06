@@ -2,7 +2,7 @@
 import React from 'react'
 import TextTruncate from 'react-text-truncate'
 import { Theme } from '../../../theme/types'
-import Points from '../Points'
+import { Points } from '../Points'
 import { Box, Typography, Chip } from '../../../index'
 import { AmountInput } from '../AmountInput'
 
