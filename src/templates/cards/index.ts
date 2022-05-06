@@ -9,6 +9,10 @@ import {
 } from './HighlightProductCard/HighlightProductCard'
 import { ProductCard, ProductCardProps } from './ProductCard/ProductCard'
 import {
+  SelectableCard,
+  SelectableCardProps
+} from './SelectableCard/SelectableCard'
+import {
   VerticalProductCard,
   VerticalProductCardProps
 } from './VerticalProductCard/VerticalProductCard'
@@ -20,6 +24,7 @@ export {
   CollapsibleCard,
   HighlightProductCard,
   ProductCard,
+  SelectableCard,
   VerticalProductCard,
   AmountInput,
   Points
@@ -30,5 +35,6 @@ export type {
   CollapsibleCardProps,
   HighlightProductCardProps,
   ProductCardProps,
+  SelectableCardProps,
   VerticalProductCardProps
 }
