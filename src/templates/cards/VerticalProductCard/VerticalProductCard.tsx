@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from 'react'
+import TextTruncate from 'react-text-truncate'
 import { Theme } from '../../../theme/types'
 import Points from '../Points'
 import { Box, Typography, Chip } from '../../../index'
@@ -50,9 +51,9 @@ export const VerticalProductCard: React.FC<VerticalProductCardProps> = (
         <Box sx={classes.imageWrapper}>
           <img src={image} alt={name} />
         </Box>
-        <Box sx={{ ml: 5, flex: 1 }}>
+        <Box sx={{ ml: { xs: 0, sm: 5 }, flex: 1 }}>
           <Typography variant='h6' sx={{ fontSize: 16 }}>
-            {name}
+            <TextTruncate line={2} truncateText='…' text={name} />
           </Typography>
           <Typography variant='body2' color='text.secondary' mb={2}>
             {variant.label} {variant.value}
@@ -96,19 +97,23 @@ const classes = {
   },
   contentWrapper: {
     display: 'flex',
+    flexDirection: { xs: 'column', sm: 'row' },
+    mb: { xs: 4, sm: 0 },
     width: '100%'
   },
   imageWrapper: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    bgcolor: 'common.white',
     borderRadius: (theme: Theme): string => {
       return `${theme.radius.card}px`
     },
     border: '1px solid',
     borderColor: 'background.border',
-    height: 80,
-    width: 80,
+    height: { xs: 140, sm: 80 },
+    width: { xs: '100%', sm: 80 },
+    mb: { xs: 4, sm: 0 },
     overflow: 'hidden',
     '& img': {
       maxHeight: 64,
@@ -123,6 +128,7 @@ const classes = {
   footer: {
     display: 'flex',
     justifyContent: 'space-between',
+    flexDirection: { xs: 'column-reverse', sm: 'row' },
     mt: 5
   }
 }

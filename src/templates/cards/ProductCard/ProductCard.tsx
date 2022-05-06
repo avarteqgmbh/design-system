@@ -49,6 +49,7 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
     },
     backgroundImageWrapper: {
       position: 'relative',
+      bgcolor: 'common.white',
       width: '100%',
       height: 180,
       display: 'flex',

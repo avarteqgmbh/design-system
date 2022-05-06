@@ -46,6 +46,7 @@ const Template: Story<VerticalProductCardProps> = (args) => {
           variant='contained'
           color='secondary'
           size='small'
+          sx={{ mb: { xs: 2, sm: 0 } }}
           startIcon={<Favorite />}
         >
           <span>In den Warenkorb</span>
