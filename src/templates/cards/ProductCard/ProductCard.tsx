@@ -11,6 +11,7 @@ export interface ProductCardProps {
   backgroundImage?: boolean
   imageUrl?: string
   hoverAnimation?: boolean
+  listView?: boolean
   novelty?: boolean
   tags?: string[]
   onClick: () => void
@@ -24,12 +25,14 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
     imageUrl,
     novelty,
     hoverAnimation = true,
+    listView = false,
     tags,
     onClick
   } = props
 
   const classes = {
     root: {
+      display: listView && 'flex',
       borderRadius: (theme: Theme): string => {
         return `${theme.radius.card}px`
       },
@@ -39,7 +42,7 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
       boxShadow: 1,
       cursor: 'pointer',
       height: '100%',
-      minWidth: 260,
+      minWidth: !listView && { xs: 160, sm: 260 },
       '&:hover': {
         transform: hoverAnimation ? 'translateY(-4px)' : '',
         '& .image': {
@@ -47,11 +50,15 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
         }
       }
     },
+    productTitle: {
+      minHeight: { xs: 36, sm: 52 },
+      fontSize: { xs: 14, sm: 20 }
+    },
     backgroundImageWrapper: {
       position: 'relative',
       bgcolor: 'common.white',
-      width: '100%',
-      height: 180,
+      width: listView ? { xs: 120, sm: 240 } : '100%',
+      height: listView ? '100%' : { xs: 144, sm: 180 },
       display: 'flex',
       overflow: 'hidden'
     },
@@ -61,9 +68,9 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
       justifyContent: 'center',
       position: 'relative',
       width: '100%',
-      height: 180,
+      height: listView ? '100%' : { xs: 144, sm: 180 },
       '& img': {
-        maxHeight: 150
+        maxHeight: listView ? 80 : { xs: 120, sm: 150 }
       }
     },
     backgroundImage: {
@@ -77,14 +84,20 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
     },
     noveltyLabel: {
       position: 'absolute',
-      top: 16,
-      right: 16
+      top: 12,
+      left: listView ? 12 : 'auto',
+      right: listView ? 'auto' : 12
     },
     tagsWrapper: {
       display: 'flex',
       alignItems: 'center',
       flexWrap: 'wrap',
       mb: 2
+    },
+    tags: {
+      mr: { xs: 1, sm: 2 },
+      mb: { xs: 1, sm: 2 },
+      fontSize: { xs: 10, sm: 13 }
     }
   }
 
@@ -113,14 +126,14 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
           />
         )}
       </Box>
-      <Box sx={{ p: 4 }}>
-        <Typography gutterBottom variant='h6' sx={{ minHeight: 52 }}>
+      <Box sx={{ p: { xs: 3, sm: 4 }, flex: listView ? 1 : 'none' }}>
+        <Typography gutterBottom variant='h6' sx={classes.productTitle}>
           <TextTruncate line={2} truncateText='…' text={name} />
         </Typography>
         {tags && (
           <Box sx={classes.tagsWrapper}>
             {tags.map((item) => {
-              return <Chip label={item} size='small' sx={{ mr: 2, mb: 2 }} />
+              return <Chip label={item} size='small' sx={classes.tags} />
             })}
           </Box>
         )}

@@ -58,7 +58,7 @@ const Template: Story<VerticalProductCardProps> = (args) => {
 
 export const Default = Template.bind({})
 Default.args = {
-  name: 'Apple Computer "iMac" (24 / M1 Chip )',
+  name: 'Apple Computer "iMac" (24 Zoll / M1 Chip )',
   image:
     'https://s3-eu-west-1.amazonaws.com/bum-stage/articles/1315051-thumb_medium-BM-018235_1.jpg',
   points: 1200,

@@ -76,8 +76,8 @@ const Template: Story<ProductCardStoryProps> = (args) => {
         sx={{
           display: 'grid',
           gridTemplateColumns: `repeat(${args.gridSize}, 1fr)`,
-          gap: 6,
-          mb: 6
+          gap: 4,
+          mb: 4
         }}
       >
         {products &&
