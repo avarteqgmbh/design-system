@@ -10,25 +10,11 @@ export const Footer = (props: FooterProps): JSX.Element => {
   const { links, slogan } = props
 
   return (
-    <Box
-      sx={{
-        width: '100%',
-        mt: 6,
-        p: 4,
-        bgcolor: 'background.paper',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center'
-      }}
-    >
+    <Box sx={classes.root}>
       <Typography variant='body2' color='text.secondary'>
         {slogan}
       </Typography>
-      <Box
-        sx={{
-          display: 'flex'
-        }}
-      >
+      <Box sx={{ display: 'flex' }}>
         {links.map((link) => {
           return (
             <Box
@@ -39,15 +25,7 @@ export const Footer = (props: FooterProps): JSX.Element => {
               ml={6}
               sx={{ transition: 'all ease-in-out 200ms', cursor: 'pointer' }}
             >
-              <Typography
-                variant='body2'
-                sx={{
-                  color: 'text.secondary',
-                  '&:hover': {
-                    color: 'text.primary'
-                  }
-                }}
-              >
+              <Typography variant='body2' sx={classes.linkStyles}>
                 {link.label}
               </Typography>
             </Box>
@@ -56,4 +34,22 @@ export const Footer = (props: FooterProps): JSX.Element => {
       </Box>
     </Box>
   )
+}
+
+const classes = {
+  root: {
+    width: '100%',
+    mt: 6,
+    p: 4,
+    bgcolor: 'background.paper',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
+  linkStyles: {
+    color: 'text.secondary',
+    '&:hover': {
+      color: 'text.primary'
+    }
+  }
 }
