@@ -2,7 +2,7 @@ import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { Modal, ModalProps } from './Modal'
-import { Button, Box } from '../../index'
+import { Button, Box } from '../../components'
 
 export default {
   title: 'Templates/Modal',

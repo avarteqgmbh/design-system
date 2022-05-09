@@ -7,7 +7,7 @@ import {
   DialogContentText
 } from '@mui/material'
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material'
-import { Box, Button, Dialog, MobileStepper } from '../../index'
+import { Box, Button, Dialog, MobileStepper } from '../../components'
 
 export interface SlideItem {
   bgImage?: string
