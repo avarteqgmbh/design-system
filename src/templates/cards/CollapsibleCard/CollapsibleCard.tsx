@@ -3,7 +3,7 @@ import { ExpandLess, ExpandMore } from '@mui/icons-material'
 import { Box, Typography } from '../../../components'
 
 export interface CollapsibleCardProps {
-  subtitle: string
+  subtitle?: string
   position?: number
   score?: number
   scoreColor?: 'success' | 'error' | 'default'
@@ -104,7 +104,9 @@ export const CollapsibleCard: React.FC<CollapsibleCardProps> = (props) => {
             <ExpandLess />
           )}
           <Box sx={classes.leftTitleWrapper}>
-            <Typography color='text.secondary'>{subtitle}</Typography>
+            {subtitle && (
+              <Typography color='text.secondary'>{subtitle}</Typography>
+            )}
             <Typography fontWeight='bold'>{title}</Typography>
           </Box>
         </Box>

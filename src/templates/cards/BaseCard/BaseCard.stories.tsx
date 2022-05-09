@@ -5,7 +5,7 @@ import { withDesign } from 'storybook-addon-designs'
 import { BaseCard, CardProps } from './BaseCard'
 
 export default {
-  title: 'Templates/Cards/Base',
+  title: 'Templates/Cards/BaseCard',
   component: BaseCard,
   decorators: [withDesign],
   argTypes: {

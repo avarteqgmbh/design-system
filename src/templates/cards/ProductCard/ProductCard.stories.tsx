@@ -6,7 +6,7 @@ import { Box } from '../../../index'
 import { ProductCard, ProductCardProps } from './ProductCard'
 
 export default {
-  title: 'Templates/Cards/Product',
+  title: 'Templates/Cards/ProductCard',
   component: ProductCard,
   decorators: [withDesign],
   argTypes: {

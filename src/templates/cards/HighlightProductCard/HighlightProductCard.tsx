@@ -114,14 +114,16 @@ export const HighlightProductCard: React.FC<HighlightProductCardProps> = (
         <Box className='image-overlay' sx={classes.imageOverlay} />
       </Box>
       <Box className='content' sx={classes.content}>
-        <Typography
-          fontSize={20}
-          fontWeight='bold'
-          color='primary'
-          sx={{ display: { xs: 'none', sm: 'block' } }}
-        >
-          {subtitle}
-        </Typography>
+        {subtitle && (
+          <Typography
+            fontSize={20}
+            fontWeight='bold'
+            color='primary'
+            sx={{ display: { xs: 'none', sm: 'block' } }}
+          >
+            {subtitle}
+          </Typography>
+        )}
         <Typography variant='h4' sx={classes.title} color='common.white'>
           {title}
         </Typography>

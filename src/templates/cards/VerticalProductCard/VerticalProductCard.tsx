@@ -7,10 +7,9 @@ import { Box, Typography, Chip } from '../../../components'
 import { AmountInput } from '../AmountInput'
 
 export interface VerticalProductCardProps {
-  name: string
+  title: string
   image: string
   points?: number
-  amount: number
   tags: string[]
   variant: {
     label: string
@@ -26,10 +25,9 @@ export const VerticalProductCard: React.FC<VerticalProductCardProps> = (
   props
 ) => {
   const {
-    name,
+    title,
     image,
     points,
-    amount,
     tags,
     variant,
     onClick,
@@ -37,6 +35,7 @@ export const VerticalProductCard: React.FC<VerticalProductCardProps> = (
     onRemove,
     children
   } = props
+  const [amount, setAmount] = React.useState(1)
 
   return (
     <Box
@@ -49,11 +48,11 @@ export const VerticalProductCard: React.FC<VerticalProductCardProps> = (
       <Box sx={classes.contentWrapper}>
         {/* @ts-ignore */}
         <Box sx={classes.imageWrapper}>
-          <img src={image} alt={name} />
+          <img src={image} alt={title} />
         </Box>
         <Box sx={{ ml: { xs: 0, sm: 5 }, flex: 1 }}>
           <Typography variant='h6' sx={{ fontSize: 16 }}>
-            <TextTruncate line={2} truncateText='…' text={name} />
+            <TextTruncate line={2} truncateText='…' text={title} />
           </Typography>
           <Typography variant='body2' color='text.secondary' mb={2}>
             {variant.label} {variant.value}
@@ -68,9 +67,11 @@ export const VerticalProductCard: React.FC<VerticalProductCardProps> = (
             <AmountInput
               amount={amount}
               onAdd={(): void => {
+                setAmount(amount + 1)
                 return onAdd()
               }}
               onRemove={(): void => {
+                setAmount(amount - 1)
                 return onRemove()
               }}
             />
