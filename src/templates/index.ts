@@ -19,3 +19,5 @@ export type {
   SelectableCardProps,
   VerticalProductCardProps
 } from './cards/index'
+
+export { Modal } from './Modal/Modal'
