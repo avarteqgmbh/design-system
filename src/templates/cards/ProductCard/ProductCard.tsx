@@ -2,14 +2,14 @@
 import React from 'react'
 import TextTruncate from 'react-text-truncate'
 import { Theme } from '../../../theme/types'
-import { Box, Chip, Typography } from '../../../index'
+import { Box, Chip, Typography } from '../../../components'
 import { Points } from '../Points'
 
 export interface ProductCardProps {
   name: string
   points?: number
-  backgroundImage?: boolean
-  imageUrl?: string
+  isBgImage?: boolean
+  image?: string
   hoverAnimation?: boolean
   listView?: boolean
   novelty?: boolean
@@ -21,8 +21,8 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
   const {
     name,
     points,
-    backgroundImage = true,
-    imageUrl,
+    isBgImage = true,
+    image,
     novelty,
     hoverAnimation = true,
     listView = false,
@@ -75,7 +75,7 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
     },
     backgroundImage: {
       transition: '200ms all ease-in-out',
-      backgroundImage: `url(${imageUrl})`,
+      backgroundImage: `url(${image})`,
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
@@ -110,11 +110,11 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
       sx={classes.root}
     >
       <Box sx={classes.backgroundImageWrapper}>
-        {backgroundImage ? (
+        {isBgImage ? (
           <Box className='image' sx={classes.backgroundImage} />
         ) : (
           <Box sx={classes.imageWrapper}>
-            <img src={imageUrl} alt={name} />
+            <img src={image} alt={name} />
           </Box>
         )}
         {novelty && (

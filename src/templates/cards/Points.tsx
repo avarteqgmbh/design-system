@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { AnyIcon, Box, Skeleton, Typography } from '../../index'
+import { AnyIcon, Box, Skeleton, Typography } from '../../components'
 
 interface Props {
   points?: number

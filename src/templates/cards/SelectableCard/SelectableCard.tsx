@@ -6,7 +6,7 @@ import {
   CardContent,
   Radio,
   Typography
-} from '../../../index'
+} from '../../../components'
 
 export interface SelectableCardProps {
   children: React.ReactNode

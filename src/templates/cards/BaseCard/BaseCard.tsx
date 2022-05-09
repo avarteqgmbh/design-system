@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from 'react'
 import { Theme } from '../../../theme/types'
-import { Box, Typography, Chip } from '../../../index'
+import { Box, Typography, Chip } from '../../../components'
 
 export interface Tag {
   primary?: boolean
@@ -11,7 +11,7 @@ export interface Tag {
 export interface CardProps {
   title: string
   subtitle?: string
-  description: string
+  description?: string
   hoverAnimation?: boolean
   image?: string
   tags?: Tag[]
@@ -92,7 +92,7 @@ export const BaseCard: React.FC<CardProps> = (props) => {
       <Box sx={{ p: 4 }}>
         <Box sx={classes.subtitleWrapper}>
           {subtitle && (
-            <Typography variant='caption' color='text.secondary'>
+            <Typography variant='body2' color='text.secondary'>
               {subtitle}
             </Typography>
           )}
@@ -111,12 +111,14 @@ export const BaseCard: React.FC<CardProps> = (props) => {
             </Box>
           )}
         </Box>
-        <Typography variant='h5' mb={1}>
+        <Typography variant='h6' mb={1}>
           {title}
         </Typography>
-        <Typography variant='body1' color='text.secondary'>
-          {description}
-        </Typography>
+        {description && (
+          <Typography variant='body2' color='text.secondary'>
+            {description}
+          </Typography>
+        )}
         {children}
       </Box>
     </Box>

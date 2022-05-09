@@ -36,36 +36,36 @@ const Template: Story<ProductCardStoryProps> = (args) => {
     {
       name: args.name,
       points: args.points,
-      imageUrl: args.imageUrl,
+      image: args.image,
       tags: args.tags,
-      backgroundImage: args.backgroundImage,
+      isBgImage: args.isBgImage,
       hoverAnimation: args.hoverAnimation
     },
     {
       name: 'Bart Öl "Hipster"',
       points: 450,
-      imageUrl:
+      image:
         'https://images.pexels.com/photos/6693952/pexels-photo-6693952.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
       tags: ['Nur noch 3 verfügbar'],
-      backgroundImage: true,
+      isBgImage: true,
       hoverAnimation: args.hoverAnimation
     },
     {
       name: 'Seifenspender "Bjiörn Malte Matze"',
       points: 790,
-      imageUrl:
+      image:
         'https://images.pexels.com/photos/5797999/pexels-photo-5797999.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
       tags: ['Auf Lager', 'Varianten verfügbar'],
-      backgroundImage: true,
+      isBgImage: true,
       hoverAnimation: args.hoverAnimation
     },
     {
       name: 'Gaderobe "Hang In There"',
       points: 3450,
-      imageUrl:
+      image:
         'https://images.pexels.com/photos/4210315/pexels-photo-4210315.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
       tags: ['Nicht verfügbar'],
-      backgroundImage: true,
+      isBgImage: true,
       hoverAnimation: args.hoverAnimation
     }
   ]
@@ -93,7 +93,7 @@ export const Default = Template.bind({})
 Default.args = {
   name: 'Fuji Kamera "Old School/ Vintage"',
   points: 1050,
-  imageUrl:
+  image:
     'https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
   tags: ['Auf Lager', 'Varianten verfügbar']
 }

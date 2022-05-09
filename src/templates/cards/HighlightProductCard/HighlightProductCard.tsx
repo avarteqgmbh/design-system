@@ -1,20 +1,20 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from 'react'
 import { Theme } from '../../../theme/types'
-import { Box, Typography } from '../../../index'
+import { Box, Typography } from '../../../components'
 
 export interface HighlightProductCardProps {
   title: string
   subtitle?: string
   onClick: () => void
-  imageUrl: string
+  image: string
   children?: React.ReactNode
 }
 
 export const HighlightProductCard: React.FC<HighlightProductCardProps> = (
   props
 ) => {
-  const { title, subtitle, onClick, imageUrl, children } = props
+  const { title, subtitle, onClick, image, children } = props
   const classes = {
     root: {
       position: 'relative',
@@ -59,7 +59,7 @@ export const HighlightProductCard: React.FC<HighlightProductCardProps> = (
       top: 0,
       left: 0,
       transition: '200ms all ease-in-out',
-      backgroundImage: `url(${imageUrl})`,
+      backgroundImage: `url(${image})`,
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',

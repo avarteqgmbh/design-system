@@ -2,7 +2,7 @@
 import React from 'react'
 import { Remove, Add } from '@mui/icons-material'
 import { Theme } from '../../theme/types'
-import { Box, Button, Typography } from '../../index'
+import { Box, Button, Typography } from '../../components'
 
 export interface AmountInputProps {
   amount: number

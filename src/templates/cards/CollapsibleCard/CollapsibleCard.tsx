@@ -1,11 +1,11 @@
 import React from 'react'
 import { ExpandLess, ExpandMore } from '@mui/icons-material'
-import { Box, Typography } from '../../../index'
+import { Box, Typography } from '../../../components'
 
 export interface CollapsibleCardProps {
   subtitle: string
   position?: number
-  score: number
+  score?: number
   scoreColor?: 'success' | 'error' | 'default'
   title: string
   highlighted?: boolean
@@ -108,11 +108,13 @@ export const CollapsibleCard: React.FC<CollapsibleCardProps> = (props) => {
             <Typography fontWeight='bold'>{title}</Typography>
           </Box>
         </Box>
-        <Box sx={classes.right}>
-          <Typography color={`${scoreColor}.main`} fontWeight='bold'>
-            {score}
-          </Typography>
-        </Box>
+        {score && (
+          <Box sx={classes.right}>
+            <Typography color={`${scoreColor}.main`} fontWeight='bold'>
+              {score}
+            </Typography>
+          </Box>
+        )}
       </Box>
       {hasBody && (
         <Box sx={classes.body}>
