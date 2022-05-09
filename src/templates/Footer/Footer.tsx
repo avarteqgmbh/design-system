@@ -2,15 +2,17 @@ import React from 'react'
 import { Box, Typography } from '../../components'
 
 export interface FooterProps {
+  children?: React.ReactNode
   links: { label: string; onLabelClick: () => void }[]
   slogan: string
 }
 
 export const Footer = (props: FooterProps): JSX.Element => {
-  const { links, slogan } = props
+  const { children, links, slogan } = props
 
   return (
     <Box sx={classes.root}>
+      {children && <Box>{children}</Box>}
       <Typography variant='body2' color='text.secondary'>
         {slogan}
       </Typography>

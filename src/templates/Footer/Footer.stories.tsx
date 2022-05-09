@@ -7,14 +7,6 @@ export default {
   title: 'Templates/Footer',
   component: Footer,
   decorators: [withDesign],
-  argTypes: {
-    onClick: {
-      action: { type: 'onClick' },
-      table: {
-        type: { summary: 'func' }
-      }
-    }
-  },
   parameters: {
     controls: { expanded: true },
     design: {
@@ -24,6 +16,7 @@ export default {
     muiDocSrc: ''
   }
 }
+
 const LINKS = [
   {
     label: 'Terms of use',
@@ -45,12 +38,21 @@ const LINKS = [
   }
 ]
 
+const FOOTER_CHILDREN = <p>TEST</p>
+
 const Template: Story<FooterProps> = (args) => {
   return <Footer {...args} />
 }
 
 export const Default = Template.bind({})
 Default.args = {
+  links: LINKS,
+  slogan: 'Created by anynines'
+}
+
+export const Extended = Template.bind({})
+Extended.args = {
+  children: FOOTER_CHILDREN,
   links: LINKS,
   slogan: 'Created by anynines'
 }
