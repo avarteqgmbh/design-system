@@ -30,7 +30,7 @@ const multipleSlides = [
     title: 'Test',
     description:
       'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et',
-    bgImage:
+    image:
       'https://images.pexels.com/photos/10873117/pexels-photo-10873117.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
   },
   {
@@ -38,7 +38,7 @@ const multipleSlides = [
     description:
       'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et',
     actions: slideActions,
-    bgImage:
+    image:
       'https://images.pexels.com/photos/6801450/pexels-photo-6801450.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
   },
   {
@@ -54,7 +54,7 @@ const singleSlide = [
     description:
       'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et',
     actions: slideActions,
-    bgImage:
+    image:
       'https://images.pexels.com/photos/6801450/pexels-photo-6801450.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
   }
 ]

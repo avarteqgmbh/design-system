@@ -10,7 +10,7 @@ import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material'
 import { Box, Button, Dialog, MobileStepper } from '../../components'
 
 export interface SlideItem {
-  bgImage?: string
+  image?: string
   title: string
   description: string
   actions?: JSX.Element
@@ -30,10 +30,10 @@ export const Modal = (props: ModalProps): JSX.Element => {
 
   return (
     <Dialog {...props}>
-      {slides[activeStep].bgImage && (
+      {slides[activeStep].image && (
         <Box
           sx={{
-            backgroundImage: `url(${slides[activeStep].bgImage})`,
+            backgroundImage: `url(${slides[activeStep].image})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             height: 200
