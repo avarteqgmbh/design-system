@@ -29,8 +29,7 @@ export default {
     design: {
       type: 'figma',
       url: 'https://www.figma.com/file/piIRNwoneeyLTKctvITs6z/%F0%9F%98%81-Happy?node-id=806%3A17767'
-    },
-    muiDocSrc: ''
+    }
   }
 }
 
