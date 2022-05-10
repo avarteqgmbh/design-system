@@ -46,13 +46,31 @@ export const Footer = (props: FooterProps): JSX.Element => {
       },
       pb: 5
     },
+    menuItem: {
+      display: 'flex',
+      flexDirection: 'column',
+      mr: 6,
+      flex: '1',
+      maxWidth: menuItems && menuItems.length <= 3 ? 250 : '100%',
+      '& .clickable': {
+        cursor: 'pointer',
+        '& h6:hover': {
+          color: 'text.secondary'
+        }
+      }
+    },
     defaultFooterWrapper: {
       width: extended ? 1200 : '100%',
-      p: 4,
+      p: 5,
       bgcolor: 'background.paper',
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center'
+    },
+    defaultFooterLink: {
+      transition: 'all ease-in-out 200ms',
+      cursor: 'pointer',
+      ml: 4
     },
     linkStyles: {
       color: 'text.secondary',
@@ -64,25 +82,11 @@ export const Footer = (props: FooterProps): JSX.Element => {
 
   return (
     <Box sx={classes.root}>
-      <Box sx={classes.menuItemWrapper}>
-        {menuItems &&
-          menuItems.map((menuItem) => {
+      {menuItems && (
+        <Box sx={classes.menuItemWrapper}>
+          {menuItems.map((menuItem) => {
             return (
-              <Box
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  mr: 6,
-                  flex: '1',
-                  maxWidth: 250,
-                  '& .clickable': {
-                    cursor: 'pointer',
-                    '& h6:hover': {
-                      color: 'text.secondary'
-                    }
-                  }
-                }}
-              >
+              <Box sx={classes.menuItem}>
                 <Box
                   className={menuItem.onClick && 'clickable'}
                   onClick={(): void => {
@@ -106,9 +110,10 @@ export const Footer = (props: FooterProps): JSX.Element => {
               </Box>
             )
           })}
-      </Box>
+        </Box>
+      )}
       <Box sx={classes.defaultFooterWrapper}>
-        <Typography variant='body2' color='text.hint'>
+        <Typography variant='body2' color='text.disabled'>
           {slogan}
         </Typography>
         <Box sx={{ display: 'flex' }}>
@@ -119,11 +124,7 @@ export const Footer = (props: FooterProps): JSX.Element => {
                 onClick={(): void => {
                   return link.onLabelClick()
                 }}
-                sx={{
-                  transition: 'all ease-in-out 200ms',
-                  cursor: 'pointer',
-                  ml: 4
-                }}
+                sx={classes.defaultFooterLink}
               >
                 <Typography variant='body2' sx={classes.linkStyles}>
                   {link.label}
