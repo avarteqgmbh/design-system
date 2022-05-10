@@ -12,7 +12,7 @@ export default {
     controls: { expanded: true },
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/piIRNwoneeyLTKctvITs6z/%F0%9F%98%81-Happy?node-id=1723%3A31754'
+      url: 'https://www.figma.com/file/piIRNwoneeyLTKctvITs6z/%F0%9F%98%81-Happy?node-id=3309%3A56636'
     },
     muiDocSrc: 'https://mui.com/components/dialogs/'
   }

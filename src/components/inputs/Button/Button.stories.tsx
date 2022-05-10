@@ -14,6 +14,10 @@ export default {
       table: {
         type: { summary: 'func' }
       }
+    },
+    label: {
+      type: 'text',
+      defaultValue: 'label'
     }
   },
   decorators: [withDesign],
@@ -26,27 +30,27 @@ export default {
     muiDocSrc: 'https://mui.com/components/buttons/'
   }
 }
-
-const Template: Story<ButtonProps> = (args) => {
-  return <Button {...args} />
+interface ButtonStoryProps extends ButtonProps {
+  label: string
 }
 
-const ButtonLabel = <span>Label</span>
+const Template: Story<ButtonStoryProps> = (args) => {
+  return (
+    <Button {...args}>
+      <span>{args.label}</span>
+    </Button>
+  )
+}
 
 export const Default = Template.bind({})
-Default.args = {
-  children: ButtonLabel
-}
 
 export const WithStartIcon = Template.bind({})
 WithStartIcon.args = {
-  children: ButtonLabel,
   startIcon: <Check />
 }
 
 export const WithEndIcon = Template.bind({})
 WithEndIcon.args = {
-  children: ButtonLabel,
   endIcon: <Delete />
 }
 

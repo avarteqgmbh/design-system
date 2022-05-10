@@ -1,6 +1,7 @@
 import { anyninesLight, anyninesDark } from '@avarteqgmbh/happy-token-system'
 import { withThemeProvider } from './decorators'
 
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 import { themes } from '@storybook/theming'
 import logoDark from './logo_dark.svg'
 import logoLight from './logo_light.svg'
@@ -61,7 +62,8 @@ export const parameters = {
         'Lab'
       ]
     }
-  }
+  },
+  viewport: { viewports: INITIAL_VIEWPORTS },
 }
 
 export const globalTypes = {
