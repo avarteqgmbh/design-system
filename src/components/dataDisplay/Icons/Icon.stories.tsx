@@ -1,9 +1,9 @@
 import React from 'react'
 import { Story } from '@storybook/react'
-import { IconButtonProps, SvgIconProps } from '@mui/material'
+import { SvgIconProps } from '@mui/material'
 import { AccessAlarm } from '@mui/icons-material'
 
-import { IconButton as MUIIconButton } from './IconButton'
+import { IconButton as MUIIconButton, IconButtonProps } from './IconButton'
 import { SvgIcon as MUISvgIcon } from './SvgIcon'
 
 export default {
