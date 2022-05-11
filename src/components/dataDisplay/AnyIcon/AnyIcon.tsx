@@ -106,6 +106,7 @@ import Rocket from './assets/rocket'
 
 // S
 import Sale from './assets/sale'
+import Search from './assets/search'
 import Sections from './assets/sections'
 import Send from './assets/send'
 import Settings from './assets/settings'
@@ -134,6 +135,7 @@ import Wishlist from './assets/wishlist'
 
 // I N T E R F A C E S
 export interface IconProps {
+  hasContrastColor?: boolean
   icon?: IconName
   size?: IconSize
   className?: string
@@ -207,6 +209,7 @@ export type IconName =
   | 'remove'
   | 'rocket'
   | 'sale'
+  | 'search'
   | 'sections'
   | 'send'
   | 'settings'
@@ -301,6 +304,7 @@ const ICONS: { [key in IconName]: JSX.Element } = {
   remove: <Remove />,
   rocket: <Rocket />,
   sale: <Sale />,
+  search: <Search />,
   sections: <Sections />,
   send: <Send />,
   settings: <Settings />,
@@ -334,11 +338,17 @@ const ICONS: { [key in IconName]: JSX.Element } = {
 // C O M P O N E N T
 export const AnyIcon: React.FC<IconProps> = ({
   className,
+  hasContrastColor = false,
   icon = 'menu',
   size = 'sm'
 }) => {
   return (
-    <Box className={`icon ${className} ${size}`} sx={styles}>
+    <Box
+      className={`icon ${className} ${size} ${
+        hasContrastColor && 'contrastColor'
+      }`}
+      sx={styles}
+    >
       {ICONS[icon]}
     </Box>
   )
@@ -353,6 +363,11 @@ const styles = {
   justifyContent: 'center',
   alignItems: 'center',
   color: 'text.primary',
+  transition: '200ms all ease-in-out',
+
+  '&.contrastColor': {
+    color: 'primary.contrastText'
+  },
 
   '& svg': {
     width: 'inherit',
