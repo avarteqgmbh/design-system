@@ -1,17 +1,28 @@
 import React from 'react'
-import { IconName } from '../../components/dataDisplay/AnyIcon/AnyIcon'
-import { AnyIcon, Badge, Box, Typography } from '../../components'
+import { Badge, Box, Typography } from '../../components'
 
 export interface MenuItemProps {
   active?: boolean
   badge?: boolean
-  icon?: IconName
+  className?: string
+  density?: number
+  icon?: React.ReactNode
   label?: string
+  size?: 'sm' | 'md' | 'lg'
   onClick?: () => void
 }
 
 export const MenuItem = (props: MenuItemProps): JSX.Element => {
-  const { active = false, badge = false, icon, label, onClick } = props
+  const {
+    active = false,
+    badge = false,
+    className = 'MenuItem',
+    density = 5,
+    icon,
+    label,
+    size = 'md',
+    onClick
+  } = props
   const classes = {
     root: {
       display: 'flex',
@@ -21,24 +32,33 @@ export const MenuItem = (props: MenuItemProps): JSX.Element => {
       bgcolor: active ? 'primary.main' : 'background.light',
       color: active ? 'primary.contrastText' : 'text.primary',
       minHeight: 48,
-      mr: badge ? 0 : 5,
+      mr: badge ? 0 : density,
       px: 4,
+      '&.sm': {
+        px: 3,
+        minHeight: 32
+      },
+      '&.lg': {
+        px: 5,
+        minHeight: 60
+      },
       '&:hover': {
         bgcolor: active ? 'primary.dark' : 'background.medium'
       }
     },
-    label: { textTransform: 'none', fontSize: '14px', ml: 3 }
+    label: { textTransform: 'none', fontSize: '14px', ml: icon ? 3 : 0 }
   }
 
   const MenuItemChildren = (): JSX.Element => {
     return (
       <Box
+        className={`${className} ${size}`}
         sx={classes.root}
         onClick={(): void => {
           return onClick && onClick()
         }}
       >
-        {icon && <AnyIcon size='md' hasContrastColor={active} icon={icon} />}
+        {icon && icon}
         {label && (
           <Typography
             variant='button'
@@ -53,7 +73,7 @@ export const MenuItem = (props: MenuItemProps): JSX.Element => {
   }
 
   return badge ? (
-    <Box mr={5}>
+    <Box mr={density}>
       <Badge
         variant='dot'
         color='primary'
