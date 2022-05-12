@@ -26,19 +26,19 @@ export const CHILDREN = (
 export const LINKS = [
   {
     label: 'Terms of use',
-    onLabelClick: (): void => {
+    onClick: (): void => {
       return console.log('Click')
     }
   },
   {
     label: 'Privacy Policy',
-    onLabelClick: (): void => {
+    onClick: (): void => {
       return console.log('Click')
     }
   },
   {
     label: 'Legal Notes',
-    onLabelClick: (): void => {
+    onClick: (): void => {
       return console.log('Click')
     }
   }
@@ -56,31 +56,31 @@ export const MENU_ITEMS = [
     links: [
       {
         label: 'Mein Profil',
-        onLabelClick: (): void => {
+        onClick: (): void => {
           return console.log('Click')
         }
       },
       {
         label: 'Persönliche Daten',
-        onLabelClick: (): void => {
+        onClick: (): void => {
           return console.log('Click')
         }
       },
       {
         label: 'Punktekonto',
-        onLabelClick: (): void => {
+        onClick: (): void => {
           return console.log('Click')
         }
       },
       {
         label: 'Warenkorb',
-        onLabelClick: (): void => {
+        onClick: (): void => {
           return console.log('Click')
         }
       },
       {
         label: 'Wunschliste',
-        onLabelClick: (): void => {
+        onClick: (): void => {
           return console.log('Click')
         }
       }
@@ -94,25 +94,25 @@ export const MENU_ITEMS = [
     links: [
       {
         label: 'Highlights',
-        onLabelClick: (): void => {
+        onClick: (): void => {
           return console.log('Click')
         }
       },
       {
         label: 'Startseite',
-        onLabelClick: (): void => {
+        onClick: (): void => {
           return console.log('Click')
         }
       },
       {
         label: 'Neuheiten',
-        onLabelClick: (): void => {
+        onClick: (): void => {
           return console.log('Click')
         }
       },
       {
         label: 'Suche',
-        onLabelClick: (): void => {
+        onClick: (): void => {
           return console.log('Click')
         }
       }
@@ -123,19 +123,19 @@ export const MENU_ITEMS = [
     links: [
       {
         label: 'Best of Bets',
-        onLabelClick: (): void => {
+        onClick: (): void => {
           return console.log('Click')
         }
       },
       {
         label: 'Neuwagen Challenge',
-        onLabelClick: (): void => {
+        onClick: (): void => {
           return console.log('Click')
         }
       },
       {
         label: 'Wettbewerb',
-        onLabelClick: (): void => {
+        onClick: (): void => {
           return console.log('Click')
         }
       }
@@ -146,13 +146,13 @@ export const MENU_ITEMS = [
     links: [
       {
         label: 'FAQ',
-        onLabelClick: (): void => {
+        onClick: (): void => {
           return console.log('Click')
         }
       },
       {
         label: 'Kontakt',
-        onLabelClick: (): void => {
+        onClick: (): void => {
           return console.log('Click')
         }
       }

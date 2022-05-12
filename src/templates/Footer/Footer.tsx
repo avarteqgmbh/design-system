@@ -3,7 +3,7 @@ import { Box, Typography } from '../../components'
 
 export interface Link {
   label: string
-  onLabelClick: () => void
+  onClick: () => void
 }
 
 export interface FooterProps {
@@ -125,7 +125,7 @@ export const Footer = (props: FooterProps): JSX.Element => {
               <Box
                 key={link.label}
                 onClick={(): void => {
-                  return link.onLabelClick()
+                  return link.onClick()
                 }}
                 sx={classes.defaultFooterLink}
               >
