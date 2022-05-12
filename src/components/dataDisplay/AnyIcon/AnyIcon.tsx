@@ -106,7 +106,6 @@ import Rocket from './assets/rocket'
 
 // S
 import Sale from './assets/sale'
-import Search from './assets/search'
 import Sections from './assets/sections'
 import Send from './assets/send'
 import Settings from './assets/settings'
@@ -209,7 +208,6 @@ export type IconName =
   | 'remove'
   | 'rocket'
   | 'sale'
-  | 'search'
   | 'sections'
   | 'send'
   | 'settings'
@@ -304,7 +302,6 @@ const ICONS: { [key in IconName]: JSX.Element } = {
   remove: <Remove />,
   rocket: <Rocket />,
   sale: <Sale />,
-  search: <Search />,
   sections: <Sections />,
   send: <Send />,
   settings: <Settings />,
