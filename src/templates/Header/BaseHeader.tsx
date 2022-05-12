@@ -7,7 +7,7 @@ export interface Link {
   active?: boolean
   icon?: IconName
   label?: string
-  onLinkClick: () => void
+  onClick: () => void
 }
 
 export interface BaseHeaderProps {
@@ -40,7 +40,7 @@ export const BaseHeader = (props: BaseHeaderProps): JSX.Element => {
             label={link.label}
             active={link.active}
             onClick={(): void => {
-              return link.onLinkClick && link.onLinkClick()
+              return link.onClick && link.onClick()
             }}
           />
         )
