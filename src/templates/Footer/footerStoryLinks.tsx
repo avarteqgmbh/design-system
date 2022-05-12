@@ -1,6 +1,7 @@
 import React from 'react'
 import {
   Box,
+  Button,
   Typography,
   Select,
   FormControl,
@@ -8,7 +9,19 @@ import {
   IconButton,
   AnyIcon
 } from '../../components'
+import Logo from '../Logo'
 import { DarkMode } from '@mui/icons-material'
+
+export const CHILDREN = (
+  <Box>
+    <Logo />
+    <Typography my={3} color='textSecondary'>
+      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+      eirmod tempor invidunt.
+    </Typography>
+    <Button>Subscribe</Button>
+  </Box>
+)
 
 export const LINKS = [
   {

@@ -7,6 +7,7 @@ export interface Link {
 }
 
 export interface FooterProps {
+  children?: React.ReactNode
   extended?: boolean
   links: Link[]
   menuItems?: {
@@ -19,7 +20,7 @@ export interface FooterProps {
 }
 
 export const Footer = (props: FooterProps): JSX.Element => {
-  const { extended = false, links, menuItems, slogan } = props
+  const { children, extended = false, links, menuItems, slogan } = props
 
   const classes = {
     root: {
@@ -82,34 +83,36 @@ export const Footer = (props: FooterProps): JSX.Element => {
 
   return (
     <Box sx={classes.root}>
-      {menuItems && (
+      {extended && (
         <Box sx={classes.menuItemWrapper}>
-          {menuItems.map((menuItem) => {
-            return (
-              <Box sx={classes.menuItem}>
-                <Box
-                  className={menuItem.onClick && 'clickable'}
-                  onClick={(): void => {
-                    return menuItem.onClick && menuItem.onClick()
-                  }}
-                >
-                  <Typography variant='h6'>{menuItem.label}</Typography>
+          {children && <Box sx={classes.menuItem}>{children}</Box>}
+          {menuItems &&
+            menuItems.map((menuItem) => {
+              return (
+                <Box sx={classes.menuItem}>
+                  <Box
+                    className={menuItem.onClick && 'clickable'}
+                    onClick={(): void => {
+                      return menuItem.onClick && menuItem.onClick()
+                    }}
+                  >
+                    <Typography variant='h6'>{menuItem.label}</Typography>
+                  </Box>
+                  <ul>
+                    {menuItem.links.map((link) => {
+                      return (
+                        <li>
+                          <Typography variant='body2' sx={classes.linkStyles}>
+                            {link.label}
+                          </Typography>
+                        </li>
+                      )
+                    })}
+                    {menuItem.children}
+                  </ul>
                 </Box>
-                <ul>
-                  {menuItem.links.map((link) => {
-                    return (
-                      <li>
-                        <Typography variant='body2' sx={classes.linkStyles}>
-                          {link.label}
-                        </Typography>
-                      </li>
-                    )
-                  })}
-                  {menuItem.children}
-                </ul>
-              </Box>
-            )
-          })}
+              )
+            })}
         </Box>
       )}
       <Box sx={classes.defaultFooterWrapper}>

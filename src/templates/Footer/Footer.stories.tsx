@@ -2,7 +2,7 @@ import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { Footer, FooterProps } from './Footer'
-import { LINKS, MENU_ITEMS } from './footerStoryLinks'
+import { CHILDREN, LINKS, MENU_ITEMS } from './footerStoryLinks'
 
 export default {
   title: 'Templates/Footer',
@@ -29,6 +29,15 @@ Default.args = {
 
 export const Extended = Template.bind({})
 Extended.args = {
+  menuItems: MENU_ITEMS,
+  extended: true,
+  links: LINKS,
+  slogan: 'Created by anynines'
+}
+
+export const ExtendedWithChildren = Template.bind({})
+ExtendedWithChildren.args = {
+  children: CHILDREN,
   menuItems: MENU_ITEMS,
   extended: true,
   links: LINKS,
