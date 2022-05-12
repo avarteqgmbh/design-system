@@ -4,6 +4,7 @@ import { withDesign } from 'storybook-addon-designs'
 import { BaseHeader, BaseHeaderProps, Link } from './BaseHeader'
 import { UserNav, UserMenuItems } from './UserNav'
 import { MetaNav } from './MetaNav'
+import { ShopNav } from './ShopNav'
 
 import { AnyIcon, Chip } from '../../components'
 import {
@@ -89,6 +90,66 @@ const USER_NAV = (
   />
 )
 
+const MAIN_CATEGORIES = {
+  mainCategoryLabel: 'Hauptkategorien',
+  subCategoryLabel: 'Unterkategorien',
+  items: [
+    {
+      label: 'Schöner Wohnen',
+      subCategories: [{ label: 'Sub 1' }, { label: 'Sub 2' }]
+    },
+    {
+      label: 'Coole Technik',
+      subCategories: [
+        { label: 'Sub 1' },
+        { label: 'Sub 2' },
+        { label: 'Sub 3' }
+      ]
+    },
+    {
+      label: 'Perfekter Haushalt',
+      subCategories: [
+        { label: 'Sub 1' },
+        { label: 'Sub 2' },
+        { label: 'Sub 3' }
+      ]
+    },
+    {
+      label: 'Gemütlicher Garten',
+      subCategories: [
+        { label: 'Sub 1' },
+        { label: 'Sub 2' },
+        { label: 'Sub 3' }
+      ]
+    },
+    {
+      label: 'Traumhafte Reisen',
+      subCategories: [
+        { label: 'Sub 1' },
+        { label: 'Sub 2' },
+        { label: 'Sub 3' }
+      ]
+    },
+    {
+      label: 'Weine aus aller Welt',
+      subCategories: [{ label: 'Sub 1' }, { label: 'Sub 2' }]
+    }
+  ]
+}
+
+const HIGHLIGHT_CATEGORIES = [
+  {
+    title: 'Schöner Leben',
+    image:
+      'https://images.pexels.com/photos/1918291/pexels-photo-1918291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
+  },
+  {
+    title: 'Multimedia',
+    image:
+      'https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
+  }
+]
+
 const Template: Story<BaseHeaderProps> = (args) => {
   return <BaseHeader {...args} />
 }
@@ -113,6 +174,21 @@ WithMetaNav.args = {
       density={3}
       mainLinks={META_MAIN_LINKS as Link[]}
       quickLinks={META_QUICK_LINKS as Link[]}
+    />
+  )
+}
+
+export const WithShopNav = Template.bind({})
+WithShopNav.args = {
+  logo: <Logo />,
+  density: 5,
+  mainLinks: MAIN_LINKS,
+  quickLinks: QUICK_LINKS,
+  userMenu: USER_NAV,
+  children: (
+    <ShopNav
+      mainCategories={MAIN_CATEGORIES}
+      highlights={HIGHLIGHT_CATEGORIES}
     />
   )
 }
