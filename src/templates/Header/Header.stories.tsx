@@ -2,10 +2,10 @@ import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { BaseHeader, BaseHeaderProps, Link } from './BaseHeader'
-import { UserMenuItem } from './UserMenuItem'
+import { UserNav, UserMenuItems } from './UserNav'
 import { MetaNav } from './MetaNav'
 
-import { AnyIcon } from '../../components'
+import { AnyIcon, Chip } from '../../components'
 import {
   FacebookOutlined,
   Instagram,
@@ -55,11 +55,37 @@ const META_QUICK_LINKS = [
   { icon: <FacebookOutlined fontSize='small' /> }
 ]
 
-const USER_MENU = (
-  <UserMenuItem
-    avatar='https://mui.com/static/images/avatar/1.jpg'
-    title='Max Mustermann-Lamacun'
-    subtitle='4.200 Punkte'
+const USER_MENU_ITEMS = [
+  {
+    label: 'Mein Bereich',
+    items: [
+      { label: 'Profil', icon: <AnyIcon size='md' icon='user' /> },
+      { label: 'Punktekonto', icon: <AnyIcon size='md' icon='points' /> }
+    ]
+  },
+  {
+    items: [
+      { label: 'Warenkorb', icon: <AnyIcon size='md' icon='cart' /> },
+      {
+        label: 'Wunschliste',
+        icon: <AnyIcon size='md' icon='wishlist' />,
+        endIcon: <Chip label='9' size='small' color='primary' rounded={false} />
+      },
+      { label: 'Bestellungen', icon: <AnyIcon size='md' icon='orders' /> }
+    ]
+  },
+  {
+    items: [{ label: 'Logout' }]
+  }
+]
+
+const USER_NAV = (
+  <UserNav
+    avatarUrl='https://mui.com/static/images/avatar/1.jpg'
+    firstName='Max'
+    fullName='Max Mustermann-Lamacun'
+    points='4.200'
+    userMenu={USER_MENU_ITEMS as UserMenuItems[]}
   />
 )
 
@@ -72,7 +98,7 @@ Default.args = {
   logo: <Logo />,
   mainLinks: MAIN_LINKS,
   quickLinks: QUICK_LINKS,
-  userMenu: USER_MENU
+  userMenu: USER_NAV
 }
 
 export const WithMetaNav = Template.bind({})
@@ -81,7 +107,7 @@ WithMetaNav.args = {
   density: 5,
   mainLinks: MAIN_LINKS,
   quickLinks: QUICK_LINKS,
-  userMenu: USER_MENU,
+  userMenu: USER_NAV,
   metaNav: (
     <MetaNav
       density={3}
