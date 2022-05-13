@@ -4,7 +4,7 @@ import { withDesign } from 'storybook-addon-designs'
 import { BaseHeader, BaseHeaderProps, Link } from './BaseHeader'
 import { UserNav, UserMenuItems } from './UserNav'
 import { MetaNav } from './MetaNav'
-import { ShopNav } from './ShopNav'
+import { ShopNav, MainCategories, Highlight } from './ShopNav'
 
 import { AnyIcon, Chip } from '../../components'
 
@@ -201,11 +201,11 @@ export const WithShopNav: React.FC<BaseHeaderProps> = () => {
   ]
 
   return (
-    <BaseHeader mainLinks={SHOP_MAIN_LINKS as Link[]}>
+    <BaseHeader mainLinks={SHOP_MAIN_LINKS as Link[]} density={5}>
       <ShopNav
         isOpen={shopNavOpen}
-        mainCategories={MAIN_CATEGORIES}
-        highlights={HIGHLIGHT_CATEGORIES}
+        mainCategories={MAIN_CATEGORIES as MainCategories}
+        highlights={HIGHLIGHT_CATEGORIES as Highlight[]}
       />
     </BaseHeader>
   )

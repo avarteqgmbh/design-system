@@ -8,25 +8,29 @@ export interface ShopMenuItem {
   onClick: () => void
 }
 
-export interface ShopNavProps {
-  isOpen: boolean
-  mainCategories: {
-    mainCategoryLabel: string
-    subCategoryLabel: string
-    items: {
-      label: string
-      onClick: () => void
-      subCategories: ShopMenuItem[]
-    }[]
-  }
-  highlights: {
-    title: string
-    image: string
+export interface MainCategories {
+  mainCategoryLabel: string
+  subCategoryLabel: string
+  items: {
+    label: string
     onClick: () => void
+    subCategories: ShopMenuItem[]
   }[]
 }
 
-export const ShopNav = (props: ShopNavProps): JSX.Element | false => {
+export interface Highlight {
+  title: string
+  image: string
+  onClick: () => void
+}
+
+export interface ShopNavProps {
+  isOpen: boolean
+  mainCategories: MainCategories
+  highlights: Highlight[]
+}
+
+export const ShopNav = (props: ShopNavProps): JSX.Element => {
   const { mainCategories, highlights, isOpen = false } = props
   const [subCategories, setSubCategories] = React.useState<ShopMenuItem[]>([])
   const [activeMainCategory, setActiveMainCategory] = React.useState('')
@@ -35,11 +39,11 @@ export const ShopNav = (props: ShopNavProps): JSX.Element | false => {
   const [activeSubCategory, setActiveSubCategory] = React.useState('')
   const classes = {
     root: {
-      display: 'flex',
+      display: isOpen ? 'flex' : 'none',
       flexDirection: 'column',
       alignItems: 'center',
       position: 'absolute',
-      top: 95,
+      top: '100%',
       bgcolor: 'background.paper',
       boxShadow: 1,
       borderTop: '1px solid',
@@ -107,32 +111,77 @@ export const ShopNav = (props: ShopNavProps): JSX.Element | false => {
   }
 
   return (
-    isOpen && (
-      <Box sx={classes.root}>
-        <Box sx={classes.menuWrapper}>
-          <Box sx={classes.menuContainer}>
-            <Box>
-              <Typography variant='h6' ml={2}>
-                {mainCategories.mainCategoryLabel}
-              </Typography>
-            </Box>
+    <Box sx={classes.root}>
+      <Box sx={classes.menuWrapper}>
+        <Box sx={classes.menuContainer}>
+          <Box>
+            <Typography variant='h6' ml={2}>
+              {mainCategories.mainCategoryLabel}
+            </Typography>
+          </Box>
+          <ul>
+            {mainCategories.items.map((item) => {
+              return (
+                <li>
+                  <Box
+                    className={`${activeMainCategory === item.label && 'active'}
+                      ${activeHoveredMainCategory === item.label && 'onHover'}`}
+                    sx={classes.menuItem}
+                    onMouseEnter={(): void => {
+                      setActiveHoveredMainCategory(item.label)
+                      setSubCategories(item.subCategories)
+                    }}
+                    onClick={(): void => {
+                      setActiveMainCategory(item.label)
+                      setActiveSubCategory('')
+                      return item.onClick && item.onClick()
+                    }}
+                  >
+                    <Typography
+                      variant='body2'
+                      color='textSecondary'
+                      className='label'
+                    >
+                      {item.label}
+                    </Typography>
+                    <Icon
+                      sx={{
+                        opacity: 0,
+                        color:
+                          activeMainCategory === item.label
+                            ? 'primary.contrastText'
+                            : 'primary.main',
+                        transition: 'all ease-in-out 200ms'
+                      }}
+                      className='icon'
+                    >
+                      <ChevronRight />
+                    </Icon>
+                  </Box>
+                </li>
+              )
+            })}
+          </ul>
+        </Box>
+        <Box sx={classes.menuContainer}>
+          <Box>
+            <Typography variant='h6' ml={2}>
+              {mainCategories.subCategoryLabel}
+            </Typography>
+          </Box>
+          {subCategories.length > 0 && (
             <ul>
-              {mainCategories.items.map((item) => {
+              {subCategories.map((item: ShopMenuItem) => {
                 return (
                   <li>
                     <Box
-                      className={`${
-                        activeMainCategory === item.label && 'active'
-                      }
-                      ${activeHoveredMainCategory === item.label && 'onHover'}`}
                       sx={classes.menuItem}
-                      onMouseEnter={(): void => {
-                        setActiveHoveredMainCategory(item.label)
-                        setSubCategories(item.subCategories)
-                      }}
+                      className={
+                        activeSubCategory === item.label ? 'active' : ''
+                      }
                       onClick={(): void => {
-                        setActiveMainCategory(item.label)
-                        setActiveSubCategory('')
+                        setActiveMainCategory('')
+                        setActiveSubCategory(item.label)
                         return item.onClick && item.onClick()
                       }}
                     >
@@ -143,76 +192,27 @@ export const ShopNav = (props: ShopNavProps): JSX.Element | false => {
                       >
                         {item.label}
                       </Typography>
-                      <Icon
-                        sx={{
-                          opacity: 0,
-                          color:
-                            activeMainCategory === item.label
-                              ? 'primary.contrastText'
-                              : 'primary.main',
-                          transition: 'all ease-in-out 200ms'
-                        }}
-                        className='icon'
-                      >
-                        <ChevronRight />
-                      </Icon>
                     </Box>
                   </li>
                 )
               })}
             </ul>
-          </Box>
-          <Box sx={classes.menuContainer}>
-            <Box>
-              <Typography variant='h6' ml={2}>
-                {mainCategories.subCategoryLabel}
-              </Typography>
-            </Box>
-            {subCategories.length > 0 && (
-              <ul>
-                {subCategories.map((item: ShopMenuItem) => {
-                  return (
-                    <li>
-                      <Box
-                        sx={classes.menuItem}
-                        className={
-                          activeSubCategory === item.label ? 'active' : ''
-                        }
-                        onClick={(): void => {
-                          setActiveMainCategory('')
-                          setActiveSubCategory(item.label)
-                          return item.onClick && item.onClick()
-                        }}
-                      >
-                        <Typography
-                          variant='body2'
-                          color='textSecondary'
-                          className='label'
-                        >
-                          {item.label}
-                        </Typography>
-                      </Box>
-                    </li>
-                  )
-                })}
-              </ul>
-            )}
-          </Box>
-          <Box sx={classes.highlightItemWrapper}>
-            {highlights.map((highlight) => {
-              return (
-                <NavTeaser
-                  title={highlight.title}
-                  image={highlight.image}
-                  onClick={(): void => {
-                    return highlight.onClick()
-                  }}
-                />
-              )
-            })}
-          </Box>
+          )}
+        </Box>
+        <Box sx={classes.highlightItemWrapper}>
+          {highlights.map((highlight) => {
+            return (
+              <NavTeaser
+                title={highlight.title}
+                image={highlight.image}
+                onClick={(): void => {
+                  return highlight.onClick()
+                }}
+              />
+            )
+          })}
         </Box>
       </Box>
-    )
+    </Box>
   )
 }
