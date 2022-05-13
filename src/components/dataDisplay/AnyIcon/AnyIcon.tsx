@@ -134,6 +134,7 @@ import Wishlist from './assets/wishlist'
 
 // I N T E R F A C E S
 export interface IconProps {
+  hasContrastColor?: boolean
   icon?: IconName
   size?: IconSize
   className?: string
@@ -334,11 +335,17 @@ const ICONS: { [key in IconName]: JSX.Element } = {
 // C O M P O N E N T
 export const AnyIcon: React.FC<IconProps> = ({
   className,
+  hasContrastColor = false,
   icon = 'menu',
   size = 'sm'
 }) => {
   return (
-    <Box className={`icon ${className} ${size}`} sx={styles}>
+    <Box
+      className={`icon ${className} ${size} ${
+        hasContrastColor && 'contrastColor'
+      }`}
+      sx={styles}
+    >
       {ICONS[icon]}
     </Box>
   )
@@ -353,6 +360,11 @@ const styles = {
   justifyContent: 'center',
   alignItems: 'center',
   color: 'text.primary',
+  transition: '200ms all ease-in-out',
+
+  '&.contrastColor': {
+    color: 'primary.contrastText'
+  },
 
   '& svg': {
     width: 'inherit',
