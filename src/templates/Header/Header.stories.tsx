@@ -7,6 +7,7 @@ import { MetaNav } from './MetaNav'
 import { ShopNav } from './ShopNav'
 
 import { AnyIcon, Chip } from '../../components'
+
 import {
   FacebookOutlined,
   Instagram,
