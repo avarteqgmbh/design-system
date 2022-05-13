@@ -4,6 +4,7 @@ import { withDesign } from 'storybook-addon-designs'
 import { BaseHeader, BaseHeaderProps, Link } from './BaseHeader'
 import { UserNav, UserMenuItems } from './UserNav'
 import { MetaNav } from './MetaNav'
+import { ShopNav } from './ShopNav'
 
 import { AnyIcon, Chip } from '../../components'
 
@@ -35,7 +36,10 @@ const MAIN_LINKS = [
     icon: <AnyIcon size='md' hasContrastColor icon='menu' />,
     active: true
   },
-  { label: 'Prämien', icon: <AnyIcon size='md' icon='shop' /> }
+  {
+    label: 'Prämien',
+    icon: <AnyIcon size='md' icon='shop' />
+  }
 ]
 
 const QUICK_LINKS = [
@@ -90,6 +94,66 @@ const USER_NAV = (
   />
 )
 
+const MAIN_CATEGORIES = {
+  mainCategoryLabel: 'Hauptkategorien',
+  subCategoryLabel: 'Unterkategorien',
+  items: [
+    {
+      label: 'Schöner Wohnen',
+      subCategories: [{ label: 'SW Sub 1' }, { label: 'SW Sub 2' }]
+    },
+    {
+      label: 'Coole Technik',
+      subCategories: [
+        { label: 'CT Sub 1' },
+        { label: 'CT Sub 2' },
+        { label: 'CT Sub 3' }
+      ]
+    },
+    {
+      label: 'Perfekter Haushalt',
+      subCategories: [
+        { label: 'PH Sub 1' },
+        { label: 'PH Sub 2' },
+        { label: 'PH Sub 3' }
+      ]
+    },
+    {
+      label: 'Gemütlicher Garten',
+      subCategories: [
+        { label: 'GG Sub 1' },
+        { label: 'GG Sub 2' },
+        { label: 'GG Sub 3' }
+      ]
+    },
+    {
+      label: 'Traumhafte Reisen',
+      subCategories: [
+        { label: 'Sub 1' },
+        { label: 'Sub 2' },
+        { label: 'Sub 3' }
+      ]
+    },
+    {
+      label: 'Weine aus aller Welt',
+      subCategories: [{ label: 'Sub 1' }, { label: 'Sub 2' }]
+    }
+  ]
+}
+
+const HIGHLIGHT_CATEGORIES = [
+  {
+    title: 'Schöner Leben',
+    image:
+      'https://images.pexels.com/photos/1918291/pexels-photo-1918291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
+  },
+  {
+    title: 'Multimedia',
+    image:
+      'https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
+  }
+]
+
 const Template: Story<BaseHeaderProps> = (args) => {
   return <BaseHeader {...args} />
 }
@@ -115,5 +179,34 @@ WithMetaNav.args = {
       mainLinks={META_MAIN_LINKS as Link[]}
       quickLinks={META_QUICK_LINKS as Link[]}
     />
+  )
+}
+
+export const WithShopNav: React.FC<BaseHeaderProps> = () => {
+  const [shopNavOpen, setShopNavOpen] = React.useState(false)
+  const SHOP_MAIN_LINKS = [
+    { icon: <AnyIcon size='md' icon='home' /> },
+    {
+      label: 'Menü',
+      icon: <AnyIcon size='md' icon='menu' />
+    },
+    {
+      label: 'Prämien',
+      icon: <AnyIcon size='md' hasContrastColor={shopNavOpen} icon='shop' />,
+      onClick: (): void => {
+        setShopNavOpen(!shopNavOpen)
+      },
+      active: shopNavOpen
+    }
+  ]
+
+  return (
+    <BaseHeader mainLinks={SHOP_MAIN_LINKS as Link[]}>
+      <ShopNav
+        isOpen={shopNavOpen}
+        mainCategories={MAIN_CATEGORIES}
+        highlights={HIGHLIGHT_CATEGORIES}
+      />
+    </BaseHeader>
   )
 }
