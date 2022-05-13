@@ -24,7 +24,7 @@ export default {
     controls: { expanded: true },
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/piIRNwoneeyLTKctvITs6z/%F0%9F%98%81-Happy?node-id=2797%3A66401'
+      url: 'https://www.figma.com/file/piIRNwoneeyLTKctvITs6z/%F0%9F%98%81-Happy?node-id=2797%3A66076'
     }
   }
 }
