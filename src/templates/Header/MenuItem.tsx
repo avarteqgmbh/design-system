@@ -34,6 +34,22 @@ export const MenuItem = (props: MenuItemProps): JSX.Element => {
       minHeight: 48,
       mr: badge ? 0 : density,
       px: 4,
+      '&.iconOnly': {
+        justifyContent: 'center',
+        px: 0,
+        height: 48,
+        width: 48,
+        '&.sm': {
+          px: 0,
+          height: 32,
+          width: 32
+        },
+        '&.lg': {
+          px: 0,
+          height: 60,
+          width: 60
+        }
+      },
       '&.sm': {
         px: 3,
         minHeight: 32
@@ -52,7 +68,7 @@ export const MenuItem = (props: MenuItemProps): JSX.Element => {
   const MenuItemChildren = (): JSX.Element => {
     return (
       <Box
-        className={`${className} ${size}`}
+        className={`${className} ${size} ${icon && !label && 'iconOnly'}`}
         sx={classes.root}
         onClick={(): void => {
           return onClick && onClick()
