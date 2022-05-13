@@ -1,6 +1,7 @@
 import React from 'react'
-import { Box, Typography } from '../../components'
-import { HighlightProductCard } from '../cards'
+import { ChevronRight } from '@mui/icons-material'
+import { Box, Icon, Typography } from '../../components'
+import { NavTeaser } from './NavTeaser'
 
 export interface ShopMenuItem {
   label: string
@@ -8,11 +9,13 @@ export interface ShopMenuItem {
 }
 
 export interface ShopNavProps {
+  isOpen: boolean
   mainCategories: {
     mainCategoryLabel: string
     subCategoryLabel: string
     items: {
       label: string
+      onClick: () => void
       subCategories: ShopMenuItem[]
     }[]
   }
@@ -23,142 +26,193 @@ export interface ShopNavProps {
   }[]
 }
 
-export const ShopNav = (props: ShopNavProps): JSX.Element => {
-  const { mainCategories, highlights } = props
+export const ShopNav = (props: ShopNavProps): JSX.Element | false => {
+  const { mainCategories, highlights, isOpen = false } = props
   const [subCategories, setSubCategories] = React.useState<ShopMenuItem[]>([])
   const [activeMainCategory, setActiveMainCategory] = React.useState('')
-
-  const onMainCategoryClick = (label: string, items: ShopMenuItem[]): void => {
-    setActiveMainCategory(label)
-    setSubCategories(items)
-  }
-
+  const [activeHoveredMainCategory, setActiveHoveredMainCategory] =
+    React.useState('')
+  const [activeSubCategory, setActiveSubCategory] = React.useState('')
   const classes = {
     root: {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
       position: 'absolute',
-      top: 90,
+      top: 95,
+      bgcolor: 'background.paper',
+      boxShadow: 1,
+      borderTop: '1px solid',
+      borderColor: 'background.border',
       width: '100%',
-      mt: 6
+      py: 6
     },
-    menuItemWrapper: {
+    menuWrapper: {
       display: 'flex',
       width: 1200,
-      borderBottom: '1px solid',
-      borderColor: 'background.border',
       '& ul': {
-        my: 2,
+        mt: 4,
+        mb: 2,
         pl: 0,
-        listStyle: 'none',
-        '& li': {
-          cursor: 'pointer',
-          transition: 'all ease-in-out 200ms',
-          py: 2,
-          '&.active': {
-            bgcolor: 'primary.main',
-            '& p': {
-              color: 'primary.contrastText'
-            }
-          }
-        }
-      },
-      pb: 5
+        listStyle: 'none'
+      }
     },
     menuItem: {
       display: 'flex',
-      flexDirection: 'column',
-      mr: 6,
-      flex: '1',
-      maxWidth: '100%',
-      '& .clickable': {
-        cursor: 'pointer',
-        '& h6:hover': {
-          color: 'text.secondary'
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      cursor: 'pointer',
+      borderRadius: '8px',
+      transition: 'all ease-in-out 200ms',
+      p: 2,
+      '&:hover': {
+        '& .label': {
+          color: 'primary.main'
+        }
+      },
+      '&.onHover': {
+        '& .icon': {
+          opacity: 1
+        }
+      },
+      '&.active': {
+        bgcolor: 'primary.main',
+        '& .label': {
+          color: 'primary.contrastText'
+        },
+        '&:hover': {
+          '& .label': {
+            color: 'primary.contrastText'
+          }
         }
       }
     },
-    highlightItemWrapper: {
-      display: 'flex'
+    menuContainer: {
+      display: 'flex',
+      flexDirection: 'column',
+      flex: '1',
+      mr: 6,
+      p: 4,
+      bgcolor: 'background.light',
+      borderRadius: '8px',
+      maxWidth: '100%'
     },
-    linkStyles: {
-      color: 'text.secondary',
-      '&:hover': {
-        color: 'text.primary'
-      }
+    highlightItemWrapper: {
+      display: 'grid',
+      flex: '1',
+      gridTemplateColumns: 'repeat(1, 1fr)',
+      columnGap: 5,
+      rowGap: 5
     }
   }
 
   return (
-    <Box sx={classes.root}>
-      <Box sx={classes.menuItemWrapper}>
-        <Box sx={classes.menuItem}>
-          <Box>
-            <Typography variant='h6'>
-              {mainCategories.mainCategoryLabel}
-            </Typography>
-          </Box>
-          <ul>
-            {mainCategories.items.map((item) => {
-              return (
-                <li
-                  className={activeMainCategory === item.label ? 'active' : ''}
-                >
-                  <Typography
-                    variant='body2'
-                    sx={classes.linkStyles}
-                    onClick={(): void => {
-                      return onMainCategoryClick(item.label, item.subCategories)
-                    }}
-                  >
-                    {item.label}
-                  </Typography>
-                </li>
-              )
-            })}
-          </ul>
-        </Box>
-        <Box sx={classes.menuItem}>
-          <Box>
-            <Typography variant='h6'>
-              {mainCategories.subCategoryLabel}
-            </Typography>
-          </Box>
-          {subCategories.length > 0 && (
+    isOpen && (
+      <Box sx={classes.root}>
+        <Box sx={classes.menuWrapper}>
+          <Box sx={classes.menuContainer}>
+            <Box>
+              <Typography variant='h6' ml={2}>
+                {mainCategories.mainCategoryLabel}
+              </Typography>
+            </Box>
             <ul>
-              {subCategories.map((item: ShopMenuItem) => {
+              {mainCategories.items.map((item) => {
                 return (
                   <li>
-                    <Typography
-                      variant='body2'
-                      sx={classes.linkStyles}
+                    <Box
+                      className={`${
+                        activeMainCategory === item.label && 'active'
+                      }
+                      ${activeHoveredMainCategory === item.label && 'onHover'}`}
+                      sx={classes.menuItem}
+                      onMouseEnter={(): void => {
+                        setActiveHoveredMainCategory(item.label)
+                        setSubCategories(item.subCategories)
+                      }}
                       onClick={(): void => {
+                        setActiveMainCategory(item.label)
+                        setActiveSubCategory('')
                         return item.onClick && item.onClick()
                       }}
                     >
-                      {item.label}
-                    </Typography>
+                      <Typography
+                        variant='body2'
+                        color='textSecondary'
+                        className='label'
+                      >
+                        {item.label}
+                      </Typography>
+                      <Icon
+                        sx={{
+                          opacity: 0,
+                          color:
+                            activeMainCategory === item.label
+                              ? 'primary.contrastText'
+                              : 'primary.main',
+                          transition: 'all ease-in-out 200ms'
+                        }}
+                        className='icon'
+                      >
+                        <ChevronRight />
+                      </Icon>
+                    </Box>
                   </li>
                 )
               })}
             </ul>
-          )}
-        </Box>
-        <Box sx={classes.highlightItemWrapper}>
-          {highlights.map((highlight) => {
-            return (
-              <HighlightProductCard
-                title={highlight.title}
-                image={highlight.image}
-                onClick={(): void => {
-                  return highlight.onClick()
-                }}
-              />
-            )
-          })}
+          </Box>
+          <Box sx={classes.menuContainer}>
+            <Box>
+              <Typography variant='h6' ml={2}>
+                {mainCategories.subCategoryLabel}
+              </Typography>
+            </Box>
+            {subCategories.length > 0 && (
+              <ul>
+                {subCategories.map((item: ShopMenuItem) => {
+                  return (
+                    <li>
+                      <Box
+                        sx={classes.menuItem}
+                        className={
+                          activeSubCategory === item.label ? 'active' : ''
+                        }
+                        onClick={(): void => {
+                          setActiveMainCategory('')
+                          setActiveSubCategory(item.label)
+                          return item.onClick && item.onClick()
+                        }}
+                      >
+                        <Typography
+                          variant='body2'
+                          color='textSecondary'
+                          className='label'
+                        >
+                          {item.label}
+                        </Typography>
+                      </Box>
+                    </li>
+                  )
+                })}
+              </ul>
+            )}
+          </Box>
+          <Box sx={classes.highlightItemWrapper}>
+            {highlights.map((highlight) => {
+              return (
+                <NavTeaser
+                  title={highlight.title}
+                  image={highlight.image}
+                  onClick={(): void => {
+                    return highlight.onClick()
+                  }}
+                />
+              )
+            })}
+          </Box>
         </Box>
       </Box>
-    </Box>
+    )
   )
 }

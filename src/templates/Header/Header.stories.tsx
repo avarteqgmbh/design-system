@@ -35,7 +35,10 @@ const MAIN_LINKS = [
     icon: <AnyIcon size='md' hasContrastColor icon='menu' />,
     active: true
   },
-  { label: 'Prämien', icon: <AnyIcon size='md' icon='shop' /> }
+  {
+    label: 'Prämien',
+    icon: <AnyIcon size='md' icon='shop' />
+  }
 ]
 
 const QUICK_LINKS = [
@@ -96,30 +99,30 @@ const MAIN_CATEGORIES = {
   items: [
     {
       label: 'Schöner Wohnen',
-      subCategories: [{ label: 'Sub 1' }, { label: 'Sub 2' }]
+      subCategories: [{ label: 'SW Sub 1' }, { label: 'SW Sub 2' }]
     },
     {
       label: 'Coole Technik',
       subCategories: [
-        { label: 'Sub 1' },
-        { label: 'Sub 2' },
-        { label: 'Sub 3' }
+        { label: 'CT Sub 1' },
+        { label: 'CT Sub 2' },
+        { label: 'CT Sub 3' }
       ]
     },
     {
       label: 'Perfekter Haushalt',
       subCategories: [
-        { label: 'Sub 1' },
-        { label: 'Sub 2' },
-        { label: 'Sub 3' }
+        { label: 'PH Sub 1' },
+        { label: 'PH Sub 2' },
+        { label: 'PH Sub 3' }
       ]
     },
     {
       label: 'Gemütlicher Garten',
       subCategories: [
-        { label: 'Sub 1' },
-        { label: 'Sub 2' },
-        { label: 'Sub 3' }
+        { label: 'GG Sub 1' },
+        { label: 'GG Sub 2' },
+        { label: 'GG Sub 3' }
       ]
     },
     {
@@ -178,17 +181,31 @@ WithMetaNav.args = {
   )
 }
 
-export const WithShopNav = Template.bind({})
-WithShopNav.args = {
-  logo: <Logo />,
-  density: 5,
-  mainLinks: MAIN_LINKS,
-  quickLinks: QUICK_LINKS,
-  userMenu: USER_NAV,
-  children: (
-    <ShopNav
-      mainCategories={MAIN_CATEGORIES}
-      highlights={HIGHLIGHT_CATEGORIES}
-    />
+export const WithShopNav: React.FC<BaseHeaderProps> = () => {
+  const [shopNavOpen, setShopNavOpen] = React.useState(false)
+  const SHOP_MAIN_LINKS = [
+    { icon: <AnyIcon size='md' icon='home' /> },
+    {
+      label: 'Menü',
+      icon: <AnyIcon size='md' icon='menu' />
+    },
+    {
+      label: 'Prämien',
+      icon: <AnyIcon size='md' hasContrastColor={shopNavOpen} icon='shop' />,
+      onClick: (): void => {
+        setShopNavOpen(!shopNavOpen)
+      },
+      active: shopNavOpen
+    }
+  ]
+
+  return (
+    <BaseHeader mainLinks={SHOP_MAIN_LINKS as Link[]}>
+      <ShopNav
+        isOpen={shopNavOpen}
+        mainCategories={MAIN_CATEGORIES}
+        highlights={HIGHLIGHT_CATEGORIES}
+      />
+    </BaseHeader>
   )
 }

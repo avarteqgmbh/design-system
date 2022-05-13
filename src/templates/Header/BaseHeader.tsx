@@ -13,8 +13,8 @@ export interface Link {
 export interface BaseHeaderProps {
   children?: React.ReactNode
   density?: number
-  logo: React.ReactNode
-  mainLinks: Link[]
+  logo?: React.ReactNode
+  mainLinks?: Link[]
   metaNav?: React.ReactNode
   quickLinks?: Link[]
   userMenu?: React.ReactNode
@@ -33,6 +33,7 @@ export const BaseHeader = (props: BaseHeaderProps): JSX.Element => {
 
   const classes = {
     root: {
+      position: 'relative',
       bgcolor: 'background.paper',
       width: '100%',
       boxShadow: 1
@@ -54,25 +55,27 @@ export const BaseHeader = (props: BaseHeaderProps): JSX.Element => {
     <Box sx={classes.root}>
       {metaNav && metaNav}
       <Box sx={classes.baseHeaderWrapper}>
-        <Box sx={{ display: 'flex', alignItems: 'center', mr: density }}>
-          {logo}
-        </Box>
-        {mainLinks.map((link) => {
-          return (
-            <MenuItem
-              icon={link.icon}
-              label={link.label}
-              active={link.active}
-              badge={link.badge}
-              density={density}
-              onClick={(): void => {
-                return link.onClick && link.onClick()
-              }}
-            />
-          )
-        })}
+        {logo && (
+          <Box sx={{ display: 'flex', alignItems: 'center', mr: density }}>
+            {logo}
+          </Box>
+        )}
+        {mainLinks &&
+          mainLinks.map((link) => {
+            return (
+              <MenuItem
+                icon={link.icon}
+                label={link.label}
+                active={link.active}
+                badge={link.badge}
+                density={density}
+                onClick={(): void => {
+                  return link.onClick && link.onClick()
+                }}
+              />
+            )
+          })}
         <Box sx={classes.quickLinks}>
-          {children && children}
           {quickLinks &&
             quickLinks.map((link) => {
               return (
@@ -91,6 +94,7 @@ export const BaseHeader = (props: BaseHeaderProps): JSX.Element => {
           {userMenu && userMenu}
         </Box>
       </Box>
+      {children && children}
     </Box>
   )
 }
