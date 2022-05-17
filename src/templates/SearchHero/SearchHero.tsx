@@ -12,7 +12,7 @@ import {
   TextField
 } from '../../components'
 
-export interface CoverflowProps {
+export interface SearchHeroProps {
   bgImage?: string
   breadcrumbs?: {
     label: string
@@ -25,7 +25,7 @@ export interface CoverflowProps {
   title: string
 }
 
-export const Coverflow = (props: CoverflowProps): JSX.Element => {
+export const SearchHero = (props: SearchHeroProps): JSX.Element => {
   const {
     bgImage,
     breadcrumbs,

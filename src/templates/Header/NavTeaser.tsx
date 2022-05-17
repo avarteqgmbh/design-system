@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Typography } from '../../components'
 
-interface NavTeaserProps {
+export interface NavTeaserProps {
   title: string
   image: string
   onClick: () => void

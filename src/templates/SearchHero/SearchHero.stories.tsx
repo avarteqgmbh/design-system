@@ -1,11 +1,11 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { Coverflow, CoverflowProps } from './Coverflow'
+import { SearchHero, SearchHeroProps } from './SearchHero'
 
 export default {
-  title: 'Templates/Coverflow',
-  component: Coverflow,
+  title: 'Templates/SearchHero',
+  component: SearchHero,
   decorators: [withDesign],
   parameters: {
     controls: { expanded: true },
@@ -16,8 +16,8 @@ export default {
   }
 }
 
-const Template: Story<CoverflowProps> = (args) => {
-  return <Coverflow {...args} />
+const Template: Story<SearchHeroProps> = (args) => {
+  return <SearchHero {...args} />
 }
 
 export const Default = Template.bind({})
