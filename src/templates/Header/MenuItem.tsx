@@ -8,7 +8,7 @@ export interface MenuItemProps {
   density?: number
   icon?: React.ReactNode
   label?: string
-  size?: 'sm' | 'md' | 'lg'
+  size?: 'small' | 'medium' | 'large'
   onClick?: () => void
 }
 
@@ -20,56 +20,23 @@ export const MenuItem = (props: MenuItemProps): JSX.Element => {
     density = 5,
     icon,
     label,
-    size = 'md',
+    size = 'medium',
     onClick
   } = props
-  const classes = {
-    root: {
-      display: 'flex',
-      alignItems: 'center',
-      borderRadius: '8px',
-      cursor: 'pointer',
-      bgcolor: active ? 'primary.main' : 'background.light',
-      color: active ? 'primary.contrastText' : 'text.primary',
-      minHeight: 48,
-      mr: badge ? 0 : density,
-      px: 4,
-      '&.iconOnly': {
-        justifyContent: 'center',
-        px: 0,
-        height: 48,
-        width: 48,
-        '&.sm': {
-          px: 0,
-          height: 32,
-          width: 32
-        },
-        '&.lg': {
-          px: 0,
-          height: 60,
-          width: 60
-        }
-      },
-      '&.sm': {
-        px: 3,
-        minHeight: 32
-      },
-      '&.lg': {
-        px: 5,
-        minHeight: 60
-      },
-      '&:hover': {
-        bgcolor: active ? 'primary.dark' : 'background.medium'
-      }
-    },
-    label: { textTransform: 'none', fontSize: '14px', ml: icon ? 3 : 0 }
-  }
 
   const MenuItemChildren = (): JSX.Element => {
     return (
       <Box
         className={`${className} ${size} ${icon && !label && 'iconOnly'}`}
-        sx={classes.root}
+        sx={{
+          ...classes.root,
+          bgcolor: active ? 'primary.main' : 'background.light',
+          color: active ? 'primary.contrastText' : 'text.primary',
+          mr: badge ? 0 : density,
+          '&:hover': {
+            bgcolor: active ? 'primary.dark' : 'background.medium'
+          }
+        }}
         onClick={(): void => {
           return onClick && onClick()
         }}
@@ -79,7 +46,10 @@ export const MenuItem = (props: MenuItemProps): JSX.Element => {
           <Typography
             variant='button'
             color={active ? 'contrastText' : 'textPrimary'}
-            sx={classes.label}
+            sx={{
+              ...classes.label,
+              ml: icon ? 3 : 0
+            }}
           >
             {label}
           </Typography>
@@ -105,4 +75,46 @@ export const MenuItem = (props: MenuItemProps): JSX.Element => {
   ) : (
     <MenuItemChildren />
   )
+}
+
+const classes = {
+  root: {
+    display: 'flex',
+    alignItems: 'center',
+    borderRadius: '8px',
+    cursor: 'pointer',
+    minHeight: 48,
+    px: 4,
+
+    '&.iconOnly': {
+      justifyContent: 'center',
+      px: 0,
+      height: 48,
+      width: 48,
+
+      '&.sm': {
+        px: 0,
+        height: 32,
+        width: 32
+      },
+
+      '&.lg': {
+        px: 0,
+        height: 60,
+        width: 60
+      }
+    },
+
+    '&.sm': {
+      px: 3,
+      minHeight: 32
+    },
+
+    '&.lg': {
+      px: 5,
+      minHeight: 60
+    }
+  },
+
+  label: { textTransform: 'none', fontSize: '14px' }
 }

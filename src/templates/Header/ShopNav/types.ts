@@ -8,8 +8,8 @@ export interface MainCategoryItem extends MenuItem {
   subCategories: MenuItem[]
 }
 
-export interface MenuItems {
-  mainCategoryLabel: string
-  subCategoryLabel: string
-  items: MainCategoryItem[]
+export interface Highlight {
+  title: string
+  image: string
+  onClick?: () => void
 }

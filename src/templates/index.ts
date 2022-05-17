@@ -24,23 +24,16 @@ export type {
 
 // Header
 export { BaseHeader } from './Header/BaseHeader'
-export { MenuItem } from './Header/MenuItem'
+export { MenuItem as AnyMenuItem } from './Header/MenuItem'
 export { MetaNav } from './Header/MetaNav'
-export { NavTeaser } from './Header/NavTeaser'
 export { ShopNav } from './Header/ShopNav'
 export { UserMenuItem } from './Header/UserMenuItem'
 export { UserNav } from './Header/UserNav'
 
-export type { Link, BaseHeaderProps } from './Header/BaseHeader'
+export type { Link as AnyLinkProps, BaseHeaderProps } from './Header/BaseHeader'
 export type { MenuItemProps } from './Header/MenuItem'
 export type { MetaNavProps } from './Header/MetaNav'
-export type { NavTeaserProps } from './Header/NavTeaser'
-export type {
-  ShopMenuItem,
-  MainCategories,
-  Highlight,
-  ShopNavProps
-} from './Header/ShopNav'
+export type { ShopNavProps } from './Header/ShopNav'
 export type { UserMenuItemProps } from './Header/UserMenuItem'
 export type { UserMenuItems, UserNavprops } from './Header/UserNav'
 

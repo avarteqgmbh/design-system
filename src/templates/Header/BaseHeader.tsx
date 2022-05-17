@@ -40,11 +40,14 @@ export const BaseHeader = (props: BaseHeaderProps): JSX.Element => {
       width: '100%',
       boxShadow: 1
     },
+
     baseHeaderWrapper: {
+      color: 'text.primary',
       display: 'flex',
       alignItems: 'center',
       p: densityValue[density]
     },
+
     quickLinks: {
       display: 'flex',
       alignItems: 'center',

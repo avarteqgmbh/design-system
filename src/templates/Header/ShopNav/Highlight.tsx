@@ -1,13 +1,13 @@
 import React from 'react'
-import { Box, Typography } from '../../components'
+import { Box, Typography } from '../../../components'
 
-export interface NavTeaserProps {
+export interface HighlightProps {
   title: string
   image: string
   onClick?: () => void
 }
 
-export const NavTeaser = (props: NavTeaserProps): JSX.Element => {
+export const Highlight: React.FC<HighlightProps> = (props) => {
   const { title, image, onClick } = props
   const classes = {
     root: {

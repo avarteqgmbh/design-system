@@ -1,164 +1,63 @@
 import React from 'react'
-import { Box, Typography } from '../../../components'
-import { ShopMenuItem, MainCategoriesProps } from './types'
-import { NavTeaser } from '../NavTeaser'
-import { MainCategories } from './MainCategories'
-
-export interface MainCategories {
-  mainCategoryLabel: string
-  subCategoryLabel: string
-  items: {
-    label: string
-    onClick?: () => void
-    subCategories: ShopMenuItem[]
-  }[]
-}
-
-export interface Highlight {
-  title: string
-  image: string
-  onClick?: () => void
-}
+import { Box } from '../../../components'
+import { MainCategoryItem, MenuItem } from './types'
+import { Categories } from './Categories'
+import { Highlight, HighlightProps } from './Highlight'
 
 export interface ShopNavProps {
   isOpen: boolean
-  mainCategories: MainCategories
-  highlights: Highlight[]
+  menu: MainCategoryItem[]
+  highlights: HighlightProps[]
 }
 
-export const ShopNav = (props: ShopNavProps): JSX.Element => {
-  const { mainCategories, highlights, isOpen = false } = props
-  const [subCategories, setSubCategories] = React.useState<ShopMenuItem[]>([])
-  const [activeMainCategory, setActiveMainCategory] = React.useState('')
-  const [activeSubCategory, setActiveSubCategory] = React.useState('')
-  const classes = {
-    root: {
-      display: isOpen ? 'flex' : 'none',
-      flexDirection: 'column',
-      alignItems: 'center',
-      position: 'absolute',
-      top: '100%',
-      bgcolor: 'background.paper',
-      boxShadow: 1,
-      borderTop: '1px solid',
-      borderColor: 'background.border',
-      width: '100%',
-      py: 6
-    },
-    menuWrapper: {
-      display: 'flex',
-      width: 1200,
-      '& ul': {
-        mt: 4,
-        mb: 2,
-        pl: 0,
-        listStyle: 'none'
-      }
-    },
-    menuItem: {
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      cursor: 'pointer',
-      borderRadius: '8px',
-      transition: 'all ease-in-out 200ms',
-      p: 2,
-      '&:hover': {
-        '& .label': {
-          color: 'primary.main'
-        }
-      },
-      '&.onHover': {
-        '& .icon': {
-          opacity: 1
-        }
-      },
-      '&.active': {
-        bgcolor: 'primary.main',
-        '& .label': {
-          color: 'primary.contrastText'
-        },
-        '&:hover': {
-          '& .label': {
-            color: 'primary.contrastText'
-          }
-        }
-      }
-    },
-    menuContainer: {
-      display: 'flex',
-      flexDirection: 'column',
-      flex: '1',
-      mr: 6,
-      p: 4,
-      bgcolor: 'background.light',
-      borderRadius: '8px',
-      maxWidth: '100%'
-    },
-    highlightItemWrapper: {
-      display: 'grid',
-      flex: '1',
-      gridTemplateColumns: 'repeat(1, 1fr)',
-      columnGap: 5,
-      rowGap: 5
+export const ShopNav: React.FC<ShopNavProps> = (props) => {
+  const { menu, highlights, isOpen = false } = props
+
+  // Active Main Category Label (e.g. Coole Technik)
+  const [activeCategory, setActiveCategory] = React.useState<string | null>(
+    null
+  )
+
+  const [subCategories, setSubCategories] = React.useState<MenuItem[] | null>(
+    null
+  )
+
+  React.useEffect((): void => {
+    const filteredCategory = menu.filter((category) => {
+      return category.label === activeCategory
+    })[0]
+
+    if (filteredCategory) {
+      setSubCategories(filteredCategory.subCategories)
+      setActiveCategory(filteredCategory.label || null)
     }
-  }
+  }, [menu, activeCategory])
 
   return (
-    <Box sx={classes.root}>
-      <Box sx={classes.menuWrapper}>
-        <MainCategories
-          label={mainCategories.mainCategoryLabel}
-          items={mainCategories.items}
-          activeMainCategory={activeMainCategory}
-          setSubCategories={setSubCategories}
-          setActiveMainCategory={setActiveMainCategory}
-          setActiveSubCategory={setActiveSubCategory}
+    <Box
+      sx={{
+        ...styles,
+        display: isOpen ? 'flex' : 'none'
+      }}
+    >
+      <Box sx={styles.menuWrapper}>
+        <Categories
+          label='Hauptkategorien'
+          items={menu}
+          setActiveCategory={setActiveCategory}
         />
-        <Box sx={classes.menuContainer}>
-          <Box>
-            <Typography variant='h6' ml={2}>
-              {mainCategories.subCategoryLabel}
-            </Typography>
-          </Box>
-          {subCategories.length > 0 && (
-            <ul>
-              {subCategories.map((item: ShopMenuItem) => {
-                return (
-                  <li>
-                    <Box
-                      sx={classes.menuItem}
-                      className={
-                        activeSubCategory === item.label ? 'active' : ''
-                      }
-                      onClick={(): void => {
-                        setActiveMainCategory('')
-                        setActiveSubCategory(item.label)
-                        return item.onClick && item.onClick()
-                      }}
-                    >
-                      <Typography
-                        variant='body2'
-                        color='textSecondary'
-                        className='label'
-                      >
-                        {item.label}
-                      </Typography>
-                    </Box>
-                  </li>
-                )
-              })}
-            </ul>
-          )}
-        </Box>
-        <Box sx={classes.highlightItemWrapper}>
-          {highlights.map((highlight) => {
+        <Categories
+          label={activeCategory || 'Unterkategorien'}
+          items={subCategories}
+        />
+        <Box sx={styles.highlightItemWrapper}>
+          {highlights.map(({ title, image, onClick }) => {
             return (
-              <NavTeaser
-                title={highlight.title}
-                image={highlight.image}
+              <Highlight
+                title={title}
+                image={image}
                 onClick={(): void => {
-                  return highlight.onClick && highlight.onClick()
+                  return onClick && onClick()
                 }}
               />
             )
@@ -167,4 +66,30 @@ export const ShopNav = (props: ShopNavProps): JSX.Element => {
       </Box>
     </Box>
   )
+}
+
+const styles = {
+  flexDirection: 'column',
+  alignItems: 'center',
+  position: 'absolute',
+  top: '100%',
+  bgcolor: 'background.paper',
+  boxShadow: 1,
+  borderTop: '1px solid',
+  borderColor: 'background.border',
+  width: '100%',
+  py: 6,
+
+  menuWrapper: {
+    display: 'flex',
+    width: 1200
+  },
+
+  highlightItemWrapper: {
+    display: 'grid',
+    flex: '1',
+    gridTemplateColumns: 'repeat(1, 1fr)',
+    columnGap: 5,
+    rowGap: 5
+  }
 }
