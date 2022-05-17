@@ -19,7 +19,7 @@ export default {
     controls: { expanded: true },
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/piIRNwoneeyLTKctvITs6z/%F0%9F%98%81-Happy?node-id=3309%3A56636'
+      url: 'https://www.figma.com/file/R2oPOOWOFTZxvFSmBgwwoX/%F0%9F%96%A5-Web?node-id=2797%3A69599'
     },
     muiDocSrc: ''
   }
@@ -28,6 +28,7 @@ export default {
 const multipleSlides = [
   {
     title: 'Test',
+    subtitle: '12.05.2022',
     description:
       'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna.',
     tags: ['Neu', 'Wettbewerb'],
