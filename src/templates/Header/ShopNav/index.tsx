@@ -1,19 +1,15 @@
 import React from 'react'
-import { ChevronRight } from '@mui/icons-material'
-import { Box, Icon, Typography } from '../../components'
-import { NavTeaser } from './NavTeaser'
-
-export interface ShopMenuItem {
-  label: string
-  onClick: () => void
-}
+import { Box, Typography } from '../../../components'
+import { ShopMenuItem, MainCategoriesProps } from './types'
+import { NavTeaser } from '../NavTeaser'
+import { MainCategories } from './MainCategories'
 
 export interface MainCategories {
   mainCategoryLabel: string
   subCategoryLabel: string
   items: {
     label: string
-    onClick: () => void
+    onClick?: () => void
     subCategories: ShopMenuItem[]
   }[]
 }
@@ -21,7 +17,7 @@ export interface MainCategories {
 export interface Highlight {
   title: string
   image: string
-  onClick: () => void
+  onClick?: () => void
 }
 
 export interface ShopNavProps {
@@ -34,8 +30,6 @@ export const ShopNav = (props: ShopNavProps): JSX.Element => {
   const { mainCategories, highlights, isOpen = false } = props
   const [subCategories, setSubCategories] = React.useState<ShopMenuItem[]>([])
   const [activeMainCategory, setActiveMainCategory] = React.useState('')
-  const [activeHoveredMainCategory, setActiveHoveredMainCategory] =
-    React.useState('')
   const [activeSubCategory, setActiveSubCategory] = React.useState('')
   const classes = {
     root: {
@@ -113,56 +107,14 @@ export const ShopNav = (props: ShopNavProps): JSX.Element => {
   return (
     <Box sx={classes.root}>
       <Box sx={classes.menuWrapper}>
-        <Box sx={classes.menuContainer}>
-          <Box>
-            <Typography variant='h6' ml={2}>
-              {mainCategories.mainCategoryLabel}
-            </Typography>
-          </Box>
-          <ul>
-            {mainCategories.items.map((item) => {
-              return (
-                <li>
-                  <Box
-                    className={`${activeMainCategory === item.label && 'active'}
-                      ${activeHoveredMainCategory === item.label && 'onHover'}`}
-                    sx={classes.menuItem}
-                    onMouseEnter={(): void => {
-                      setActiveHoveredMainCategory(item.label)
-                      setSubCategories(item.subCategories)
-                    }}
-                    onClick={(): void => {
-                      setActiveMainCategory(item.label)
-                      setActiveSubCategory('')
-                      return item.onClick && item.onClick()
-                    }}
-                  >
-                    <Typography
-                      variant='body2'
-                      color='textSecondary'
-                      className='label'
-                    >
-                      {item.label}
-                    </Typography>
-                    <Icon
-                      sx={{
-                        opacity: 0,
-                        color:
-                          activeMainCategory === item.label
-                            ? 'primary.contrastText'
-                            : 'primary.main',
-                        transition: 'all ease-in-out 200ms'
-                      }}
-                      className='icon'
-                    >
-                      <ChevronRight />
-                    </Icon>
-                  </Box>
-                </li>
-              )
-            })}
-          </ul>
-        </Box>
+        <MainCategories
+          label={mainCategories.mainCategoryLabel}
+          items={mainCategories.items}
+          activeMainCategory={activeMainCategory}
+          setSubCategories={setSubCategories}
+          setActiveMainCategory={setActiveMainCategory}
+          setActiveSubCategory={setActiveSubCategory}
+        />
         <Box sx={classes.menuContainer}>
           <Box>
             <Typography variant='h6' ml={2}>
@@ -206,7 +158,7 @@ export const ShopNav = (props: ShopNavProps): JSX.Element => {
                 title={highlight.title}
                 image={highlight.image}
                 onClick={(): void => {
-                  return highlight.onClick()
+                  return highlight.onClick && highlight.onClick()
                 }}
               />
             )

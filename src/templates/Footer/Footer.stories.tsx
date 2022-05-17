@@ -24,7 +24,7 @@ const Template: Story<FooterProps> = (args) => {
 export const Default = Template.bind({})
 Default.args = {
   links: LINKS,
-  slogan: 'Created by anynines'
+  copyright: 'Created by anynines'
 }
 
 export const Extended = Template.bind({})
@@ -32,7 +32,7 @@ Extended.args = {
   menuItems: MENU_ITEMS,
   extended: true,
   links: LINKS,
-  slogan: 'Created by anynines'
+  copyright: 'Created by anynines'
 }
 
 export const ExtendedWithChildren = Template.bind({})
@@ -41,5 +41,5 @@ ExtendedWithChildren.args = {
   menuItems: MENU_ITEMS,
   extended: true,
   links: LINKS,
-  slogan: 'Created by anynines'
+  copyright: 'Created by anynines'
 }

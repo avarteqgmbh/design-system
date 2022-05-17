@@ -4,7 +4,7 @@ import { Box, Typography } from '../../components'
 export interface NavTeaserProps {
   title: string
   image: string
-  onClick: () => void
+  onClick?: () => void
 }
 
 export const NavTeaser = (props: NavTeaserProps): JSX.Element => {

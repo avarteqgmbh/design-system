@@ -41,7 +41,7 @@ export const MetaNav = (props: MetaNavProps): JSX.Element => {
               icon={link.icon}
               badge={link.badge}
               onClick={(): void => {
-                link.onClick()
+                return link.onClick && link.onClick()
               }}
             />
           )
@@ -57,7 +57,7 @@ export const MetaNav = (props: MetaNavProps): JSX.Element => {
               icon={link.icon}
               badge={link.badge}
               onClick={(): void => {
-                link.onClick()
+                return link.onClick && link.onClick()
               }}
             />
           )

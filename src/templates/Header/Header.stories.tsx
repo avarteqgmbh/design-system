@@ -4,7 +4,7 @@ import { withDesign } from 'storybook-addon-designs'
 import { BaseHeader, BaseHeaderProps, Link } from './BaseHeader'
 import { UserNav, UserMenuItems } from './UserNav'
 import { MetaNav } from './MetaNav'
-import { ShopNav, MainCategories, Highlight } from './ShopNav'
+import { ShopNav, MainCategories, Highlight } from './ShopNav/ShopNav'
 
 import { AnyIcon, Chip } from '../../components'
 
@@ -62,7 +62,6 @@ const META_QUICK_LINKS = [
 
 const USER_MENU_ITEMS = [
   {
-    label: 'Mein Bereich',
     items: [
       { label: 'Profil', icon: <AnyIcon size='md' icon='user' /> },
       { label: 'Punktekonto', icon: <AnyIcon size='md' icon='points' /> }
@@ -169,7 +168,6 @@ Default.args = {
 export const WithMetaNav = Template.bind({})
 WithMetaNav.args = {
   logo: <Logo />,
-  density: 5,
   mainLinks: MAIN_LINKS,
   quickLinks: QUICK_LINKS,
   userMenu: USER_NAV,
