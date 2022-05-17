@@ -45,6 +45,7 @@ export const ShopNav: React.FC<ShopNavProps> = (props) => {
           label='Hauptkategorien'
           items={menu}
           setActiveCategory={setActiveCategory}
+          isMaincategory
         />
         <Categories
           label={activeCategory || 'Unterkategorien'}

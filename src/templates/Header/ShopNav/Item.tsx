@@ -8,10 +8,11 @@ interface Props {
   label: string
   onClick: () => void
   setActiveCategory?: (label: string) => void
+  hasChildren?: boolean
 }
 
 const Item: React.FC<Props> = (props) => {
-  const { active, label, onClick, setActiveCategory } = props
+  const { active, label, onClick, setActiveCategory, hasChildren } = props
 
   return (
     <Box
@@ -25,16 +26,18 @@ const Item: React.FC<Props> = (props) => {
       <Typography variant='body2' color='textSecondary' className='label'>
         {label}
       </Typography>
-      <Icon
-        sx={{
-          opacity: 0,
-          color: active ? 'primary.contrastText' : 'primary.main',
-          transition: 'all ease-in-out 200ms'
-        }}
-        className='icon'
-      >
-        <ChevronRight />
-      </Icon>
+      {hasChildren && (
+        <Icon
+          sx={{
+            opacity: 0,
+            color: active ? 'primary.contrastText' : 'primary.main',
+            transition: 'all ease-in-out 200ms'
+          }}
+          className='icon'
+        >
+          <ChevronRight />
+        </Icon>
+      )}
     </Box>
   )
 }

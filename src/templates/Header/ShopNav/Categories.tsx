@@ -5,6 +5,7 @@ import Item from './Item'
 
 interface Props {
   label: string
+  isMaincategory?: boolean
   items?: MainCategoryItem[] | MenuItem[] | null
   setActiveCategory?: (label: string) => void
   onClick?: () => void
@@ -22,7 +23,7 @@ const styles = {
 }
 
 export const Categories: React.FC<Props> = (props) => {
-  const { label, items, setActiveCategory, onClick } = props
+  const { label, isMaincategory, items, setActiveCategory, onClick } = props
   return (
     <Box sx={styles}>
       <Typography variant='h6' mb={3}>
@@ -39,6 +40,7 @@ export const Categories: React.FC<Props> = (props) => {
                   return onClick && onClick()
                 }}
                 setActiveCategory={setActiveCategory}
+                hasChildren={isMaincategory}
               />
             )
           })
