@@ -110,19 +110,19 @@ export const MENU_ITEMS = [
             <Select id='demo-select-small' value='de'>
               <MenuItem value='de'>
                 <Box sx={selectItemStyles}>
-                  <AnyIcon icon='LangDE' size='md' />
+                  <AnyIcon icon='LangDE' size='medium' />
                   <span>Deutsch</span>
                 </Box>
               </MenuItem>
               <MenuItem value='en'>
                 <Box sx={selectItemStyles}>
-                  <AnyIcon icon='LangEN' size='md' />
+                  <AnyIcon icon='LangEN' size='medium' />
                   <span>English</span>
                 </Box>
               </MenuItem>
               <MenuItem value='fr'>
                 <Box sx={selectItemStyles}>
-                  <AnyIcon icon='LangSP' size='md' />
+                  <AnyIcon icon='LangSP' size='medium' />
                   <span>Espanol</span>
                 </Box>
               </MenuItem>
@@ -131,7 +131,7 @@ export const MENU_ITEMS = [
         </li>
         <li>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <IconButton borderRadius='md' size='small'>
+            <IconButton borderRadius='medium' size='small'>
               <DarkMode />
             </IconButton>
             <Typography ml={2}>Dark Mode</Typography>

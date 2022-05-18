@@ -56,11 +56,11 @@ export default {
     },
     maxWidth: {
       control: { type: 'select' },
-      options: ['lg', 'md', 'sm', 'xl', 'xs', false],
-      defaultValue: 'sm',
+      options: ['large', 'medium', 'small', 'xlarge', 'xsmall', false],
+      defaultValue: 'small',
       table: {
         type: { summary: 'select' },
-        defaultValue: { summary: 'sm' }
+        defaultValue: { summary: 'small' }
       }
     },
     scroll: {

@@ -141,7 +141,7 @@ export interface IconProps {
 }
 
 // T Y P E S
-export type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+export type IconSize = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'
 
 export type IconName =
   | 'arrowUpRight'
@@ -337,7 +337,7 @@ export const AnyIcon: React.FC<IconProps> = ({
   className,
   hasContrastColor = false,
   icon = 'menu',
-  size = 'sm'
+  size = 'small'
 }) => {
   return (
     <Box

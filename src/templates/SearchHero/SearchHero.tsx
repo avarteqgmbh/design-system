@@ -82,7 +82,7 @@ export const SearchHero = (props: SearchHeroProps): JSX.Element => {
               endAdornment: (
                 <InputAdornment position='end'>
                   <IconButton
-                    borderRadius='md'
+                    borderRadius='medium'
                     size='small'
                     onClick={onSearchButtonClick}
                   >

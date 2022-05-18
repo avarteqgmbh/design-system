@@ -2,11 +2,11 @@ import React from 'react'
 import { Badge as MuiBadge, BadgeProps as MuiBadgeProps } from '@mui/material'
 
 export interface BadgeProps extends MuiBadgeProps {
-  size?: 'sm' | 'md' | 'lg'
+  size?: 'small' | 'medium' | 'large'
 }
 
 export function Badge(props: BadgeProps): JSX.Element {
-  const { color = 'primary', size = 'sm', sx } = props
+  const { color = 'primary', size = 'small', sx } = props
 
   return (
     <MuiBadge
@@ -24,13 +24,13 @@ const styles = {
     minWidth: '10px',
     borderRadius: '8px'
   },
-  '&.md': {
+  '&.medium': {
     '& .MuiBadge-dot': {
       height: 12,
       minWidth: 12
     }
   },
-  '&.lg': {
+  '&.large': {
     '& .MuiBadge-dot': {
       height: 16,
       minWidth: 16

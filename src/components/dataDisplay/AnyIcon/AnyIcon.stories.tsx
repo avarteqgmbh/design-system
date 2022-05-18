@@ -21,16 +21,16 @@ const Template: Story<IconProps> = (args) => {
 }
 
 export const ExtraSmall = Template.bind({})
-ExtraSmall.args = { size: 'xs' }
+ExtraSmall.args = { size: 'xsmall' }
 
 export const Small = Template.bind({})
-Small.args = { size: 'sm' }
+Small.args = { size: 'small' }
 
 export const Medium = Template.bind({})
-Medium.args = { size: 'md' }
+Medium.args = { size: 'medium' }
 
 export const Large = Template.bind({})
-Large.args = { size: 'lg' }
+Large.args = { size: 'large' }
 
 export const ExtraLarge = Template.bind({})
-ExtraLarge.args = { size: 'xl' }
+ExtraLarge.args = { size: 'xlarge' }

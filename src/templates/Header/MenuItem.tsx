@@ -69,7 +69,7 @@ export const MenuItem = (props: MenuItemProps): JSX.Element => {
           vertical: 'top',
           horizontal: 'right'
         }}
-        size='md'
+        size='medium'
       >
         <MenuItemChildren />
       </Badge>

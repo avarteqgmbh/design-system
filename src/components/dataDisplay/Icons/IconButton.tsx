@@ -6,7 +6,7 @@ import {
 
 export interface IconButtonProps extends MuiIconButtonProps {
   border?: boolean
-  borderRadius?: 'sm' | 'md' | 'full'
+  borderRadius?: 'small' | 'medium' | 'full'
 }
 
 export function IconButton(props: IconButtonProps): JSX.Element {
@@ -16,10 +16,10 @@ export function IconButton(props: IconButtonProps): JSX.Element {
     color: 'text.primary',
     border: border ? '1px solid' : 'none',
     borderColor: 'background.border',
-    '&.borderRadius-sm': {
+    '&.borderRadius-small': {
       borderRadius: '4px'
     },
-    '&.borderRadius-md': {
+    '&.borderRadius-medium': {
       borderRadius: '8px'
     },
     '&:hover': {

@@ -33,22 +33,22 @@ export default {
 }
 
 const MAIN_LINKS = [
-  { icon: <AnyIcon size='md' icon='home' /> },
+  { icon: <AnyIcon size='medium' icon='home' /> },
   {
     label: 'Menü',
-    icon: <AnyIcon size='md' hasContrastColor icon='menu' />,
+    icon: <AnyIcon size='medium' hasContrastColor icon='menu' />,
     active: true
   },
   {
     label: 'Prämien',
-    icon: <AnyIcon size='md' icon='shop' />
+    icon: <AnyIcon size='medium' icon='shop' />
   }
 ]
 
 const QUICK_LINKS = [
   { icon: <Search /> },
-  { icon: <AnyIcon size='md' icon='cart' />, badge: true },
-  { icon: <AnyIcon size='md' icon='notifications' /> }
+  { icon: <AnyIcon size='medium' icon='cart' />, badge: true },
+  { icon: <AnyIcon size='medium' icon='notifications' /> }
 ]
 
 const META_MAIN_LINKS = [
@@ -66,19 +66,19 @@ const META_QUICK_LINKS = [
 const USER_MENU_ITEMS = [
   {
     items: [
-      { label: 'Profil', icon: <AnyIcon size='md' icon='user' /> },
-      { label: 'Punktekonto', icon: <AnyIcon size='md' icon='points' /> }
+      { label: 'Profil', icon: <AnyIcon size='medium' icon='user' /> },
+      { label: 'Punktekonto', icon: <AnyIcon size='medium' icon='points' /> }
     ]
   },
   {
     items: [
-      { label: 'Warenkorb', icon: <AnyIcon size='md' icon='cart' /> },
+      { label: 'Warenkorb', icon: <AnyIcon size='medium' icon='cart' /> },
       {
         label: 'Wunschliste',
-        icon: <AnyIcon size='md' icon='wishlist' />,
+        icon: <AnyIcon size='medium' icon='wishlist' />,
         endIcon: <Chip label='9' size='small' color='primary' rounded={false} />
       },
-      { label: 'Bestellungen', icon: <AnyIcon size='md' icon='orders' /> }
+      { label: 'Bestellungen', icon: <AnyIcon size='medium' icon='orders' /> }
     ]
   },
   {
@@ -93,7 +93,7 @@ const USER_NAV = (
     fullName='Max Mustermann-Lamacun'
     points='4.200'
     userMenu={USER_MENU_ITEMS as UserMenuItems[]}
-    children={[<MenuItem density={3} icon={<DarkMode />}/>, <MenuItem lastItem icon={<AnyIcon size='lg' icon='LangDE'/>} />]}
+    children={[<MenuItem density={3} icon={<DarkMode />}/>, <MenuItem lastItem icon={<AnyIcon size='large' icon='LangDE'/>} />]}
   />
 )
 
@@ -180,14 +180,14 @@ WithMetaNav.args = {
 export const WithShopNav: React.FC<BaseHeaderProps> = () => {
   const [shopNavOpen, setShopNavOpen] = React.useState(false)
   const SHOP_MAIN_LINKS = [
-    { icon: <AnyIcon size='md' icon='home' /> },
+    { icon: <AnyIcon size='medium' icon='home' /> },
     {
       label: 'Menü',
-      icon: <AnyIcon size='md' icon='menu' />
+      icon: <AnyIcon size='medium' icon='menu' />
     },
     {
       label: 'Prämien',
-      icon: <AnyIcon size='md' hasContrastColor={shopNavOpen} icon='shop' />,
+      icon: <AnyIcon size='medium' hasContrastColor={shopNavOpen} icon='shop' />,
       onClick: (): void => {
         setShopNavOpen(!shopNavOpen)
       },
