@@ -4,7 +4,8 @@ import { withDesign } from 'storybook-addon-designs'
 import { BaseHeader, BaseHeaderProps, Link } from './BaseHeader'
 import { UserNav, UserMenuItems } from './UserNav'
 import { MetaNav } from './MetaNav'
-import { ShopNav, MainCategories, Highlight } from './ShopNav'
+import { ShopNav } from './ShopNav'
+import { MainCategoryItem, Highlight } from './ShopNav/types'
 
 import { AnyIcon, Chip } from '../../components'
 
@@ -62,7 +63,6 @@ const META_QUICK_LINKS = [
 
 const USER_MENU_ITEMS = [
   {
-    label: 'Mein Bereich',
     items: [
       { label: 'Profil', icon: <AnyIcon size='md' icon='user' /> },
       { label: 'Punktekonto', icon: <AnyIcon size='md' icon='points' /> }
@@ -94,54 +94,47 @@ const USER_NAV = (
   />
 )
 
-const MAIN_CATEGORIES = {
-  mainCategoryLabel: 'Hauptkategorien',
-  subCategoryLabel: 'Unterkategorien',
-  items: [
-    {
-      label: 'Schöner Wohnen',
-      subCategories: [{ label: 'SW Sub 1' }, { label: 'SW Sub 2' }]
-    },
-    {
-      label: 'Coole Technik',
-      subCategories: [
-        { label: 'CT Sub 1' },
-        { label: 'CT Sub 2' },
-        { label: 'CT Sub 3' }
-      ]
-    },
-    {
-      label: 'Perfekter Haushalt',
-      subCategories: [
-        { label: 'PH Sub 1' },
-        { label: 'PH Sub 2' },
-        { label: 'PH Sub 3' }
-      ]
-    },
-    {
-      label: 'Gemütlicher Garten',
-      subCategories: [
-        { label: 'GG Sub 1' },
-        { label: 'GG Sub 2' },
-        { label: 'GG Sub 3' }
-      ]
-    },
-    {
-      label: 'Traumhafte Reisen',
-      subCategories: [
-        { label: 'Sub 1' },
-        { label: 'Sub 2' },
-        { label: 'Sub 3' }
-      ]
-    },
-    {
-      label: 'Weine aus aller Welt',
-      subCategories: [{ label: 'Sub 1' }, { label: 'Sub 2' }]
-    }
-  ]
-}
+const MAIN_CATEGORIES: MainCategoryItem[] = [
+  {
+    label: 'Schöner Wohnen',
+    subCategories: [{ label: 'SW Sub 1' }, { label: 'SW Sub 2' }]
+  },
+  {
+    label: 'Coole Technik',
+    active: true,
+    subCategories: [
+      { label: 'CT Sub 1' },
+      { label: 'CT Sub 2', active: true },
+      { label: 'CT Sub 3' }
+    ]
+  },
+  {
+    label: 'Perfekter Haushalt',
+    subCategories: [
+      { label: 'PH Sub 1' },
+      { label: 'PH Sub 2' },
+      { label: 'PH Sub 3' }
+    ]
+  },
+  {
+    label: 'Gemütlicher Garten',
+    subCategories: [
+      { label: 'GG Sub 1' },
+      { label: 'GG Sub 2' },
+      { label: 'GG Sub 3' }
+    ]
+  },
+  {
+    label: 'Traumhafte Reisen',
+    subCategories: [{ label: 'Sub 1' }, { label: 'Sub 2' }, { label: 'Sub 3' }]
+  },
+  {
+    label: 'Weine aus aller Welt',
+    subCategories: [{ label: 'Sub 1' }, { label: 'Sub 2' }]
+  }
+]
 
-const HIGHLIGHT_CATEGORIES = [
+const HIGHLIGHT_CATEGORIES: Highlight[] = [
   {
     title: 'Schöner Leben',
     image:
@@ -169,7 +162,6 @@ Default.args = {
 export const WithMetaNav = Template.bind({})
 WithMetaNav.args = {
   logo: <Logo />,
-  density: 5,
   mainLinks: MAIN_LINKS,
   quickLinks: QUICK_LINKS,
   userMenu: USER_NAV,
@@ -201,11 +193,11 @@ export const WithShopNav: React.FC<BaseHeaderProps> = () => {
   ]
 
   return (
-    <BaseHeader mainLinks={SHOP_MAIN_LINKS as Link[]} density={5}>
+    <BaseHeader mainLinks={SHOP_MAIN_LINKS as Link[]}>
       <ShopNav
         isOpen={shopNavOpen}
-        mainCategories={MAIN_CATEGORIES as MainCategories}
-        highlights={HIGHLIGHT_CATEGORIES as Highlight[]}
+        menu={MAIN_CATEGORIES}
+        highlights={HIGHLIGHT_CATEGORIES}
       />
     </BaseHeader>
   )

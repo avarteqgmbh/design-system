@@ -5,6 +5,7 @@ public/dist/*
 # Ignore test files
 **/__mocks__/**
 *.test.tsx
+*.stories.tsx
 
 storybook-static/*
 fix-eslint.js
