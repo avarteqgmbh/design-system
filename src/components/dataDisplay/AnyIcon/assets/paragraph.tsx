@@ -10,12 +10,12 @@ const paragraph: React.FC = () => {
     >
       <g
         id='Gruppe_1135'
-        data-name='Gruppe 1135'
+        dataName='Gruppe 1135'
         transform='translate(-205 -231)'
       >
         <rect
           id='Rechteck_1210'
-          data-name='Rechteck 1210'
+          dataName='Rechteck 1210'
           width='16'
           height='2'
           rx='1'
@@ -24,7 +24,7 @@ const paragraph: React.FC = () => {
         />
         <rect
           id='Rechteck_1211'
-          data-name='Rechteck 1211'
+          dataName='Rechteck 1211'
           width='16'
           height='2'
           rx='1'
@@ -33,7 +33,7 @@ const paragraph: React.FC = () => {
         />
         <rect
           id='Rechteck_1212'
-          data-name='Rechteck 1212'
+          dataName='Rechteck 1212'
           width='9'
           height='2'
           rx='1'

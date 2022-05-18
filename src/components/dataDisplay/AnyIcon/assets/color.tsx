@@ -10,7 +10,7 @@ const color: React.FC = () => {
     >
       <rect
         id='Rechteck_1087'
-        data-name='Rechteck 1087'
+        dataName='Rechteck 1087'
         width='21'
         height='21'
         rx='5'

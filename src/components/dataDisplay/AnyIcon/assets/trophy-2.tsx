@@ -4,7 +4,7 @@ const trophy2: React.FC = () => {
   return (
     <svg
       id='Ebene_1'
-      data-name='Ebene 1'
+      dataName='Ebene 1'
       xmlns='http://www.w3.org/2000/svg'
       viewBox='0 0 438.4 599.93'
     >

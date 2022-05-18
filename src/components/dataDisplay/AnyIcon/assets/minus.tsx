@@ -10,7 +10,7 @@ const minus: React.FC = () => {
     >
       <path
         id='Vereinigungsmenge_12'
-        data-name='Vereinigungsmenge 12'
+        dataName='Vereinigungsmenge 12'
         d='M6.107,7.546,1.068,2.507A1.018,1.018,0,0,1,2.508,1.068L7.546,6.107A1.018,1.018,0,0,1,6.107,7.546Z'
         transform='translate(-1.089 5.003) rotate(-45)'
         fill='currentColor'

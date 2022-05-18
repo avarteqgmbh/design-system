@@ -11,7 +11,7 @@ const grid4: React.FC = () => {
       <g id='grid-4' transform='translate(-1548 -1342)'>
         <rect
           id='Rechteck_1202'
-          data-name='Rechteck 1202'
+          dataName='Rechteck 1202'
           width='8'
           height='8'
           rx='2'
@@ -20,7 +20,7 @@ const grid4: React.FC = () => {
         />
         <rect
           id='Rechteck_1203'
-          data-name='Rechteck 1203'
+          dataName='Rechteck 1203'
           width='8'
           height='8'
           rx='2'
@@ -29,7 +29,7 @@ const grid4: React.FC = () => {
         />
         <rect
           id='Rechteck_1204'
-          data-name='Rechteck 1204'
+          dataName='Rechteck 1204'
           width='8'
           height='8'
           rx='2'
@@ -38,7 +38,7 @@ const grid4: React.FC = () => {
         />
         <rect
           id='Rechteck_1205'
-          data-name='Rechteck 1205'
+          dataName='Rechteck 1205'
           width='8'
           height='8'
           rx='2'

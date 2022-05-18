@@ -10,12 +10,12 @@ const menu: React.FC = () => {
     >
       <g
         id='Gruppe_525'
-        data-name='Gruppe 525'
+        dataName='Gruppe 525'
         transform='translate(-1294 -36)'
       >
         <rect
           id='Rechteck_899'
-          data-name='Rechteck 899'
+          dataName='Rechteck 899'
           width='14'
           height='2'
           rx='1'
@@ -24,7 +24,7 @@ const menu: React.FC = () => {
         />
         <rect
           id='Rechteck_900'
-          data-name='Rechteck 900'
+          dataName='Rechteck 900'
           width='14'
           height='2'
           rx='1'
@@ -33,7 +33,7 @@ const menu: React.FC = () => {
         />
         <rect
           id='Rechteck_901'
-          data-name='Rechteck 901'
+          dataName='Rechteck 901'
           width='14'
           height='2'
           rx='1'

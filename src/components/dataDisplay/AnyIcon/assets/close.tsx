@@ -10,12 +10,12 @@ const close: React.FC = () => {
     >
       <g
         id='Gruppe_2951'
-        data-name='Gruppe 2951'
+        dataName='Gruppe 2951'
         transform='translate(-2008.124 592.325) rotate(-45)'
       >
         <rect
           id='Rechteck_507'
-          data-name='Rechteck 507'
+          dataName='Rechteck 507'
           width='12.557'
           height='2.79'
           rx='1.395'
@@ -24,7 +24,7 @@ const close: React.FC = () => {
         />
         <rect
           id='Rechteck_508'
-          data-name='Rechteck 508'
+          dataName='Rechteck 508'
           width='12.557'
           height='2.79'
           rx='1.395'

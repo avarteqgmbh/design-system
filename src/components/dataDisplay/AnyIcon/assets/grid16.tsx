@@ -11,12 +11,12 @@ const grid16: React.FC = () => {
       <g id='grid-16' transform='translate(1719.5 2981.5)'>
         <g
           id='Gruppe_1096'
-          data-name='Gruppe 1096'
+          dataName='Gruppe 1096'
           transform='translate(-1719.5 -2981.5)'
         >
           <rect
             id='Rechteck_1190'
-            data-name='Rechteck 1190'
+            dataName='Rechteck 1190'
             width='3.016'
             height='3.016'
             rx='1.508'
@@ -24,7 +24,7 @@ const grid16: React.FC = () => {
           />
           <rect
             id='Rechteck_1195'
-            data-name='Rechteck 1195'
+            dataName='Rechteck 1195'
             width='3.016'
             height='3.016'
             rx='1.508'
@@ -33,7 +33,7 @@ const grid16: React.FC = () => {
           />
           <rect
             id='Rechteck_1191'
-            data-name='Rechteck 1191'
+            dataName='Rechteck 1191'
             width='3.016'
             height='3.016'
             rx='1.508'
@@ -42,7 +42,7 @@ const grid16: React.FC = () => {
           />
           <rect
             id='Rechteck_1196'
-            data-name='Rechteck 1196'
+            dataName='Rechteck 1196'
             width='3.016'
             height='3.016'
             rx='1.508'
@@ -51,7 +51,7 @@ const grid16: React.FC = () => {
           />
           <rect
             id='Rechteck_1189'
-            data-name='Rechteck 1189'
+            dataName='Rechteck 1189'
             width='3.016'
             height='3.016'
             rx='1.508'
@@ -60,7 +60,7 @@ const grid16: React.FC = () => {
           />
           <rect
             id='Rechteck_1193'
-            data-name='Rechteck 1193'
+            dataName='Rechteck 1193'
             width='3.016'
             height='3.016'
             rx='1.508'
@@ -69,7 +69,7 @@ const grid16: React.FC = () => {
           />
           <rect
             id='Rechteck_1192'
-            data-name='Rechteck 1192'
+            dataName='Rechteck 1192'
             width='3.016'
             height='3.016'
             rx='1.508'
@@ -78,7 +78,7 @@ const grid16: React.FC = () => {
           />
           <rect
             id='Rechteck_1194'
-            data-name='Rechteck 1194'
+            dataName='Rechteck 1194'
             width='3.016'
             height='3.016'
             rx='1.508'
@@ -88,12 +88,12 @@ const grid16: React.FC = () => {
         </g>
         <g
           id='Gruppe_1098'
-          data-name='Gruppe 1098'
+          dataName='Gruppe 1098'
           transform='translate(-1719.5 -2973.961)'
         >
           <rect
             id='Rechteck_1190-2'
-            data-name='Rechteck 1190'
+            dataName='Rechteck 1190'
             width='3.016'
             height='3.016'
             rx='1.508'
@@ -101,7 +101,7 @@ const grid16: React.FC = () => {
           />
           <rect
             id='Rechteck_1195-2'
-            data-name='Rechteck 1195'
+            dataName='Rechteck 1195'
             width='3.016'
             height='3.016'
             rx='1.508'
@@ -110,7 +110,7 @@ const grid16: React.FC = () => {
           />
           <rect
             id='Rechteck_1191-2'
-            data-name='Rechteck 1191'
+            dataName='Rechteck 1191'
             width='3.016'
             height='3.016'
             rx='1.508'
@@ -119,7 +119,7 @@ const grid16: React.FC = () => {
           />
           <rect
             id='Rechteck_1196-2'
-            data-name='Rechteck 1196'
+            dataName='Rechteck 1196'
             width='3.016'
             height='3.016'
             rx='1.508'
@@ -128,7 +128,7 @@ const grid16: React.FC = () => {
           />
           <rect
             id='Rechteck_1189-2'
-            data-name='Rechteck 1189'
+            dataName='Rechteck 1189'
             width='3.016'
             height='3.016'
             rx='1.508'
@@ -137,7 +137,7 @@ const grid16: React.FC = () => {
           />
           <rect
             id='Rechteck_1193-2'
-            data-name='Rechteck 1193'
+            dataName='Rechteck 1193'
             width='3.016'
             height='3.016'
             rx='1.508'
@@ -146,7 +146,7 @@ const grid16: React.FC = () => {
           />
           <rect
             id='Rechteck_1192-2'
-            data-name='Rechteck 1192'
+            dataName='Rechteck 1192'
             width='3.016'
             height='3.016'
             rx='1.508'
@@ -155,7 +155,7 @@ const grid16: React.FC = () => {
           />
           <rect
             id='Rechteck_1194-2'
-            data-name='Rechteck 1194'
+            dataName='Rechteck 1194'
             width='3.016'
             height='3.016'
             rx='1.508'
