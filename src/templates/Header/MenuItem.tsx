@@ -8,6 +8,7 @@ export interface MenuItemProps {
   density?: number
   icon?: React.ReactNode
   label?: string
+  lastItem?: boolean
   size?: 'small' | 'medium' | 'large'
   onClick?: () => void
 }
@@ -20,6 +21,7 @@ export const MenuItem = (props: MenuItemProps): JSX.Element => {
     density = 5,
     icon,
     label,
+    lastItem = false,
     size = 'medium',
     onClick
   } = props
@@ -32,7 +34,7 @@ export const MenuItem = (props: MenuItemProps): JSX.Element => {
           ...classes.root,
           bgcolor: active ? 'primary.main' : 'background.light',
           color: active ? 'primary.contrastText' : 'text.primary',
-          mr: badge ? 0 : density,
+          mr: badge ? 0 : lastItem ? 0 : density,
           '&:hover': {
             bgcolor: active ? 'primary.dark' : 'background.medium'
           }

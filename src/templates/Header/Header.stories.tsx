@@ -5,6 +5,7 @@ import { BaseHeader, BaseHeaderProps, Link } from './BaseHeader'
 import { UserNav, UserMenuItems } from './UserNav'
 import { MetaNav } from './MetaNav'
 import { ShopNav } from './ShopNav'
+import { MenuItem } from './MenuItem'
 import { MainCategoryItem, Highlight } from './ShopNav/types'
 
 import { AnyIcon, Chip } from '../../components'
@@ -13,6 +14,7 @@ import {
   FacebookOutlined,
   Instagram,
   Search,
+  DarkMode,
   Twitter
 } from '@mui/icons-material'
 import Logo from '../Logo'
@@ -91,6 +93,7 @@ const USER_NAV = (
     fullName='Max Mustermann-Lamacun'
     points='4.200'
     userMenu={USER_MENU_ITEMS as UserMenuItems[]}
+    children={[<MenuItem density={3} icon={<DarkMode />}/>, <MenuItem lastItem icon={<AnyIcon size='lg' icon='LangDE'/>} />]}
   />
 )
 

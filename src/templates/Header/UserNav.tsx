@@ -20,7 +20,7 @@ export interface UserNavprops {
   firstName: string
   fullName: string
   points: string
-  children?: React.ReactNode
+  children?: React.ReactNode[]
   userMenu: UserMenuItems[]
 }
 
@@ -127,7 +127,13 @@ export const UserNav = (props: UserNavprops): JSX.Element => {
           <Box sx={{ position: 'relative' }}>
             <Avatar src={avatarUrl} sx={{ height: 100, width: 100, mb: 2 }} />
             <Typography variant='h6'>{fullName}</Typography>
-            <Box sx={classes.userMenuDialogChildrenWrapper}>{children}</Box>
+            {children && (
+              <Box sx={classes.userMenuDialogChildrenWrapper}>
+                {children.map((item): React.ReactNode => {
+                  return item
+                })}
+              </Box>
+            )}
           </Box>
 
           {userMenu.map((item) => {
