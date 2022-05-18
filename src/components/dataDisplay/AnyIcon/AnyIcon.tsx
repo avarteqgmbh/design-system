@@ -374,28 +374,28 @@ const styles = {
     maxHeight: 'inherit'
   },
 
-  '&.xs': {
+  '&.xsmall': {
     width: 8,
     height: 8,
     maxWidth: 8,
     maxHeight: 8
   },
 
-  '&.sm': {
+  '&.small': {
     width: 12,
     height: 12,
     maxWidth: 12,
     maxHeight: 12
   },
 
-  '&.lg': {
+  '&.large': {
     width: 20,
     height: 20,
     maxWidth: 20,
     maxHeight: 20
   },
 
-  '&.xl': {
+  '&.xlarge': {
     width: 24,
     height: 24,
     maxWidth: 24,

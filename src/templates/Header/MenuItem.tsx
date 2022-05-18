@@ -94,25 +94,25 @@ const classes = {
       height: 48,
       width: 48,
 
-      '&.sm': {
+      '&.small': {
         px: 0,
         height: 32,
         width: 32
       },
 
-      '&.lg': {
+      '&.large': {
         px: 0,
         height: 60,
         width: 60
       }
     },
 
-    '&.sm': {
+    '&.small': {
       px: 3,
       minHeight: 32
     },
 
-    '&.lg': {
+    '&.large': {
       px: 5,
       minHeight: 60
     }
