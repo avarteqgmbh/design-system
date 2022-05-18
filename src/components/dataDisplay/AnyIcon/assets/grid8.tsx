@@ -9,14 +9,9 @@ const grid8: React.FC = () => {
       viewBox='0 0 14.324 6.785'
     >
       <g id='grid-8' transform='translate(1719.5 2981.5)'>
-        <g
-          id='Gruppe_1096'
-          dataName='Gruppe 1096'
-          transform='translate(-1719.5 -2981.5)'
-        >
+        <g id='Gruppe_1096' transform='translate(-1719.5 -2981.5)'>
           <rect
             id='Rechteck_1190'
-            dataName='Rechteck 1190'
             width='3.016'
             height='3.016'
             rx='1.508'
@@ -24,7 +19,6 @@ const grid8: React.FC = () => {
           />
           <rect
             id='Rechteck_1195'
-            dataName='Rechteck 1195'
             width='3.016'
             height='3.016'
             rx='1.508'
@@ -33,7 +27,6 @@ const grid8: React.FC = () => {
           />
           <rect
             id='Rechteck_1191'
-            dataName='Rechteck 1191'
             width='3.016'
             height='3.016'
             rx='1.508'
@@ -42,7 +35,6 @@ const grid8: React.FC = () => {
           />
           <rect
             id='Rechteck_1196'
-            dataName='Rechteck 1196'
             width='3.016'
             height='3.016'
             rx='1.508'
@@ -51,7 +43,6 @@ const grid8: React.FC = () => {
           />
           <rect
             id='Rechteck_1189'
-            dataName='Rechteck 1189'
             width='3.016'
             height='3.016'
             rx='1.508'
@@ -60,7 +51,6 @@ const grid8: React.FC = () => {
           />
           <rect
             id='Rechteck_1193'
-            dataName='Rechteck 1193'
             width='3.016'
             height='3.016'
             rx='1.508'
@@ -69,7 +59,6 @@ const grid8: React.FC = () => {
           />
           <rect
             id='Rechteck_1192'
-            dataName='Rechteck 1192'
             width='3.016'
             height='3.016'
             rx='1.508'
@@ -78,7 +67,6 @@ const grid8: React.FC = () => {
           />
           <rect
             id='Rechteck_1194'
-            dataName='Rechteck 1194'
             width='3.016'
             height='3.016'
             rx='1.508'

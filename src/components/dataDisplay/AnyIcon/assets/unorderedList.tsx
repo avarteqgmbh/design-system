@@ -8,14 +8,9 @@ const unorderedList: React.FC = () => {
       height='12'
       viewBox='0 0 16 12'
     >
-      <g
-        id='Gruppe_1135'
-        dataName='Gruppe 1135'
-        transform='translate(-205 -231)'
-      >
+      <g id='Gruppe_1135' transform='translate(-205 -231)'>
         <rect
           id='Rechteck_1210'
-          dataName='Rechteck 1210'
           width='12'
           height='2'
           rx='1'
@@ -24,7 +19,6 @@ const unorderedList: React.FC = () => {
         />
         <rect
           id='Rechteck_1211'
-          dataName='Rechteck 1211'
           width='12'
           height='2'
           rx='1'
@@ -33,7 +27,6 @@ const unorderedList: React.FC = () => {
         />
         <rect
           id='Rechteck_1213'
-          dataName='Rechteck 1213'
           width='2'
           height='2'
           rx='1'
@@ -42,7 +35,6 @@ const unorderedList: React.FC = () => {
         />
         <rect
           id='Rechteck_1215'
-          dataName='Rechteck 1215'
           width='2'
           height='2'
           rx='1'
@@ -51,7 +43,6 @@ const unorderedList: React.FC = () => {
         />
         <rect
           id='Rechteck_1214'
-          dataName='Rechteck 1214'
           width='2'
           height='2'
           rx='1'
@@ -60,7 +51,6 @@ const unorderedList: React.FC = () => {
         />
         <rect
           id='Rechteck_1212'
-          dataName='Rechteck 1212'
           width='12'
           height='2'
           rx='1'

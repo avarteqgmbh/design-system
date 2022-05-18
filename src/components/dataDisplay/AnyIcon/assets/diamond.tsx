@@ -2,12 +2,7 @@ import React from 'react'
 
 const diamond: React.FC = () => {
   return (
-    <svg
-      id='Ebene_1'
-      dataName='Ebene 1'
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 599 599'
-    >
+    <svg id='Ebene_1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 599 599'>
       <defs />
       <circle
         style={{

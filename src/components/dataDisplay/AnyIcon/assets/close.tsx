@@ -8,14 +8,9 @@ const close: React.FC = () => {
       height='10.852'
       viewBox='0 0 10.852 10.852'
     >
-      <g
-        id='Gruppe_2951'
-        dataName='Gruppe 2951'
-        transform='translate(-2008.124 592.325) rotate(-45)'
-      >
+      <g id='Gruppe_2951' transform='translate(-2008.124 592.325) rotate(-45)'>
         <rect
           id='Rechteck_507'
-          dataName='Rechteck 507'
           width='12.557'
           height='2.79'
           rx='1.395'
@@ -24,7 +19,6 @@ const close: React.FC = () => {
         />
         <rect
           id='Rechteck_508'
-          dataName='Rechteck 508'
           width='12.557'
           height='2.79'
           rx='1.395'

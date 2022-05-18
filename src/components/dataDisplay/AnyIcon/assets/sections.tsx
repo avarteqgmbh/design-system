@@ -11,7 +11,6 @@ const sections: React.FC = () => {
       <g id='sections' transform='translate(-197 -1292)'>
         <rect
           id='Rechteck_1541'
-          dataName='Rechteck 1541'
           width='16'
           height='6'
           rx='1'
@@ -20,7 +19,6 @@ const sections: React.FC = () => {
         />
         <rect
           id='Rechteck_1542'
-          dataName='Rechteck 1542'
           width='16'
           height='6'
           rx='1'
