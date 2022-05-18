@@ -12,7 +12,7 @@ export interface UserMenuItem {
   label: string
   icon: React.ReactNode
   endIcon: React.ReactNode
-  onClick: () => void
+  onClick?: () => void
 }
 
 export interface UserNavprops {
@@ -152,7 +152,7 @@ export const UserNav = (props: UserNavprops): JSX.Element => {
                     <Button
                       key={listItem.id}
                       onClick={(): void => {
-                        listItem.onClick()
+                        return listItem.onClick && listItem.onClick()
                       }}
                       size='small'
                       startIcon={listItem.icon}

@@ -36,12 +36,12 @@ export const MetaNav = (props: MetaNavProps): JSX.Element => {
           return (
             <MenuItem
               density={density}
-              size='sm'
+              size='small'
               label={link.label}
               icon={link.icon}
               badge={link.badge}
               onClick={(): void => {
-                link.onClick()
+                return link.onClick && link.onClick()
               }}
             />
           )
@@ -52,12 +52,12 @@ export const MetaNav = (props: MetaNavProps): JSX.Element => {
           return (
             <MenuItem
               density={density}
-              size='sm'
+              size='small'
               label={link.label}
               icon={link.icon}
               badge={link.badge}
               onClick={(): void => {
-                link.onClick()
+                return link.onClick && link.onClick()
               }}
             />
           )

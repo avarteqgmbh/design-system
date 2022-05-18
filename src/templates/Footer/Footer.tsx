@@ -3,7 +3,7 @@ import { Box, Typography } from '../../components'
 
 export interface Link {
   label: string
-  onClick: () => void
+  onClick?: () => void
 }
 
 export interface FooterProps {
@@ -16,11 +16,11 @@ export interface FooterProps {
     links: Link[]
     children?: React.ReactNode
   }[]
-  slogan: string
+  copyright: string
 }
 
 export const Footer = (props: FooterProps): JSX.Element => {
-  const { children, extended = false, links, menuItems, slogan } = props
+  const { children, extended = false, links, menuItems, copyright } = props
 
   const classes = {
     root: {
@@ -89,7 +89,7 @@ export const Footer = (props: FooterProps): JSX.Element => {
           {menuItems &&
             menuItems.map((menuItem) => {
               return (
-                <Box sx={classes.menuItem}>
+                <Box sx={classes.menuItem} key={menuItem.label}>
                   <Box
                     className={menuItem.onClick && 'clickable'}
                     onClick={(): void => {
@@ -101,7 +101,7 @@ export const Footer = (props: FooterProps): JSX.Element => {
                   <ul>
                     {menuItem.links.map((link) => {
                       return (
-                        <li>
+                        <li key={link.label}>
                           <Typography variant='body2' sx={classes.linkStyles}>
                             {link.label}
                           </Typography>
@@ -117,7 +117,7 @@ export const Footer = (props: FooterProps): JSX.Element => {
       )}
       <Box sx={classes.defaultFooterWrapper}>
         <Typography variant='body2' color='text.disabled'>
-          {slogan}
+          {copyright}
         </Typography>
         <Box sx={{ display: 'flex' }}>
           {links.map((link) => {
@@ -125,7 +125,7 @@ export const Footer = (props: FooterProps): JSX.Element => {
               <Box
                 key={link.label}
                 onClick={(): void => {
-                  return link.onClick()
+                  return link.onClick && link.onClick()
                 }}
                 sx={classes.defaultFooterLink}
               >

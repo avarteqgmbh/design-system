@@ -13,7 +13,7 @@ import Logo from '../Logo'
 import { DarkMode } from '@mui/icons-material'
 
 export const CHILDREN = (
-  <Box>
+  <Box sx={{ color: 'text.primary' }}>
     <Logo />
     <Typography my={3} color='textSecondary'>
       Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
@@ -25,22 +25,13 @@ export const CHILDREN = (
 
 export const LINKS = [
   {
-    label: 'Terms of use',
-    onClick: (): void => {
-      return console.log('Click')
-    }
+    label: 'Terms of use'
   },
   {
-    label: 'Privacy Policy',
-    onClick: (): void => {
-      return console.log('Click')
-    }
+    label: 'Privacy Policy'
   },
   {
-    label: 'Legal Notes',
-    onClick: (): void => {
-      return console.log('Click')
-    }
+    label: 'Legal Notes'
   }
 ]
 
@@ -55,66 +46,36 @@ export const MENU_ITEMS = [
     label: 'Mein Account',
     links: [
       {
-        label: 'Mein Profil',
-        onClick: (): void => {
-          return console.log('Click')
-        }
+        label: 'Mein Profil'
       },
       {
-        label: 'Persönliche Daten',
-        onClick: (): void => {
-          return console.log('Click')
-        }
+        label: 'Persönliche Daten'
       },
       {
-        label: 'Punktekonto',
-        onClick: (): void => {
-          return console.log('Click')
-        }
+        label: 'Punktekonto'
       },
       {
-        label: 'Warenkorb',
-        onClick: (): void => {
-          return console.log('Click')
-        }
+        label: 'Warenkorb'
       },
       {
-        label: 'Wunschliste',
-        onClick: (): void => {
-          return console.log('Click')
-        }
+        label: 'Wunschliste'
       }
     ]
   },
   {
     label: 'Prämienshop',
-    onClick: (): void => {
-      return console.log('First Level Label')
-    },
     links: [
       {
-        label: 'Highlights',
-        onClick: (): void => {
-          return console.log('Click')
-        }
+        label: 'Highlights'
       },
       {
-        label: 'Startseite',
-        onClick: (): void => {
-          return console.log('Click')
-        }
+        label: 'Startseite'
       },
       {
-        label: 'Neuheiten',
-        onClick: (): void => {
-          return console.log('Click')
-        }
+        label: 'Neuheiten'
       },
       {
-        label: 'Suche',
-        onClick: (): void => {
-          return console.log('Click')
-        }
+        label: 'Suche'
       }
     ]
   },
@@ -122,22 +83,13 @@ export const MENU_ITEMS = [
     label: 'Wettbewerbe',
     links: [
       {
-        label: 'Best of Bets',
-        onClick: (): void => {
-          return console.log('Click')
-        }
+        label: 'Best of Bets'
       },
       {
-        label: 'Neuwagen Challenge',
-        onClick: (): void => {
-          return console.log('Click')
-        }
+        label: 'Neuwagen Challenge'
       },
       {
-        label: 'Wettbewerb',
-        onClick: (): void => {
-          return console.log('Click')
-        }
+        label: 'Wettbewerb'
       }
     ]
   },
@@ -145,16 +97,10 @@ export const MENU_ITEMS = [
     label: 'Hilfe',
     links: [
       {
-        label: 'FAQ',
-        onClick: (): void => {
-          return console.log('Click')
-        }
+        label: 'FAQ'
       },
       {
-        label: 'Kontakt',
-        onClick: (): void => {
-          return console.log('Click')
-        }
+        label: 'Kontakt'
       }
     ],
     children: (

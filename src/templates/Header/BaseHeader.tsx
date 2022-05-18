@@ -7,12 +7,12 @@ export interface Link {
   badge?: boolean
   icon?: React.ReactNode
   label?: string
-  onClick: () => void
+  onClick?: () => void
 }
 
 export interface BaseHeaderProps {
   children?: React.ReactNode
-  density?: number
+  density?: 'small' | 'medium' | 'large'
   logo?: React.ReactNode
   mainLinks?: Link[]
   metaNav?: React.ReactNode
@@ -23,13 +23,15 @@ export interface BaseHeaderProps {
 export const BaseHeader = (props: BaseHeaderProps): JSX.Element => {
   const {
     children,
-    density = 5,
+    density = 'medium',
     logo,
     mainLinks,
     metaNav,
     quickLinks,
     userMenu
   } = props
+
+  const densityValue = { small: 3, medium: 4, large: 5 }
 
   const classes = {
     root: {
@@ -38,11 +40,14 @@ export const BaseHeader = (props: BaseHeaderProps): JSX.Element => {
       width: '100%',
       boxShadow: 1
     },
+
     baseHeaderWrapper: {
+      color: 'text.primary',
       display: 'flex',
       alignItems: 'center',
-      p: density
+      p: densityValue[density]
     },
+
     quickLinks: {
       display: 'flex',
       alignItems: 'center',
@@ -56,7 +61,13 @@ export const BaseHeader = (props: BaseHeaderProps): JSX.Element => {
       {metaNav && metaNav}
       <Box sx={classes.baseHeaderWrapper}>
         {logo && (
-          <Box sx={{ display: 'flex', alignItems: 'center', mr: density }}>
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              mr: densityValue[density]
+            }}
+          >
             {logo}
           </Box>
         )}
@@ -68,7 +79,7 @@ export const BaseHeader = (props: BaseHeaderProps): JSX.Element => {
                 label={link.label}
                 active={link.active}
                 badge={link.badge}
-                density={density}
+                density={densityValue[density]}
                 onClick={(): void => {
                   return link.onClick && link.onClick()
                 }}
@@ -84,7 +95,7 @@ export const BaseHeader = (props: BaseHeaderProps): JSX.Element => {
                   label={link.label}
                   active={link.active}
                   badge={link.badge}
-                  density={density}
+                  density={densityValue[density]}
                   onClick={(): void => {
                     return link.onClick && link.onClick()
                   }}
