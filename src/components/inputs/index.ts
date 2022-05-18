@@ -9,7 +9,6 @@ import { TextField } from './TextField/TextField'
 import { InputAdornment } from './TextField/InputAdornment'
 import { Radio } from './Radio/Radio'
 import { Rating } from './Rating/Rating'
-import { Slider } from './Slider/Slider'
 import { TransferList } from './TransferList/TransferList'
 import { FormControl } from './FormControl/FormControl'
 import { InputLabel } from './FormControl/InputLabel'
@@ -27,7 +26,6 @@ export {
   InputAdornment,
   Radio,
   Rating,
-  Slider,
   Switch,
   TransferList,
   FormControl,
