@@ -17,12 +17,13 @@ export interface BaseHeaderMobileProps {
   avatarUrl?: string
   backBtn?: boolean
   backBtnWebView?: () => void
+  callback?: () => void
   className?: string
   onPointsClick?: () => void
   paddingTop?: number
   pageTitle?: string
   points?: string
-  shopMenuActive?: boolean
+  mainMenuActive?: boolean
   sx?: SxProps
   toggleMainMenu?: () => void
   toggleUserMenu?: () => void
@@ -33,33 +34,34 @@ export interface BaseHeaderMobileProps {
 export const BaseHeaderMobile: React.FC<BaseHeaderMobileProps> = React.memo(
   (props) => {
     const {
+      avatarUrl,
       backBtn = false,
       backBtnWebView,
-      toggleUserMenu,
-      toggleMainMenu,
-      shopMenuActive,
+      callback,
       children,
+      onPointsClick,
       points,
       pageTitle,
       paddingTop = 2,
-      onPointsClick,
-      userName,
-      avatarUrl
+      mainMenuActive,
+      toggleUserMenu,
+      toggleMainMenu,
+      userName
     } = props
 
     return (
       <Box sx={{ ...classes.root, pt: paddingTop }}>
         <Box sx={classes.leftSide}>
           {backBtn ? (
-            <BackBtn />
+            <BackBtn callback={callback} />
           ) : (
             <HamburgerButton
-              shopMenuActive={shopMenuActive}
+              mainMenuActive={mainMenuActive}
               toggleMainMenu={toggleMainMenu}
             />
           )}
           {pageTitle && (
-            <Typography ml={2} noWrap>
+            <Typography ml={2} variant='h6' noWrap>
               {pageTitle}
             </Typography>
           )}
@@ -111,8 +113,6 @@ const classes = {
     width: 34
   },
   pageTitle: {
-    fontFamily: 'Bold',
-    color: 'text.primary',
     marginLeft: 2,
     maxWidth: 'calc(100vw - 180px)',
     overflow: 'hidden'

@@ -2,7 +2,6 @@ import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { BaseHeaderMobile, BaseHeaderMobileProps } from './BaseHeaderMobile'
-import { AnyIcon, Typography } from '../../components'
 
 export default {
   title: 'Templates/MobileHeader',
@@ -23,7 +22,7 @@ const Template: Story<BaseHeaderMobileProps> = (args) => {
 
 export const Default = Template.bind({})
 Default.args = {
-  avatarUrl: 'https://mui.com/static/images/avatar/5.jpg',
+  avatarUrl: 'https://mui.com/static/images/avatar/1.jpg',
   pageTitle: 'Points',
   points: '1.200'
 }

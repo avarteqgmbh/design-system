@@ -4,20 +4,20 @@ import { Box } from '../../components'
 import { MenuItem } from '../Header/MenuItem'
 
 export interface HamburgerButtonProps {
-  shopMenuActive?: boolean
+  mainMenuActive?: boolean
   toggleMainMenu?: () => void
 }
 
 export const HamburgerButton: React.FC<HamburgerButtonProps> = React.memo(
   (props) => {
-    const { shopMenuActive, toggleMainMenu } = props
+    const { mainMenuActive, toggleMainMenu } = props
 
     return (
       <MenuItem
         lastItem
         onClick={toggleMainMenu && toggleMainMenu}
         icon={
-          <Box sx={classes.wrapper} className={shopMenuActive ? 'active' : ''}>
+          <Box sx={classes.wrapper} className={mainMenuActive ? 'active' : ''}>
             <Box sx={classes.pipe} className='pipe' />
             <Box sx={classes.pipe} className='pipe' />
             <Box sx={classes.pipe} className='pipe' />
