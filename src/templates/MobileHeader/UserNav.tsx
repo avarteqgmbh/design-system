@@ -1,9 +1,9 @@
 import React from 'react'
-import { Sidebar } from './Sidebar'
 import {
-  AnyIcon,
   Avatar,
+  Box,
   Chip,
+  Divider,
   ListItemIcon,
   ListItemText,
   MenuItem,
@@ -11,134 +11,69 @@ import {
 } from '../../components'
 
 export interface UserNavProps {
+  items: MenuItem[]
+  motto?: string
+  welcome?: string
+  avatarUrl?: string
+  fullName?: string
+  status?: string
   isActive: boolean
-  setIsActive: (isActive: boolean) => void
+}
+interface MenuItem {
+  label: string
+  icon?: React.ReactNode
+  chipLabel?: string
+  onClick?: () => void
 }
 
-type SidebarItemType = 'contact' | 'info' | 'profile' | 'change_password'
-
-export const UserNav: React.FC<UserNavProps> = ({ isActive, setIsActive }) => {
+export const UserNav: React.FC<UserNavProps> = ({
+  motto,
+  welcome,
+  avatarUrl,
+  fullName,
+  status,
+  items,
+  isActive
+}) => {
   return (
-    <Sidebar sx={classes.root} className={isActive ? 'active' : ''}>
-      {core.motto && (
+    <Box sx={classes.root} className={isActive ? 'active' : ''}>
+      {motto && (
         <Typography style={{ marginBottom: 20 }} variant='h5'>
-          {core.motto}
+          {motto}
         </Typography>
       )}
 
-      <SidebarDivider label={localizedWelcome} />
-      <div sx={classes.avatarContainer}>
+      <Divider>
+        <Typography>{welcome}</Typography>
+      </Divider>
+      <Box sx={classes.avatarContainer}>
         <Chip
-          avatar={<Avatar alt={me.fullName} src={me.avatarUrl} />}
-          label={me.fullName}
+          avatar={<Avatar alt={fullName} src={avatarUrl} />}
+          label={fullName}
         />
-        {core.languages.length > 1 && <LanguageSelect />}
-      </div>
+      </Box>
 
-      <SidebarDivider label={localizedStatus} />
-      <MenuItem
-        sx={classes.menuItem}
-        onClick={(): void => {
-          onToggle('/points')
-        }}
-      >
-        <ListItemIcon>
-          <AnyIcon icon='coin' />
-        </ListItemIcon>
-        <ListItemText>{localizedPointsAccount}</ListItemText>
-        <Chip
-          color='primary'
-          label={pointsCounter}
-          size='small'
-          sx={{ '& *': { color: 'white' }, fontWeight: 'bold' }}
-        />
-      </MenuItem>
-      <MenuItem
-        sx={classes.menuItem}
-        onClick={(): void => {
-          onToggle('/shop/wishlist')
-        }}
-      >
-        <ListItemIcon>
-          <AnyIcon icon='heart' />
-        </ListItemIcon>
-        <ListItemText>{localizedWishlist}</ListItemText>
-        {me.statusBar.wishlistCount && me.statusBar.wishlistCount > 0 ? (
-          <Chip
-            color='primary'
-            label={me.statusBar.wishlistCount}
-            size='small'
-            sx={{ '& *': { color: 'white' }, fontWeight: 'bold' }}
-          />
-        ) : (
-          <></>
-        )}
-      </MenuItem>
-      <MenuItem
-        sx={classes.menuItem}
-        onClick={(): void => {
-          onToggle('/shop/cart')
-        }}
-      >
-        <ListItemIcon>
-          <AnyIcon icon='cart' size='md' />
-        </ListItemIcon>
-        <ListItemText>{localizedShoppingCart}</ListItemText>
-        {me.statusBar.cartCount && me.statusBar.cartCount > 0 ? (
-          <Chip
-            color='primary'
-            label={me.statusBar.cartCount}
-            size='small'
-            sx={{ '& *': { color: 'white' }, fontWeight: 'bold' }}
-          />
-        ) : (
-          <></>
-        )}
-      </MenuItem>
-      <MenuItem
-        sx={classes.menuItem}
-        onClick={(): void => {
-          onToggle('/shop/orders')
-        }}
-      >
-        <ListItemIcon>
-          <AnyIcon icon='orders' />
-        </ListItemIcon>
-        <ListItemText>{localizedOrders}</ListItemText>
-      </MenuItem>
-
-      <SidebarDivider label={localizedOthers} />
-      {core.sidebar.items.map((item) => {
+      <Divider>
+        <Typography>{status}</Typography>
+      </Divider>
+      {items.map((item) => {
         return (
           <MenuItem
-            className={classes.menuItem}
-            key={item.label}
+            sx={classes.menuItem}
             onClick={(): void => {
-              onToggleWebview(item.path)
+              return item.onClick && item.onClick()
             }}
           >
-            <ListItemIcon>
-              <AnyIcon icon={item.icon} />
-            </ListItemIcon>
-            <ListItemText>
-              {localizedSidebarItems[
-                item.label.toLowerCase() as SidebarItemType
-              ] || item.label}
-            </ListItemText>
+            <ListItemIcon>{item.icon}</ListItemIcon>
+            <ListItemText>{item.label}</ListItemText>
+            <Chip color='primary' label={item.chipLabel} size='small' />
           </MenuItem>
         )
       })}
-      <MenuItem sx={classes.menuItem} onClick={onLogout}>
-        <ListItemIcon>
-          <AnyIcon icon='logout' />
-        </ListItemIcon>
-        <ListItemText>{localizedLogout}</ListItemText>
-      </MenuItem>
-
       <Typography sx={classes.version} color='textSecondary' variant='body2'>
-        {config.environments[currentEnvironment].otaVersion}
+        Version
       </Typography>
-    </Sidebar>
+    </Box>
   )
 }
 
@@ -146,14 +81,7 @@ const classes = {
   root: {
     borderLeftColor: 'background.border',
     borderRightColor: 'transparent',
-    left: 'auto',
-    right: 'calc((100% - 60px) * -1)',
-    top: 0,
     transition: 'transform ease-in-out 300ms',
-
-    '&.active': {
-      transform: 'translateX(calc(100% * -1))'
-    },
 
     '& svg': {
       height: 16,
