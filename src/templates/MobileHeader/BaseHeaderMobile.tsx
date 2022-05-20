@@ -19,10 +19,15 @@ export interface BaseHeaderMobileProps {
   backBtnWebView?: () => void
   callback?: () => void
   className?: string
+  headerHeight?: number
+  notifications?: boolean
+  newNotifications?: boolean
+  onNotificationClick?: () => void
   onPointsClick?: () => void
   paddingTop?: number
   pageTitle?: string
   points?: string
+  pointsIcon: JSX.Element
   mainMenuActive?: boolean
   sx?: SxProps
   toggleMainMenu?: () => void
@@ -39,10 +44,15 @@ export const BaseHeaderMobile: React.FC<BaseHeaderMobileProps> = React.memo(
       backBtnWebView,
       callback,
       children,
+      headerHeight,
+      notifications = false,
+      newNotifications = false,
+      onNotificationClick,
       onPointsClick,
       points,
+      pointsIcon,
       pageTitle,
-      paddingTop = 2,
+      paddingTop = 3,
       mainMenuActive,
       toggleUserMenu,
       toggleMainMenu,
@@ -50,7 +60,7 @@ export const BaseHeaderMobile: React.FC<BaseHeaderMobileProps> = React.memo(
     } = props
 
     return (
-      <Box sx={{ ...classes.root, pt: paddingTop }}>
+      <Box sx={{ ...classes.root, pt: paddingTop, height: headerHeight }}>
         <Box sx={classes.leftSide}>
           {backBtn ? (
             <BackBtn callback={callback} />
@@ -61,20 +71,37 @@ export const BaseHeaderMobile: React.FC<BaseHeaderMobileProps> = React.memo(
             />
           )}
           {pageTitle && (
-            <Typography ml={2} variant='h6' noWrap>
+            <Typography
+              ml={4}
+              sx={{
+                ...classes.pageTitle,
+                maxWidth: `calc(100vw - ${notifications ? '280px' : '220px'})`
+              }}
+              noWrap
+            >
               {pageTitle}
             </Typography>
           )}
           {children}
         </Box>
         <Box sx={classes.rightSide}>
+          {notifications && (
+            <Box mr={4}>
+              <IconButton
+                badge={newNotifications}
+                sx={{ background: 'transparent' }}
+                onClick={onNotificationClick}
+              >
+                <AnyIcon icon='notifications' size='medium' />
+              </IconButton>
+            </Box>
+          )}
           <Chip
             sx={classes.pointsChip}
             color='primary'
-            icon={<AnyIcon icon='coin' size='small' />}
+            icon={pointsIcon}
             label={points}
             onClick={onPointsClick}
-            size='small'
           />
           {!backBtnWebView && (
             <IconButton sx={classes.avatarButton} onClick={toggleUserMenu}>
@@ -98,9 +125,8 @@ const classes = {
     justifyContent: 'space-between',
     alignItems: 'center',
     wrap: 'nowrap',
-    height: 'var(--header-height)',
     px: 4,
-    py: 2,
+    py: 3,
     background: 'background.paper',
     boxShadow: 2
   },
@@ -108,26 +134,22 @@ const classes = {
     display: 'flex',
     alignItems: 'center'
   },
-  logo: {
-    height: 34,
-    width: 34
-  },
-  pageTitle: {
-    marginLeft: 2,
-    maxWidth: 'calc(100vw - 180px)',
-    overflow: 'hidden'
-  },
   pointsChip: {
     paddingLeft: 1,
     '& span': {
       color: 'common.white'
     }
   },
+  pageTitle: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    overflow: 'hidden'
+  },
   avatarButton: {
     background: 'transparent',
     border: 'none',
     padding: 0,
-    marginLeft: 2
+    marginLeft: 4
   },
   rightSide: {
     display: 'flex',
