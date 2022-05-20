@@ -32,12 +32,12 @@ const withIcon = (context) => {
 
 export const withThemeProvider = (Story, context) => {
   const theme = getTheme(context.globals.theme)
-
+  console.log(context.parameters.layout, context)
   return (
     <ThemeProvider theme={theme}>
       {withIcon(context)}
       <GlobalStyle />
-      <Box bgcolor="background.paper" minHeight="100vh" pt='20px' sx={{padding: 5}}>
+      <Box bgcolor="background.paper" minHeight="100vh" sx={{ p: context.parameters.fullscreen ? 0 : 5}}>
         <Story {...context} />
       </Box>
     </ThemeProvider>
