@@ -24,14 +24,14 @@ export type {
 
 // Header
 export { BaseHeader } from './Header/BaseHeader'
-export { MenuItem as AnyMenuItem } from './Header/MenuItem'
+export { MainMenuItem } from './MainMenuItem/MainMenuItem'
 export { MetaNav } from './Header/MetaNav'
 export { ShopNav } from './Header/ShopNav'
 export { UserMenuItem } from './Header/UserMenuItem'
 export { UserNav } from './Header/UserNav'
 
 export type { Link as AnyLinkProps, BaseHeaderProps } from './Header/BaseHeader'
-export type { MenuItemProps } from './Header/MenuItem'
+export type { MainMenuItemProps } from './MainMenuItem/MainMenuItem'
 export type { MetaNavProps } from './Header/MetaNav'
 export type { ShopNavProps } from './Header/ShopNav'
 export type { UserMenuItemProps } from './Header/UserMenuItem'

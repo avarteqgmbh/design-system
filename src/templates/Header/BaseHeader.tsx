@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box } from '../../components'
-import { MenuItem } from './MenuItem'
+import { MainMenuItem } from '../MainMenuItem/MainMenuItem'
 
 export interface Link {
   active?: boolean
@@ -74,7 +74,7 @@ export const BaseHeader = (props: BaseHeaderProps): JSX.Element => {
         {mainLinks &&
           mainLinks.map((link) => {
             return (
-              <MenuItem
+              <MainMenuItem
                 icon={link.icon}
                 label={link.label}
                 active={link.active}
@@ -90,7 +90,7 @@ export const BaseHeader = (props: BaseHeaderProps): JSX.Element => {
           {quickLinks &&
             quickLinks.map((link) => {
               return (
-                <MenuItem
+                <MainMenuItem
                   icon={link.icon}
                   label={link.label}
                   active={link.active}

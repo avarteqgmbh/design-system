@@ -1,7 +1,12 @@
 import React from 'react'
-import { Badge, Box, Typography } from '../../components'
+import {
+  Badge,
+  Box,
+  MenuItem as MuiMenuItem,
+  Typography
+} from '../../components'
 
-export interface MenuItemProps {
+export interface MainMenuItemProps {
   active?: boolean
   badge?: boolean
   className?: string
@@ -13,7 +18,7 @@ export interface MenuItemProps {
   onClick?: () => void
 }
 
-export const MenuItem = (props: MenuItemProps): JSX.Element => {
+export const MainMenuItem = (props: MainMenuItemProps): JSX.Element => {
   const {
     active = false,
     badge = false,
@@ -28,7 +33,7 @@ export const MenuItem = (props: MenuItemProps): JSX.Element => {
 
   const MenuItemChildren = (): JSX.Element => {
     return (
-      <Box
+      <MuiMenuItem
         className={`${className} ${size} ${icon && !label && 'iconOnly'}`}
         sx={{
           ...classes.root,
@@ -56,7 +61,7 @@ export const MenuItem = (props: MenuItemProps): JSX.Element => {
             {label}
           </Typography>
         )}
-      </Box>
+      </MuiMenuItem>
     )
   }
 
@@ -86,6 +91,7 @@ const classes = {
     borderRadius: '8px',
     cursor: 'pointer',
     minHeight: 48,
+    height: 48,
     px: 4,
 
     '&.iconOnly': {
@@ -109,12 +115,14 @@ const classes = {
 
     '&.small': {
       px: 3,
-      minHeight: 32
+      minHeight: 32,
+      height: 32
     },
 
     '&.large': {
       px: 5,
-      minHeight: 60
+      minHeight: 60,
+      height: 60
     }
   },
 

@@ -5,7 +5,7 @@ import { BaseHeader, BaseHeaderProps, Link } from './BaseHeader'
 import { UserNav, UserMenuItems } from './UserNav'
 import { MetaNav } from './MetaNav'
 import { ShopNav } from './ShopNav'
-import { MenuItem } from './MenuItem'
+import { MainMenuItem } from '../MainMenuItem/MainMenuItem'
 import { MainCategoryItem, Highlight } from './ShopNav/types'
 
 import { AnyIcon, Chip } from '../../components'
@@ -93,7 +93,7 @@ const USER_NAV = (
     fullName='Max Mustermann-Lamacun'
     points='4.200'
     userMenu={USER_MENU_ITEMS as UserMenuItems[]}
-    children={[<MenuItem density={3} icon={<DarkMode />}/>, <MenuItem lastItem icon={<AnyIcon size='large' icon='LangDE'/>} />]}
+    children={[<MainMenuItem density={3} icon={<DarkMode />}/>, <MainMenuItem lastItem icon={<AnyIcon size='large' icon='LangDE'/>} />]}
   />
 )
 

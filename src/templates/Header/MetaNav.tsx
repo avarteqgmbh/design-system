@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from './BaseHeader'
-import { MenuItem } from './MenuItem'
+import { MainMenuItem } from '../MainMenuItem/MainMenuItem'
 import { Box } from '../../components'
 
 export interface MetaNavProps {
@@ -34,7 +34,7 @@ export const MetaNav = (props: MetaNavProps): JSX.Element => {
       <Box sx={classes.linkWrapper}>
         {mainLinks.map((link) => {
           return (
-            <MenuItem
+            <MainMenuItem
               density={density}
               size='small'
               label={link.label}
@@ -50,7 +50,7 @@ export const MetaNav = (props: MetaNavProps): JSX.Element => {
       <Box sx={classes.linkWrapper}>
         {quickLinks.map((link) => {
           return (
-            <MenuItem
+            <MainMenuItem
               density={density}
               size='small'
               label={link.label}
