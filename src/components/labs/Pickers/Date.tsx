@@ -7,8 +7,8 @@ import deLocale from 'date-fns/locale/de'
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 
-export function DatePicker(props: DatePickerProps): JSX.Element {
-  const [selectedDate, setDate] = React.useState<AdapterDateFns | null>()
+export function DatePicker(props: DatePickerProps<unknown, Date>): JSX.Element {
+  const [selectedDate, setDate] = React.useState<Date | null>()
 
   return (
     <LocalizationProvider locale={deLocale} dateAdapter={AdapterDateFns}>
@@ -16,7 +16,7 @@ export function DatePicker(props: DatePickerProps): JSX.Element {
         {...props}
         value={selectedDate}
         onChange={(newDate): void => {
-          return setDate(newDate as AdapterDateFns)
+          return setDate(newDate as Date)
         }}
       />
     </LocalizationProvider>
