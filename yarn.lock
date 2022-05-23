@@ -2197,7 +2197,7 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@storybook/addon-actions@6.5.4", "@storybook/addon-actions@^6.5.0-alpha.53":
+"@storybook/addon-actions@6.5.4", "@storybook/addon-actions@^6.5.4":
   version "6.5.4"
   resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-6.5.4.tgz#8ec4863982c805a3a39a19848aea3d65d80d491f"
   integrity sha512-O70+brZOW78LBjbKsppXy37NQj4r3b2LQh3zUkIE1n37nb0bYhewr39UlT1/VhfDD4QA6PsBOqp0Mum8/V0GgQ==
@@ -2293,7 +2293,7 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/addon-essentials@^6.5.0-alpha.53":
+"@storybook/addon-essentials@^6.5.4":
   version "6.5.4"
   resolved "https://registry.yarnpkg.com/@storybook/addon-essentials/-/addon-essentials-6.5.4.tgz#578f1f222027a556d7e23b799956750163fd83be"
   integrity sha512-/ayPl274Tdrfz0YG0oSovkrXJNbstFm/Zoz7KO4wNMFgxTYes3kk+ruwkFIZegunBB8yR77cSzWHKqS9pFD8tA==
@@ -2331,7 +2331,7 @@
     react-lifecycles-compat "^3.0.4"
     react-select "^3.2.0"
 
-"@storybook/addon-links@^6.5.0-alpha.53":
+"@storybook/addon-links@^6.5.4":
   version "6.5.4"
   resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-6.5.4.tgz#51e2944ba2ba45d70b6debacbc0f5d8ad664f62b"
   integrity sha512-mJcg4Gpo7P6TFdyWpE2DQcMwSjfotPST3y713Ircgc+sYOouIPRdrxGpdvhLWWncsC5wK/z2xZyYtBWPNiKN/g==
@@ -2409,7 +2409,7 @@
     prop-types "^15.7.2"
     regenerator-runtime "^0.13.7"
 
-"@storybook/addons@6.5.4", "@storybook/addons@^6.3.6", "@storybook/addons@^6.5.0-alpha.53":
+"@storybook/addons@6.5.4", "@storybook/addons@^6.3.6", "@storybook/addons@^6.5.4":
   version "6.5.4"
   resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-6.5.4.tgz#10cf41ab8aa3c509963599092fe8f3cf9a15edb6"
   integrity sha512-biPtPQ80HwVJeJl6ghF0yFMWZ9apuh+oxCWezeb9t0lr7EB8MLbZAGz8PbRerwDzV+mW4ZNV2RSvvnDD5MH/zg==
@@ -2830,7 +2830,7 @@
     prettier ">=2.2.1 <=2.3.0"
     ts-dedent "^2.0.0"
 
-"@storybook/node-logger@6.5.4", "@storybook/node-logger@^6.5.0-alpha.53":
+"@storybook/node-logger@6.5.4", "@storybook/node-logger@^6.5.4":
   version "6.5.4"
   resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-6.5.4.tgz#1887abd364fd401ac7b76b313f92f12005a28c6f"
   integrity sha512-2rK9oTBhvRm4VOr1ywIWXfWEXVbuV7wGdZu4hpSDlkhnBBFCyYBJH9asEJVoB4Qk77HPMCqkw2IHpstVjkASXQ==
@@ -2896,7 +2896,7 @@
     react-docgen-typescript "^2.1.1"
     tslib "^2.0.0"
 
-"@storybook/react@^6.3.6", "@storybook/react@^6.5.0-alpha.53":
+"@storybook/react@^6.3.6", "@storybook/react@^6.5.4":
   version "6.5.4"
   resolved "https://registry.yarnpkg.com/@storybook/react/-/react-6.5.4.tgz#54d947c79ed60aef8ae160332d5bce2e4281f40f"
   integrity sha512-tZdoUc0TJ2HrE4iIHwNWjW/yJSM8+9uBE4U4rWmKjjqRk7jC0KGLxjPPgjGsJFx7iSdAurQlaZUW7cvcPuhz1w==
@@ -14449,7 +14449,7 @@ storybook-addon-toolbar-actions@^0.4.8:
     react "^17.0.2"
     react-dom "^17.0.2"
 
-storybook-dark-mode@^1.0.9:
+storybook-dark-mode@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/storybook-dark-mode/-/storybook-dark-mode-1.1.0.tgz#4aca307a9c09f1b95743da2db6b07c8eea99ed24"
   integrity sha512-F+hG02zYGBzxGTUonA1XDV/CtMYm3OjF38Tu1CIUN+w+8hwUrwLcOtgtLLw6VjSrZdJ/ECK+tjXdKTV4oZqAXw==
