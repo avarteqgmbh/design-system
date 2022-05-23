@@ -26,8 +26,6 @@ export const DateRangePicker: React.FC<DatetimeProps> = (props) => {
         endText='Bis'
         value={dateRange}
         toolbarTitle='Wähle einen Zeitraum'
-        okText='Anwenden'
-        cancelText='Abbrechen'
         onChange={(newValue: DateRange<Date>): void => {
           onChange(newValue)
         }}
