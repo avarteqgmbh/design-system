@@ -1,11 +1,13 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from 'react'
 import { Theme } from '../../../theme/types'
-import { Box, Container } from '../../../index'
+import { Box, Container } from '../../../components'
 
 export type LayoutVariant = 'background' | 'center' | 'left' | 'right'
+
 export interface AuthProps {
   actions?: JSX.Element[]
+  children?: React.ReactNode
   bgImage?: string
   footer?: JSX.Element
   logo?: JSX.Element

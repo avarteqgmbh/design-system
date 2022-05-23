@@ -19,6 +19,7 @@ export function Button(props: ButtonProps): JSX.Element {
 
 const styles = {
   display: 'flex',
+  textTransform: 'none',
   py: 3,
   px: 5,
   fontWeight: 'bold',

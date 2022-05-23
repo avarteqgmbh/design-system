@@ -7,7 +7,7 @@ import deLocale from 'date-fns/locale/de'
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 
-export function DatePicker(props: DatePickerProps): JSX.Element {
+export function DatePicker(props: DatePickerProps<unknown, Date>): JSX.Element {
   return (
     <LocalizationProvider locale={deLocale} dateAdapter={AdapterDateFns}>
       <MuiDatePicker {...props} />
