@@ -5,7 +5,6 @@
     "@babel/preset-env"
   ],
   "plugins": [
-    "babel-plugin-styled-components",
     "inline-json-import",
     "@babel/plugin-transform-typescript",
     "@babel/plugin-transform-runtime",
