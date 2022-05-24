@@ -17,15 +17,13 @@ export const MetaNav = (props: MetaNavProps): JSX.Element => {
       alignItems: 'center',
       justifyContent: 'space-between',
       p: density,
+      pl: 0,
       borderBottom: '1px solid',
       borderColor: 'background.border'
     },
     linkWrapper: {
       display: 'flex',
-      alignItems: 'center',
-      '& .MenuItem:last-child': {
-        mr: 0
-      }
+      alignItems: 'center'
     }
   }
 

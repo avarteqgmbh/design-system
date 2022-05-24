@@ -54,7 +54,7 @@ const QUICK_LINKS = [
 
 const META_MAIN_LINKS = [
   { label: 'Company' },
-  { label: 'Blog' },
+  { label: 'Blog', badge: true },
   { label: 'Academy' }
 ]
 
@@ -93,8 +93,9 @@ const USER_NAV = (
     firstName='Max'
     fullName='Max Mustermann-Lamacun'
     points='4.200'
+    density={4}
     userMenu={USER_MENU_ITEMS as UserMenuItems[]}
-    children={[<MainMenuItem density={3} icon={<DarkMode />}/>, <MainMenuItem lastItem icon={<AnyIcon size='large' icon='LangDE'/>} />]}
+    children={[<MainMenuItem density={3} icon={<DarkMode />}/>, <MainMenuItem density={3} icon={<AnyIcon size='large' icon='LangDE'/>} />]}
   />
 )
 
