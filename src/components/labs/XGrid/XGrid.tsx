@@ -97,7 +97,7 @@ export function XGrid(props: XGridProps): JSX.Element {
     ) {
       RegisterLocalStorageEvents(customApiRef, tableConfig, setTableConfig)
     }
-  }, [customApiRef, localStorageKey])
+  }, [customApiRef, localStorageKey, setTableConfig, tableConfig])
 
   React.useEffect(() => {
     if (
