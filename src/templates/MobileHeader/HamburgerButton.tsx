@@ -33,7 +33,6 @@ const classes = {
   root: {
     background: 'transparent'
   },
-
   wrapper: {
     display: 'flex',
     justifyContent: 'center',
@@ -41,7 +40,6 @@ const classes = {
     position: 'relative',
     width: 18,
     height: 18,
-
     '&.active': {
       '& .pipe': {
         '&:first-child': {
@@ -50,13 +48,11 @@ const classes = {
           width: 18,
           transform: 'rotate(-135deg)'
         },
-
         '&:nth-child(2)': {
           left: 10,
           opacity: 0,
           width: 0
         },
-
         '&:nth-child(3)': {
           bottom: 8,
           left: 0,
@@ -66,7 +62,6 @@ const classes = {
       }
     }
   },
-
   pipe: {
     position: 'absolute',
     left: 2,
@@ -75,15 +70,12 @@ const classes = {
     height: 2,
     borderRadius: 2,
     transition: 'var(--transition)',
-
     '&:first-child': {
       top: 3
     },
-
     '&:nth-child(2)': {
       width: 13
     },
-
     '&:nth-child(3)': {
       bottom: 3,
       width: 10

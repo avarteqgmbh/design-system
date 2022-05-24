@@ -106,11 +106,9 @@ const classes = {
     boxShadow: 2,
     overflowY: 'auto',
     transition: 'transform ease-in-out 300ms',
-
     '&.active': {
       transform: 'translateX(-100%)'
     },
-
     '& svg': {
       height: 16,
       width: 16,
@@ -118,7 +116,6 @@ const classes = {
       minWidth: 16
     }
   },
-
   avatarContainer: {
     display: 'flex',
     justifyContent: 'space-between',
@@ -126,13 +123,11 @@ const classes = {
     mt: 4,
     mb: 6
   },
-
   childrenWrapper: {
     display: 'flex',
     justifyContent: 'flex-end',
     alignItems: 'center'
   },
-
   userMenuListItem: {
     justifyContent: 'flex-start',
     mt: 4,
@@ -152,7 +147,6 @@ const classes = {
       }
     }
   },
-
   version: {
     position: 'absolute',
     right: 16,
