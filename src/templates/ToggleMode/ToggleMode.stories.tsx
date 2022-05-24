@@ -19,7 +19,7 @@ export default {
 const Template: Story<ToggleModeProps> = (args) => {
   const [darkMode, setDarkMode] = React.useState(false)
 
-  return <ToggleMode darkMode={darkMode} setDarkMode={setDarkMode}/>
+  return <ToggleMode darkMode={darkMode} setDarkMode={setDarkMode} {...args} />
 }
 
 export const Default = Template.bind({})

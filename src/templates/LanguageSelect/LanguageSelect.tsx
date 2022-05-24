@@ -7,10 +7,12 @@ export interface LanguageSelectProps {
     value: string
     icon: React.ReactNode
   }[]
+  size?: 'small' | 'medium' | 'large'
 }
 
 export const LanguageSelect: React.FC<LanguageSelectProps> = ({
-  languages = null
+  languages = null,
+  size = 'medium'
 }) => {
   const [language, setLanguage] = React.useState<unknown>(
     languages && languages[0].value
@@ -25,6 +27,7 @@ export const LanguageSelect: React.FC<LanguageSelectProps> = ({
       value={language}
       onChange={handleChange}
       sx={classes.root}
+      className={size}
       MenuProps={{
         PaperProps: {
           sx: {
@@ -41,7 +44,14 @@ export const LanguageSelect: React.FC<LanguageSelectProps> = ({
     >
       {languages &&
         languages.map((item) => {
-          return <MenuItem value={item.value}>{item.icon}</MenuItem>
+          return (
+            <MenuItem
+              value={item.value}
+              sx={{ display: 'flex', justifyContent: 'center' }}
+            >
+              {item.icon}
+            </MenuItem>
+          )
         })}
     </Select>
   )
@@ -61,6 +71,14 @@ const classes = {
     alignItems: 'center',
     outline: 'none',
     boxShadow: 0,
+    '&.small': {
+      height: 30,
+      width: 30
+    },
+    '&.large': {
+      height: 50,
+      width: 50
+    },
     '& .MuiOutlinedInput-notchedOutline': {
       borderColor: 'transparent'
     },

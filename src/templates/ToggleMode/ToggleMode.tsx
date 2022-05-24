@@ -6,11 +6,13 @@ import DarkModeRoundedIcon from '@mui/icons-material/DarkModeRounded'
 export interface ToggleModeProps {
   darkMode: boolean
   setDarkMode: (darkMode: boolean) => void
+  size?: 'small' | 'medium' | 'large'
 }
 
 export const ToggleMode: React.FC<ToggleModeProps> = ({
   darkMode,
-  setDarkMode
+  setDarkMode,
+  size = 'medium'
 }) => {
   return (
     <Box
@@ -18,6 +20,7 @@ export const ToggleMode: React.FC<ToggleModeProps> = ({
         return setDarkMode(!darkMode)
       }}
       sx={classes.root}
+      className={size}
     >
       {darkMode ? <DarkModeRoundedIcon /> : <LightModeRoundedIcon />}
     </Box>
@@ -36,6 +39,14 @@ const classes = {
     justifyContent: 'center',
     alignItems: 'center',
     cursor: 'pointer',
+    '&.small': {
+      height: 30,
+      width: 30
+    },
+    '&.large': {
+      height: 50,
+      width: 50
+    },
     '& .MuiSelect-select': {
       padding: 0,
       display: 'flex',
