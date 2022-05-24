@@ -5,6 +5,7 @@ import { AnyIcon, Box, Chip, IconButton, Typography } from '../../components'
 import { UserMenuItems } from '../Header/UserNav'
 import { BaseHeaderMobile, BaseHeaderMobileProps } from './BaseHeaderMobile'
 import { MobileUserNav } from './MobileUserNav'
+import { MobileShopNav } from './MobileShopNav'
 
 export default {
   title: 'Templates/MobileHeader',
@@ -54,11 +55,16 @@ const USER_MENU_ITEMS = [
 
 const Template: Story<BaseHeaderMobileProps> = (args) => {
   const [userNavOpen,setUserNavOpen] = React.useState(false)
+  const [shopNavOpen,setShopNavOpen] = React.useState(false)
+  const [activeCategory,setActiveCategory] = React.useState(null)
 
   return (
     <>
-      <BaseHeaderMobile {...args} toggleUserMenu={(): void => { return setUserNavOpen(!userNavOpen) }}/>
-      <MobileUserNav 
+      <BaseHeaderMobile {...args} 
+        toggleUserMenu={(): void => { return setUserNavOpen(!userNavOpen) }}
+        toggleMainMenu={(): void => { return setShopNavOpen(!shopNavOpen) }}
+      />
+      <MobileUserNav
         motto='Lorem Ipsum'
         welcome='Willkommen'
         avatarUrl='https://mui.com/static/images/avatar/1.jpg'
@@ -67,6 +73,14 @@ const Template: Story<BaseHeaderMobileProps> = (args) => {
         userMenu={USER_MENU_ITEMS as UserMenuItems[]}
         children={[<IconButton onClick={():void => {return setUserNavOpen(false)}}><AnyIcon icon='LangDE' /></IconButton>,<Box sx={{ml: 4}}><IconButton onClick={():void => {return setUserNavOpen(false)}}><AnyIcon icon='moon' /></IconButton></Box>]}
         versionLabel='Version 1.0.13'
+      />
+      <MobileShopNav
+        specialCategories={[{name: 'Test'}]}
+        categories={[{name: 'Test'}]}
+        activeCategory={activeCategory}
+        setActiveCategory={(category):void => {return setActiveCategory(category)}}
+        isActive={shopNavOpen}
+        setIsActive={setShopNavOpen}
       />
     </>
     )
