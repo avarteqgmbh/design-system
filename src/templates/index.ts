@@ -47,3 +47,7 @@ export { Modal } from './Modal/Modal'
 // Search Hero
 export { SearchHero } from './SearchHero/SearchHero'
 export type { SearchHeroProps } from './SearchHero/SearchHero'
+
+// Slider
+export { Slider } from './Slider/Slider'
+export type { SliderProps } from './Slider/Slider'

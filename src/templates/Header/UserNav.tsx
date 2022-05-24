@@ -128,11 +128,7 @@ export const UserNav = (props: UserNavprops): JSX.Element => {
             <Avatar src={avatarUrl} sx={{ height: 100, width: 100, mb: 2 }} />
             <Typography variant='h6'>{fullName}</Typography>
             {children && (
-              <Box sx={classes.userMenuDialogChildrenWrapper}>
-                {children.map((item): React.ReactNode => {
-                  return item
-                })}
-              </Box>
+              <Box sx={classes.userMenuDialogChildrenWrapper}>{children}</Box>
             )}
           </Box>
 

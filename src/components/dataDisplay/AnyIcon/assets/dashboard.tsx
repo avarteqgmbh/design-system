@@ -70,7 +70,6 @@ const dashboard: React.FC = () => {
         <g transform='matrix(1, 0, 0, 1, -3, -3)' filter='url(#Pfad_3)'>
           <path
             id='Pfad_3-2'
-            data-name='Pfad 3'
             d='M5.4,0H1.021A1.022,1.022,0,0,0,0,1.021V3.646A1.022,1.022,0,0,0,1.021,4.667H5.4A1.022,1.022,0,0,0,6.417,3.646V1.021A1.022,1.022,0,0,0,5.4,0Zm0,0'
             transform='translate(3 3)'
             fill='currentColor'
@@ -79,7 +78,6 @@ const dashboard: React.FC = () => {
         <g transform='matrix(1, 0, 0, 1, -3, -3)' filter='url(#Pfad_4)'>
           <path
             id='Pfad_4-2'
-            data-name='Pfad 4'
             d='M5.4,213.332H1.021A1.022,1.022,0,0,0,0,214.353v6.125A1.022,1.022,0,0,0,1.021,221.5H5.4a1.022,1.022,0,0,0,1.021-1.021v-6.125A1.022,1.022,0,0,0,5.4,213.332Zm0,0'
             transform='translate(3 -204.5)'
             fill='currentColor'
@@ -88,7 +86,6 @@ const dashboard: React.FC = () => {
         <g transform='matrix(1, 0, 0, 1, -3, -3)' filter='url(#Pfad_5)'>
           <path
             id='Pfad_5-2'
-            data-name='Pfad 5'
             d='M282.728,341.332h-4.375a1.022,1.022,0,0,0-1.021,1.021v2.625A1.022,1.022,0,0,0,278.353,346h4.375a1.022,1.022,0,0,0,1.021-1.021v-2.625A1.022,1.022,0,0,0,282.728,341.332Zm0,0'
             transform='translate(-266.75 -329)'
             fill='currentColor'
@@ -97,7 +94,6 @@ const dashboard: React.FC = () => {
         <g transform='matrix(1, 0, 0, 1, -3, -3)' filter='url(#Pfad_6)'>
           <path
             id='Pfad_6-2'
-            data-name='Pfad 6'
             d='M282.728,0h-4.375a1.022,1.022,0,0,0-1.021,1.021V7.146a1.022,1.022,0,0,0,1.021,1.021h4.375a1.022,1.022,0,0,0,1.021-1.021V1.021A1.022,1.022,0,0,0,282.728,0Zm0,0'
             transform='translate(-266.75 3)'
             fill='currentColor'

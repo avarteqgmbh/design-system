@@ -1,7 +1,6 @@
 import React from 'react'
 import {
   ThemeProvider as MuiThemeProvider,
-  StyledEngineProvider,
   createTheme
 } from '@mui/material/styles'
 import { CssBaseline, ThemeOptions } from '@mui/material'
@@ -10,6 +9,8 @@ import muiMakeStyles from '@mui/styles/makeStyles'
 import { anyninesLight } from '@avarteqgmbh/happy-token-system'
 import { Theme } from './types'
 import { ThemeProviderProps as MuiThemeProviderProps } from '@mui/material/styles/ThemeProvider'
+import createCache from '@emotion/cache'
+import { CacheProvider, EmotionCache } from '@emotion/react'
 
 export type { ThemeOptions } from '@mui/material'
 
@@ -23,6 +24,10 @@ export interface ThemeProviderProps
   theme?: ThemeOptions
 }
 
+export function createEmotionCache(): EmotionCache {
+  return createCache({ key: 'mui', prepend: true })
+}
+
 export const ThemeProvider = (props: ThemeProviderProps): JSX.Element => {
   const { theme = anyninesLight } = props
 
@@ -31,9 +36,9 @@ export const ThemeProvider = (props: ThemeProviderProps): JSX.Element => {
   }
 
   return (
-    <StyledEngineProvider injectFirst>
+    <CacheProvider value={createEmotionCache()}>
       <MuiThemeProvider {...props} theme={createTheme(getTheme())} />
-    </StyledEngineProvider>
+    </CacheProvider>
   )
 }
 

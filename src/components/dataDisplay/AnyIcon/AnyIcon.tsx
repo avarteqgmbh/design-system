@@ -23,6 +23,10 @@ import Check from './assets/check'
 import Close from './assets/close'
 import Club from './assets/club'
 import Coin from './assets/coin'
+import CoinAlt from './assets/coinAlt'
+import Coins from './assets/coins'
+import CoinStack from './assets/coinStack'
+import CoinStackAlt from './assets/coinStackAlt'
 import Color from './assets/color'
 import ColorTransparent from './assets/colorTransparent'
 import Customer from './assets/customer'
@@ -98,6 +102,7 @@ import Pipette from './assets/pipette'
 import Placeholder from './assets/placeholder'
 import Plus from './assets/plus'
 import Points from './assets/points'
+import PointsAlt from './assets/pointsAlt'
 
 // R
 import Random from './assets/random'
@@ -158,6 +163,10 @@ export type IconName =
   | 'close'
   | 'club'
   | 'coin'
+  | 'coinAlt'
+  | 'coins'
+  | 'coinStack'
+  | 'coinStackAlt'
   | 'color'
   | 'customer'
   | 'dashboard'
@@ -204,6 +213,7 @@ export type IconName =
   | 'placeholder'
   | 'plus'
   | 'points'
+  | 'pointsAlt'
   | 'random'
   | 'remove'
   | 'rocket'
@@ -252,6 +262,10 @@ const ICONS: { [key in IconName]: JSX.Element } = {
   close: <Close />,
   club: <Club />,
   coin: <Coin />,
+  coinAlt: <CoinAlt />,
+  coins: <Coins />,
+  coinStack: <CoinStack />,
+  coinStackAlt: <CoinStackAlt />,
   color: <Color />,
   customer: <Customer />,
   dashboard: <Dashboard />,
@@ -298,6 +312,7 @@ const ICONS: { [key in IconName]: JSX.Element } = {
   placeholder: <Placeholder />,
   plus: <Plus />,
   points: <Points />,
+  pointsAlt: <PointsAlt />,
   random: <Random />,
   remove: <Remove />,
   rocket: <Rocket />,
