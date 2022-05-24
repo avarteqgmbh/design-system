@@ -61,7 +61,7 @@ export const BaseHeaderMobile: React.FC<BaseHeaderMobileProps> = React.memo(
 
     return (
       <Box sx={{ ...classes.root, pt: paddingTop, height: headerHeight }}>
-        <Box sx={classes.leftSide}>
+        <Box sx={classes.leftColumn}>
           {backBtn ? (
             <BackBtn callback={callback} />
           ) : (
@@ -84,7 +84,7 @@ export const BaseHeaderMobile: React.FC<BaseHeaderMobileProps> = React.memo(
           )}
           {children}
         </Box>
-        <Box sx={classes.rightSide}>
+        <Box sx={classes.rightColumn}>
           {notifications && (
             <Box mr={4}>
               <IconButton
@@ -130,7 +130,7 @@ const classes = {
     background: 'background.paper',
     boxShadow: 2
   },
-  leftSide: {
+  leftColumn: {
     display: 'flex',
     alignItems: 'center'
   },
@@ -151,7 +151,7 @@ const classes = {
     padding: 0,
     marginLeft: 4
   },
-  rightSide: {
+  rightColumn: {
     display: 'flex',
     alignItems: 'center'
   }

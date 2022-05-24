@@ -32,7 +32,7 @@ const withIcon = (context) => {
 
 export const withThemeProvider = (Story, context) => {
   const theme = getTheme(context.globals.theme)
-  console.log(context.parameters.layout, context)
+
   return (
     <ThemeProvider theme={theme}>
       {withIcon(context)}
