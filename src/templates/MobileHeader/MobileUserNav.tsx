@@ -1,12 +1,6 @@
 import React from 'react'
-import {
-  Avatar,
-  Box,
-  Button,
-  Chip,
-  Divider,
-  Typography
-} from '../../components'
+import { Avatar, Box, Chip, Divider, Typography } from '../../components'
+import { MainMenuItem } from '../MainMenuItem/MainMenuItem'
 import { UserMenuItems } from '../Header/UserNav'
 
 export interface MobileUserNavProps {
@@ -33,7 +27,7 @@ export const MobileUserNav: React.FC<MobileUserNavProps> = ({
   return (
     <Box sx={classes.root} className={isActive ? 'active' : ''}>
       {motto && (
-        <Typography sx={{ fontWeight: 'bold', fontSize: 16, mb: 6 }}>
+        <Typography sx={{ fontWeight: 'bold', fontSize: 16, mb: 5 }}>
           {motto}
         </Typography>
       )}
@@ -52,26 +46,24 @@ export const MobileUserNav: React.FC<MobileUserNavProps> = ({
 
       {userMenu.map((item) => {
         return (
-          <Box mb={6}>
+          <Box mb={5}>
             <Divider textAlign='left'>
               {item.label && <Typography>{item.label}</Typography>}
             </Divider>
             {item.items.map((listItem) => {
               return (
-                <Button
+                <MainMenuItem
                   key={listItem.id}
                   onClick={(): void => {
                     return listItem.onClick && listItem.onClick()
                   }}
-                  size='small'
-                  startIcon={listItem.icon}
+                  size='medium'
+                  icon={listItem.icon}
                   endIcon={listItem.endIcon && listItem.endIcon}
-                  color='secondary'
-                  fullWidth
-                  sx={classes.userMenuListItem}
-                >
-                  {listItem.label}
-                </Button>
+                  label={listItem.label}
+                  density={3}
+                  orientation='vertical'
+                />
               )
             })}
           </Box>
@@ -121,31 +113,12 @@ const classes = {
     justifyContent: 'space-between',
     alignItems: 'center',
     mt: 4,
-    mb: 6
+    mb: 5
   },
   childrenWrapper: {
     display: 'flex',
     justifyContent: 'flex-end',
     alignItems: 'center'
-  },
-  userMenuListItem: {
-    justifyContent: 'flex-start',
-    mt: 4,
-    height: 40,
-    position: 'relative',
-    '&:hover': {
-      boxShadow: 0
-    },
-    '& .MuiButton-endIcon': {
-      position: 'absolute',
-      top: 7,
-      right: 12,
-      '& .MuiChip-filled': {
-        minWidth: 24,
-        fontSize: 12,
-        py: 1
-      }
-    }
   },
   version: {
     position: 'absolute',

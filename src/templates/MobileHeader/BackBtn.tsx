@@ -10,7 +10,6 @@ export interface BackBtnProps {
 export const BackBtn: React.FC<BackBtnProps> = ({ callback }) => {
   return (
     <MainMenuItem
-      lastItem
       onClick={callback && callback}
       icon={<ArrowBackRounded />}
       size='small'

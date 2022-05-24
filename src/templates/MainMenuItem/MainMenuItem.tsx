@@ -1,4 +1,5 @@
 import React from 'react'
+import { SxProps } from '@mui/material'
 import {
   Badge,
   Box,
@@ -13,10 +14,11 @@ export interface MainMenuItemProps {
   density?: number
   icon?: React.ReactNode
   endIcon?: React.ReactNode
-  key?: string
+  key?: string | number
   label?: string
-  lastItem?: boolean
+  orientation?: 'horizontal' | 'vertical'
   size?: 'small' | 'medium' | 'large'
+  sx?: SxProps
   onClick?: () => void
 }
 
@@ -30,8 +32,9 @@ export const MainMenuItem = (props: MainMenuItemProps): JSX.Element => {
     icon,
     key,
     label,
-    lastItem = false,
+    orientation = 'horizontal',
     size = 'medium',
+    sx,
     onClick
   } = props
 
@@ -41,9 +44,11 @@ export const MainMenuItem = (props: MainMenuItemProps): JSX.Element => {
         className={`${className} ${size} ${icon && !label && 'iconOnly'}`}
         sx={{
           ...classes.root,
+          ...sx,
           bgcolor: active ? 'primary.main' : 'background.light',
           color: active ? 'primary.contrastText' : 'text.primary',
-          mr: badge ? 0 : lastItem ? 0 : density,
+          mt: orientation === 'vertical' ? density : 0,
+          ml: orientation === 'horizontal' ? density : 0,
           '&:hover': {
             bgcolor: active ? 'primary.dark' : 'background.medium'
           }
@@ -75,19 +80,17 @@ export const MainMenuItem = (props: MainMenuItemProps): JSX.Element => {
   }
 
   return badge ? (
-    <Box mr={density}>
-      <Badge
-        variant='dot'
-        color='primary'
-        anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'right'
-        }}
-        size='medium'
-      >
-        <MenuItemChildren />
-      </Badge>
-    </Box>
+    <Badge
+      variant='dot'
+      color='primary'
+      anchorOrigin={{
+        vertical: 'top',
+        horizontal: 'right'
+      }}
+      size='medium'
+    >
+      <MenuItemChildren />
+    </Badge>
   ) : (
     <MenuItemChildren />
   )
