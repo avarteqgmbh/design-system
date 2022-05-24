@@ -76,7 +76,7 @@ const Template: Story<BaseHeaderMobileProps> = (args) => {
       />
       <MobileShopNav
         specialCategories={[{name: 'Test'}]}
-        categories={[{name: 'Test'}]}
+        categories={[{name: 'Test', productsCount: 81}]}
         activeCategory={activeCategory}
         setActiveCategory={(category):void => {return setActiveCategory(category)}}
         isActive={shopNavOpen}

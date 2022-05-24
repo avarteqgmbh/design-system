@@ -8,7 +8,7 @@ import { SpecialCategory } from './SpecialCategory'
 export interface Category {
   name: string
   children?: Category[]
-  products?: string[]
+  productsCount?: number
   onClick?: () => void
 }
 
@@ -79,7 +79,7 @@ export const MobileShopNav = (props: MobileShopNavProps): JSX.Element => {
               return (
                 <Grid key={category.name} xs={12}>
                   <MobileShopNavItem
-                    count={category.products?.length || 0}
+                    count={category.productsCount || 0}
                     label={category.name}
                     linkTo={(): void => {
                       return category.onClick && category.onClick()
@@ -99,10 +99,10 @@ export const MobileShopNav = (props: MobileShopNavProps): JSX.Element => {
             backToMain={(): void => {
               setActiveCategory(null)
             }}
-            count={activeCategory.products?.length || 0}
+            count={activeCategory.productsCount || 0}
             label={activeCategory.name}
             linkTo={(): void => {
-              // onToggle(activeCategory.slug)
+              return activeCategory.onClick && activeCategory.onClick()
             }}
           />
           <Grid container direction='row' mt={0} spacing={4}>
@@ -110,26 +110,21 @@ export const MobileShopNav = (props: MobileShopNavProps): JSX.Element => {
               activeCategory.children?.map((category) => {
                 return (
                   <Grid
-                    // TODO: Remove once backend filters categories without products
                     item
                     key={category.name}
                     sx={{
                       display:
-                        category.products && category.products.length === 0
+                        category.productsCount && category.productsCount === 0
                           ? 'none'
                           : 'block'
                     }}
                     xs={12}
                   >
                     <MobileShopNavItem
-                      count={category.products?.length || 0}
+                      count={category.productsCount || 0}
                       label={category.name}
                       linkTo={(): void => {
-                        // onToggle(
-                        //   `/shop/categories/${category.parent?.slug || ''}/${
-                        //     category.slug
-                        //   }`
-                        // )
+                        return category.onClick && category.onClick()
                       }}
                     />
                   </Grid>
