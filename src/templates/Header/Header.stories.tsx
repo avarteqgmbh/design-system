@@ -5,7 +5,7 @@ import { BaseHeader, BaseHeaderProps, Link } from './BaseHeader'
 import { UserNav, UserMenuItems } from './UserNav'
 import { MetaNav } from './MetaNav'
 import { ShopNav } from './ShopNav'
-import { MenuItem } from './MenuItem'
+import { MainMenuItem } from '../MainMenuItem/MainMenuItem'
 import { MainCategoryItem, Highlight } from './ShopNav/types'
 
 import { AnyIcon, Chip } from '../../components'
@@ -54,7 +54,7 @@ const QUICK_LINKS = [
 
 const META_MAIN_LINKS = [
   { label: 'Company' },
-  { label: 'Blog' },
+  { label: 'Blog', badge: true },
   { label: 'Academy' }
 ]
 
@@ -93,8 +93,9 @@ const USER_NAV = (
     firstName='Max'
     fullName='Max Mustermann-Lamacun'
     points='4.200'
+    density={4}
     userMenu={USER_MENU_ITEMS as UserMenuItems[]}
-    children={[<MenuItem density={3} icon={<DarkMode />}/>, <MenuItem lastItem icon={<AnyIcon size='large' icon='LangDE'/>} />]}
+    children={[<MainMenuItem density={3} startIcon={<DarkMode />}/>, <MainMenuItem density={3} startIcon={<AnyIcon size='large' icon='LangDE'/>} />]}
   />
 )
 

@@ -1,5 +1,6 @@
 import React from 'react'
-import { Avatar, Button, Box, Divider, Typography } from '../../components'
+import { Avatar, Box, Divider, Typography } from '../../components'
+import { MainMenuItem } from '../MainMenuItem/MainMenuItem'
 import ArrowDropDownRoundedIcon from '@mui/icons-material/ArrowDropDownRounded'
 
 export interface UserMenuItems {
@@ -17,6 +18,7 @@ export interface UserMenuItem {
 
 export interface UserNavprops {
   avatarUrl: string
+  density?: number
   firstName: string
   fullName: string
   points: string
@@ -26,7 +28,15 @@ export interface UserNavprops {
 
 export const UserNav = (props: UserNavprops): JSX.Element => {
   const [open, setOpen] = React.useState(false)
-  const { avatarUrl, firstName, fullName, points, children, userMenu } = props
+  const {
+    avatarUrl,
+    density = 5,
+    firstName,
+    fullName,
+    points,
+    children,
+    userMenu
+  } = props
 
   const onClick = (): void => {
     setOpen(!open)
@@ -36,7 +46,8 @@ export const UserNav = (props: UserNavprops): JSX.Element => {
     root: {
       display: 'flex',
       alignItems: 'center',
-      position: 'relative'
+      position: 'relative',
+      ml: density
     },
     userMenuItem: {
       minHeight: 48,
@@ -151,20 +162,18 @@ export const UserNav = (props: UserNavprops): JSX.Element => {
                 </Box>
                 {item.items.map((listItem) => {
                   return (
-                    <Button
+                    <MainMenuItem
                       key={listItem.id}
                       onClick={(): void => {
                         return listItem.onClick && listItem.onClick()
                       }}
-                      size='small'
+                      size='medium'
+                      density={3}
+                      orientation='vertical'
                       startIcon={listItem.icon}
                       endIcon={listItem.endIcon && listItem.endIcon}
-                      color='secondary'
-                      fullWidth
-                      sx={classes.userMenuListItem}
-                    >
-                      {listItem.label}
-                    </Button>
+                      label={listItem.label}
+                    />
                   )
                 })}
               </>

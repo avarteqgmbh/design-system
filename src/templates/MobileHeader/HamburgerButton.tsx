@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Box } from '../../components'
-import { MenuItem } from '../Header/MenuItem'
+import { MainMenuItem } from '../MainMenuItem/MainMenuItem'
 
 export interface HamburgerButtonProps {
   mainMenuActive?: boolean
@@ -13,10 +13,9 @@ export const HamburgerButton: React.FC<HamburgerButtonProps> = React.memo(
     const { mainMenuActive, toggleMainMenu } = props
 
     return (
-      <MenuItem
-        lastItem
+      <MainMenuItem
         onClick={toggleMainMenu && toggleMainMenu}
-        icon={
+        startIcon={
           <Box sx={classes.wrapper} className={mainMenuActive ? 'active' : ''}>
             <Box sx={classes.pipe} className='pipe' />
             <Box sx={classes.pipe} className='pipe' />
@@ -24,6 +23,7 @@ export const HamburgerButton: React.FC<HamburgerButtonProps> = React.memo(
           </Box>
         }
         size='small'
+        density={0}
       />
     )
   }
