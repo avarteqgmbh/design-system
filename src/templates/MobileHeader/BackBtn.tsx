@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { ArrowBackRounded } from '@mui/icons-material'
-import { MenuItem } from '../Header/MenuItem'
+import { MainMenuItem } from '../MainMenuItem/MainMenuItem'
 
 export interface BackBtnProps {
   callback?: () => void
@@ -9,7 +9,7 @@ export interface BackBtnProps {
 
 export const BackBtn: React.FC<BackBtnProps> = ({ callback }) => {
   return (
-    <MenuItem
+    <MainMenuItem
       lastItem
       onClick={callback && callback}
       icon={<ArrowBackRounded />}
