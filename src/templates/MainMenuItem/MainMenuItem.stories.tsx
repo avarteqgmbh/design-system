@@ -1,7 +1,7 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { AnyIcon } from '../../components'
+import { AnyIcon, Chip } from '../../components'
 import { MainMenuItem, MainMenuItemProps } from './MainMenuItem'
 
 export default {
@@ -18,7 +18,11 @@ export default {
 }
 
 const Template: Story<MainMenuItemProps> = (args) => {
-  return <MainMenuItem {...args} icon={<AnyIcon icon='customer' hasContrastColor={args.active} />}/>
+  return <MainMenuItem
+    {...args} 
+    icon={<AnyIcon icon='customer' hasContrastColor={args.active} />}
+    endIcon={<Chip rounded={false} size='small' label='10' color={args.active ? 'secondary' : 'primary'} />}
+  />
 }
 
 export const Default = Template.bind({})

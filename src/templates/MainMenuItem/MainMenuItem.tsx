@@ -12,6 +12,8 @@ export interface MainMenuItemProps {
   className?: string
   density?: number
   icon?: React.ReactNode
+  endIcon?: React.ReactNode
+  key?: string
   label?: string
   lastItem?: boolean
   size?: 'small' | 'medium' | 'large'
@@ -24,7 +26,9 @@ export const MainMenuItem = (props: MainMenuItemProps): JSX.Element => {
     badge = false,
     className = 'MenuItem',
     density = 5,
+    endIcon,
     icon,
+    key,
     label,
     lastItem = false,
     size = 'medium',
@@ -47,20 +51,25 @@ export const MainMenuItem = (props: MainMenuItemProps): JSX.Element => {
         onClick={(): void => {
           return onClick && onClick()
         }}
+        key={key}
       >
-        {icon && icon}
-        {label && (
-          <Typography
-            variant='button'
-            color={active ? 'contrastText' : 'textPrimary'}
-            sx={{
-              ...classes.label,
-              ml: icon ? 3 : 0
-            }}
-          >
-            {label}
-          </Typography>
-        )}
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          {icon && icon}
+          {label && (
+            <Typography
+              variant='button'
+              color={active ? 'contrastText' : 'textPrimary'}
+              sx={{
+                ...classes.label,
+                ml: icon ? 3 : 0,
+                mr: endIcon ? 3 : 0
+              }}
+            >
+              {label}
+            </Typography>
+          )}
+        </Box>
+        {endIcon && endIcon}
       </MuiMenuItem>
     )
   }
@@ -88,43 +97,38 @@ const classes = {
   root: {
     display: 'flex',
     alignItems: 'center',
+    justifyContent: 'space-between',
     borderRadius: '8px',
     cursor: 'pointer',
     minHeight: 48,
     height: 48,
     px: 4,
-
     '&.iconOnly': {
       justifyContent: 'center',
       px: 0,
       height: 48,
       width: 48,
-
       '&.small': {
         px: 0,
         height: 32,
         width: 32
       },
-
       '&.large': {
         px: 0,
         height: 60,
         width: 60
       }
     },
-
     '&.small': {
       px: 3,
       minHeight: 32,
       height: 32
     },
-
     '&.large': {
       px: 5,
       minHeight: 60,
       height: 60
     }
   },
-
   label: { textTransform: 'none', fontSize: '14px' }
 }
