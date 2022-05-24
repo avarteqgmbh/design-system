@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from 'react'
 import { Theme } from '../../theme/types'
-import { Search } from '@mui/icons-material'
+import Search from '@mui/icons-material/Search'
 import {
   Breadcrumbs,
   Box,

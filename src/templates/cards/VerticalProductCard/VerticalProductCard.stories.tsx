@@ -1,7 +1,8 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { Box, Button } from '../../../index'
-import { Favorite, Delete } from '@mui/icons-material'
+import Delete from '@mui/icons-material/Delete'
+import Favorite from '@mui/icons-material/Favorite'
 import { withDesign } from 'storybook-addon-designs'
 import {
   VerticalProductCard,

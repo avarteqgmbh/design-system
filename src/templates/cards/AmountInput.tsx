@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from 'react'
-import { Remove, Add } from '@mui/icons-material'
+import Add from '@mui/icons-material/Add'
+import Remove from '@mui/icons-material/Remove'
 import { Theme } from '../../theme/types'
 import { Box, Button, Typography } from '../../components'
 

@@ -6,7 +6,8 @@ import {
   DialogContent,
   DialogContentText
 } from '@mui/material'
-import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material'
+import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft'
+import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight'
 import { Box, Button, Dialog, MobileStepper } from '../../components'
 
 export interface SlideItem {

@@ -10,13 +10,11 @@ import { MainCategoryItem, Highlight } from './ShopNav/types'
 
 import { AnyIcon, Chip } from '../../components'
 
-import {
-  FacebookOutlined,
-  Instagram,
-  Search,
-  DarkMode,
-  Twitter
-} from '@mui/icons-material'
+import DarkMode from '@mui/icons-material/DarkMode'
+import FacebookOutlined from '@mui/icons-material/FacebookOutlined'
+import Instagram from '@mui/icons-material/Instagram'
+import Search from '@mui/icons-material/Search'
+import Twitter from '@mui/icons-material/Twitter'
 import Logo from '../Logo'
 
 export default {
