@@ -10,7 +10,7 @@ import {
   InputAdornment,
   Radio,
   Rating,
-  Slider,
+  MuiSlider,
   Switch,
   TransferList,
   FormControl,
@@ -83,7 +83,6 @@ import {
   Icon,
   IconButton,
   customIcons,
-  Slides,
   SvgIcon,
   ListItem,
   ListItemIcon,
@@ -116,7 +115,7 @@ export {
   InputAdornment,
   Radio,
   Rating,
-  Slider,
+  MuiSlider,
   Switch,
   TransferList,
   FormControl,
@@ -193,7 +192,6 @@ export {
   Icon,
   IconButton,
   customIcons,
-  Slides,
   SvgIcon
 }
 export {

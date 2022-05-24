@@ -97,7 +97,8 @@ export function XGrid(props: XGridProps): JSX.Element {
     ) {
       RegisterLocalStorageEvents(customApiRef, tableConfig, setTableConfig)
     }
-  }, [customApiRef, localStorageKey, setTableConfig, tableConfig])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [customApiRef, localStorageKey])
 
   React.useEffect(() => {
     if (

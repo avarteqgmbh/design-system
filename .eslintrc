@@ -7,11 +7,7 @@
     "plugin:jest/recommended",
     "plugin:prettier/recommended"
   ],
-  "plugins": [
-    "react",
-    "@typescript-eslint",
-    "jest"
-  ],
+  "plugins": ["react", "@typescript-eslint", "jest"],
   "env": {
     "es6": true,
     "jest": true
@@ -38,34 +34,17 @@
   "settings": {
     "import/resolver": {
       "node": {
-        "extensions": [
-          ".js",
-          ".jsx",
-          ".ts",
-          ".tsx"
-        ]
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     }
   },
   "rules": {
     "jest/no-deprecated-functions": "off",
-    "comma-dangle": [
-      "error",
-      "never"
-    ],
-    "arrow-body-style": [
-      "error",
-      "always"
-    ],
-    "arrow-parens": [
-      "error",
-      "always"
-    ],
+    "comma-dangle": ["error", "never"],
+    "arrow-body-style": ["error", "always"],
+    "arrow-parens": ["error", "always"],
     "camelcase": "off",
-    "function-paren-newline": [
-      "error",
-      "multiline-arguments"
-    ], // if one attribute is one a new line, the first one should be to
+    "function-paren-newline": ["error", "multiline-arguments"], // if one attribute is one a new line, the first one should be to
     // Mute eslint to let @typescript-eslint trigger the errors
     "no-unused-vars": "off",
     "import/order": "off",
@@ -75,15 +54,9 @@
         "array": false
       }
     ],
-    "semi": [
-      "error",
-      "never"
-    ], // disallow use trailing semicolons
+    "semi": ["error", "never"], // disallow use trailing semicolons
     "no-tabs": "warn",
-    "eol-last": [
-      "error",
-      "always"
-    ],
+    "eol-last": ["error", "always"],
     "indent": [
       "error",
       2,
@@ -144,10 +117,7 @@
         "consistent": true
       }
     ],
-    "jsx-quotes": [
-      "error",
-      "prefer-single"
-    ],
+    "jsx-quotes": ["error", "prefer-single"],
     "no-param-reassign": "off",
     //// import rules -> https://github.com/benmosher/eslint-plugin-import
     "import/prefer-default-export": 0, // 3rd party librarys sometimes dont have a default export
@@ -163,9 +133,7 @@
     "import/no-extraneous-dependencies": [
       "error",
       {
-        "devDependencies": [
-          "src/**/*.stories.tsx"
-        ],
+        "devDependencies": ["src/**/*.stories.tsx"],
         "optionalDependencies": false,
         "peerDependencies": true
       }
@@ -196,9 +164,7 @@
     "jsx-a11y/anchor-has-content": [
       "warn",
       {
-        "aspects": [
-          "invalidHref"
-        ]
+        "aspects": ["invalidHref"]
       }
     ],
     "jsx-a11y/anchor-is-valid": "error",
@@ -210,9 +176,7 @@
       "error",
       {
         // replaces label-has-for
-        "labelAttributes": [
-          "label"
-        ], // only check for lables
+        "labelAttributes": ["label"], // only check for lables
         "assert": "htmlFor", // check if htmlfor is present
         "depth": 3
       }
@@ -222,11 +186,7 @@
     "react/jsx-filename-extension": [
       "warn",
       {
-        "extensions": [
-          ".js",
-          ".ts",
-          ".tsx"
-        ]
+        "extensions": [".js", ".ts", ".tsx"]
       }
     ],
     "react/prop-types": "off", // would be nice but to many props are missing currently
