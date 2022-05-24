@@ -1,7 +1,7 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { LanguageSelect } from './LanguageSelect'
+import { LanguageSelect, LanguageSelectProps } from './LanguageSelect'
 import { AnyIcon } from '../../components'
 
 export default {
@@ -17,8 +17,8 @@ export default {
   }
 }
 
-const Template: Story = (args) => {
-  return <LanguageSelect languages={args.languages} />
+const Template: Story<LanguageSelectProps> = (args) => {
+  return <LanguageSelect {...args} />
 }
 
 export const Default = Template.bind({})
