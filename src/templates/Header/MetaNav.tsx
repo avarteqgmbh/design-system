@@ -36,7 +36,7 @@ export const MetaNav = (props: MetaNavProps): JSX.Element => {
               density={density}
               size='small'
               label={link.label}
-              icon={link.icon}
+              startIcon={link.icon}
               badge={link.badge}
               onClick={(): void => {
                 return link.onClick && link.onClick()
@@ -52,7 +52,7 @@ export const MetaNav = (props: MetaNavProps): JSX.Element => {
               density={density}
               size='small'
               label={link.label}
-              icon={link.icon}
+              startIcon={link.icon}
               badge={link.badge}
               onClick={(): void => {
                 return link.onClick && link.onClick()

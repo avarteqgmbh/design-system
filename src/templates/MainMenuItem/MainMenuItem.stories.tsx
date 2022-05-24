@@ -20,7 +20,7 @@ export default {
 const Template: Story<MainMenuItemProps> = (args) => {
   return <MainMenuItem
     {...args} 
-    icon={<AnyIcon icon='customer' hasContrastColor={args.active} />}
+    startIcon={<AnyIcon icon='customer' hasContrastColor={args.active} />}
     endIcon={<Chip rounded={false} size='small' label='10' color={args.active ? 'secondary' : 'primary'} />}
   />
 }

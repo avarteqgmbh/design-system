@@ -75,7 +75,7 @@ export const BaseHeader = (props: BaseHeaderProps): JSX.Element => {
           mainLinks.map((link) => {
             return (
               <MainMenuItem
-                icon={link.icon}
+                startIcon={link.icon}
                 label={link.label}
                 active={link.active}
                 badge={link.badge}
@@ -91,7 +91,7 @@ export const BaseHeader = (props: BaseHeaderProps): JSX.Element => {
             quickLinks.map((link) => {
               return (
                 <MainMenuItem
-                  icon={link.icon}
+                  startIcon={link.icon}
                   label={link.label}
                   active={link.active}
                   badge={link.badge}

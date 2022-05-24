@@ -58,7 +58,7 @@ export const MobileUserNav: React.FC<MobileUserNavProps> = ({
                     return listItem.onClick && listItem.onClick()
                   }}
                   size='medium'
-                  icon={listItem.icon}
+                  startIcon={listItem.icon}
                   endIcon={listItem.endIcon && listItem.endIcon}
                   label={listItem.label}
                   density={3}

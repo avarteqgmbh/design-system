@@ -170,7 +170,7 @@ export const UserNav = (props: UserNavprops): JSX.Element => {
                       size='medium'
                       density={3}
                       orientation='vertical'
-                      icon={listItem.icon}
+                      startIcon={listItem.icon}
                       endIcon={listItem.endIcon && listItem.endIcon}
                       label={listItem.label}
                     />

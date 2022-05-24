@@ -11,7 +11,7 @@ export const BackBtn: React.FC<BackBtnProps> = ({ callback }) => {
   return (
     <MainMenuItem
       onClick={callback && callback}
-      icon={<ArrowBackRounded />}
+      startIcon={<ArrowBackRounded />}
       size='small'
     />
   )

@@ -15,7 +15,7 @@ export const HamburgerButton: React.FC<HamburgerButtonProps> = React.memo(
     return (
       <MainMenuItem
         onClick={toggleMainMenu && toggleMainMenu}
-        icon={
+        startIcon={
           <Box sx={classes.wrapper} className={mainMenuActive ? 'active' : ''}>
             <Box sx={classes.pipe} className='pipe' />
             <Box sx={classes.pipe} className='pipe' />

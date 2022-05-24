@@ -95,7 +95,7 @@ const USER_NAV = (
     points='4.200'
     density={4}
     userMenu={USER_MENU_ITEMS as UserMenuItems[]}
-    children={[<MainMenuItem density={3} icon={<DarkMode />}/>, <MainMenuItem density={3} icon={<AnyIcon size='large' icon='LangDE'/>} />]}
+    children={[<MainMenuItem density={3} startIcon={<DarkMode />}/>, <MainMenuItem density={3} startIcon={<AnyIcon size='large' icon='LangDE'/>} />]}
   />
 )
 

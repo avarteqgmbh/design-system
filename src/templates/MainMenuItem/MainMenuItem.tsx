@@ -12,7 +12,7 @@ export interface MainMenuItemProps {
   badge?: boolean
   className?: string
   density?: number
-  icon?: React.ReactNode
+  startIcon?: React.ReactNode
   endIcon?: React.ReactNode
   key?: string | number
   label?: string
@@ -28,8 +28,8 @@ export const MainMenuItem = (props: MainMenuItemProps): JSX.Element => {
     badge = false,
     className = 'MenuItem',
     density = 5,
+    startIcon,
     endIcon,
-    icon,
     key,
     label,
     orientation = 'horizontal',
@@ -41,7 +41,7 @@ export const MainMenuItem = (props: MainMenuItemProps): JSX.Element => {
   const MenuItemChildren = (): JSX.Element => {
     return (
       <MuiMenuItem
-        className={`${className} ${size} ${icon && !label && 'iconOnly'}`}
+        className={`${className} ${size} ${startIcon && !label && 'iconOnly'}`}
         sx={{
           ...classes.root,
           ...sx,
@@ -59,14 +59,14 @@ export const MainMenuItem = (props: MainMenuItemProps): JSX.Element => {
         key={key}
       >
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          {icon && icon}
+          {startIcon && startIcon}
           {label && (
             <Typography
               variant='button'
               color={active ? 'contrastText' : 'textPrimary'}
               sx={{
                 ...classes.label,
-                ml: icon ? 3 : 0,
+                ml: startIcon ? 3 : 0,
                 mr: endIcon ? 3 : 0
               }}
             >
