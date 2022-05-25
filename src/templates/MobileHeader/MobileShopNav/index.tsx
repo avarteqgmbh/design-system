@@ -1,21 +1,24 @@
 import React from 'react'
 
-import { Box, Divider, Grid, onClickOutsideHook } from '../../../components'
+import { Box, Button, Grid, onClickOutsideHook } from '../../../components'
 
 import { MobileShopNavItem } from './MobileShopNavItem'
-import { SpecialCategory } from './SpecialCategory'
 
 export interface Category {
+  active?: boolean
   name: string
-  children?: Category[]
+  subCategories?: Category[]
   productsCount?: number
   onClick?: () => void
 }
 
 export interface MobileShopNavProps {
   logo?: React.ReactNode
-  // clearShopNavState?: boolean
-  specialCategories: { name: string; onClick?: () => void }[]
+  specialCategories?: {
+    name: string
+    icon?: React.ReactElement
+    onClick?: () => void
+  }[]
   categories: Category[]
   activeCategory: Category
   setActiveCategory: (category: Category | null) => void
@@ -26,7 +29,6 @@ export interface MobileShopNavProps {
 export const MobileShopNav = (props: MobileShopNavProps): JSX.Element => {
   const {
     logo,
-    // clearShopNavState,
     isActive,
     categories,
     specialCategories,
@@ -53,85 +55,101 @@ export const MobileShopNav = (props: MobileShopNavProps): JSX.Element => {
 
   return (
     <Box sx={classes.root} className={isActive ? 'active' : ''}>
-      {logo && logo}
-      <Box display={activeCategory ? 'none' : 'block'}>
-        <Grid container direction='row' mb={6} spacing={4}>
-          {specialCategories &&
-            specialCategories.length > 0 &&
-            specialCategories.map((category) => {
-              return (
-                <Grid item key={category.name} xs={12}>
-                  <SpecialCategory
-                    label={category.name}
-                    onClick={(): void => {
-                      return category.onClick && category.onClick()
-                    }}
-                  />
-                </Grid>
-              )
-            })}
+      <Grid container mb={4} spacing={4}>
+        <Grid item xs={12}>
+          {logo && logo}
         </Grid>
-        <Divider />
-        <Grid container direction='row' spacing={4}>
-          {categories &&
-            categories.length > 0 &&
-            categories.map((category) => {
-              return (
-                <Grid key={category.name} xs={12}>
-                  <MobileShopNavItem
-                    count={category.productsCount || 0}
-                    label={category.name}
-                    linkTo={(): void => {
-                      return category.onClick && category.onClick()
-                    }}
-                    onClickChildren={(): void => {
-                      setActiveCategory(category)
-                    }}
-                  />
-                </Grid>
-              )
-            })}
-        </Grid>
-      </Box>
-      {activeCategory && (
-        <Box>
-          <MobileShopNavItem
-            backToMain={(): void => {
-              setActiveCategory(null)
-            }}
-            count={activeCategory.productsCount || 0}
-            label={activeCategory.name}
-            linkTo={(): void => {
-              return activeCategory.onClick && activeCategory.onClick()
-            }}
-          />
-          <Grid container direction='row' mt={0} spacing={4}>
-            {activeCategory.children &&
-              activeCategory.children?.map((category) => {
+      </Grid>
+      {!activeCategory && (
+        <>
+          <Grid container mb={4} spacing={4}>
+            {specialCategories &&
+              specialCategories.length > 0 &&
+              specialCategories.map((special) => {
                 return (
-                  <Grid
-                    item
-                    key={category.name}
-                    sx={{
-                      display:
-                        category.productsCount && category.productsCount === 0
-                          ? 'none'
-                          : 'block'
-                    }}
-                    xs={12}
-                  >
+                  <Grid item key={special.name} xs={6}>
+                    <Button
+                      color='primary'
+                      size='small'
+                      fullWidth
+                      startIcon={special.icon}
+                      onClick={(): void => {
+                        return special.onClick && special.onClick()
+                      }}
+                    >
+                      {special.name}
+                    </Button>
+                  </Grid>
+                )
+              })}
+          </Grid>
+          <Grid container mb={4} spacing={4}>
+            {categories &&
+              categories.length > 0 &&
+              categories.map((category) => {
+                return (
+                  <Grid item key={category.name} xs={12}>
                     <MobileShopNavItem
                       count={category.productsCount || 0}
                       label={category.name}
                       linkTo={(): void => {
                         return category.onClick && category.onClick()
                       }}
+                      onClickChildren={(): void => {
+                        setActiveCategory(category)
+                      }}
                     />
                   </Grid>
                 )
               })}
           </Grid>
-        </Box>
+        </>
+      )}
+      {activeCategory && (
+        <Grid container mb={4} spacing={4}>
+          <Grid item xs={12}>
+            <MobileShopNavItem
+              backToMain={(): void => {
+                setActiveCategory(null)
+              }}
+              count={activeCategory.productsCount || 0}
+              label={activeCategory.name}
+              linkTo={(): void => {
+                return activeCategory.onClick && activeCategory.onClick()
+              }}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <Grid container pt={0} spacing={4}>
+              {activeCategory.subCategories &&
+                activeCategory.subCategories?.map((subCategory) => {
+                  return (
+                    <Grid
+                      item
+                      key={subCategory.name}
+                      sx={{
+                        display:
+                          subCategory.productsCount &&
+                          subCategory.productsCount === 0
+                            ? 'none'
+                            : 'block'
+                      }}
+                      xs={12}
+                    >
+                      <MobileShopNavItem
+                        active={subCategory.active}
+                        count={subCategory.productsCount || 0}
+                        label={subCategory.name}
+                        linkTo={(): void => {
+                          return subCategory.onClick && subCategory.onClick()
+                        }}
+                      />
+                    </Grid>
+                  )
+                })}
+            </Grid>
+          </Grid>
+        </Grid>
       )}
     </Box>
   )

@@ -1,10 +1,11 @@
 import React from 'react'
 
-import { Box, Typography } from '../../../components'
-import ArrowLeftRoundedIcon from '@mui/icons-material/ArrowLeftRounded'
-import ArrowRightRoundedIcon from '@mui/icons-material/ArrowRightRounded'
+import { Box, MenuItem, Typography } from '../../../components'
+import ChevronLeft from '@mui/icons-material/ChevronLeft'
+import ChevronRight from '@mui/icons-material/ChevronRight'
 
 interface Props {
+  active?: boolean
   label: string
   linkTo: () => void
   backToMain?: () => void
@@ -13,19 +14,26 @@ interface Props {
 }
 
 export const MobileShopNavItem = (props: Props): JSX.Element => {
-  const { label, linkTo, count = 0, onClickChildren, backToMain } = props
+  const {
+    active = false,
+    label,
+    linkTo,
+    count = 0,
+    onClickChildren,
+    backToMain
+  } = props
 
   return (
-    <Box className={`${backToMain ? 'active' : ''}`} p={0} sx={classes.root}>
+    <MenuItem className={`${active ? 'active' : ''}`} sx={classes.root}>
       {backToMain && (
         <Box
+          className='backToMain'
           sx={classes.button}
-          ml={3}
           onClick={(): void => {
             backToMain()
           }}
         >
-          <ArrowLeftRoundedIcon />
+          <ChevronLeft />
         </Box>
       )}
       <Box
@@ -34,23 +42,30 @@ export const MobileShopNavItem = (props: Props): JSX.Element => {
         onClick={(): void => {
           linkTo()
         }}
-        p={3}
+        px={3}
       >
-        <Typography mr={2}>{label}</Typography>
-        <Typography sx={{ opacity: 0.66 }}>{`(${count || ''})`}</Typography>
+        <Typography mr={2} sx={{ fontSize: 14 }} className='categoryLabel'>
+          {label}
+        </Typography>
+        <Typography
+          sx={{ fontSize: 14 }}
+          color='text.hint'
+          className='productCount'
+        >
+          {`(${count || ''})`}
+        </Typography>
       </Box>
       {onClickChildren && (
         <Box
           sx={classes.button}
-          mr={3}
           onClick={(): void => {
             onClickChildren()
           }}
         >
-          <ArrowRightRoundedIcon />
+          <ChevronRight />
         </Box>
       )}
-    </Box>
+    </MenuItem>
   )
 }
 
@@ -59,31 +74,36 @@ const classes = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
+    minHeight: 40,
     borderRadius: 2,
     borderStyle: 'solid',
     borderWidth: 1,
     borderColor: 'background.border',
-    backgroundColor: 'background.default',
+    bgcolor: 'background.light',
     overflow: 'hidden',
+    p: 0,
 
     '&.active': {
-      backgroundColor: 'primary.main',
+      bgcolor: 'primary.main',
       borderColor: 'primary.dark',
-
-      '& .MuiTypography-root': {
-        color: 'common.white',
-        fontWeight: 800
+      color: 'primary.contrastText',
+      '& .backToMain': {
+        bgcolor: 'primary.dark'
+      },
+      '& .categoryLabel': {
+        color: 'primary.contrastText'
+      },
+      '& .productCount': {
+        color: 'primary.contrastText',
+        opacity: 0.5
       }
     }
   },
   button: {
-    borderRadius: 1,
-    height: 32,
-    width: 32,
-    padding: 4,
+    height: 40,
+    width: 40,
     boxSizing: 'border-box',
-    backgroundColor: 'background.paper',
-    boxShadow: 1,
+    bgcolor: 'background.border',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center'
