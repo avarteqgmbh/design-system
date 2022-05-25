@@ -4,8 +4,7 @@ import {
   AnyIcon,
   IconName
 } from '../../../components/dataDisplay/AnyIcon/AnyIcon'
-import { Box, Button, Grid, onClickOutsideHook } from '../../../components'
-
+import { Box, Button, Grid } from '../../../components'
 import { MobileShopNavItem } from './MobileShopNavItem'
 
 export interface Category {
@@ -40,22 +39,9 @@ export const MobileShopNav = (props: MobileShopNavProps): JSX.Element => {
     setActiveCategory,
     setIsActive
   } = props
-
-  const shopNavRef = React.useRef<HTMLDivElement | null>(null)
-
   const closeShopNav = (): void => {
     setIsActive(false)
   }
-
-  React.useEffect(() => {
-    const cleanOnClickOutsideHook = onClickOutsideHook(shopNavRef, (): void => {
-      if (isActive) {
-        setIsActive(false)
-      }
-    })
-
-    cleanOnClickOutsideHook()
-  }, [isActive, setIsActive])
 
   return (
     <Box sx={classes.root} className={isActive ? 'active' : ''}>
