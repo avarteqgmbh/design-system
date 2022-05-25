@@ -29,6 +29,7 @@ export const LanguageSelect: React.FC<LanguageSelectProps> = ({
       sx={classes.root}
       className={size}
       MenuProps={{
+        disableScrollLock: true,
         PaperProps: {
           sx: {
             bgcolor: 'background.light',

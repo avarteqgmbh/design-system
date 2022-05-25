@@ -35,6 +35,7 @@ const classes = {
     border: '1px solid',
     borderColor: 'background.medium',
     borderRadius: '8px',
+    boxSizing: 'border-box',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
