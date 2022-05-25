@@ -4,7 +4,7 @@ import { Box, MenuItem, Typography } from '../../../components'
 import ChevronLeft from '@mui/icons-material/ChevronLeft'
 import ChevronRight from '@mui/icons-material/ChevronRight'
 
-interface Props {
+export interface MobileShopNavItemProps {
   active?: boolean
   label: string
   linkTo: () => void
@@ -13,7 +13,9 @@ interface Props {
   count?: number
 }
 
-export const MobileShopNavItem = (props: Props): JSX.Element => {
+export const MobileShopNavItem = (
+  props: MobileShopNavItemProps
+): JSX.Element => {
   const {
     active = false,
     label,
