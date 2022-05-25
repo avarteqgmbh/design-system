@@ -10,7 +10,7 @@ import {
   AnyIcon
 } from '../../components'
 import Logo from '../Logo'
-import { DarkMode } from '@mui/icons-material'
+import DarkMode from '@mui/icons-material/DarkMode'
 
 export const CHILDREN = (
   <Box sx={{ color: 'text.primary' }}>

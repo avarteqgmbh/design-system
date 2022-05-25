@@ -1,7 +1,8 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { BadgeProps } from '@mui/material'
-import { Mail, ShoppingCart } from '@mui/icons-material'
+import Mail from '@mui/icons-material/Mail'
+import ShoppingCart from '@mui/icons-material/ShoppingCart'
 
 import { Badge } from './Badge'
 

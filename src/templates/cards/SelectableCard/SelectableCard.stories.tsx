@@ -1,6 +1,6 @@
 import React from 'react'
 import { Story } from '@storybook/react'
-import { MoreVert } from '@mui/icons-material'
+import MoreVert from '@mui/icons-material/MoreVert'
 import { withDesign } from 'storybook-addon-designs'
 import { SelectableCard, SelectableCardProps } from './SelectableCard'
 import { Box, IconButton, Typography, Divider } from '../../../index'

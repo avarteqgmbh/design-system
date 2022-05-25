@@ -1,5 +1,6 @@
 import React from 'react'
-import { ExpandLess, ExpandMore } from '@mui/icons-material'
+import ExpandLess from '@mui/icons-material/ExpandLess'
+import ExpandMore from '@mui/icons-material/ExpandMore'
 import { Box, Typography } from '../../../components'
 
 export interface CollapsibleCardProps {
