@@ -7,6 +7,7 @@ import { UserMenuItems } from '../Header/UserNav'
 import { BaseHeaderMobile, BaseHeaderMobileProps } from './BaseHeaderMobile'
 import { MobileUserNav } from './MobileUserNav'
 import { MobileShopNav } from './MobileShopNav'
+import { Overlay } from './Overlay'
 
 export default {
   title: 'Templates/MobileHeader',
@@ -84,9 +85,14 @@ const Template: Story<BaseHeaderMobileProps> = (args) => {
   return (
     <>
       <BaseHeaderMobile {...args}
-        toggleUserMenu={(): void => { return setUserNavOpen(!userNavOpen) }}
-        toggleMainMenu={(): void => { return setShopNavOpen(!shopNavOpen) }}
+        toggleUserMenu={(): void => {
+          return setUserNavOpen(!userNavOpen)
+        }}
+        toggleMainMenu={(): void => {
+          return setShopNavOpen(!shopNavOpen)
+        }}
       />
+      <Overlay open={shopNavOpen || userNavOpen} onClick={(): void => { userNavOpen ? setUserNavOpen(!userNavOpen) : setShopNavOpen(!shopNavOpen) }} />
       <MobileUserNav
         motto='Lorem Ipsum'
         welcome='Willkommen'
@@ -99,7 +105,7 @@ const Template: Story<BaseHeaderMobileProps> = (args) => {
       />
       <MobileShopNav
         logo={<Logo />}
-        specialCategories={[{ name: 'Highlights' , iconName: 'laurel-wreath'}, { name: 'Neuheiten', iconName: 'novelties'}]}
+        specialCategories={[{ name: 'Highlights', iconName: 'laurel-wreath' }, { name: 'Neuheiten', iconName: 'novelties' }]}
         categories={SHOP_NAV_ITEMS}
         activeCategory={activeCategory}
         setActiveCategory={(category): void => { return setActiveCategory(category) }}
