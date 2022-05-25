@@ -1,5 +1,9 @@
 import React from 'react'
 
+import {
+  AnyIcon,
+  IconName
+} from '../../../components/dataDisplay/AnyIcon/AnyIcon'
 import { Box, Button, Grid, onClickOutsideHook } from '../../../components'
 
 import { MobileShopNavItem } from './MobileShopNavItem'
@@ -16,7 +20,7 @@ export interface MobileShopNavProps {
   logo?: React.ReactNode
   specialCategories?: {
     name: string
-    icon?: React.ReactElement
+    iconName?: IconName
     onClick?: () => void
   }[]
   categories: Category[]
@@ -39,9 +43,9 @@ export const MobileShopNav = (props: MobileShopNavProps): JSX.Element => {
 
   const shopNavRef = React.useRef<HTMLDivElement | null>(null)
 
-  // const onToggle = (): void => {
-  //   setIsActive(false)
-  // }
+  const closeShopNav = (): void => {
+    setIsActive(false)
+  }
 
   React.useEffect(() => {
     const cleanOnClickOutsideHook = onClickOutsideHook(shopNavRef, (): void => {
@@ -72,8 +76,11 @@ export const MobileShopNav = (props: MobileShopNavProps): JSX.Element => {
                       color='primary'
                       size='small'
                       fullWidth
-                      startIcon={special.icon}
+                      startIcon={
+                        <AnyIcon hasContrastColor icon={special.iconName} />
+                      }
                       onClick={(): void => {
+                        closeShopNav()
                         return special.onClick && special.onClick()
                       }}
                     >
@@ -90,9 +97,11 @@ export const MobileShopNav = (props: MobileShopNavProps): JSX.Element => {
                 return (
                   <Grid item key={category.name} xs={12}>
                     <MobileShopNavItem
+                      active={category.active}
                       count={category.productsCount || 0}
                       label={category.name}
                       linkTo={(): void => {
+                        closeShopNav()
                         return category.onClick && category.onClick()
                       }}
                       onClickChildren={(): void => {
@@ -109,12 +118,14 @@ export const MobileShopNav = (props: MobileShopNavProps): JSX.Element => {
         <Grid container mb={4} spacing={4}>
           <Grid item xs={12}>
             <MobileShopNavItem
+              active={activeCategory.active}
               backToMain={(): void => {
                 setActiveCategory(null)
               }}
               count={activeCategory.productsCount || 0}
               label={activeCategory.name}
               linkTo={(): void => {
+                closeShopNav()
                 return activeCategory.onClick && activeCategory.onClick()
               }}
             />
@@ -141,6 +152,7 @@ export const MobileShopNav = (props: MobileShopNavProps): JSX.Element => {
                         count={subCategory.productsCount || 0}
                         label={subCategory.name}
                         linkTo={(): void => {
+                          closeShopNav()
                           return subCategory.onClick && subCategory.onClick()
                         }}
                       />

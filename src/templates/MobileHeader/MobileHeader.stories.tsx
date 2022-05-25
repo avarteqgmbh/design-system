@@ -56,7 +56,7 @@ const USER_MENU_ITEMS = [
 
 const SHOP_NAV_ITEMS = [
   {
-    name: 'Multimedia', productsCount: 181, subCategories: [
+    name: 'Multimedia', active: true, productsCount: 181, subCategories: [
       { name: 'Multimedia Sub 1', productsCount: 41 },
       { name: 'Multimedia Sub 2', productsCount: 98 },
       { name: 'Multimedia Sub 3', productsCount: 22 },
@@ -99,7 +99,7 @@ const Template: Story<BaseHeaderMobileProps> = (args) => {
       />
       <MobileShopNav
         logo={<Logo />}
-        specialCategories={[{ name: 'Highlights'}, { name: 'Neuheiten'}]}
+        specialCategories={[{ name: 'Highlights' , iconName: 'laurel-wreath'}, { name: 'Neuheiten', iconName: 'novelties'}]}
         categories={SHOP_NAV_ITEMS}
         activeCategory={activeCategory}
         setActiveCategory={(category): void => { return setActiveCategory(category) }}

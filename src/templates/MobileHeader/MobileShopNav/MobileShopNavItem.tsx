@@ -27,7 +27,7 @@ export const MobileShopNavItem = (props: Props): JSX.Element => {
     <MenuItem className={`${active ? 'active' : ''}`} sx={classes.root}>
       {backToMain && (
         <Box
-          className='backToMain'
+          className='button'
           sx={classes.button}
           onClick={(): void => {
             backToMain()
@@ -57,6 +57,7 @@ export const MobileShopNavItem = (props: Props): JSX.Element => {
       </Box>
       {onClickChildren && (
         <Box
+          className='button'
           sx={classes.button}
           onClick={(): void => {
             onClickChildren()
@@ -87,7 +88,7 @@ const classes = {
       bgcolor: 'primary.main',
       borderColor: 'primary.dark',
       color: 'primary.contrastText',
-      '& .backToMain': {
+      '& .button': {
         bgcolor: 'primary.dark'
       },
       '& .categoryLabel': {
