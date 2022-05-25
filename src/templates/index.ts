@@ -41,6 +41,10 @@ export type { UserMenuItems, UserNavprops } from './Header/UserNav'
 export { Footer } from './Footer/Footer'
 export type { Link as FooterLink, FooterProps } from './Footer/Footer'
 
+// LanguageSelect
+export { LanguageSelect } from './LanguageSelect/LanguageSelect'
+export type { LanguageSelectProps } from './LanguageSelect/LanguageSelect'
+
 // Modal
 export { Modal } from './Modal/Modal'
 
@@ -51,3 +55,7 @@ export type { SearchHeroProps } from './SearchHero/SearchHero'
 // Slider
 export { Slider } from './Slider/Slider'
 export type { SliderProps } from './Slider/Slider'
+
+// ToggleMode
+export { ToggleMode } from './ToggleMode/ToggleMode'
+export type { ToggleModeProps } from './ToggleMode/ToggleMode'

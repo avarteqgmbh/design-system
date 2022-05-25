@@ -18,6 +18,8 @@ import {
   Twitter
 } from '@mui/icons-material'
 import Logo from '../Logo'
+import { ToggleMode } from '../ToggleMode/ToggleMode'
+import { LanguageSelect } from '../LanguageSelect/LanguageSelect'
 
 export default {
   title: 'Templates/Header',
@@ -93,7 +95,14 @@ const USER_NAV = (
     fullName='Max Mustermann-Lamacun'
     points='4.200'
     userMenu={USER_MENU_ITEMS as UserMenuItems[]}
-    children={[<MenuItem density={3} icon={<DarkMode />}/>, <MenuItem lastItem icon={<AnyIcon size='large' icon='LangDE'/>} />]}
+    children={[<ToggleMode darkMode={false} setDarkMode={():boolean => { return true }}/>, <LanguageSelect languages={[{
+      value: 'de',
+      icon: <AnyIcon icon='LangDE' size='large' />
+    },
+    {
+      value: 'en',
+      icon: <AnyIcon icon='LangEN' size='large' />
+    }]}/>]}
   />
 )
 
