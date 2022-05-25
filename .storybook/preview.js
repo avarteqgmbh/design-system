@@ -87,7 +87,8 @@ export const globalTypes = {
         'thomsit',
         'toyota'
       ],
-      showName: true
+      showName: true,
+      dynamicTitle: true
     }
   }
 }
