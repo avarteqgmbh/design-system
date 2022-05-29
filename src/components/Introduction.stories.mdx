@@ -1,33 +1,33 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta } from '@storybook/addon-docs'
 import Figma from './_assets/figma.svg'
 
-import Plugin from './_assets/plugin.svg';
-import Mui from './_assets/mui.svg';
+import Plugin from './_assets/plugin.svg'
+import Mui from './_assets/mui.svg'
 
-<Meta title="👋 Get started/Welcome" />
+<Meta title='👋 Get started/Welcome' />
 
 # Welcome to Design System
 
 This is the **anynines Design System**, here we build UI components in isolation from our app's business logic, data, and context.
 
-<div className="link-list">
+<div className='link-list'>
   <a
-    className="link-item"
-    href="https://storybook.js.org/docs/react/addons/addon-types"
-    target="_blank"
+    className='link-item'
+    href='https://storybook.js.org/docs/react/addons/addon-types'
+    target='_blank'
   >
-    <img src={Plugin} alt="plugin" />
+    <img src={Plugin} alt='plugin' />
     <span>
       <strong>Live Demo</strong>
       Checkout latest published version
     </span>
   </a>
   <a
-    className="link-item"
-    href="https://storybook.js.org/docs/react/configure/webpack"
-    target="_blank"
+    className='link-item'
+    href='https://storybook.js.org/docs/react/configure/webpack'
+    target='_blank'
   >
-    <img src={Plugin} alt="Build" />
+    <img src={Plugin} alt='Build' />
     <span>
       <strong>Changelog</strong>
       See latest changes
@@ -41,8 +41,8 @@ This is the **anynines Design System**, here we build UI components in isolation
 
 We follow the [**Atomic Design**](https://bradfrost.com/blog/post/atomic-web-design/) principles. Basic building blocks of the UI are assigned to **💧 Atoms**, **🌱 Molecules** and **🌳 Organisms** depending on their complexity and dependencies. To orchestrate these building blocks together can be challenging for developers, which is why **📑 Templates** and **📘 Pages** are provided also within storybook.
 
-<div className="tip-wrapper">
-  <span className="tip">Tip</span>Find examples for all these in the left hand
+<div className='tip-wrapper'>
+  <span className='tip'>Tip</span>Find examples for all these in the left hand
   sidebar.
 </div>
 
@@ -50,13 +50,13 @@ We follow the [**Atomic Design**](https://bradfrost.com/blog/post/atomic-web-des
 
 Storybook is where we write the code on the basis of what designers have build in the represetnative Figma file [**anynines Design System**](https://www.figma.com/file/FquPS1rVsEsTOPxR8SCw04/anynines-Design-System?node-id=77%3A521). Figma is where we think, concept, design and prototype as a team, while storybook is the place where developers can check out all the UI components. It is important that both sides stay in synch whenever possible.
 
-<div className="link-list">
+<div className='link-list'>
   <a
-    className="link-item"
-    href="https://storybook.js.org/docs/react/configure/webpack"
-    target="_blank"
+    className='link-item'
+    href='https://storybook.js.org/docs/react/configure/webpack'
+    target='_blank'
   >
-    <img src={Figma} alt="Build" />
+    <img src={Figma} alt='Build' />
     <span>
       <strong>anynines Design System</strong>
       Check out or contribute to our Figma file
@@ -68,9 +68,9 @@ Storybook is where we write the code on the basis of what designers have build i
 
 Since we only have a small team to provide a wide range of UI components we need to build on something **bullet proven**, **maintained** and **easy to extend**. Our choice for that one is **Material UI** (Mui) from Google. We simply take all the basic components from MUI wrap them to override styles, add default props or add additional props.
 
-<div className="link-list">
-  <a className="link-item" href="https://mui.com/" target="_blank">
-    <img src={Mui} alt="Build" />
+<div className='link-list'>
+  <a className='link-item' href='https://mui.com/' target='_blank'>
+    <img src={Mui} alt='Build' />
     <span>
       <strong>Material UI</strong>
       Googles UI Library

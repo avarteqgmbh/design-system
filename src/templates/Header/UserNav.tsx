@@ -145,7 +145,7 @@ export const UserNav = (props: UserNavprops): JSX.Element => {
 
           {userMenu.map((item) => {
             return (
-              <>
+              <Box key={item.label}>
                 <Box
                   sx={{
                     display: 'flex',
@@ -176,7 +176,7 @@ export const UserNav = (props: UserNavprops): JSX.Element => {
                     />
                   )
                 })}
-              </>
+              </Box>
             )
           })}
         </Box>
