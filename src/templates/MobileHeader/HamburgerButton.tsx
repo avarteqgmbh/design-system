@@ -42,18 +42,18 @@ const classes = {
     height: 18,
     '&.active': {
       '& .pipe': {
-        '&:first-child': {
+        '&:first-of-type': {
           top: 8,
           left: 0,
           width: 18,
           transform: 'rotate(-135deg)'
         },
-        '&:nth-child(2)': {
+        '&:nth-of-type(2)': {
           left: 10,
           opacity: 0,
           width: 0
         },
-        '&:nth-child(3)': {
+        '&:nth-of-type(3)': {
           bottom: 8,
           left: 0,
           width: 18,
@@ -70,13 +70,13 @@ const classes = {
     height: 2,
     borderRadius: 2,
     transition: 'var(--transition)',
-    '&:first-child': {
+    '&:first-of-type': {
       top: 3
     },
-    '&:nth-child(2)': {
+    '&:nth-of-type(2)': {
       width: 13
     },
-    '&:nth-child(3)': {
+    '&:nth-of-type(3)': {
       bottom: 3,
       width: 10
     }
