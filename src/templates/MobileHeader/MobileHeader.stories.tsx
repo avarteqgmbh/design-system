@@ -92,7 +92,14 @@ const Template: Story<BaseHeaderMobileProps> = (args) => {
           return setShopNavOpen(!shopNavOpen)
         }}
       />
-      <Overlay open={shopNavOpen || userNavOpen} onClick={(): void => { userNavOpen ? setUserNavOpen(!userNavOpen) : setShopNavOpen(!shopNavOpen) }} />
+      <Overlay
+        open={shopNavOpen || userNavOpen}
+        onClick={(): void => {
+          userNavOpen
+            ? setUserNavOpen(!userNavOpen)
+            : setShopNavOpen(!shopNavOpen)
+        }}
+      />
       <MobileUserNav
         motto='Lorem Ipsum'
         welcome='Willkommen'
