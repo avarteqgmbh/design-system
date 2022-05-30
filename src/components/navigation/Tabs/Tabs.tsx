@@ -15,6 +15,9 @@ export function Tabs(props: TabsProps): JSX.Element {
 }
 
 const styles = {
+  '& .MuiTab-root': {
+    textTransform: 'none'
+  },
   '& .MuiTabs-scrollButtons': {
     color: 'text.primary'
   }

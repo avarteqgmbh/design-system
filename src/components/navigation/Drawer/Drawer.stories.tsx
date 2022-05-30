@@ -1,11 +1,5 @@
 import React from 'react'
-import Box from '@mui/material/Box'
-import Button from '@mui/material/Button'
-import List from '@mui/material/List'
-import Divider from '@mui/material/Divider'
-import ListItem from '@mui/material/ListItem'
-import ListItemIcon from '@mui/material/ListItemIcon'
-import ListItemText from '@mui/material/ListItemText'
+import { Box, Button, ButtonGroup, List, Divider, ListItem, ListItemIcon, ListItemText } from '../../index'
 import InboxIcon from '@mui/icons-material/MoveToInbox'
 import MailIcon from '@mui/icons-material/Mail'
 
@@ -81,7 +75,7 @@ function TemporaryDrawer(): React.ReactNode {
   }
 
   return (
-    <div>
+    <ButtonGroup>
       {(['left', 'right', 'top', 'bottom'] as const).map((anchor) => {
         return (
           <React.Fragment key={anchor}>
@@ -96,7 +90,7 @@ function TemporaryDrawer(): React.ReactNode {
           </React.Fragment>
         )
       })}
-    </div>
+    </ButtonGroup>
   )
 }
 

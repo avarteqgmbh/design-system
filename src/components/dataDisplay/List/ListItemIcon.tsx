@@ -5,7 +5,17 @@ import {
 } from '@mui/material'
 
 export function ListItemIcon(props: ListItemIconProps): JSX.Element {
-  const { children } = props
+  const { children, sx } = props
 
-  return <MuiListItemIcon {...props}>{children}</MuiListItemIcon>
+  return (
+    <MuiListItemIcon sx={{ ...sx, ...styles }} {...props}>
+      {children}
+    </MuiListItemIcon>
+  )
+}
+
+const styles = {
+  '& .MuiSvgIcon-root': {
+    color: 'text.primary'
+  }
 }
