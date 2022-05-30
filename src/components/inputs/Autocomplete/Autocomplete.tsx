@@ -7,5 +7,13 @@ import {
 export type AutocompleteProps = MuiAutocompleteProps<unknown, true, true, true>
 
 export function Autocomplete(props: AutocompleteProps): JSX.Element {
-  return <MuiAutocomplete {...props} />
+  const { sx } = props
+
+  return <MuiAutocomplete sx={{ ...styles, ...sx }} {...props} />
+}
+
+const styles = {
+  '& .MuiButtonBase-root.MuiIconButton-root': {
+    color: 'text.primary'
+  }
 }

@@ -18,6 +18,7 @@ export function Select(props: SelectProps): JSX.Element {
 export type { SelectChangeEvent }
 
 const styles = {
+  bgcolor: 'background.input',
   '& .MuiSelect-icon': {
     color: 'text.primary'
   }

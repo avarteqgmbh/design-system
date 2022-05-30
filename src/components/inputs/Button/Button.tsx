@@ -33,6 +33,11 @@ const styles = {
     color: 'text.primary'
   },
 
+  '&.Mui-disabled': {
+    bgcolor: 'background.medium',
+    color: 'text.disabled'
+  },
+
   '&.MuiButton-sizeLarge': {
     py: 4,
     px: 6
