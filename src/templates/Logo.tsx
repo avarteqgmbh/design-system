@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Logo = (): JSX.Element => {
+const Logo: React.FC = () => {
   return (
     <svg
       width='132'
