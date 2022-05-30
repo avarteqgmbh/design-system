@@ -21,6 +21,7 @@ export const parameters = {
       disable: true
     }
   },
+  backgroundColor: 'default',
   controls: {
     matchers: {
       color: /(background|color)$/i,
