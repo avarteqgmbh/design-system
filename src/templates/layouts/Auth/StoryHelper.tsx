@@ -1,5 +1,7 @@
 import React from 'react'
-import { AccountBox, Key, DarkMode } from '@mui/icons-material'
+import AccountBox from '@mui/icons-material/AccountBox'
+import DarkMode from '@mui/icons-material/DarkMode'
+import Key from '@mui/icons-material/Key'
 import { FormControlLabel } from '@mui/material'
 import {
   Box,

@@ -3,7 +3,8 @@ import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { Button } from './Button'
 import { ButtonProps } from '@mui/material'
-import { Check, Delete } from '@mui/icons-material'
+import Check from '@mui/icons-material/Check'
+import Delete from '@mui/icons-material/Delete'
 
 export default {
   title: 'Inputs/Button',

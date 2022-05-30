@@ -136,10 +136,14 @@ export const UserNav = (props: UserNavprops): JSX.Element => {
       {open && (
         <Box sx={classes.userMenuDialog}>
           <Box sx={{ position: 'relative' }}>
-            <Avatar src={avatarUrl} sx={{ height: 100, width: 100, mb: 2 }} />
+            <Avatar src={avatarUrl} sx={{ height: 100, width: 100, mb: 3 }} />
             <Typography variant='h6'>{fullName}</Typography>
             {children && (
-              <Box sx={classes.userMenuDialogChildrenWrapper}>{children}</Box>
+              <Box sx={classes.userMenuDialogChildrenWrapper}>
+                {children.map((item): React.ReactNode => {
+                  return <Box ml={3}>{item}</Box>
+                })}
+              </Box>
             )}
           </Box>
 

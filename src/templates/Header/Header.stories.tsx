@@ -10,14 +10,14 @@ import { MainCategoryItem, Highlight } from './ShopNav/types'
 
 import { AnyIcon, Chip } from '../../components'
 
-import {
-  FacebookOutlined,
-  Instagram,
-  Search,
-  DarkMode,
-  Twitter
-} from '@mui/icons-material'
+import DarkMode from '@mui/icons-material/DarkMode'
+import FacebookOutlined from '@mui/icons-material/FacebookOutlined'
+import Instagram from '@mui/icons-material/Instagram'
+import Search from '@mui/icons-material/Search'
+import Twitter from '@mui/icons-material/Twitter'
 import Logo from '../Logo'
+import { ToggleMode } from '../ToggleMode/ToggleMode'
+import { LanguageSelect } from '../LanguageSelect/LanguageSelect'
 
 export default {
   title: 'Templates/Header',
@@ -95,7 +95,14 @@ const USER_NAV = (
     points='4.200'
     density={4}
     userMenu={USER_MENU_ITEMS as UserMenuItems[]}
-    children={[<MainMenuItem density={3} startIcon={<DarkMode />}/>, <MainMenuItem density={3} startIcon={<AnyIcon size='large' icon='LangDE'/>} />]}
+    children={[<ToggleMode darkMode={false} setDarkMode={():boolean => { return true }}/>, <LanguageSelect languages={[{
+      value: 'de',
+      icon: <AnyIcon icon='LangDE' size='large' />
+    },
+    {
+      value: 'en',
+      icon: <AnyIcon icon='LangEN' size='large' />
+    }]}/>]}
   />
 )
 

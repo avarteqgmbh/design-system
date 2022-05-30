@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Typography, Icon } from '@mui/material'
 
-import { ChevronRight } from '@mui/icons-material'
+import ChevronRight from '@mui/icons-material/ChevronRight'
 
 interface Props {
   active: boolean
