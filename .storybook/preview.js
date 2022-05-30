@@ -3,8 +3,8 @@ import { withThemeProvider } from './decorators'
 
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 import { themes } from '@storybook/theming'
-import logoDark from './logo_dark.svg'
-import logoLight from './logo_light.svg'
+import logoDark from './logos/dark.svg'
+import logoLight from './logos/light.svg'
 
 const sharedThemeContext = {
   brandTitle: 'Storybook by anynines',
@@ -63,7 +63,7 @@ export const parameters = {
       ]
     }
   },
-  viewport: { viewports: INITIAL_VIEWPORTS },
+  viewport: { viewports: INITIAL_VIEWPORTS }
 }
 
 export const globalTypes = {

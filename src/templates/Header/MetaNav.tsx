@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from './BaseHeader'
-import { MenuItem } from './MenuItem'
+import { MainMenuItem } from '../MainMenuItem/MainMenuItem'
 import { Box } from '../../components'
 
 export interface MetaNavProps {
@@ -17,15 +17,13 @@ export const MetaNav = (props: MetaNavProps): JSX.Element => {
       alignItems: 'center',
       justifyContent: 'space-between',
       p: density,
+      pl: 0,
       borderBottom: '1px solid',
       borderColor: 'background.border'
     },
     linkWrapper: {
       display: 'flex',
-      alignItems: 'center',
-      '& .MenuItem:last-child': {
-        mr: 0
-      }
+      alignItems: 'center'
     }
   }
 
@@ -34,11 +32,11 @@ export const MetaNav = (props: MetaNavProps): JSX.Element => {
       <Box sx={classes.linkWrapper}>
         {mainLinks.map((link) => {
           return (
-            <MenuItem
+            <MainMenuItem
               density={density}
               size='small'
               label={link.label}
-              icon={link.icon}
+              startIcon={link.icon}
               badge={link.badge}
               onClick={(): void => {
                 return link.onClick && link.onClick()
@@ -50,11 +48,11 @@ export const MetaNav = (props: MetaNavProps): JSX.Element => {
       <Box sx={classes.linkWrapper}>
         {quickLinks.map((link) => {
           return (
-            <MenuItem
+            <MainMenuItem
               density={density}
               size='small'
               label={link.label}
-              icon={link.icon}
+              startIcon={link.icon}
               badge={link.badge}
               onClick={(): void => {
                 return link.onClick && link.onClick()

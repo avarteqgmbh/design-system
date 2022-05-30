@@ -5,7 +5,7 @@ import { BaseHeader, BaseHeaderProps, Link } from './BaseHeader'
 import { UserNav, UserMenuItems } from './UserNav'
 import { MetaNav } from './MetaNav'
 import { ShopNav } from './ShopNav'
-import { MenuItem } from './MenuItem'
+import { MainMenuItem } from '../MainMenuItem/MainMenuItem'
 import { MainCategoryItem, Highlight } from './ShopNav/types'
 
 import { AnyIcon, Chip } from '../../components'
@@ -28,7 +28,8 @@ export default {
     design: {
       type: 'figma',
       url: 'https://www.figma.com/file/piIRNwoneeyLTKctvITs6z/%F0%9F%98%81-Happy?node-id=2797%3A66076'
-    }
+    },
+    fullscreen: true
   }
 }
 
@@ -53,7 +54,7 @@ const QUICK_LINKS = [
 
 const META_MAIN_LINKS = [
   { label: 'Company' },
-  { label: 'Blog' },
+  { label: 'Blog', badge: true },
   { label: 'Academy' }
 ]
 
@@ -92,6 +93,7 @@ const USER_NAV = (
     firstName='Max'
     fullName='Max Mustermann-Lamacun'
     points='4.200'
+    density={4}
     userMenu={USER_MENU_ITEMS as UserMenuItems[]}
     children={[<ToggleMode darkMode={false} setDarkMode={():boolean => { return true }}/>, <LanguageSelect languages={[{
       value: 'de',
