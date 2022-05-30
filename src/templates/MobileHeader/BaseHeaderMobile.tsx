@@ -127,7 +127,7 @@ const classes = {
     wrap: 'nowrap',
     px: 4,
     py: 3,
-    background: 'background.paper',
+    bgcolor: 'background.paper',
     boxShadow: 2
   },
   leftColumn: {
