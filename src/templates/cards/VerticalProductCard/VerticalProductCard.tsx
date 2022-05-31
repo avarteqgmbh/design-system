@@ -10,6 +10,7 @@ export interface VerticalProductCardProps {
   title: string
   image: string
   points?: number
+  amount: number
   tags: string[]
   variant: {
     label: string
@@ -28,6 +29,7 @@ export const VerticalProductCard: React.FC<VerticalProductCardProps> = (
     title,
     image,
     points,
+    amount,
     tags,
     variant,
     onClick,
@@ -35,19 +37,20 @@ export const VerticalProductCard: React.FC<VerticalProductCardProps> = (
     onRemove,
     children
   } = props
-  const [amount, setAmount] = React.useState(1)
 
   return (
     <Box
       // @ts-ignore
       sx={classes.root}
-      onClick={(): void => {
-        return onClick()
-      }}
     >
       <Box sx={classes.contentWrapper}>
-        {/* @ts-ignore */}
-        <Box sx={classes.imageWrapper}>
+        <Box
+          // @ts-ignore
+          sx={classes.imageWrapper}
+          onClick={(): void => {
+            return onClick()
+          }}
+        >
           <img src={image} alt={title} />
         </Box>
         <Box sx={{ ml: { xs: 0, sm: 5 }, flex: 1 }}>
@@ -67,11 +70,9 @@ export const VerticalProductCard: React.FC<VerticalProductCardProps> = (
             <AmountInput
               amount={amount}
               onAdd={(): void => {
-                setAmount(amount + 1)
                 return onAdd()
               }}
               onRemove={(): void => {
-                setAmount(amount - 1)
                 return onRemove()
               }}
             />
@@ -92,7 +93,6 @@ const classes = {
     overflow: 'hidden',
     transition: '200ms all ease-in-out',
     boxShadow: 1,
-    cursor: 'pointer',
     height: '100%',
     p: 4
   },
@@ -107,6 +107,7 @@ const classes = {
     justifyContent: 'center',
     alignItems: 'center',
     bgcolor: 'common.white',
+    cursor: 'pointer',
     borderRadius: (theme: Theme): string => {
       return `${theme.radius.card}px`
     },
