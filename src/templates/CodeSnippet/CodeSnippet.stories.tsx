@@ -4,7 +4,7 @@ import { CodeSnippetProps } from './CodeSnippetProps'
 import { CodeSnippet } from './CodeSnippet'
 
 export default {
-  title: 'Data Display/CodeSnippet',
+  title: 'Templates/CodeSnippet',
   component: CodeSnippet,
   parameters: {
     controls: { expanded: true }
