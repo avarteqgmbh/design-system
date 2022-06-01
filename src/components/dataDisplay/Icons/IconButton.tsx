@@ -7,6 +7,7 @@ import {
 
 export interface IconButtonProps extends MuiIconButtonProps {
   badge?: boolean
+  background?: boolean
   border?: boolean
   borderRadius?: 'small' | 'medium' | 'full'
 }
@@ -16,11 +17,12 @@ export function IconButton(props: IconButtonProps): JSX.Element {
     children,
     badge = false,
     border = true,
+    background = true,
     borderRadius = 'full',
     sx
   } = props
   const styles = {
-    bgcolor: 'background.light',
+    bgcolor: background ? 'background.light' : 'transparent',
     color: 'text.primary',
     border: border ? '1px solid' : 'none',
     borderColor: 'background.border',

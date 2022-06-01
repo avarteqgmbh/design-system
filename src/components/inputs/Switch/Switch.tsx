@@ -21,6 +21,10 @@ export function Switch(props: SwitchProps): JSX.Element {
 }
 
 const styles = {
+  '& .MuiSwitch-track': {
+    bgcolor: 'text.hint',
+    opacity: 1
+  },
   '&.inline': {
     padding: '8px',
     '& .MuiSwitch-track': {

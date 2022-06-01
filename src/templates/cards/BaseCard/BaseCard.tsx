@@ -15,6 +15,7 @@ export interface CardProps {
   hoverAnimation?: boolean
   image?: string
   tags?: Tag[]
+  maxWidth?: number
   onClick: () => void
   children?: React.ReactNode
 }
@@ -28,7 +29,8 @@ export const BaseCard: React.FC<CardProps> = (props) => {
     image,
     tags,
     onClick,
-    children
+    children,
+    maxWidth = 450
   } = props
   const classes = {
     root: {
@@ -41,6 +43,7 @@ export const BaseCard: React.FC<CardProps> = (props) => {
       boxShadow: 1,
       cursor: 'pointer',
       height: '100%',
+      maxWidth: maxWidth || '100%',
       '&:hover': {
         transform: hoverAnimation ? 'translateY(-4px)' : '',
         '& .image': {

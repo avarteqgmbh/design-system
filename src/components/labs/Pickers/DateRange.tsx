@@ -15,7 +15,18 @@ export const DateRangePicker: React.FC<DateRangePickerProps<unknown, Date>> = (
 ) => {
   return (
     <LocalizationProvider locale={deLocale} dateAdapter={AdapterDateFns}>
-      <MuiDateRangePicker {...props} />
+      <MuiDateRangePicker
+        {...props}
+        PopperProps={{
+          sx: styles
+        }}
+      />
     </LocalizationProvider>
   )
+}
+
+const styles = {
+  '& .MuiSvgIcon-root': {
+    color: 'text.secondary'
+  }
 }

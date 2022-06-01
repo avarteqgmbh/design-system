@@ -31,6 +31,7 @@ export default {
     }
   },
   parameters: {
+    backgroundColor: 'paper',
     muiDocSrc: 'https://mui.com/components/data-grid/'
   }
 }

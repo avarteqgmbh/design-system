@@ -139,6 +139,14 @@ const styles = {
     '& .MuiButton-root.MuiButton-text': {
       marginRight: 2
     }
+  },
+
+  '& .MuiDataGrid-menuIconButton, .MuiIconButton-root': {
+    color: 'text.secondary'
+  },
+
+  '& .MuiDataGrid-pinnedColumnHeaders, .MuiDataGrid-pinnedColumns': {
+    bgcolor: 'background.light'
   }
 }
 

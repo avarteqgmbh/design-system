@@ -91,7 +91,7 @@ const USER_NAV = (
   <UserNav
     avatarUrl='https://mui.com/static/images/avatar/1.jpg'
     firstName='Max'
-    fullName='Max Mustermann-Lamacun'
+    fullName='Max Mustermann'
     points='4.200'
     density={4}
     userMenu={USER_MENU_ITEMS as UserMenuItems[]}

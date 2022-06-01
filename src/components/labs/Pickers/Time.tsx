@@ -6,7 +6,18 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider'
 export function TimePicker(props: TimePickerProps): JSX.Element {
   return (
     <LocalizationProvider dateAdapter={DateAdapter}>
-      <MuiTimePicker {...props} />
+      <MuiTimePicker
+        {...props}
+        PopperProps={{
+          sx: styles
+        }}
+      />
     </LocalizationProvider>
   )
+}
+
+const styles = {
+  '& .MuiSvgIcon-root': {
+    color: 'text.secondary'
+  }
 }

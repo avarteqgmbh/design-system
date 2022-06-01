@@ -25,6 +25,7 @@ export default {
     }
   },
   parameters: {
+    backgroundColor: 'paper',
     controls: { expanded: true },
     design: {
       type: 'figma',
