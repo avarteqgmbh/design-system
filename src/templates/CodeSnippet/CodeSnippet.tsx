@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from 'react'
-import { Theme } from '../../../theme/types'
+import { Theme } from '../../theme/types'
 import { CodeSnippetProps } from './CodeSnippetProps'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import { vs2015 } from 'react-syntax-highlighter/dist/cjs/styles/hljs'
-import { Typography } from '../Typography/Typography'
-import { Paper } from '../../surfaces/index'
-import { Box, Grid } from '../../layout/index'
+import { Typography } from '../../components/dataDisplay/Typography/Typography'
+import { Paper } from '../../components/surfaces/index'
+import { Box, Grid } from '../../components/layout/index'
 import { CopyButton } from './CopyButton'
 
 export const CodeSnippet: React.FC<CodeSnippetProps> = ({
