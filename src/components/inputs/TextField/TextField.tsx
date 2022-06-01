@@ -20,12 +20,22 @@ export function TextField(props: MuiTextFieldProps): JSX.Element {
 }
 
 const styles = {
-  bgcolor: 'background.input',
   borderRadius: (theme: Theme): string => {
     return `${theme.radius.medium}px`
   },
-
+  '& svg': {
+    color: 'text.primary'
+  },
+  '& .MuiInput-underline': {
+    '&:before': {
+      borderColor: 'background.border'
+    }
+  },
+  '& .MuiOutlinedInput-root': {
+    bgcolor: 'background.input'
+  },
   '& .MuiFilledInput-root': {
+    bgcolor: 'background.input',
     borderRadius: (theme: Theme): string => {
       return `${theme.radius.medium}px`
     },
@@ -34,15 +44,12 @@ const styles = {
       opacity: 0
     }
   },
-
   '& .MuiInputLabel-root': {
     color: 'text.secondary',
-
     '&.Mui-focused': {
       color: 'primary.main'
     }
   },
-
   '&:hover': {
     '& .MuiInputLabel-root': {
       color: 'text.primary'

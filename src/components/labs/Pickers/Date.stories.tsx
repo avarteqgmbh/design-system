@@ -1,7 +1,7 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { DatePickerProps,DateTimePickerProps } from '@mui/x-date-pickers'
+import { DatePickerProps, DateTimePickerProps } from '@mui/x-date-pickers'
 import { DateRange, DateRangePickerProps } from '@mui/x-date-pickers-pro'
 import { TextField } from '../../index'
 
@@ -100,10 +100,9 @@ export const DateRangePicker: Story<DateRangePickerProps<unknown, Date>> = (args
             <TextField
               {...startProps}
               label='Von'
-              variant='filled'
               sx={{ marginRight: 4 }}
             />
-            <TextField {...endProps} label='Bis' variant='filled' />
+            <TextField {...endProps} label='Bis' />
           </>
         )
       }}

@@ -39,7 +39,7 @@ export const withThemeProvider = (Story, context) => {
       <Box
         sx={{
           p: context.parameters.fullscreen ? 0 : 5,
-          bgColor: 'background.paper',
+          bgcolor: `background.${context.parameters.backgroundColor}`,
           minHeight: '100vh'
         }}
       >

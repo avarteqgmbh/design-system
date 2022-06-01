@@ -22,6 +22,10 @@ export type {
   VerticalProductCardProps
 } from './cards/index'
 
+// CodeSnippet
+export { CodeSnippet } from './CodeSnippet/CodeSnippet'
+export type { CodeSnippetProps } from './CodeSnippet/CodeSnippetProps'
+
 // Header
 export { BaseHeader } from './Header/BaseHeader'
 export { MainMenuItem } from './MainMenuItem/MainMenuItem'

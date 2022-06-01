@@ -5,5 +5,15 @@ import {
 } from '@mui/material'
 
 export function MobileStepper(props: MuiMobileStepperProps): JSX.Element {
-  return <MuiMobileStepper {...props} />
+  const { sx } = props
+  return <MuiMobileStepper sx={{ ...sx, ...styles }} {...props} />
+}
+
+const styles = {
+  '& .MuiMobileStepper-dot': {
+    bgcolor: 'background.medium',
+    '&.MuiMobileStepper-dotActive': {
+      bgcolor: 'primary.main'
+    }
+  }
 }

@@ -16,13 +16,11 @@ import { Icon } from './Icons/Icon'
 import { SvgIcon } from './Icons/SvgIcon'
 import * as customIcons from './Icons/assets'
 import { IconButton } from './Icons/IconButton'
-import { CodeSnippet } from './CodeSnippet/CodeSnippet'
 
 export {
   AnyIcon,
   Badge,
   Chip,
-  CodeSnippet,
   List,
   ListItem,
   ListItemAvatar,

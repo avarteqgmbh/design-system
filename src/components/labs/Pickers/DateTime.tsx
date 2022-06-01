@@ -12,7 +12,18 @@ export function DateTimePicker(
 ): JSX.Element {
   return (
     <LocalizationProvider locale={deLocale} dateAdapter={AdapterDateFns}>
-      <MuiDateTimePicker {...props} />
+      <MuiDateTimePicker
+        {...props}
+        PopperProps={{
+          sx: styles
+        }}
+      />
     </LocalizationProvider>
   )
+}
+
+const styles = {
+  '& .MuiSvgIcon-root': {
+    color: 'text.secondary'
+  }
 }

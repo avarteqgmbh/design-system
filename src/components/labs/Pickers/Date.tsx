@@ -10,7 +10,18 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 export function DatePicker(props: DatePickerProps<unknown, Date>): JSX.Element {
   return (
     <LocalizationProvider locale={deLocale} dateAdapter={AdapterDateFns}>
-      <MuiDatePicker {...props} />
+      <MuiDatePicker
+        {...props}
+        PopperProps={{
+          sx: styles
+        }}
+      />
     </LocalizationProvider>
   )
+}
+
+const styles = {
+  '& .MuiSvgIcon-root': {
+    color: 'text.secondary'
+  }
 }

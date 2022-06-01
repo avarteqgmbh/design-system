@@ -36,7 +36,7 @@ export const Default = Template.bind({})
 Default.args = {
   title: 'Duftkerze "Forest"',
   subtitle: '1.200 Punkte',
-  imageUrl:
+  image:
     'https://images.pexels.com/photos/3270223/pexels-photo-3270223.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
   children: <Button>Zeige Mehr</Button>
 }

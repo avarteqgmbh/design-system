@@ -28,6 +28,7 @@ export const Footer = (props: FooterProps): JSX.Element => {
       flexDirection: 'column',
       alignItems: 'center',
       width: '100%',
+      bgcolor: 'background.paper',
       mt: 6
     },
     menuItemWrapper: {
@@ -35,6 +36,7 @@ export const Footer = (props: FooterProps): JSX.Element => {
       width: extended ? 1200 : '100%',
       borderBottom: '1px solid',
       borderColor: 'background.border',
+      py: 5,
       '& ul': {
         my: 2,
         pl: 0,
@@ -44,8 +46,7 @@ export const Footer = (props: FooterProps): JSX.Element => {
           transition: 'all ease-in-out 200ms',
           py: 2
         }
-      },
-      pb: 5
+      }
     },
     menuItem: {
       display: 'flex',
@@ -63,7 +64,6 @@ export const Footer = (props: FooterProps): JSX.Element => {
     defaultFooterWrapper: {
       width: extended ? 1200 : '100%',
       p: 5,
-      bgcolor: 'background.paper',
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center'
