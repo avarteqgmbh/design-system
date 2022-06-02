@@ -14,10 +14,6 @@ import { CacheProvider, EmotionCache } from '@emotion/react'
 
 export type { ThemeOptions } from '@mui/material'
 
-declare module '@mui/styles/defaultTheme' {
-  type DefaultTheme = Theme
-}
-
 export const makeStyles = muiMakeStyles
 export interface ThemeProviderProps
   extends Omit<MuiThemeProviderProps, 'theme'> {

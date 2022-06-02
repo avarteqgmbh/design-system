@@ -96,13 +96,13 @@ export const Footer = (props: FooterProps): JSX.Element => {
                       return menuItem.onClick && menuItem.onClick()
                     }}
                   >
-                    <Typography variant='h6'>{menuItem.label}</Typography>
+                    <Typography variant='button2'>{menuItem.label}</Typography>
                   </Box>
                   <ul>
                     {menuItem.links.map((link) => {
                       return (
                         <li key={link.label}>
-                          <Typography variant='body2' sx={classes.linkStyles}>
+                          <Typography variant='label1' sx={classes.linkStyles}>
                             {link.label}
                           </Typography>
                         </li>
