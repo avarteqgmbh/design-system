@@ -14,17 +14,17 @@ const StyledButton = styled(MuiButton)(({ theme }) => {
     textTransform: 'none',
     padding: theme.spacing(3, 5),
     fontWeight: 'bold',
-    borderRadius: `${theme.radius.button}px`,
+    borderRadius: theme.radius.button,
     boxShadow: 'none',
 
     '&.MuiButton-containedSecondary': {
-      bgcolor: 'background.light',
-      color: 'text.primary'
+      backgroundColor: theme.palette.background.light,
+      color: theme.palette.text.primary
     },
 
     '&.Mui-disabled': {
-      bgcolor: 'background.medium',
-      color: 'text.disabled'
+      backgroundColor: theme.palette.background.medium,
+      color: theme.palette.text.disabled
     },
 
     '&.MuiButton-sizeLarge': {
