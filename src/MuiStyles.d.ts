@@ -2,13 +2,15 @@ import {
   Theme as MuiTheme,
   DeprecatedThemeOptions as MuiThemeOptions
 } from '@mui/material'
-import { Radius } from './theme/types'
+import { Radius, Palette } from './theme/types'
 
 declare module '@mui/material/styles' {
   interface Theme extends MuiTheme {
+    palette: Palette
     radius: Radius
   }
   interface ThemeOptions extends MuiThemeOptions {
+    palette?: Palette
     radius?: Radius
   }
 
