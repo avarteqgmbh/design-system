@@ -122,10 +122,20 @@ export const UserNav = (props: UserNavprops): JSX.Element => {
       <Box sx={classes.userMenuItem} onClick={onClick}>
         <Box sx={classes.avatarWrapper} />
         <Box minWidth='80px'>
-          <Typography variant='subtitle1' color='textPrimary' fontSize={14}>
+          <Typography
+            variant='subtitle1'
+            color='textPrimary'
+            fontSize={14}
+            lineHeight='16px'
+          >
             {firstName}
           </Typography>
-          <Typography variant='caption' color='textSecondary' fontSize={12}>
+          <Typography
+            variant='caption'
+            color='textSecondary'
+            fontSize={12}
+            lineHeight='16px'
+          >
             {`${points || 0} Points`}
           </Typography>
         </Box>

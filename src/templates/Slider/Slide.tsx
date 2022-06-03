@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from 'react'
 import TextTruncate from 'react-text-truncate'
-import { Theme } from '../../theme/types'
+import { styled } from '@mui/material/styles'
 import { Box, Chip, Typography } from '../../components'
 
 export interface SlideItem {
@@ -25,58 +24,16 @@ export const Slide = (props: SlideItem): JSX.Element => {
     tags
   } = props
 
-  const gradientBgImage = (theme: Theme): string | undefined => {
-    return theme.palette.background.gradient
-  }
-
-  const classes = {
-    root: {
-      display: 'flex',
-      justifyContent: 'center',
-      position: 'relative',
-      color: 'common.white',
-      borderRadius: !fullWidth && '8px',
-      height: 360,
-      backgroundImage: image ? `url(${image})` : gradientBgImage,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center center'
-    },
-    contentWrapper: {
-      height: 'inherit',
-      minWidth: { xs: 0, lg: 1200 },
-      boxSizing: 'border-box',
-      p: fullWidth ? 4 : 6,
-      pb: 7,
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'flex-end',
-      alignItems: 'stretch'
-    },
-    titleWrapper: {
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'flex-start'
-    },
-    title: {
-      color: image ? 'common.white' : 'text.primary',
-      textShadow: image ? '0 0 4px #000' : ''
-    },
-    subTitle: {
-      textAlign: 'left',
-      color: image ? 'grey.100' : 'text.secondary',
-      textShadow: image ? '0 0 4px #000' : ''
-    }
-  }
-
   return (
-    <Box
-      // @ts-ignore
-      sx={classes.root}
+    <StyledSlide
+      sx={{
+        backgroundImage: image && `url(${image})`
+      }}
       onClick={(): void => {
         return onClick && onClick()
       }}
       tabIndex={0}
+      className={image ? '' : 'hasNoBgImg'}
     >
       <Box sx={{ position: 'absolute', top: 10, right: 10 }}>
         {tags && (
@@ -94,23 +51,84 @@ export const Slide = (props: SlideItem): JSX.Element => {
           </Box>
         )}
       </Box>
-      <Box sx={classes.contentWrapper}>
-        <Box sx={classes.titleWrapper}>
+      <Box
+        className='contentWrapper'
+        sx={{
+          maxWidth: { xs: '100%', sm: 900, lg: 1200 },
+          p: fullWidth ? 4 : 6
+        }}
+      >
+        <Box className='titleWrapper'>
           {subtitle && (
-            <Typography sx={classes.subTitle} gutterBottom variant='body2'>
+            <Typography
+              className='subTitle'
+              sx={{
+                color: image ? 'grey.200' : 'text.primary',
+                textShadow: image ? '0 0 4px #000' : ''
+              }}
+              gutterBottom
+              variant='body2'
+            >
               {subtitle}
             </Typography>
           )}
-          <Typography sx={classes.title} gutterBottom variant='h4'>
+          <Typography
+            className='title'
+            sx={{
+              color: image ? 'common.white' : 'text.primary',
+              textShadow: image ? '0 0 4px #000' : ''
+            }}
+            gutterBottom
+            variant='h4'
+          >
             {title}
           </Typography>
           {description && (
-            <Typography sx={classes.subTitle}>
+            <Typography
+              className='description'
+              sx={{
+                textAlign: 'left',
+                color: image ? 'grey.100' : 'text.secondary',
+                textShadow: image ? '0 0 4px #000' : ''
+              }}
+            >
               <TextTruncate line={3} truncateText='…' text={description} />
             </Typography>
           )}
         </Box>
       </Box>
-    </Box>
+    </StyledSlide>
   )
 }
+
+const StyledSlide = styled(Box)(({ theme }) => {
+  return {
+    display: 'block',
+    position: 'relative',
+    color: theme.palette.common.white,
+    height: 360,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center center',
+    borderRadius: theme.radius.card,
+    '&.hasNoBgImg': {
+      backgroundImage: theme.palette.background.gradient
+    },
+    '& .contentWrapper': {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'flex-end',
+      alignItems: 'stretch',
+      margin: '0 auto',
+      height: 'inherit',
+      boxSizing: 'border-box',
+      paddingBottom: theme.spacing(7)
+    },
+    '& .titleWrapper': {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'flex-start',
+      width: '100%'
+    }
+  }
+})

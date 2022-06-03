@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from 'react'
-import { Theme } from '../../../theme/types'
+import { styled } from '@mui/material/styles'
 import { Box, Container } from '../../../components'
 
 export type LayoutVariant = 'background' | 'center' | 'left' | 'right'
@@ -27,87 +26,39 @@ export const Auth: React.FC<AuthProps> = ({
     variant = 'background'
   }
 
-  const gradientBgImage = (theme: Theme): string | undefined => {
-    return theme.palette.background.gradient
-  }
-
-  const classes = {
-    root: {
-      display: 'flex',
-      height: { xs: '100%', sm: '100vh' },
-      alignItems: 'center',
-      '@media screen and (min-width: 600px)': {
-        '&.background, &.left, &.right': {
-          backgroundImage: bgImage ? `url(${bgImage})` : gradientBgImage,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }
-      },
-      '&.left, &.right': {
-        height: '100%',
-        '& .MuiContainer-root': {
-          maxWidth: 500,
-          p: 0
-        }
-      },
-      '&.left .MuiContainer-root': {
-        ml: 0
-      },
-      '&.right .MuiContainer-root': {
-        mr: 0
-      }
-    },
-    loginBoxWrapper: {
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'stretch',
-      bgcolor: 'background.default',
-      borderRadius: { xs: 0, sm: 2 },
-      overflow: 'hidden',
-      boxShadow: {
-        xs: 0,
-        sm: 7
-      },
-      m: 'auto',
-      '&.background': {
-        width: { xs: '100%', sm: 450 }
-      },
-      '&.left, &.right': {
-        borderRadius: 0,
-        boxShadow: 0,
-        ml: 0,
-        height: '100vh'
-      }
-    },
-    loginBoxContent: {
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'space-between',
-      alignItems: 'stretch',
-      flex: 1,
-      minHeight: 500,
-      p: 6
-    },
-    bgImageBox: {
-      display: {
-        xs: 'none',
-        sm: 'flex'
-      },
-      flex: 1,
-      p: 6,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundImage: bgImage ? `url(${bgImage})` : 'background.gradient',
-      minHeight: '100%'
-    }
-  }
-
   return (
-    // @ts-ignore
-    <Box sx={classes.root} className={variant}>
+    <StyledAuthLayout
+      sx={{
+        height: { xs: '100%', sm: '100vh' },
+        '@media screen and (min-width: 600px)': {
+          '&.background, &.left, &.right': {
+            backgroundImage: bgImage && `url(${bgImage})`
+          }
+        }
+      }}
+      className={variant}
+    >
       <Container maxWidth='md'>
-        <Box sx={classes.loginBoxWrapper} className={variant}>
-          <Box sx={classes.loginBoxContent}>
+        <Box
+          className={`${variant} loginBoxWrapper`}
+          sx={{
+            borderRadius: { xs: 0, sm: 2 },
+            boxShadow: {
+              xs: 0,
+              sm: 7
+            },
+            '&.background': {
+              width: { xs: '100%', sm: 450 }
+            },
+            '&.left, &.right': {
+              borderRadius: 0,
+              boxShadow: 0,
+              ml: 0,
+              height: '100vh'
+            }
+          }}
+        >
+          <Box className='loginBoxContent'>
             <Box
               sx={{
                 display: 'flex',
@@ -128,9 +79,74 @@ export const Auth: React.FC<AuthProps> = ({
             <Box sx={{ py: 6 }}>{children}</Box>
             {footer && <Box mt={4}>{footer}</Box>}
           </Box>
-          {bgImage && variant === 'center' && <Box sx={classes.bgImageBox} />}
+          {bgImage && variant === 'center' && (
+            <Box
+              sx={{
+                display: {
+                  xs: 'none',
+                  sm: 'flex'
+                },
+                backgroundImage: bgImage && `url(${bgImage})`
+              }}
+              className={`bgImageBox ${!bgImage && 'hasNoBgImage'}`}
+            />
+          )}
         </Box>
       </Container>
-    </Box>
+    </StyledAuthLayout>
   )
 }
+
+const StyledAuthLayout = styled(Box)(({ theme }) => {
+  return {
+    display: 'flex',
+    alignItems: 'center',
+    '@media screen and (min-width: 600px)': {
+      '&.background, &.left, &.right': {
+        backgroundImage: theme.palette.background.gradient,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }
+    },
+    '&.left, &.right': {
+      height: '100%',
+      '& .MuiContainer-root': {
+        maxWidth: 500,
+        padding: 0
+      }
+    },
+    '&.left .MuiContainer-root': {
+      marginLeft: 0
+    },
+    '&.right .MuiContainer-root': {
+      marginRight: 0
+    },
+    '& .loginBoxWrapper': {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'stretch',
+      backgroundColor: theme.palette.background.default,
+      overflow: 'hidden',
+      margin: 'auto'
+    },
+    '& .loginBoxContent': {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-between',
+      alignItems: 'stretch',
+      flex: 1,
+      minHeight: 500,
+      padding: theme.spacing(6)
+    },
+    '& .bgImageBox': {
+      flex: 1,
+      padding: theme.spacing(6),
+      minHeight: '100%',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      '&.hasNoBgImage': {
+        backgroundImage: theme.palette.background.gradient
+      }
+    }
+  }
+})
