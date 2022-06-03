@@ -1,5 +1,6 @@
 import React from 'react'
 import { SxProps } from '@mui/material'
+import { styled } from '@mui/material/styles'
 import {
   Badge,
   Box,
@@ -40,10 +41,9 @@ export const MainMenuItem = (props: MainMenuItemProps): JSX.Element => {
 
   const MenuItemChildren = (): JSX.Element => {
     return (
-      <MuiMenuItem
+      <StyledMenuItem
         className={`${className} ${size} ${startIcon && !label && 'iconOnly'}`}
         sx={{
-          ...classes.root,
           ...sx,
           bgcolor: active ? 'primary.main' : 'background.light',
           color: active ? 'primary.contrastText' : 'text.primary',
@@ -65,7 +65,8 @@ export const MainMenuItem = (props: MainMenuItemProps): JSX.Element => {
               variant='button'
               color={active ? 'contrastText' : 'textPrimary'}
               sx={{
-                ...classes.label,
+                textTransform: 'none',
+                fontSize: '14px',
                 ml: startIcon ? 3 : 0,
                 mr: endIcon ? 3 : 0
               }}
@@ -75,7 +76,7 @@ export const MainMenuItem = (props: MainMenuItemProps): JSX.Element => {
           )}
         </Box>
         {endIcon && endIcon}
-      </MuiMenuItem>
+      </StyledMenuItem>
     )
   }
 
@@ -96,42 +97,41 @@ export const MainMenuItem = (props: MainMenuItemProps): JSX.Element => {
   )
 }
 
-const classes = {
-  root: {
+const StyledMenuItem = styled(MuiMenuItem)(({ theme }) => {
+  return {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    borderRadius: '8px',
+    borderRadius: theme.radius.button,
     cursor: 'pointer',
     minHeight: 48,
     height: 48,
-    px: 4,
+    padding: theme.spacing(0, 4),
     '&.iconOnly': {
       justifyContent: 'center',
-      px: 0,
+      padding: 0,
       height: 48,
       width: 48,
       '&.small': {
-        px: 0,
+        padding: 0,
         height: 32,
         width: 32
       },
       '&.large': {
-        px: 0,
+        padding: 0,
         height: 60,
         width: 60
       }
     },
     '&.small': {
-      px: 3,
+      padding: theme.spacing(0, 3),
       minHeight: 32,
       height: 32
     },
     '&.large': {
-      px: 5,
+      padding: theme.spacing(0, 5),
       minHeight: 60,
       height: 60
     }
-  },
-  label: { textTransform: 'none', fontSize: '14px' }
-}
+  }
+})

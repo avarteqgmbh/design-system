@@ -1,4 +1,5 @@
 import React from 'react'
+import { styled } from '@mui/material/styles'
 import { Box, Typography } from '../../../components'
 
 export interface HighlightProps {
@@ -9,23 +10,46 @@ export interface HighlightProps {
 
 export const Highlight: React.FC<HighlightProps> = (props) => {
   const { title, image, onClick } = props
-  const classes = {
-    root: {
-      flex: 1,
-      position: 'relative',
-      borderRadius: '8px',
-      bgcolor: 'background.paper',
-      overflow: 'hidden',
-      transition: '200ms all ease-in-out',
-      boxShadow: 1,
-      cursor: 'pointer',
-      '&:hover': {
-        '& .image-overlay': {
-          opacity: 0
-        }
+
+  return (
+    <StyledHighlight
+      sx={{ boxShadow: 1 }}
+      onClick={(): void => {
+        return onClick && onClick()
+      }}
+    >
+      <Box className='overlay'>
+        <Box className='image' sx={{ backgroundImage: `url(${image})` }} />
+        <Box className='imageOverlay' />
+      </Box>
+      <Box className='content'>
+        <Typography
+          variant='h6'
+          sx={{ textShadow: '0 0 4px #000' }}
+          color='common.white'
+        >
+          {title}
+        </Typography>
+      </Box>
+    </StyledHighlight>
+  )
+}
+
+const StyledHighlight = styled(Box)(({ theme }) => {
+  return {
+    flex: 1,
+    position: 'relative',
+    borderRadius: theme.radius.card,
+    backgroundColor: theme.palette.background.paper,
+    overflow: 'hidden',
+    transition: '200ms all ease-in-out',
+    cursor: 'pointer',
+    '&:hover': {
+      '& .imageOverlay': {
+        opacity: 0
       }
     },
-    overlay: {
+    '& .overlay': {
       position: 'absolute',
       top: 0,
       left: 0,
@@ -33,20 +57,19 @@ export const Highlight: React.FC<HighlightProps> = (props) => {
       height: '100%',
       overflow: 'hidden'
     },
-    image: {
+    '& .image': {
       zIndex: 0,
       position: 'absolute',
       top: 0,
       left: 0,
       transition: '200ms all ease-in-out',
-      backgroundImage: `url(${image})`,
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
       height: '100%',
       width: '100%'
     },
-    imageOverlay: {
+    '& .imageOverlay': {
       zIndex: 1,
       position: 'absolute',
       top: 0,
@@ -57,7 +80,7 @@ export const Highlight: React.FC<HighlightProps> = (props) => {
       height: '100%',
       width: '100%'
     },
-    content: {
+    '& .content': {
       position: 'relative',
       zIndex: 1,
       height: '100%',
@@ -68,26 +91,4 @@ export const Highlight: React.FC<HighlightProps> = (props) => {
       alignItems: 'center'
     }
   }
-  return (
-    <Box
-      sx={classes.root}
-      onClick={(): void => {
-        return onClick && onClick()
-      }}
-    >
-      <Box sx={classes.overlay}>
-        <Box className='image' sx={classes.image} />
-        <Box className='image-overlay' sx={classes.imageOverlay} />
-      </Box>
-      <Box className='content' sx={classes.content}>
-        <Typography
-          variant='h6'
-          sx={{ textShadow: '0 0 4px #000' }}
-          color='common.white'
-        >
-          {title}
-        </Typography>
-      </Box>
-    </Box>
-  )
-}
+})

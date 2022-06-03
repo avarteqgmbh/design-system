@@ -1,4 +1,5 @@
 import React from 'react'
+import { styled } from '@mui/material/styles'
 import { Avatar, Box, Divider, Typography } from '../../components'
 import { MainMenuItem } from '../MainMenuItem/MainMenuItem'
 import ArrowDropDownRoundedIcon from '@mui/icons-material/ArrowDropDownRounded'
@@ -42,85 +43,13 @@ export const UserNav = (props: UserNavprops): JSX.Element => {
     setOpen(!open)
   }
 
-  const classes = {
-    root: {
-      display: 'flex',
-      alignItems: 'center',
-      position: 'relative',
-      ml: density
-    },
-    userMenuItem: {
-      minHeight: 48,
-      display: 'flex',
-      alignItems: 'center',
-      borderRadius: '8px',
-      bgcolor: 'background.light',
-      cursor: 'pointer',
-      overflow: 'hidden',
-      transition: 'all ease-in-out 200ms',
-      '&:hover': {
-        bgcolor: 'background.medium'
-      }
-    },
-    avatarWrapper: {
-      backgroundImage: `url(${avatarUrl})`,
-      backgroundPosition: 'center',
-      backgroundSize: 'cover',
-      height: 48,
-      width: 48,
-      mr: 3
-    },
-    userMenuIcon: {
-      height: '100%',
-      width: 36,
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      opacity: 0.5,
-      transform: open ? 'rotate(180deg)' : 'rotate(0deg)',
-      transition: 'all ease-in-out 160ms'
-    },
-    userMenuDialog: {
-      position: 'absolute',
-      top: 90,
-      right: 0,
-      bgcolor: 'background.paper',
-      borderRadius: '8px',
-      boxShadow: 2,
-      p: 4,
-      width: 280
-    },
-    userMenuDialogChildrenWrapper: {
-      position: 'absolute',
-      top: 0,
-      right: 0,
-      display: 'flex'
-    },
-    userMenuListItem: {
-      justifyContent: 'flex-start',
-      mt: 4,
-      height: 40,
-      position: 'relative',
-      '&:hover': {
-        boxShadow: 0
-      },
-      '& .MuiButton-endIcon': {
-        position: 'absolute',
-        top: 7,
-        right: 12,
-        '& .MuiChip-filled': {
-          minWidth: 24,
-          fontSize: 12,
-          py: 1
-        }
-      }
-    }
-  }
-
   return (
-    <Box sx={classes.root}>
-      <Box sx={classes.userMenuItem} onClick={onClick}>
-        <Box sx={classes.avatarWrapper} />
+    <StyledUserNav sx={{ ml: density }}>
+      <Box className='userMenuItem' onClick={onClick}>
+        <Box
+          sx={{ backgroundImage: `url(${avatarUrl})` }}
+          className='avatarWrapper'
+        />
         <Box minWidth='80px'>
           <Typography
             variant='subtitle1'
@@ -139,17 +68,20 @@ export const UserNav = (props: UserNavprops): JSX.Element => {
             {`${points || 0} Points`}
           </Typography>
         </Box>
-        <Box sx={classes.userMenuIcon}>
+        <Box
+          className='userMenuIcon'
+          sx={{ transform: open ? 'rotate(180deg)' : 'rotate(0deg)' }}
+        >
           <ArrowDropDownRoundedIcon />
         </Box>
       </Box>
       {open && (
-        <Box sx={classes.userMenuDialog}>
+        <Box className='userMenuDialog' sx={{ boxShadow: 2 }}>
           <Box sx={{ position: 'relative' }}>
             <Avatar src={avatarUrl} sx={{ height: 100, width: 100, mb: 3 }} />
             <Typography variant='h6'>{fullName}</Typography>
             {children && (
-              <Box sx={classes.userMenuDialogChildrenWrapper}>
+              <Box className='userMenuDialogChildrenWrapper'>
                 {children.map((item): React.ReactNode => {
                   return <Box ml={3}>{item}</Box>
                 })}
@@ -195,6 +127,58 @@ export const UserNav = (props: UserNavprops): JSX.Element => {
           })}
         </Box>
       )}
-    </Box>
+    </StyledUserNav>
   )
 }
+
+const StyledUserNav = styled(Box)(({ theme }) => {
+  return {
+    display: 'flex',
+    alignItems: 'center',
+    position: 'relative',
+    '& .userMenuItem': {
+      minHeight: 48,
+      display: 'flex',
+      alignItems: 'center',
+      borderRadius: theme.radius.button,
+      backgroundColor: theme.palette.background.light,
+      cursor: 'pointer',
+      overflow: 'hidden',
+      transition: 'all ease-in-out 200ms',
+      '&:hover': {
+        backgroundColor: theme.palette.background.medium
+      }
+    },
+    '& .avatarWrapper': {
+      backgroundPosition: 'center',
+      backgroundSize: 'cover',
+      height: 48,
+      width: 48,
+      marginRight: theme.spacing(3)
+    },
+    '& .userMenuIcon': {
+      height: '100%',
+      width: 36,
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      opacity: 0.5,
+      transition: 'all ease-in-out 160ms'
+    },
+    '& .userMenuDialog': {
+      position: 'absolute',
+      top: 90,
+      right: 0,
+      backgroundColor: theme.palette.background.paper,
+      borderRadius: theme.radius.button,
+      padding: theme.spacing(4),
+      width: 280
+    },
+    '& .userMenuDialogChildrenWrapper': {
+      position: 'absolute',
+      top: 0,
+      right: 0,
+      display: 'flex'
+    }
+  }
+})

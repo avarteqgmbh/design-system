@@ -1,4 +1,5 @@
 import React from 'react'
+import { styled } from '@mui/material/styles'
 import ExpandLess from '@mui/icons-material/ExpandLess'
 import ExpandMore from '@mui/icons-material/ExpandMore'
 import { Box, Typography } from '../../../components'
@@ -28,75 +29,21 @@ export const CollapsibleCard: React.FC<CollapsibleCardProps> = (props) => {
   const [collapsed, setCollapsed] = React.useState(true)
   const hasBody = (info && info.length > 0) || (kpis && kpis.length > 0)
 
-  const classes = {
-    root: {
-      bgcolor: 'background.paper',
-      borderRadius: '8px',
-      mb: 4,
-      overflow: 'hidden',
-      transition: 'all ease-in-out 200ms',
-      cursor: hasBody ? 'pointer' : 'default',
-      boxShadow: 1
-    },
-    header: {
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'stretch',
-      borderLeft: '5px solid',
-      borderColor: highlighted ? 'primary.main' : 'transparent'
-    },
-    left: {
-      display: 'flex',
-      alignItems: 'center',
-      p: 4
-    },
-    leftTitleWrapper: {
-      display: 'flex',
-      flexDirection: 'column',
-      ml: 4
-    },
-    right: {
-      bgcolor: 'background.light',
-      width: 120,
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center'
-    },
-    body: {
-      display: collapsed ? 'none' : 'block',
-      p: 4,
-      borderTop: '1px solid',
-      borderColor: 'background.border',
-
-      '& .info': {
-        my: 2,
-        mr: 2,
-        display: 'flex',
-        flexDirection: 'column'
-      },
-
-      '& .kpis': {
-        display: 'grid',
-        gridTemplateColumns: 'repeat(2, 1fr)',
-        columnGap: 4,
-        rowGap: 2,
-
-        '& .info': {
-          my: 0
-        }
-      }
-    }
-  }
-
   return (
-    <Box
+    <StyledCollapsibleCard
       onClick={(): void => {
         return setCollapsed(!collapsed)
       }}
-      sx={classes.root}
+      sx={{ cursor: hasBody ? 'pointer' : 'default', boxShadow: 1 }}
     >
-      <Box sx={classes.header}>
-        <Box sx={classes.left}>
+      <Box
+        className='cardHeader'
+        sx={{
+          borderLeft: '5px solid',
+          borderColor: highlighted ? 'primary.main' : 'transparent'
+        }}
+      >
+        <Box className='left'>
           {position ? (
             <Typography fontWeight='bold'>{position}</Typography>
           ) : collapsed ? (
@@ -104,7 +51,7 @@ export const CollapsibleCard: React.FC<CollapsibleCardProps> = (props) => {
           ) : (
             <ExpandLess />
           )}
-          <Box sx={classes.leftTitleWrapper}>
+          <Box className='leftTitleWrapper'>
             {subtitle && (
               <Typography color='text.secondary'>{subtitle}</Typography>
             )}
@@ -112,7 +59,7 @@ export const CollapsibleCard: React.FC<CollapsibleCardProps> = (props) => {
           </Box>
         </Box>
         {score && (
-          <Box sx={classes.right}>
+          <Box className='right'>
             <Typography color={`${scoreColor}.main`} fontWeight='bold'>
               {score}
             </Typography>
@@ -120,7 +67,10 @@ export const CollapsibleCard: React.FC<CollapsibleCardProps> = (props) => {
         )}
       </Box>
       {hasBody && (
-        <Box sx={classes.body}>
+        <Box
+          className='cardBody'
+          sx={{ display: collapsed ? 'none' : 'block' }}
+        >
           {info &&
             info.map((item) => {
               return (
@@ -151,6 +101,61 @@ export const CollapsibleCard: React.FC<CollapsibleCardProps> = (props) => {
           </Box>
         </Box>
       )}
-    </Box>
+    </StyledCollapsibleCard>
   )
 }
+
+const StyledCollapsibleCard = styled(Box)(({ theme }) => {
+  return {
+    backgroundColor: theme.palette.background.paper,
+    borderRadius: theme.radius.card,
+    marginBottom: theme.spacing(4),
+    overflow: 'hidden',
+    transition: 'all ease-in-out 200ms',
+    '& .cardHeader': {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'stretch'
+    },
+    '& .left': {
+      display: 'flex',
+      alignItems: 'center',
+      padding: theme.spacing(4)
+    },
+    '& .leftTitleWrapper': {
+      display: 'flex',
+      flexDirection: 'column',
+      marginLeft: theme.spacing(4)
+    },
+    '& .right': {
+      backgroundColor: theme.palette.background.light,
+      width: 120,
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    '& .cardBody': {
+      padding: theme.spacing(4),
+      borderTop: '1px solid',
+      borderColor: theme.palette.background.border,
+
+      '& .info': {
+        margin: theme.spacing(2),
+        marginLeft: 0,
+        display: 'flex',
+        flexDirection: 'column'
+      },
+
+      '& .kpis': {
+        display: 'grid',
+        gridTemplateColumns: 'repeat(2, 1fr)',
+        columnGap: 4,
+        rowGap: 2,
+
+        '& .info': {
+          margin: theme.spacing(0, 2)
+        }
+      }
+    }
+  }
+})

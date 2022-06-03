@@ -1,15 +1,22 @@
 import React from 'react'
 import { Chip as MuiChip, ChipProps as MuiChipProps } from '@mui/material'
+import { styled } from '@mui/material/styles'
 
 export interface ChipProps extends MuiChipProps {
   rounded?: boolean
 }
 
-export function Chip(props: ChipProps): JSX.Element {
-  const { sx, rounded = true } = props
-  const styles = {
-    borderRadius: rounded ? '100px' : '8px'
-  }
+export const Chip: React.FC<ChipProps> = (props) => {
+  const { rounded = true } = props
 
-  return <MuiChip {...props} sx={{ ...sx, ...styles }} />
+  return <StyledMuiChip className={rounded ? 'rounded' : ''} {...props} />
 }
+
+const StyledMuiChip = styled(MuiChip)(({ theme }) => {
+  return {
+    '&.rounded': {
+      borderRadius: '100px'
+    },
+    borderRadius: theme.radius.button
+  }
+})
