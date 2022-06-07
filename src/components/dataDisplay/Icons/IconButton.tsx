@@ -4,6 +4,7 @@ import {
   IconButton as MuiIconButton,
   IconButtonProps as MuiIconButtonProps
 } from '@mui/material'
+import { styled } from '@mui/material/styles'
 
 export interface IconButtonProps extends MuiIconButtonProps {
   badge?: boolean
@@ -12,30 +13,14 @@ export interface IconButtonProps extends MuiIconButtonProps {
   borderRadius?: 'small' | 'medium' | 'full'
 }
 
-export function IconButton(props: IconButtonProps): JSX.Element {
+export const IconButton: React.FC<IconButtonProps> = (props) => {
   const {
     children,
     badge = false,
     border = true,
     background = true,
-    borderRadius = 'full',
-    sx
+    borderRadius = 'full'
   } = props
-  const styles = {
-    bgcolor: background ? 'background.light' : 'transparent',
-    color: 'text.primary',
-    border: border ? '1px solid' : 'none',
-    borderColor: 'background.border',
-    '&.borderRadius-small': {
-      borderRadius: '4px'
-    },
-    '&.borderRadius-medium': {
-      borderRadius: '8px'
-    },
-    '&:hover': {
-      bgcolor: 'background.medium'
-    }
-  }
 
   return badge ? (
     <Badge
@@ -48,21 +33,50 @@ export function IconButton(props: IconButtonProps): JSX.Element {
       }}
       size='medium'
     >
-      <MuiIconButton
-        className={`borderRadius-${borderRadius}`}
-        sx={{ ...sx, ...styles }}
+      <StyleIconButton
+        className={`
+          borderRadius-${borderRadius} 
+          ${background && 'withBackground'} 
+          ${border && 'withBorder'}
+        `}
         {...props}
       >
         {children}
-      </MuiIconButton>
+      </StyleIconButton>
     </Badge>
   ) : (
-    <MuiIconButton
-      className={`borderRadius-${borderRadius}`}
-      sx={{ ...sx, ...styles }}
+    <StyleIconButton
+      className={`
+        borderRadius-${borderRadius} 
+        ${background && 'withBackground'} 
+        ${border && 'withBorder'}
+      `}
       {...props}
     >
       {children}
-    </MuiIconButton>
+    </StyleIconButton>
   )
 }
+
+const StyleIconButton = styled(MuiIconButton)(({ theme }) => {
+  return {
+    color: theme.palette.text.primary,
+    backgroundColor: 'transparent',
+    '&.borderRadius-small': {
+      borderRadius: theme.radius.small
+    },
+    '&.borderRadius-medium': {
+      borderRadius: theme.radius.medium
+    },
+    '&.withBackground': {
+      backgroundColor: theme.palette.background.light
+    },
+    '&.withBorder': {
+      border: '1px solid',
+      borderColor: theme.palette.background.border
+    },
+    '&:hover': {
+      backgroundColor: theme.palette.background.medium
+    }
+  }
+})

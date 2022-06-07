@@ -9,7 +9,7 @@ import Favorite from '@mui/icons-material/Favorite'
 import Share from '@mui/icons-material/Share'
 
 import { Typography, Button } from '../../index'
-import Card from './Card'
+import { Card } from './Card'
 import { CardContent } from './CardContent'
 import { CardActions } from './CardActions'
 import { CardActionArea } from './CardActionArea'

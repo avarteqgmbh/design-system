@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from 'react'
 import TextTruncate from 'react-text-truncate'
-import { Theme } from '../../../theme/types'
+import { styled } from '@mui/material/styles'
 import { Box, Chip, Typography } from '../../../components'
 import { Points } from '../Points'
 
@@ -29,116 +28,127 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
     tags,
     onClick
   } = props
-
-  const classes = {
-    root: {
-      display: listView && 'flex',
-      borderRadius: (theme: Theme): string => {
-        return `${theme.radius.card}px`
-      },
-      bgcolor: 'background.paper',
-      overflow: 'hidden',
-      transition: '200ms all ease-in-out',
-      boxShadow: 1,
-      cursor: 'pointer',
-      height: '100%',
-      minWidth: !listView && { xs: 160, sm: 260 },
-      '&:hover': {
-        transform: hoverAnimation ? 'translateY(-4px)' : '',
-        '& .image': {
-          transform: hoverAnimation ? 'scale(1.05)' : ''
-        }
-      }
-    },
-    productTitle: {
-      minHeight: { xs: 36, sm: 52 },
-      fontSize: { xs: 14, sm: 20 }
-    },
-    backgroundImageWrapper: {
-      position: 'relative',
-      bgcolor: 'common.white',
-      width: listView ? { xs: 120, sm: 240 } : '100%',
-      height: listView ? '100%' : { xs: 144, sm: 180 },
-      display: 'flex',
-      overflow: 'hidden'
-    },
-    imageWrapper: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      position: 'relative',
-      width: '100%',
-      height: listView ? '100%' : { xs: 144, sm: 180 },
-      '& img': {
-        maxHeight: listView ? 80 : { xs: 120, sm: 150 }
-      }
-    },
-    backgroundImage: {
-      transition: '200ms all ease-in-out',
-      backgroundImage: `url(${image})`,
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center',
-      height: '100%',
-      width: '100%'
-    },
-    noveltyLabel: {
-      position: 'absolute',
-      top: 12,
-      left: listView ? 12 : 'auto',
-      right: listView ? 'auto' : 12
-    },
-    tagsWrapper: {
-      display: 'flex',
-      alignItems: 'center',
-      flexWrap: 'wrap',
-      mb: 2
-    },
-    tags: {
-      mr: { xs: 1, sm: 2 },
-      mb: { xs: 1, sm: 2 },
-      fontSize: { xs: 10, sm: 13 }
-    }
-  }
-
   return (
-    <Box
+    <StyledProductCard
       onClick={(): void => {
         return onClick()
       }}
-      // @ts-ignore
-      sx={classes.root}
+      sx={{
+        display: listView ? 'flex' : 'block',
+        boxShadow: 1,
+        minWidth: listView ? '100%' : { xs: 160, sm: 260 },
+        '&:hover': {
+          transform: hoverAnimation ? 'translateY(-4px)' : '',
+          '& .backgroundImage': {
+            transform: hoverAnimation ? 'scale(1.05)' : ''
+          }
+        }
+      }}
     >
-      <Box sx={classes.backgroundImageWrapper}>
+      <Box
+        className='backgroundImageWrapper'
+        sx={{
+          width: listView ? { xs: 120, sm: 240 } : '100%',
+          height: listView ? '100%' : { xs: 144, sm: 180 }
+        }}
+      >
         {isBgImage ? (
-          <Box className='image' sx={classes.backgroundImage} />
+          <Box
+            className='backgroundImage'
+            sx={{ backgroundImage: `url(${image})` }}
+          />
         ) : (
-          <Box sx={classes.imageWrapper}>
+          <Box
+            className='imageWrapper'
+            sx={{
+              height: listView ? '100%' : { xs: 144, sm: 180 },
+              '& img': {
+                maxHeight: listView ? 80 : { xs: 120, sm: 150 }
+              }
+            }}
+          >
             <img src={image} alt={name} />
           </Box>
         )}
         {novelty && (
           <Chip
+            className='noveltyLabel'
             label='Neu'
             color='primary'
             size='small'
-            sx={classes.noveltyLabel}
+            sx={{ left: listView ? 12 : 'auto', right: listView ? 'auto' : 12 }}
           />
         )}
       </Box>
       <Box sx={{ p: { xs: 3, sm: 4 }, flex: listView ? 1 : 'none' }}>
-        <Typography gutterBottom variant='h6' sx={classes.productTitle}>
+        <Typography
+          gutterBottom
+          variant='h6'
+          sx={{ minHeight: { xs: 36, sm: 52 }, fontSize: { xs: 14, sm: 20 } }}
+        >
           <TextTruncate line={2} truncateText='…' text={name} />
         </Typography>
         {tags && (
-          <Box sx={classes.tagsWrapper}>
+          <Box className='tagsWrapper'>
             {tags.map((item) => {
-              return <Chip label={item} size='small' sx={classes.tags} />
+              return (
+                <Chip
+                  label={item}
+                  size='small'
+                  sx={{
+                    mr: { xs: 1, sm: 2 },
+                    mb: { xs: 1, sm: 2 },
+                    fontSize: { xs: 10, sm: 13 }
+                  }}
+                />
+              )
             })}
           </Box>
         )}
         <Points points={points} />
       </Box>
-    </Box>
+    </StyledProductCard>
   )
 }
+
+const StyledProductCard = styled(Box)(({ theme }) => {
+  return {
+    borderRadius: theme.radius.card,
+    backgroundColor: theme.palette.background.paper,
+    overflow: 'hidden',
+    transition: '200ms all ease-in-out',
+    cursor: 'pointer',
+    height: '100%',
+    '& .backgroundImageWrapper': {
+      display: 'flex',
+      position: 'relative',
+      overflow: 'hidden',
+      backgroundColor: theme.palette.common.white,
+      '& .imageWrapper': {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
+        width: '100%'
+      },
+      '& .backgroundImage': {
+        transition: '200ms all ease-in-out',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        height: '100%',
+        width: '100%'
+      }
+    },
+    '& .noveltyLabel': {
+      position: 'absolute',
+      top: 12
+    },
+    '& .tagsWrapper': {
+      display: 'flex',
+      alignItems: 'center',
+      flexWrap: 'wrap',
+      marginBottom: theme.spacing(2)
+    }
+  }
+})

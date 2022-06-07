@@ -1,5 +1,6 @@
 import React from 'react'
 import { Box } from '../../components'
+import { styled } from '@mui/material/styles'
 import LightModeRoundedIcon from '@mui/icons-material/LightModeRounded'
 import DarkModeRoundedIcon from '@mui/icons-material/DarkModeRounded'
 
@@ -15,26 +16,25 @@ export const ToggleMode: React.FC<ToggleModeProps> = ({
   size = 'medium'
 }) => {
   return (
-    <Box
+    <StyledToggleMode
       onClick={(): void => {
         return setDarkMode(!darkMode)
       }}
-      sx={classes.root}
       className={size}
     >
       {darkMode ? <DarkModeRoundedIcon /> : <LightModeRoundedIcon />}
-    </Box>
+    </StyledToggleMode>
   )
 }
 
-const classes = {
-  root: {
+const StyledToggleMode = styled(Box)(({ theme }) => {
+  return {
     height: 40,
     width: 40,
-    bgcolor: 'background.light',
+    backgroundColor: theme.palette.background.light,
     border: '1px solid',
-    borderColor: 'background.medium',
-    borderRadius: '8px',
+    borderColor: theme.palette.background.medium,
+    borderRadius: theme.radius.button,
     boxSizing: 'border-box',
     display: 'flex',
     justifyContent: 'center',
@@ -55,11 +55,11 @@ const classes = {
       alignContent: 'center'
     },
     '& svg': {
-      color: 'text.primary',
+      color: theme.palette.text.primary,
       maxWidth: 20
     },
     '&:hover': {
-      bgcolor: 'background.medium'
+      backgroundColor: theme.palette.background.medium
     }
   }
-}
+})

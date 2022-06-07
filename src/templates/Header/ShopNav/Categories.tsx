@@ -1,4 +1,5 @@
 import React from 'react'
+import { styled } from '@mui/material/styles'
 import { Box, Typography } from '../../../components'
 import { MainCategoryItem, MenuItem } from './types'
 import Item from './Item'
@@ -10,21 +11,10 @@ interface Props {
   setActiveCategory?: (label: string) => void
 }
 
-const styles = {
-  display: 'flex',
-  flexDirection: 'column',
-  flex: '1',
-  mr: 6,
-  p: 4,
-  bgcolor: 'background.light',
-  borderRadius: '8px',
-  maxWidth: '100%'
-}
-
 export const Categories: React.FC<Props> = (props) => {
   const { label, isMaincategory, items, setActiveCategory } = props
   return (
-    <Box sx={styles}>
+    <StyledCategories>
       <Typography variant='h6' mb={3}>
         {label}
       </Typography>
@@ -47,6 +37,19 @@ export const Categories: React.FC<Props> = (props) => {
           <Typography>Wähle eine Hauptkategorie</Typography>
         )}
       </Box>
-    </Box>
+    </StyledCategories>
   )
 }
+
+const StyledCategories = styled(Box)(({ theme }) => {
+  return {
+    display: 'flex',
+    flexDirection: 'column',
+    flex: '1',
+    marginRight: theme.spacing(6),
+    padding: theme.spacing(4),
+    backgroundColor: theme.palette.background.light,
+    borderRadius: theme.radius.card,
+    maxWidth: '100%'
+  }
+})

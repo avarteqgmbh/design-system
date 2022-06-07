@@ -1,8 +1,7 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from 'react'
 import Add from '@mui/icons-material/Add'
 import Remove from '@mui/icons-material/Remove'
-import { Theme } from '../../theme/types'
+import { styled } from '@mui/material/styles'
 import { Box, Button, Typography } from '../../components'
 
 export interface AmountInputProps {
@@ -15,19 +14,7 @@ export const AmountInput: React.FC<AmountInputProps> = (props) => {
   const { amount = 1, onAdd, onRemove } = props
 
   return (
-    <Box
-      // @ts-ignore
-      sx={{
-        display: 'flex',
-        alignItems: 'center',
-        bgcolor: 'background.light',
-        borderRadius: (theme: Theme): string => {
-          return `${theme.radius.card}px`
-        },
-        border: '1px solid',
-        borderColor: 'background.border'
-      }}
-    >
+    <StyledAmountInput>
       <Button
         variant='text'
         color='secondary'
@@ -51,6 +38,17 @@ export const AmountInput: React.FC<AmountInputProps> = (props) => {
       >
         <Add sx={{ height: 16 }} />
       </Button>
-    </Box>
+    </StyledAmountInput>
   )
 }
+
+const StyledAmountInput = styled(Box)(({ theme }) => {
+  return {
+    display: 'flex',
+    alignItems: 'center',
+    backgroundColor: theme.palette.background.light,
+    borderRadius: theme.radius.card,
+    border: '1px solid',
+    borderColor: theme.palette.background.border
+  }
+})

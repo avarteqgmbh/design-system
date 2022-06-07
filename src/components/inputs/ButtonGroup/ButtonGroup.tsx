@@ -1,19 +1,11 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from 'react'
 import { ButtonGroup as MuiButtonGroup, ButtonGroupProps } from '@mui/material'
-import { Theme } from '../../../theme/types'
+import { styled } from '@mui/material/styles'
 
-export function ButtonGroup(props: ButtonGroupProps): JSX.Element {
-  const { sx } = props
-
-  return (
-    // @ts-ignore
-    <MuiButtonGroup sx={{ ...sx, ...styles }} {...props} />
-  )
+export const ButtonGroup: React.FC<ButtonGroupProps> = (props) => {
+  return <StyledMuiButtonGroup {...props} />
 }
 
-const styles = {
-  borderRadius: (theme: Theme): string => {
-    return `${theme.radius.button}px`
-  }
-}
+const StyledMuiButtonGroup = styled(MuiButtonGroup)(({ theme }) => {
+  return { borderRadius: theme.radius.button }
+})

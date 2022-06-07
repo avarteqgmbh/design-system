@@ -78,7 +78,6 @@ const classes = {
     alignItems: 'center',
     justifyContent: 'space-between',
     minHeight: 40,
-    borderRadius: 2,
     borderStyle: 'solid',
     borderWidth: 1,
     borderColor: 'background.border',

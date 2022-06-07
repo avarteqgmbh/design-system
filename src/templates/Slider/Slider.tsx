@@ -15,7 +15,7 @@ export const Slider = (props: SliderProps): JSX.Element => {
   return (
     <Box sx={{ maxWidth: fullWidth ? '100%' : 1200, ...styles }}>
       <Carousel
-        autoPlay
+        // autoPlay
         infiniteLoop
         stopOnHover
         showArrows={false}
