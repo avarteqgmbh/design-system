@@ -35,39 +35,37 @@ export const OrderItem: React.FC<OrderItemProps> = (props) => {
           <img src={image} alt={title} />
         </Box>
       )}
-      <Box sx={{ flex: 1 }}>
-        <Box className='title'>
-          <Typography variant='h6' sx={{ fontSize: 16 }}>
-            {title}
-          </Typography>
-          {variant && (
-            <Box className='infoItem'>
-              <Typography
-                variant='label2'
-                color='text.secondary'
-                className='label'
-              >
-                Variante:
-              </Typography>
-              <Typography variant='button2'>{variant}</Typography>
-            </Box>
-          )}
-          {amount && (
-            <Box className='infoItem'>
-              <Typography
-                variant='label2'
-                color='text.secondary'
-                className='label'
-              >
-                Anzahl:
-              </Typography>
-              <Typography variant='button2'>{amount}</Typography>
-            </Box>
-          )}
-          <Points points={points} />
-        </Box>
+      <Box className='leftContent'>
+        <Typography variant='h6' sx={{ fontSize: 16 }}>
+          {title}
+        </Typography>
+        {variant && (
+          <Box className='infoItem'>
+            <Typography
+              variant='label2'
+              color='text.secondary'
+              className='label'
+            >
+              Variante:
+            </Typography>
+            <Typography variant='button2'>{variant}</Typography>
+          </Box>
+        )}
+        {amount && (
+          <Box className='infoItem' sx={{ mb: 2 }}>
+            <Typography
+              variant='label2'
+              color='text.secondary'
+              className='label'
+            >
+              Anzahl:
+            </Typography>
+            <Typography variant='button2'>{amount}</Typography>
+          </Box>
+        )}
+        <Points points={points} />
       </Box>
-      <Box className='infoWrapper'>
+      <Box className='rightContent'>
         {sendAt && (
           <Box className='infoItem'>
             <Typography
@@ -120,11 +118,22 @@ const StyledOrderItem = styled(Box)(({ theme }) => {
         maxWidth: 64
       }
     },
-    '& .title': {
+    '& .leftContent': {
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'space-between',
+      flex: 1,
       height: '100%',
+      marginLeft: theme.spacing(4),
+      '& .infoItem': {
+        marginTop: theme.spacing(2)
+      }
+    },
+    '& .rightContent': {
+      display: 'flex',
+      flex: 1,
+      flexDirection: 'column',
+      justifyContent: 'space-between',
       marginLeft: theme.spacing(4)
     },
     '& .infoItem': {
@@ -135,12 +144,6 @@ const StyledOrderItem = styled(Box)(({ theme }) => {
         width: 80,
         marginRight: theme.spacing(2)
       }
-    },
-    '& .infoWrapper': {
-      display: 'flex',
-      flex: 1,
-      flexDirection: 'column',
-      justifyContent: 'space-between'
     }
   }
 })
