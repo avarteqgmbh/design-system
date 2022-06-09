@@ -13,6 +13,7 @@ import {
 } from '../../../components'
 
 export interface OrderStatusCardProps {
+  key: string
   orderDate: string
   orderNumber: string
   orderAddress: {
@@ -28,7 +29,7 @@ export interface OrderStatusCardProps {
 }
 
 export const OrderStatusCard: React.FC<OrderStatusCardProps> = (props) => {
-  const { orderDate, orderNumber, orderAddress, orderItems } = props
+  const { key, orderDate, orderNumber, orderAddress, orderItems } = props
   const [tooltipOpen, setTooltipOpen] = React.useState(false)
 
   return (
@@ -36,8 +37,8 @@ export const OrderStatusCard: React.FC<OrderStatusCardProps> = (props) => {
       <AccordionSummary
         sx={{ px: 4 }}
         expandIcon={<ExpandMore />}
-        aria-controls='panel1a-content'
-        id='panel1a-header'
+        aria-controls={key}
+        id={key}
       >
         <Box
           className='orderInfo'
@@ -129,7 +130,7 @@ export const OrderStatusCard: React.FC<OrderStatusCardProps> = (props) => {
       </AccordionSummary>
       <AccordionDetails sx={{ bgcolor: 'background.paper', padding: 0 }}>
         {orderItems.map((item) => {
-          return <OrderItem {...item} />
+          return <OrderItem key={item.title} {...item} />
         })}
       </AccordionDetails>
     </Accordion>
