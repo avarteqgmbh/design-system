@@ -5,7 +5,6 @@ import {
   OrderStatusCard,
   OrderStatusCardProps
 } from './OrderStatusCard'
-import { Button } from '../../../components'
 
 export default {
   title: 'Templates/Cards/OrderStatusCard',
@@ -36,8 +35,12 @@ export const Default = Template.bind({})
 Default.args = {
   orderDate: '12.03.2022',
   orderNumber: 'TK-123104901429',
-  userInfo: {
-    fullName: 'John Doe'
+  orderAddress: {
+    name: 'John Doe',
+    company: 'anynines',
+    street: 'Somewhere 55',
+    zip: '12345',
+    city: 'Buxdehude'
   },
   orderItems: [
     {

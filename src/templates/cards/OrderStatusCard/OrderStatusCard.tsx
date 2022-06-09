@@ -8,20 +8,28 @@ import {
   AccordionSummary,
   AccordionDetails,
   Box,
-  Typography
+  Typography,
+  Divider
 } from '../../../components'
 
 export interface OrderStatusCardProps {
   orderDate: string
   orderNumber: string
-  userInfo: {
-    fullName: string
+  orderAddress: {
+    name: string
+    company?: string
+    street: string
+    zip: string
+    city: string
+    phone?: string
+    mail?: string
   }
   orderItems: OrderItemProps[]
 }
 
 export const OrderStatusCard: React.FC<OrderStatusCardProps> = (props) => {
-  const { orderDate, orderNumber, userInfo, orderItems } = props
+  const { orderDate, orderNumber, orderAddress, orderItems } = props
+  const [tooltipOpen, setTooltipOpen] = React.useState(false)
 
   return (
     <Accordion disableGutters sx={{ bgcolor: 'background.medium' }}>
@@ -37,7 +45,7 @@ export const OrderStatusCard: React.FC<OrderStatusCardProps> = (props) => {
         >
           <Typography variant='button2'>{orderNumber}</Typography>
           <Box sx={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-            <Typography variant='label2' color='text.secondary'>
+            <Typography variant='body2' color='text.secondary'>
               Bestellung vom:
             </Typography>
             <Typography ml={2} variant='button2'>
@@ -50,11 +58,54 @@ export const OrderStatusCard: React.FC<OrderStatusCardProps> = (props) => {
           sx={{ display: 'flex', flex: 1, flexDirection: 'column' }}
         >
           <Typography variant='button2'>Versandadresse</Typography>
-          <Box sx={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-            <Typography variant='label2' mr={2}>
-              {userInfo.fullName}
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              height: '100%'
+            }}
+            onMouseEnter={(): void => {
+              setTooltipOpen(true)
+            }}
+            onMouseLeave={(): void => {
+              setTooltipOpen(false)
+            }}
+          >
+            <Typography variant='body2' mr={2}>
+              {orderAddress.name}
             </Typography>
             <AnyIcon icon='user' />
+          </Box>
+          <Box
+            sx={{
+              position: 'absolute',
+              visibility: tooltipOpen ? 'visible' : 'hidden',
+              opacity: tooltipOpen ? 1 : 0,
+              top: 50,
+              padding: 4,
+              boxShadow: 1,
+              borderRadius: '8px',
+              transition: '200ms ease-in-out',
+              bgcolor: 'background.paper'
+            }}
+          >
+            <Typography>{orderAddress.name}</Typography>
+            <Typography color='text.secondary'>
+              {orderAddress.company}
+            </Typography>
+            <Divider sx={{ my: 2 }} />
+            <Typography>{orderAddress.street}</Typography>
+            <Box sx={{ display: 'flex', alignItems: 'center', my: 2 }}>
+              <Typography mr={2}>{orderAddress.zip}</Typography>
+              <Typography>{orderAddress.city}</Typography>
+            </Box>
+            {(orderAddress.phone || orderAddress.mail) && (
+              <Divider sx={{ my: 2 }} />
+            )}
+            {orderAddress.phone && (
+              <Typography>{orderAddress.phone}</Typography>
+            )}
+            {orderAddress.mail && <Typography>{orderAddress.mail}</Typography>}
           </Box>
         </Box>
         <Box
