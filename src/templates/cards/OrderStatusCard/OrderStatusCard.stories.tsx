@@ -1,10 +1,7 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import {
-  OrderStatusCard,
-  OrderStatusCardProps
-} from './OrderStatusCard'
+import { OrderStatusCard, OrderStatusCardProps } from './OrderStatusCard'
 
 export default {
   title: 'Templates/Cards/OrderStatusCard',
@@ -48,16 +45,19 @@ Default.args = {
       image:
         'https://s3-eu-west-1.amazonaws.com/bum-stage/articles/1315051-thumb_medium-BM-018235_1.jpg',
       points: 13500,
-      variant: 'Gunmetal Gray',
+      variant: { label: 'Artikel:', value: 'Space-Gray' },
       amount: 1,
       sendAt: '12.03.2022',
-      onClick: () => { return null }
+      onClick: () => {
+        return null
+      }
     },
     {
       title: 'Duftkerze Forest',
       backgroundImage: true,
-      image: 'https://images.pexels.com/photos/3270223/pexels-photo-3270223.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-      variant: 'Forest',
+      image:
+        'https://images.pexels.com/photos/3270223/pexels-photo-3270223.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+      variant: { label: 'Farbe:', value: 'Blau' },
       amount: 1,
       points: 349
     }

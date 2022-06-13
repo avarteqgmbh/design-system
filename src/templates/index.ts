@@ -10,7 +10,9 @@ export {
   SelectableCard,
   VerticalProductCard,
   AmountInput,
-  Points
+  Points,
+  OrderItem,
+  OrderStatusCard
 } from './cards/index'
 
 export type {
@@ -19,7 +21,9 @@ export type {
   HighlightProductCardProps,
   ProductCardProps,
   SelectableCardProps,
-  VerticalProductCardProps
+  VerticalProductCardProps,
+  OrderItemProps,
+  OrderStatusCardProps
 } from './cards/index'
 
 // CodeSnippet
