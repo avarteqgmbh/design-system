@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from 'react'
-import { Theme } from '../../../theme/types'
+import { styled } from '@mui/material/styles'
 import { Box, Typography, Chip } from '../../../components'
 
 export interface Tag {
@@ -32,75 +31,36 @@ export const BaseCard: React.FC<CardProps> = (props) => {
     children,
     maxWidth = 450
   } = props
-  const classes = {
-    root: {
-      borderRadius: (theme: Theme): string => {
-        return `${theme.radius.card}px`
-      },
-      bgcolor: 'background.paper',
-      overflow: 'hidden',
-      transition: '200ms all ease-in-out',
-      boxShadow: 1,
-      cursor: 'pointer',
-      height: '100%',
-      maxWidth: maxWidth || '100%',
-      '&:hover': {
-        transform: hoverAnimation ? 'translateY(-4px)' : '',
-        '& .image': {
-          transform: hoverAnimation ? 'scale(1.05)' : ''
-        }
-      }
-    },
-    imageWrapper: {
-      width: '100%',
-      height: 180,
-      overflow: 'hidden'
-    },
-    image: {
-      transition: '200ms all ease-in-out',
-      backgroundImage: `url(${image})`,
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center',
-      height: '100%',
-      width: '100%'
-    },
-    subtitleWrapper: {
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      mb: 2
-    },
-    tagsWrapper: {
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      mb: 2
-    }
-  }
-
   return (
-    <Box
+    <StyledBaseCard
       onClick={(): void => {
         onClick()
       }}
-      // @ts-ignore
-      sx={classes.root}
+      sx={{
+        boxShadow: 1,
+        maxWidth: maxWidth || '100%',
+        '&:hover': {
+          transform: hoverAnimation ? 'translateY(-4px)' : '',
+          '& .image': {
+            transform: hoverAnimation ? 'scale(1.05)' : ''
+          }
+        }
+      }}
     >
       {image && (
-        <Box sx={classes.imageWrapper}>
-          <Box className='image' sx={classes.image} />
+        <Box className='imageWrapper'>
+          <Box className='image' sx={{ backgroundImage: `url(${image})` }} />
         </Box>
       )}
       <Box sx={{ p: 4 }}>
-        <Box sx={classes.subtitleWrapper}>
+        <Box className='subtitleWrapper'>
           {subtitle && (
             <Typography variant='body2' color='text.secondary'>
               {subtitle}
             </Typography>
           )}
           {tags && (
-            <Box sx={classes.tagsWrapper}>
+            <Box className='tagsWrapper'>
               {tags.map((item) => {
                 return (
                   <Chip
@@ -124,6 +84,42 @@ export const BaseCard: React.FC<CardProps> = (props) => {
         )}
         {children}
       </Box>
-    </Box>
+    </StyledBaseCard>
   )
 }
+
+const StyledBaseCard = styled(Box)(({ theme }) => {
+  return {
+    borderRadius: theme.radius.card,
+    backgroundColor: theme.palette.background.paper,
+    overflow: 'hidden',
+    transition: '200ms all ease-in-out',
+    cursor: 'pointer',
+    height: '100%',
+    '& .imageWrapper': {
+      width: '100%',
+      height: 180,
+      overflow: 'hidden'
+    },
+    '& .image': {
+      transition: '200ms all ease-in-out',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+      height: '100%',
+      width: '100%'
+    },
+    '& .subtitleWrapper': {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginBottom: theme.spacing(2)
+    },
+    '& .tagsWrapper': {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginBottom: theme.spacing(2)
+    }
+  }
+})

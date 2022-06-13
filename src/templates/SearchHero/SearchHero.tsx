@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from 'react'
-import { Theme } from '../../theme/types'
+import { styled } from '@mui/material/styles'
 import Search from '@mui/icons-material/Search'
 import {
   Breadcrumbs,
@@ -25,7 +24,7 @@ export interface SearchHeroProps {
   title: string
 }
 
-export const SearchHero = (props: SearchHeroProps): JSX.Element => {
+export const SearchHero: React.FC<SearchHeroProps> = (props) => {
   const {
     bgImage,
     breadcrumbs,
@@ -35,25 +34,8 @@ export const SearchHero = (props: SearchHeroProps): JSX.Element => {
     onSearchButtonClick
   } = props
 
-  const gradientBgImage = (theme: Theme): string | undefined => {
-    return theme.palette.background.gradient
-  }
-
-  const classes = {
-    root: {
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundImage: bgImage ? `url(${bgImage})` : gradientBgImage,
-      height: 400,
-      width: '100%'
-    }
-  }
-
   return (
-    // @ts-ignore
-    <Box sx={classes.root}>
+    <StyledSearchHero sx={{ backgroundImage: bgImage && `url(${bgImage})` }}>
       {breadcrumbs && (
         <Breadcrumbs>
           {breadcrumbs.map((item) => {
@@ -94,6 +76,18 @@ export const SearchHero = (props: SearchHeroProps): JSX.Element => {
           />
         )}
       </Box>
-    </Box>
+    </StyledSearchHero>
   )
 }
+
+const StyledSearchHero = styled(Box)(({ theme }) => {
+  return {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundImage: theme.palette.background.gradient,
+    height: 400,
+    width: '100%'
+  }
+})

@@ -1,26 +1,15 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from 'react'
-import { Theme } from '../../../theme/types'
 import MuiCard, { CardProps as MuiCardProps } from '@mui/material/Card'
+import { styled } from '@mui/material/styles'
 
-const Card: React.FC<MuiCardProps> = (props) => {
-  const { children, sx } = props
+export const Card: React.FC<MuiCardProps> = (props) => {
+  const { children } = props
 
-  return (
-    <MuiCard
-      {...props}
-      // @ts-ignore
-      sx={{ ...sx, ...styles }}
-    >
-      {children}
-    </MuiCard>
-  )
+  return <StyledMuiCard {...props}>{children}</StyledMuiCard>
 }
 
-const styles = {
-  borderRadius: (theme: Theme): string => {
-    return `${theme.radius.card}px`
+const StyledMuiCard = styled(MuiCard)(({ theme }) => {
+  return {
+    borderRadius: theme.radius.card
   }
-}
-
-export default Card
+})

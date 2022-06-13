@@ -1,4 +1,5 @@
 import React from 'react'
+import { styled } from '@mui/material/styles'
 import { SelectChangeEvent } from '@mui/material'
 import { MenuItem, Select } from '../../components'
 
@@ -23,10 +24,10 @@ export const LanguageSelect: React.FC<LanguageSelectProps> = ({
   }
 
   return (
-    <Select
+    <StyledLanguageSelect
       value={language}
       onChange={handleChange}
-      sx={classes.root}
+      sx={{ boxShadow: 0 }}
       className={size}
       MenuProps={{
         disableScrollLock: true,
@@ -54,24 +55,23 @@ export const LanguageSelect: React.FC<LanguageSelectProps> = ({
             </MenuItem>
           )
         })}
-    </Select>
+    </StyledLanguageSelect>
   )
 }
 
-const classes = {
-  root: {
-    mr: 4,
+const StyledLanguageSelect = styled(Select)(({ theme }) => {
+  return {
+    marginRight: theme.spacing(4),
     height: 40,
     width: 40,
-    bgcolor: 'background.light',
+    backgroundColor: theme.palette.background.light,
     border: '1px solid',
-    borderColor: 'background.medium',
-    borderRadius: '8px',
+    borderColor: theme.palette.background.medium,
+    borderRadius: theme.radius.button,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     outline: 'none',
-    boxShadow: 0,
     '&.small': {
       height: 30,
       width: 30
@@ -84,9 +84,9 @@ const classes = {
       borderColor: 'transparent'
     },
     '&.Mui-focused, &:hover': {
-      bgcolor: 'background.medium',
+      backgroundColor: theme.palette.background.medium,
       border: '1px solid',
-      borderColor: 'background.medium',
+      borderColor: theme.palette.background.medium,
       '& .MuiOutlinedInput-notchedOutline': {
         borderColor: 'transparent'
       }
@@ -98,4 +98,4 @@ const classes = {
       alignItems: 'center'
     }
   }
-}
+})

@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from 'react'
 import TextTruncate from 'react-text-truncate'
-import { Theme } from '../../../theme/types'
+import { styled } from '@mui/material/styles'
 import { Points } from '../Points'
 import { Box, Typography, Chip } from '../../../components'
 import { AmountInput } from '../AmountInput'
@@ -39,14 +38,21 @@ export const VerticalProductCard: React.FC<VerticalProductCardProps> = (
   } = props
 
   return (
-    <Box
-      // @ts-ignore
-      sx={classes.root}
-    >
-      <Box sx={classes.contentWrapper}>
+    <StyledVerticalProductCard sx={{ boxShadow: 1 }}>
+      <Box
+        className='contentWrapper'
+        sx={{
+          flexDirection: { xs: 'column', sm: 'row' },
+          mb: { xs: 4, sm: 0 }
+        }}
+      >
         <Box
-          // @ts-ignore
-          sx={classes.imageWrapper}
+          className='imageWrapper'
+          sx={{
+            height: { xs: 140, sm: 80 },
+            width: { xs: '100%', sm: 80 },
+            mb: { xs: 4, sm: 0 }
+          }}
           onClick={(): void => {
             return onClick()
           }}
@@ -65,7 +71,7 @@ export const VerticalProductCard: React.FC<VerticalProductCardProps> = (
               <Chip key={tag} label={tag} size='small' sx={{ mr: 2, mb: 2 }} />
             )
           })}
-          <Box sx={classes.pointsWrapper}>
+          <Box className='pointsWrapper'>
             <Points points={points} />
             <AmountInput
               amount={amount}
@@ -79,58 +85,48 @@ export const VerticalProductCard: React.FC<VerticalProductCardProps> = (
           </Box>
         </Box>
       </Box>
-      <Box sx={classes.footer}>{children}</Box>
-    </Box>
+      <Box className='footer'>{children}</Box>
+    </StyledVerticalProductCard>
   )
 }
 
-const classes = {
-  root: {
-    borderRadius: (theme: Theme): string => {
-      return `${theme.radius.card}px`
-    },
-    bgcolor: 'background.paper',
+const StyledVerticalProductCard = styled(Box)(({ theme }) => {
+  return {
+    borderRadius: theme.radius.card,
+    backgroundColor: theme.palette.background.paper,
     overflow: 'hidden',
     transition: '200ms all ease-in-out',
-    boxShadow: 1,
     height: '100%',
-    p: 4
-  },
-  contentWrapper: {
-    display: 'flex',
-    flexDirection: { xs: 'column', sm: 'row' },
-    mb: { xs: 4, sm: 0 },
-    width: '100%'
-  },
-  imageWrapper: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    bgcolor: 'common.white',
-    cursor: 'pointer',
-    borderRadius: (theme: Theme): string => {
-      return `${theme.radius.card}px`
+    padding: theme.spacing(4),
+    '& .contentWrapper': {
+      display: 'flex',
+      width: '100%'
     },
-    border: '1px solid',
-    borderColor: 'background.border',
-    height: { xs: 140, sm: 80 },
-    width: { xs: '100%', sm: 80 },
-    mb: { xs: 4, sm: 0 },
-    overflow: 'hidden',
-    '& img': {
-      maxHeight: 64,
-      maxWidth: 64
+    '& .imageWrapper': {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: theme.palette.common.white,
+      cursor: 'pointer',
+      borderRadius: theme.radius.card,
+      border: '1px solid',
+      borderColor: theme.palette.background.border,
+      overflow: 'hidden',
+      '& img': {
+        maxHeight: 64,
+        maxWidth: 64
+      }
+    },
+    '& .pointsWrapper': {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center'
+    },
+    '& .footer': {
+      display: 'flex',
+      justifyContent: 'space-between',
+      flexDirection: { xs: 'column-reverse', sm: 'row' },
+      marginTop: theme.spacing(5)
     }
-  },
-  pointsWrapper: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center'
-  },
-  footer: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    flexDirection: { xs: 'column-reverse', sm: 'row' },
-    mt: 5
   }
-}
+})

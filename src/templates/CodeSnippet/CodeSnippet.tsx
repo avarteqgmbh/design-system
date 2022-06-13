@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from 'react'
-import { Theme } from '../../theme/types'
+import { styled } from '@mui/material/styles'
 import { CodeSnippetProps } from './CodeSnippetProps'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import { vs2015 } from 'react-syntax-highlighter/dist/cjs/styles/hljs'
@@ -19,10 +18,9 @@ export const CodeSnippet: React.FC<CodeSnippetProps> = ({
   const chars = value.length - lines + 1
 
   return (
-    // @ts-ignore
-    <Paper sx={classes.root}>
+    <StyledCodeSnippet>
       <Grid container direction='column'>
-        <Grid item container sx={classes.header}>
+        <Grid item container className='header'>
           <Typography variant='body2' sx={{ fontWeight: 900 }}>
             {fileName}
           </Typography>
@@ -40,11 +38,11 @@ export const CodeSnippet: React.FC<CodeSnippetProps> = ({
         >
           {value}
         </SyntaxHighlighter>
-        <Grid item container sx={classes.footer}>
+        <Grid item container className='footer'>
           <Typography variant='overline' color='textSecondary'>
             {language}
           </Typography>
-          <Box sx={classes.stats}>
+          <Box className='stats'>
             <Typography variant='overline' color='textSecondary'>
               {chars} chars
             </Typography>
@@ -54,44 +52,41 @@ export const CodeSnippet: React.FC<CodeSnippetProps> = ({
           </Box>
         </Grid>
       </Grid>
-    </Paper>
+    </StyledCodeSnippet>
   )
 }
-
-const classes = {
-  root: {
-    bgcolor: 'background.light',
-    borderRadius: (theme: Theme): string => {
-      return `${theme.radius.card}px`
+const StyledCodeSnippet = styled(Paper)(({ theme }) => {
+  return {
+    backgroundColor: theme.palette.background.light,
+    borderRadius: theme.radius.card,
+    margin: '20px 0px',
+    '& .header': {
+      padding: theme.spacing(2),
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      '& span::first-letter': {
+        textTransform: 'uppercase'
+      },
+      '& button': {
+        border: 'none',
+        background: 'transparent'
+      }
     },
-    margin: '20px 0px'
-  },
-  header: {
-    padding: 2,
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    '& span::first-letter': {
+    '& .footer': {
+      padding: theme.spacing(2),
+      justifyContent: 'space-between'
+    },
+    '& .lang': {
       textTransform: 'uppercase'
     },
-    '& button': {
-      border: 'none',
-      background: 'transparent'
-    }
-  },
-  footer: {
-    padding: 2,
-    justifyContent: 'space-between'
-  },
-  lang: {
-    textTransform: 'uppercase'
-  },
-  stats: {
-    '& span': {
-      textTransform: 'none',
-      paddingLeft: 3
+    '& .stats': {
+      '& span': {
+        textTransform: 'none',
+        paddingLeft: theme.spacing(3)
+      }
     }
   }
-}
+})
 
 const SyntaxHighlighterStyle = {
   margin: '-1px 0px',
