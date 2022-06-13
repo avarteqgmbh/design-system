@@ -2,6 +2,7 @@ import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { TextField } from './TextField'
+// import TextField from '@mui/material/TextField'
 import { InputAdornment, TextFieldProps } from '@mui/material'
 import ArrowBack from '@mui/icons-material/ArrowBack'
 
@@ -52,12 +53,6 @@ export default {
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: false }
-      }
-    },
-    onChange: {
-      action: { type: 'onChange' },
-      table: {
-        type: { summary: 'func' }
       }
     },
     autoFocus: {
@@ -153,7 +148,8 @@ export default {
 }
 
 const Template: Story<TextFieldProps> = (args) => {
-  return <TextField {...args} />
+  const [value, setValue] = React.useState('')
+  return <TextField value={value} onChange={(event) => setValue(event.target.value)} {...args} />
 }
 
 export const Default = Template.bind({})
