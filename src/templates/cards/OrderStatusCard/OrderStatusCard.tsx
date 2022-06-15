@@ -13,7 +13,7 @@ import {
 } from '../../../components'
 
 export interface OrderStatusCardProps {
-  key: string
+  id: string
   releasedDate: string
   orderNumber: string
   points?: number
@@ -32,7 +32,7 @@ export interface OrderStatusCardProps {
 }
 
 export const OrderStatusCard: React.FC<OrderStatusCardProps> = (props) => {
-  const { key, releasedDate, orderNumber, orderAddress, orderItems, points } =
+  const { id, releasedDate, orderNumber, orderAddress, orderItems, points } =
     props
   const [tooltipOpen, setTooltipOpen] = React.useState(false)
 
@@ -41,8 +41,8 @@ export const OrderStatusCard: React.FC<OrderStatusCardProps> = (props) => {
       <AccordionSummary
         sx={{ px: 4 }}
         expandIcon={<ExpandMore />}
-        aria-controls={key}
-        id={key}
+        aria-controls={id}
+        id={id}
       >
         <Box
           className='orderInfo'
