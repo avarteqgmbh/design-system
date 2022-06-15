@@ -1,7 +1,7 @@
 import React from 'react'
 import { styled } from '@mui/material/styles'
 import { Points } from '../Points'
-import { Button, Box, Typography, Link } from '../../../components'
+import { Button, Box, Typography } from '../../../components'
 
 export interface OrderItemProps {
   title: string
@@ -14,7 +14,7 @@ export interface OrderItemProps {
   amount?: number
   points: number
   sendAt?: string
-  imageUrl?: string
+  onImageClick?: () => void
   onClick?: () => void
 }
 
@@ -27,7 +27,7 @@ export const OrderItem: React.FC<OrderItemProps> = (props) => {
     amount,
     points,
     sendAt,
-    imageUrl,
+    onImageClick,
     onClick
   } = props
 
@@ -36,9 +36,9 @@ export const OrderItem: React.FC<OrderItemProps> = (props) => {
       {backgroundImage ? (
         <Box className='image' sx={{ backgroundImage: `url(${image})` }} />
       ) : (
-        <Link className='imageWrapper' href={imageUrl} target='_blank'>
+        <Box className='imageWrapper' onClick={onImageClick}>
           <img src={image} alt={title} />
-        </Link>
+        </Box>
       )}
       <Box className='leftContent'>
         <Typography variant='h6' sx={{ fontSize: 16 }}>
