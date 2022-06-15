@@ -2,6 +2,7 @@ import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { OrderStatusCard, OrderStatusCardProps } from './OrderStatusCard'
+import { Container } from '../../../index'
 
 export default {
   title: 'Templates/Cards/OrderStatusCard',
@@ -25,19 +26,27 @@ export default {
 }
 
 const Template: Story<OrderStatusCardProps> = (args) => {
-  return <OrderStatusCard {...args} />
+  return (
+    <Container maxWidth='sm'>
+      <OrderStatusCard {...args} />
+    </Container>
+  )
 }
 
 export const Default = Template.bind({})
 Default.args = {
   orderDate: '12.03.2022',
   orderNumber: 'TK-123104901429',
+  releasedDate: '13.06.2022',
   orderAddress: {
-    name: 'John Doe',
-    company: 'anynines',
-    street: 'Somewhere 55',
-    zip: '12345',
-    city: 'Buxdehude'
+    firstName: 'Max4109',
+    lastName: 'Muster4109',
+    company: 'toyota de',
+    street: 'In der Dalheimer Wiese 21',
+    zip: '5555',
+    city: 'mainhaim',
+    email: 'Muster4109@bumg.de',
+    phone: '06131 4109'
   },
   orderItems: [
     {

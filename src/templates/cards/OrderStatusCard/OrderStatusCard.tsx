@@ -14,22 +14,26 @@ import {
 
 export interface OrderStatusCardProps {
   key: string
-  orderDate: string
+  releasedDate: string
   orderNumber: string
+  points?: number
   orderAddress: {
-    name: string
     company?: string
+    salutation: string
+    firstName: string
+    lastName: string
     street: string
-    zip: string
     city: string
-    phone?: string
-    mail?: string
+    zip: string
+    email: string
+    phone: string
   }
   orderItems: OrderItemProps[]
 }
 
 export const OrderStatusCard: React.FC<OrderStatusCardProps> = (props) => {
-  const { key, orderDate, orderNumber, orderAddress, orderItems } = props
+  const { key, releasedDate, orderNumber, orderAddress, orderItems, points } =
+    props
   const [tooltipOpen, setTooltipOpen] = React.useState(false)
 
   return (
@@ -42,78 +46,99 @@ export const OrderStatusCard: React.FC<OrderStatusCardProps> = (props) => {
       >
         <Box
           className='orderInfo'
-          sx={{ display: 'flex', flex: 1, flexDirection: 'column' }}
+          sx={{
+            display: 'flex',
+            flex: 1.5,
+            flexDirection: 'column'
+          }}
         >
           <Typography variant='button2'>{orderNumber}</Typography>
-          <Box sx={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-            <Typography variant='body2' color='text.secondary'>
-              Bestellung vom:
-            </Typography>
-            <Typography ml={2} variant='button2'>
-              {orderDate}
-            </Typography>
-          </Box>
-        </Box>
-        <Box
-          className='userInfo'
-          sx={{ display: 'flex', flex: 1, flexDirection: 'column' }}
-        >
-          <Typography variant='button2'>Versandadresse</Typography>
           <Box
             sx={{
               display: 'flex',
               alignItems: 'center',
               height: '100%'
             }}
-            onMouseEnter={(): void => {
-              setTooltipOpen(true)
-            }}
-            onMouseLeave={(): void => {
-              setTooltipOpen(false)
-            }}
           >
-            <Typography variant='body2' mr={2}>
-              {orderAddress.name}
+            <Typography variant='body2' color='text.secondary'>
+              Bestellung vom:
             </Typography>
-            <AnyIcon icon='user' />
-          </Box>
-          <Box
-            sx={{
-              position: 'absolute',
-              visibility: tooltipOpen ? 'visible' : 'hidden',
-              opacity: tooltipOpen ? 1 : 0,
-              top: 50,
-              padding: 4,
-              boxShadow: 1,
-              borderRadius: '8px',
-              transition: '200ms ease-in-out',
-              bgcolor: 'background.paper'
-            }}
-          >
-            <Typography>{orderAddress.name}</Typography>
-            <Typography color='text.secondary'>
-              {orderAddress.company}
+            <Typography ml={2} variant='button2'>
+              {releasedDate}
             </Typography>
-            <Divider sx={{ my: 2 }} />
-            <Typography>{orderAddress.street}</Typography>
-            <Box sx={{ display: 'flex', alignItems: 'center', my: 2 }}>
-              <Typography mr={2}>{orderAddress.zip}</Typography>
-              <Typography>{orderAddress.city}</Typography>
-            </Box>
-            {(orderAddress.phone || orderAddress.mail) && (
-              <Divider sx={{ my: 2 }} />
-            )}
-            {orderAddress.phone && (
-              <Typography>{orderAddress.phone}</Typography>
-            )}
-            {orderAddress.mail && <Typography>{orderAddress.mail}</Typography>}
           </Box>
         </Box>
+        {orderAddress && (
+          <Box
+            className='userInfo'
+            sx={{
+              display: 'flex',
+              flex: 1,
+              flexDirection: 'column'
+            }}
+          >
+            <Typography variant='button2'>Versandadresse</Typography>
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                height: '100%'
+              }}
+              onMouseEnter={(): void => {
+                setTooltipOpen(true)
+              }}
+              onMouseLeave={(): void => {
+                setTooltipOpen(false)
+              }}
+            >
+              <Typography variant='body2' mr={2}>
+                {orderAddress.lastName}
+              </Typography>
+              <AnyIcon icon='user' />
+            </Box>
+            <Box
+              sx={{
+                position: 'absolute',
+                visibility: tooltipOpen ? 'visible' : 'hidden',
+                opacity: tooltipOpen ? 1 : 0,
+                top: 50,
+                padding: 4,
+                boxShadow: 1,
+                borderRadius: '8px',
+                transition: '200ms ease-in-out',
+                bgcolor: 'background.paper',
+                zIndex: 1
+              }}
+            >
+              <Typography>
+                {orderAddress.firstName} {orderAddress.lastName}
+              </Typography>
+              <Typography color='text.secondary'>
+                {orderAddress.company}
+              </Typography>
+              <Divider sx={{ my: 2, borderColor: 'text.hint' }} />
+              <Typography>{orderAddress.street}</Typography>
+              <Box sx={{ display: 'flex', alignItems: 'center', my: 2 }}>
+                <Typography mr={2}>{orderAddress.zip}</Typography>
+                <Typography>{orderAddress.city}</Typography>
+              </Box>
+              {(orderAddress.phone || orderAddress.email) && (
+                <Divider sx={{ my: 2, borderColor: 'text.hint' }} />
+              )}
+              {orderAddress.phone && (
+                <Typography>{orderAddress.phone}</Typography>
+              )}
+              {orderAddress.email && (
+                <Typography>{orderAddress.email}</Typography>
+              )}
+            </Box>
+          </Box>
+        )}
         <Box
           className='pointsInfo'
           sx={{
             display: 'flex',
-            flex: 1,
+            flex: 0.5,
             flexDirection: 'column',
             alignItems: 'flex-end',
             mr: 4
@@ -121,9 +146,13 @@ export const OrderStatusCard: React.FC<OrderStatusCardProps> = (props) => {
         >
           <Typography variant='button2'>Summe</Typography>
           <Points
-            points={orderItems.reduce((partialSum, a) => {
-              return partialSum + a.points
-            }, 0)}
+            points={
+              points ||
+              orderItems.reduce((partialSum, a) => {
+                return partialSum + a.points
+              }, 0) ||
+              0
+            }
             size='small'
           />
         </Box>
