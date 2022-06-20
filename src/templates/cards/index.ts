@@ -18,6 +18,11 @@ import {
 } from './VerticalProductCard/VerticalProductCard'
 import { AmountInput } from './AmountInput'
 import { Points } from './Points'
+import { OrderItem, OrderItemProps } from './OrderStatusCard/OrderItem'
+import {
+  OrderStatusCard,
+  OrderStatusCardProps
+} from './OrderStatusCard/OrderStatusCard'
 
 export {
   BaseCard,
@@ -27,7 +32,9 @@ export {
   SelectableCard,
   VerticalProductCard,
   AmountInput,
-  Points
+  Points,
+  OrderItem,
+  OrderStatusCard
 }
 
 export type {
@@ -36,5 +43,7 @@ export type {
   HighlightProductCardProps,
   ProductCardProps,
   SelectableCardProps,
-  VerticalProductCardProps
+  VerticalProductCardProps,
+  OrderItemProps,
+  OrderStatusCardProps
 }

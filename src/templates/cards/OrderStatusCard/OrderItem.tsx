@@ -7,10 +7,14 @@ export interface OrderItemProps {
   title: string
   image: string
   backgroundImage?: boolean
-  variant?: string
+  variant?: {
+    label: string
+    value: string
+  }
   amount?: number
   points: number
   sendAt?: string
+  onImageClick?: () => void
   onClick?: () => void
 }
 
@@ -23,6 +27,7 @@ export const OrderItem: React.FC<OrderItemProps> = (props) => {
     amount,
     points,
     sendAt,
+    onImageClick,
     onClick
   } = props
 
@@ -31,7 +36,7 @@ export const OrderItem: React.FC<OrderItemProps> = (props) => {
       {backgroundImage ? (
         <Box className='image' sx={{ backgroundImage: `url(${image})` }} />
       ) : (
-        <Box className='imageWrapper'>
+        <Box className='imageWrapper' onClick={onImageClick}>
           <img src={image} alt={title} />
         </Box>
       )}
@@ -46,9 +51,9 @@ export const OrderItem: React.FC<OrderItemProps> = (props) => {
               color='text.secondary'
               className='label'
             >
-              Variante:
+              {variant.label}:
             </Typography>
-            <Typography variant='button2'>{variant}</Typography>
+            <Typography variant='button2'>{variant.value}</Typography>
           </Box>
         )}
         {amount && (
@@ -65,21 +70,23 @@ export const OrderItem: React.FC<OrderItemProps> = (props) => {
         )}
         <Points points={points} />
       </Box>
-      <Box className='rightContent'>
-        {sendAt && (
-          <Box className='infoItem'>
-            <Typography
-              variant='label2'
-              color='text.secondary'
-              className='label'
-            >
-              Versendet am:
-            </Typography>
-            <Typography variant='button2'>{sendAt}</Typography>
-          </Box>
-        )}
-        {onClick && <Button onClick={onClick}>Lieferung verfolgen</Button>}
-      </Box>
+      {(sendAt || onClick) && (
+        <Box className='rightContent'>
+          {sendAt && (
+            <Box className='infoItem'>
+              <Typography
+                variant='label2'
+                color='text.secondary'
+                className='label'
+              >
+                Versendet am:
+              </Typography>
+              <Typography variant='button2'>{sendAt}</Typography>
+            </Box>
+          )}
+          {onClick && <Button onClick={onClick}>Lieferung verfolgen</Button>}
+        </Box>
+      )}
     </StyledOrderItem>
   )
 }
