@@ -5,4 +5,5 @@ export interface CodeSnippetProps {
   language?: string
   fileName?: string
   syntaxHighlighterStyle?: React.CSSProperties
+  makeCopy?: () => void
 }

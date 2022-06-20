@@ -12,7 +12,8 @@ export const CodeSnippet: React.FC<CodeSnippetProps> = ({
   value = '',
   language = '',
   syntaxHighlighterStyle = SyntaxHighlighterStyle,
-  fileName = 'Code Example'
+  fileName = 'Code Example',
+  makeCopy
 }) => {
   const lines = value.split('\n').length
   const chars = value.length - lines + 1
@@ -24,7 +25,7 @@ export const CodeSnippet: React.FC<CodeSnippetProps> = ({
           <Typography variant='body2' sx={{ fontWeight: 900 }}>
             {fileName}
           </Typography>
-          <CopyButton value={value} />
+          <CopyButton value={value} makeCopy={makeCopy} />
         </Grid>
         <SyntaxHighlighter
           language={language}
