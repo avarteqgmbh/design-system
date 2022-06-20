@@ -1,13 +1,17 @@
 import React, { useState } from 'react'
-import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { CodeSnippetProps } from './CodeSnippetProps'
 import FileCopyIcon from '@mui/icons-material/FileCopy'
 import { Tooltip } from '../../components/dataDisplay/Tooltip/Tooltip'
 
-export function CopyButton({ value }: CodeSnippetProps): JSX.Element {
+export function CopyButton({ value, makeCopy }: CodeSnippetProps): JSX.Element {
   const [title, setTitle] = useState('copy')
 
-  const changeText = (): void => {
+  const onCopyClick = (): void => {
+    if (makeCopy) {
+      makeCopy()
+    } else {
+      navigator.clipboard.writeText(value)
+    }
     setTitle('copied')
   }
 
@@ -19,18 +23,16 @@ export function CopyButton({ value }: CodeSnippetProps): JSX.Element {
 
   return (
     <div onMouseLeave={handleUnHover}>
-      <CopyToClipboard text={value}>
-        <Tooltip
-          title={title}
-          aria-label='copy'
-          placement='top'
-          sx={{ cursor: 'pointer' }}
-        >
-          <button type='button' onClick={changeText}>
-            <FileCopyIcon fontSize='small' color='primary' />
-          </button>
-        </Tooltip>
-      </CopyToClipboard>
+      <Tooltip
+        title={title}
+        aria-label='copy'
+        placement='top'
+        sx={{ cursor: 'pointer' }}
+      >
+        <button type='button' onClick={onCopyClick}>
+          <FileCopyIcon fontSize='small' color='primary' />
+        </button>
+      </Tooltip>
     </div>
   )
 }
