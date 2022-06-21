@@ -11,11 +11,18 @@ export interface OrderItemProps {
     label: string
     value: string
   }
-  amount?: number
+  amount?: {
+    label: string
+    value: number
+  }
   points: number
-  sendAt?: string
+  sendAt?: {
+    label: string
+    value: string
+  }
   onImageClick?: () => void
   onClick?: () => void
+  trackingLabel?: string
 }
 
 export const OrderItem: React.FC<OrderItemProps> = (props) => {
@@ -28,7 +35,8 @@ export const OrderItem: React.FC<OrderItemProps> = (props) => {
     points,
     sendAt,
     onImageClick,
-    onClick
+    onClick,
+    trackingLabel
   } = props
 
   return (
@@ -63,9 +71,9 @@ export const OrderItem: React.FC<OrderItemProps> = (props) => {
               color='text.secondary'
               className='label'
             >
-              Anzahl:
+              {amount.label}:
             </Typography>
-            <Typography variant='button2'>{amount}</Typography>
+            <Typography variant='button2'>{amount.value}</Typography>
           </Box>
         )}
         <Points points={points} />
@@ -79,12 +87,12 @@ export const OrderItem: React.FC<OrderItemProps> = (props) => {
                 color='text.secondary'
                 className='label'
               >
-                Versendet am:
+                {sendAt.label}:
               </Typography>
-              <Typography variant='button2'>{sendAt}</Typography>
+              <Typography variant='button2'>{sendAt.value}</Typography>
             </Box>
           )}
-          {onClick && <Button onClick={onClick}>Lieferung verfolgen</Button>}
+          {onClick && <Button onClick={onClick}>{trackingLabel}</Button>}
         </Box>
       )}
     </StyledOrderItem>
@@ -148,7 +156,7 @@ const StyledOrderItem = styled(Box)(({ theme }) => {
       flexDirection: 'row',
       alignItems: 'center',
       '& .label': {
-        width: 80,
+        minWidth: 90,
         marginRight: theme.spacing(2)
       }
     }

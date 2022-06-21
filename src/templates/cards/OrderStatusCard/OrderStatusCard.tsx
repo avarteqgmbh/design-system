@@ -14,10 +14,15 @@ import {
 
 export interface OrderStatusCardProps {
   id: string
-  releasedDate: string
+  releasedDate: {
+    label: string
+    value: string
+  }
   orderNumber: string
   points?: number
+  pointsInfoLabel: string
   orderAddress: {
+    label: string
     company?: string
     salutation: string
     firstName: string
@@ -32,8 +37,15 @@ export interface OrderStatusCardProps {
 }
 
 export const OrderStatusCard: React.FC<OrderStatusCardProps> = (props) => {
-  const { id, releasedDate, orderNumber, orderAddress, orderItems, points } =
-    props
+  const {
+    id,
+    releasedDate,
+    orderNumber,
+    orderAddress,
+    orderItems,
+    points,
+    pointsInfoLabel
+  } = props
   const [tooltipOpen, setTooltipOpen] = React.useState(false)
 
   return (
@@ -61,10 +73,10 @@ export const OrderStatusCard: React.FC<OrderStatusCardProps> = (props) => {
             }}
           >
             <Typography variant='body2' color='text.secondary'>
-              Bestellung vom:
+              {releasedDate.label}:
             </Typography>
             <Typography ml={2} variant='button2'>
-              {releasedDate}
+              {releasedDate.value}
             </Typography>
           </Box>
         </Box>
@@ -77,7 +89,7 @@ export const OrderStatusCard: React.FC<OrderStatusCardProps> = (props) => {
               flexDirection: 'column'
             }}
           >
-            <Typography variant='button2'>Versandadresse</Typography>
+            <Typography variant='button2'>{orderAddress.label}</Typography>
             <Box
               sx={{
                 display: 'flex',
@@ -118,7 +130,7 @@ export const OrderStatusCard: React.FC<OrderStatusCardProps> = (props) => {
               </Typography>
               <Divider sx={{ my: 2, borderColor: 'text.hint' }} />
               <Typography>{orderAddress.street}</Typography>
-              <Box sx={{ display: 'flex', alignItems: 'center', my: 2 }}>
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
                 <Typography mr={2}>{orderAddress.zip}</Typography>
                 <Typography>{orderAddress.city}</Typography>
               </Box>
@@ -144,7 +156,7 @@ export const OrderStatusCard: React.FC<OrderStatusCardProps> = (props) => {
             mr: 4
           }}
         >
-          <Typography variant='button2'>Summe</Typography>
+          <Typography variant='button2'>{pointsInfoLabel}</Typography>
           <Points
             points={
               points ||
