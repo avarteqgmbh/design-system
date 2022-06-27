@@ -4,6 +4,7 @@ import { Box, Typography, Chip } from '../../../components'
 
 export interface Tag {
   primary?: boolean
+  hidden?: boolean
   title: string
 }
 
@@ -47,11 +48,11 @@ export const BaseCard: React.FC<CardProps> = (props) => {
         }
       }}
     >
-      {image && (
-        <Box className='imageWrapper'>
+      <Box className='imageWrapper'>
+        {image && (
           <Box className='image' sx={{ backgroundImage: `url(${image})` }} />
-        </Box>
-      )}
+        )}
+      </Box>
       <Box sx={{ p: 4 }}>
         <Box className='subtitleWrapper'>
           {subtitle && (
@@ -63,12 +64,14 @@ export const BaseCard: React.FC<CardProps> = (props) => {
             <Box className='tagsWrapper'>
               {tags.map((item) => {
                 return (
-                  <Chip
-                    label={item.title}
-                    size='small'
-                    sx={{ ml: 2 }}
-                    color={item.primary ? 'primary' : 'default'}
-                  />
+                  !item.hidden && (
+                    <Chip
+                      label={item.title}
+                      size='small'
+                      sx={{ ml: 2 }}
+                      color={item.primary ? 'primary' : 'secondary'}
+                    />
+                  )
                 )
               })}
             </Box>
@@ -99,7 +102,8 @@ const StyledBaseCard = styled(Box)(({ theme }) => {
     '& .imageWrapper': {
       width: '100%',
       height: 180,
-      overflow: 'hidden'
+      overflow: 'hidden',
+      backgroundImage: theme.palette.background.gradient
     },
     '& .image': {
       transition: '200ms all ease-in-out',
