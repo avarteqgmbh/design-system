@@ -1,6 +1,6 @@
 import React from 'react'
 import { styled } from '@mui/material/styles'
-import { Box, Typography, Chip } from '../../../components'
+import { Box, Typography, Chip, Avatar } from '../../../components'
 
 export interface Tag {
   primary?: boolean
@@ -15,6 +15,10 @@ export interface CardProps {
   hoverAnimation?: boolean
   image?: string
   tags?: Tag[]
+  avatar?: {
+    name: string
+    src: string
+  }
   maxWidth?: number
   onClick: () => void
   children?: React.ReactNode
@@ -28,6 +32,7 @@ export const BaseCard: React.FC<CardProps> = (props) => {
     hoverAnimation = true,
     image,
     tags,
+    avatar,
     onClick,
     children,
     maxWidth = 450
@@ -74,6 +79,9 @@ export const BaseCard: React.FC<CardProps> = (props) => {
                   )
                 )
               })}
+              {avatar && (
+                <Avatar alt={avatar.name} src={avatar.src} sx={{ ml: 2 }} />
+              )}
             </Box>
           )}
         </Box>
@@ -122,8 +130,7 @@ const StyledBaseCard = styled(Box)(({ theme }) => {
     '& .tagsWrapper': {
       display: 'flex',
       justifyContent: 'space-between',
-      alignItems: 'center',
-      marginBottom: theme.spacing(2)
+      alignItems: 'center'
     }
   }
 })
