@@ -18,7 +18,9 @@ export interface SearchHeroProps {
     href: string
     onClick?: () => void
   }[]
+  height?: number
   search: boolean
+  searchValue?: string
   searchPlaceholder: string
   onSearchButtonClick: () => void
   title: string
@@ -28,14 +30,18 @@ export const SearchHero: React.FC<SearchHeroProps> = (props) => {
   const {
     bgImage,
     breadcrumbs,
+    height = 400,
     title,
     search,
+    searchValue,
     searchPlaceholder = 'Suche...',
     onSearchButtonClick
   } = props
 
   return (
-    <StyledSearchHero sx={{ backgroundImage: bgImage && `url(${bgImage})` }}>
+    <StyledSearchHero
+      sx={{ backgroundImage: bgImage && `url(${bgImage})`, height }}
+    >
       {breadcrumbs && (
         <Breadcrumbs>
           {breadcrumbs.map((item) => {
@@ -59,6 +65,7 @@ export const SearchHero: React.FC<SearchHeroProps> = (props) => {
           <TextField
             fullWidth
             color='secondary'
+            value={searchValue}
             placeholder={searchPlaceholder}
             InputProps={{
               endAdornment: (
@@ -87,7 +94,6 @@ const StyledSearchHero = styled(Box)(({ theme }) => {
     justifyContent: 'center',
     alignItems: 'center',
     backgroundImage: theme.palette.background.gradient,
-    height: 400,
     width: '100%'
   }
 })
