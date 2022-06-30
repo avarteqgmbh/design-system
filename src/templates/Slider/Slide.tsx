@@ -30,6 +30,7 @@ export const Slide = (props: SlideItem): JSX.Element => {
         backgroundImage: image && `url(${image})`,
         borderRadius: fullWidth ? 0 : '8px'
       }}
+      key={title}
       onClick={(): void => {
         return onClick && onClick()
       }}
@@ -42,6 +43,7 @@ export const Slide = (props: SlideItem): JSX.Element => {
             {tags.map((tag) => {
               return (
                 <Chip
+                  key={tag}
                   color='primary'
                   label={tag}
                   size='small'
