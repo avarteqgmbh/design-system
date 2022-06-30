@@ -23,7 +23,9 @@ export interface SearchHeroProps {
   search?: boolean
   searchValue?: string
   searchPlaceholder?: string
-  onSearchValueChange?: () => void
+  onSearchValueChange?: (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void
   onSearchButtonClick?: () => void
   title: string
 }
@@ -35,7 +37,7 @@ export const SearchHero: React.FC<SearchHeroProps> = (props) => {
     children,
     height = 400,
     title,
-    search,
+    search = false,
     searchValue,
     onSearchValueChange,
     searchPlaceholder = 'Suche...',
