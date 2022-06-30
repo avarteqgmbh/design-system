@@ -11,13 +11,16 @@ import {
   TextField
 } from '../../components'
 
+interface breadcrumb {
+  label: string
+  href: string
+  onClick?: () => void
+}
+
 export interface SearchHeroProps {
   bgImage?: string
-  breadcrumbs?: {
-    label: string
-    href: string
-    onClick?: () => void
-  }[]
+  breadcrumbs?: breadcrumb[]
+  customBreadcrumbs?: React.ReactNode
   children?: React.ReactNode
   height?: number
   search?: boolean
@@ -34,6 +37,7 @@ export const SearchHero: React.FC<SearchHeroProps> = (props) => {
   const {
     bgImage,
     breadcrumbs,
+    customBreadcrumbs,
     children,
     height = 400,
     title,
@@ -63,6 +67,7 @@ export const SearchHero: React.FC<SearchHeroProps> = (props) => {
           })}
         </Breadcrumbs>
       )}
+      {customBreadcrumbs}
       <Typography variant='h2' mt={2} mb={4}>
         {title}
       </Typography>
