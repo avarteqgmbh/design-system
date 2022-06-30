@@ -10,7 +10,7 @@ export interface SlideItem {
   onClick?: () => void
   fullWidth?: boolean
   image?: string
-  tags: string[]
+  tags?: string[]
 }
 
 export const Slide = (props: SlideItem): JSX.Element => {
@@ -27,7 +27,8 @@ export const Slide = (props: SlideItem): JSX.Element => {
   return (
     <StyledSlide
       sx={{
-        backgroundImage: image && `url(${image})`
+        backgroundImage: image && `url(${image})`,
+        borderRadius: fullWidth ? 0 : '8px'
       }}
       onClick={(): void => {
         return onClick && onClick()
@@ -109,7 +110,6 @@ const StyledSlide = styled(Box)(({ theme }) => {
     height: 360,
     backgroundSize: 'cover',
     backgroundPosition: 'center center',
-    borderRadius: theme.radius.card,
     '&.hasNoBgImg': {
       backgroundImage: theme.palette.background.gradient
     },
