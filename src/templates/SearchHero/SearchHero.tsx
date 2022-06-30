@@ -18,11 +18,13 @@ export interface SearchHeroProps {
     href: string
     onClick?: () => void
   }[]
+  children?: React.ReactNode
   height?: number
-  search: boolean
+  search?: boolean
   searchValue?: string
-  searchPlaceholder: string
-  onSearchButtonClick: () => void
+  searchPlaceholder?: string
+  onSearchValueChange?: () => void
+  onSearchButtonClick?: () => void
   title: string
 }
 
@@ -30,10 +32,12 @@ export const SearchHero: React.FC<SearchHeroProps> = (props) => {
   const {
     bgImage,
     breadcrumbs,
+    children,
     height = 400,
     title,
     search,
     searchValue,
+    onSearchValueChange,
     searchPlaceholder = 'Suche...',
     onSearchButtonClick
   } = props
@@ -67,6 +71,7 @@ export const SearchHero: React.FC<SearchHeroProps> = (props) => {
             color='secondary'
             value={searchValue}
             placeholder={searchPlaceholder}
+            onChange={onSearchValueChange}
             InputProps={{
               endAdornment: (
                 <InputAdornment position='end'>
@@ -83,6 +88,7 @@ export const SearchHero: React.FC<SearchHeroProps> = (props) => {
           />
         )}
       </Box>
+      {children}
     </StyledSearchHero>
   )
 }
