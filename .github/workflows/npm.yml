@@ -15,13 +15,11 @@ jobs:
           registry-url: "https://npm.pkg.github.com"
       - env:
           PKG_ACCESS_TOKEN: ${{ secrets.PKG_ACCESS_TOKEN }}
-        run:
+        run: |
           echo "//npm.pkg.github.com/:_authToken=${PKG_ACCESS_TOKEN}" >> ~/.npmrc
           yarn config set "@avarteqgmbh:registry" "https://npm.pkg.github.com"
           yarn install
-      - env:
-          PKG_ACCESS_TOKEN: ${{ secrets.PKG_ACCESS_TOKEN }}
-        run: yarn build
+      - run: yarn build
       - env:
           NODE_AUTH_TOKEN: ${{ secrets.PKG_ACCESS_TOKEN }}
         run: yarn publish
