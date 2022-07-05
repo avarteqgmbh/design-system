@@ -6,18 +6,19 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      PKG_ACCESS_TOKEN: ${{ secrets.PKG_ACCESS_TOKEN }}
     steps:
       - uses: actions/checkout@v2
       # Setup .npmrc file to publish to npm
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v3
         with:
-          node-version: "12.x"
+          node-version: "16.x"
           registry-url: "https://npm.pkg.github.com"
-      - run:
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.PKG_ACCESS_TOKEN }}" >> ~/.npmrc
+      - name: yarn install
+        run: |
+          echo "//npm.pkg.github.com/:_authToken=${PKG_ACCESS_TOKEN}" >> ~/.npmrc
           yarn config set "@avarteqgmbh:registry" "https://npm.pkg.github.com"
-          yarn
+          yarn install
       - run: yarn build
       - run: yarn publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.PKG_ACCESS_TOKEN }}
