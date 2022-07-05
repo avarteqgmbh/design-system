@@ -1,10 +1,15 @@
 import React from 'react'
 import MuiCard, { CardProps as MuiCardProps } from '@mui/material/Card'
+import { styled } from '@mui/material/styles'
 
-const Card: React.FC<MuiCardProps> = (props) => {
+export const Card: React.FC<MuiCardProps> = (props) => {
   const { children } = props
 
-  return <MuiCard {...props}>{children}</MuiCard>
+  return <StyledMuiCard {...props}>{children}</StyledMuiCard>
 }
 
-export default Card
+const StyledMuiCard = styled(MuiCard)(({ theme }) => {
+  return {
+    borderRadius: theme.radius.card
+  }
+})

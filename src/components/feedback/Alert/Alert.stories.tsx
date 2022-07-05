@@ -42,10 +42,10 @@ export default {
     variant: {
       control: 'radio',
       options: ['filled', 'outlined', 'standard'],
-      defaultValue: 'standard',
+      defaultValue: 'filled',
       table: {
         type: { summary: 'filled | outlined | standard' },
-        defaultValue: { summary: 'standard' }
+        defaultValue: { summary: 'filled' }
       }
     }
   },

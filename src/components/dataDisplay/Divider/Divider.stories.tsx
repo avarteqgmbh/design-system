@@ -35,6 +35,7 @@ const Template: Story<DividerProps> = (args) => {
 
   return (
     <>
+      <Divider {...args} />
       {content}
       <Divider {...args}>
         <Typography>Label</Typography>

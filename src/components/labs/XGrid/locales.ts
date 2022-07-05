@@ -139,5 +139,9 @@ export const GRID_DE_LOCALE_TEXT: GridLocaleText = {
   rowReorderingHeaderName: 'Neu Ordnen',
 
   // Used core components translation keys
-  MuiTablePagination: {}
+  MuiTablePagination: {},
+  toolbarQuickFilterPlaceholder: '',
+  toolbarQuickFilterLabel: '',
+  toolbarQuickFilterDeleteIconLabel: '',
+  toolbarExportExcel: ''
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { AvatarProps } from '@mui/material'
-import { Folder as FolderIcon } from '@mui/icons-material'
+import FolderIcon from '@mui/icons-material/Folder'
 
 import { Avatar } from './Avatar'
 import { AvatarGroup } from './AvatarGroup'

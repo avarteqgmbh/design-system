@@ -1,43 +1,38 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from 'react'
 import { Button as MuiButton, ButtonProps } from '@mui/material'
-import { Theme } from '../../../theme/types'
+import { styled } from '@mui/material/styles'
 
-export function Button(props: ButtonProps): JSX.Element {
-  const { variant = 'contained', color = 'primary', sx } = props
+export const Button: React.FC<ButtonProps> = (props) => {
+  const { variant = 'contained', color = 'primary' } = props
 
-  return (
-    <MuiButton
-      // @ts-ignore
-      sx={{ ...sx, ...styles }}
-      variant={variant}
-      color={color}
-      {...props}
-    />
-  )
+  return <StyledButton {...props} variant={variant} color={color} />
 }
 
-const styles = {
-  display: 'flex',
-  paddingTop: 3,
-  paddingBottom: 3,
-  paddingLeft: 5,
-  paddingRight: 5,
-  borderRadius: (theme: Theme): string => {
-    return `${theme.radius.button}px`
-  },
-  boxShadow: 'none',
+const StyledButton = styled(MuiButton)(({ theme }) => {
+  return {
+    display: 'flex',
+    textTransform: 'none',
+    padding: theme.spacing(3, 5),
+    fontWeight: 'bold',
+    borderRadius: theme.radius.button,
+    boxShadow: 'none',
 
-  '&.MuiButton-sizeLarge': {
-    paddingTop: 4,
-    paddingBottom: 4,
-    paddingLeft: 6,
-    paddingRight: 6
-  },
-  '&.MuiButton-sizeSmall': {
-    paddingTop: 2,
-    paddingBottom: 2,
-    paddingLeft: 4,
-    paddingRight: 4
+    '&.MuiButton-containedSecondary': {
+      backgroundColor: theme.palette.background.light,
+      color: theme.palette.text.primary
+    },
+
+    '&.Mui-disabled': {
+      backgroundColor: theme.palette.background.medium,
+      color: theme.palette.text.disabled
+    },
+
+    '&.MuiButton-sizeLarge': {
+      padding: theme.spacing(4, 6)
+    },
+
+    '&.MuiButton-sizeSmall': {
+      padding: theme.spacing(2, 4)
+    }
   }
-}
+})

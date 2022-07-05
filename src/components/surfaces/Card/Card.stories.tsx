@@ -1,11 +1,15 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { CardProps, Avatar, IconButton, Collapse } from '@mui/material'
-import { Check, Share, Favorite, ExpandMore } from '@mui/icons-material'
+import { CardProps, Collapse } from '@mui/material'
+import { Avatar, IconButton } from '../../index'
+import Check from '@mui/icons-material/Check'
+import ExpandMore from '@mui/icons-material/ExpandMore'
+import Favorite from '@mui/icons-material/Favorite'
+import Share from '@mui/icons-material/Share'
 
 import { Typography, Button } from '../../index'
-import Card from './Card'
+import { Card } from './Card'
 import { CardContent } from './CardContent'
 import { CardActions } from './CardActions'
 import { CardActionArea } from './CardActionArea'
@@ -105,7 +109,7 @@ export const ComplexInteraction: Story<CardProps> = (args) => {
       <CardHeader
         avatar={<Avatar aria-label='recipe'>R</Avatar>}
         action={
-          <IconButton aria-label='settings'>
+          <IconButton aria-label='settings' border={false} background={false}>
             <Check />
           </IconButton>
         }
@@ -125,13 +129,15 @@ export const ComplexInteraction: Story<CardProps> = (args) => {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label='add to favorites'>
+        <IconButton aria-label='add to favorites' border={false} background={false}>
           <Favorite />
         </IconButton>
-        <IconButton aria-label='share'>
+        <IconButton aria-label='share' border={false} background={false}>
           <Share />
         </IconButton>
         <IconButton
+          border={false}
+          background={false}
           onClick={handleExpandClick}
           aria-expanded={expanded}
           aria-label='show more'

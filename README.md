@@ -7,12 +7,14 @@ The Design System 2.0 builds on Material UI (MUI) to provide a maintained and bu
 
 ## 📦 Installation
 
+You first need to setup github private package access via [confluence](https://anynines.atlassian.net/wiki/spaces/B/pages/400523269/Setup+private+github+packages+repos+with+yarn+and+bundler).
+
 ```bash
 # yarn
-yarn add anynines/a9s-design-system
+yarn add avarteqgmbh/a9s-design-system
 
 # npm
-npm install anynines/a9s-design-system
+npm install avarteqgmbh/a9s-design-system
 ```
 
 ## ✨ Available Scripts
@@ -48,7 +50,7 @@ Restart your terminal afterwards. Then run:
 To use MUI premium components like the `XGrid` or `DateRangePicker` you need to add a .env file to your root directory and add your MUI License key like this:
 
 ```
-REACT_APP_MUI_LICENSE="..."
+REACT_APP_MUI_LICENSE_KEY="..."
 ```
 
 Find license key in 1Password as _MUI License key_, if you don't have access pm DL.

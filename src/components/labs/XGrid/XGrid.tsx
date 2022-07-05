@@ -13,9 +13,9 @@ import {
   GridToolbarDensitySelector,
   GridCsvExportOptions,
   useGridApiRef,
-  GridApiRef,
-  LicenseInfo
+  GridApiRef
 } from '@mui/x-data-grid-pro'
+import { LicenseInfo } from '@mui/x-license-pro'
 import { GRID_DE_LOCALE_TEXT } from './locales'
 import { QuickSearch } from './QuickSearch'
 import {
@@ -24,7 +24,7 @@ import {
   LoadLocalStorage
 } from './localStorageHelper'
 
-LicenseInfo.setLicenseKey(process.env.REACT_APP_MUI_LICENSE || '')
+LicenseInfo.setLicenseKey(process.env.REACT_APP_MUI_LICENSE_KEY || '')
 
 export interface XGridProps extends DataGridProProps {
   customApiRef: GridApiRef
@@ -97,7 +97,7 @@ export function XGrid(props: XGridProps): JSX.Element {
     ) {
       RegisterLocalStorageEvents(customApiRef, tableConfig, setTableConfig)
     }
-  }, [customApiRef, localStorageKey])
+  }, [customApiRef, localStorageKey, setTableConfig, tableConfig])
 
   React.useEffect(() => {
     if (
@@ -139,6 +139,14 @@ const styles = {
     '& .MuiButton-root.MuiButton-text': {
       marginRight: 2
     }
+  },
+
+  '& .MuiDataGrid-menuIconButton, .MuiIconButton-root': {
+    color: 'text.secondary'
+  },
+
+  '& .MuiDataGrid-pinnedColumnHeaders, .MuiDataGrid-pinnedColumns': {
+    bgcolor: 'background.light'
   }
 }
 

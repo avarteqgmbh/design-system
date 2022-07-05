@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Box } from '../../layout/Box/Box'
+
 // A
 import ArrowUpRight from './assets/arrowUpRight'
 
@@ -21,6 +23,10 @@ import Check from './assets/check'
 import Close from './assets/close'
 import Club from './assets/club'
 import Coin from './assets/coin'
+import CoinAlt from './assets/coinAlt'
+import Coins from './assets/coins'
+import CoinStack from './assets/coinStack'
+import CoinStackAlt from './assets/coinStackAlt'
 import Color from './assets/color'
 import ColorTransparent from './assets/colorTransparent'
 import Customer from './assets/customer'
@@ -96,6 +102,7 @@ import Pipette from './assets/pipette'
 import Placeholder from './assets/placeholder'
 import Plus from './assets/plus'
 import Points from './assets/points'
+import PointsAlt from './assets/pointsAlt'
 
 // R
 import Random from './assets/random'
@@ -132,13 +139,14 @@ import Wishlist from './assets/wishlist'
 
 // I N T E R F A C E S
 export interface IconProps {
+  hasContrastColor?: boolean
   icon?: IconName
   size?: IconSize
   className?: string
 }
 
 // T Y P E S
-export type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+export type IconSize = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'
 
 export type IconName =
   | 'arrowUpRight'
@@ -155,6 +163,10 @@ export type IconName =
   | 'close'
   | 'club'
   | 'coin'
+  | 'coinAlt'
+  | 'coins'
+  | 'coinStack'
+  | 'coinStackAlt'
   | 'color'
   | 'customer'
   | 'dashboard'
@@ -201,6 +213,7 @@ export type IconName =
   | 'placeholder'
   | 'plus'
   | 'points'
+  | 'pointsAlt'
   | 'random'
   | 'remove'
   | 'rocket'
@@ -249,6 +262,10 @@ const ICONS: { [key in IconName]: JSX.Element } = {
   close: <Close />,
   club: <Club />,
   coin: <Coin />,
+  coinAlt: <CoinAlt />,
+  coins: <Coins />,
+  coinStack: <CoinStack />,
+  coinStackAlt: <CoinStackAlt />,
   color: <Color />,
   customer: <Customer />,
   dashboard: <Dashboard />,
@@ -295,6 +312,7 @@ const ICONS: { [key in IconName]: JSX.Element } = {
   placeholder: <Placeholder />,
   plus: <Plus />,
   points: <Points />,
+  pointsAlt: <PointsAlt />,
   random: <Random />,
   remove: <Remove />,
   rocket: <Rocket />,
@@ -332,27 +350,70 @@ const ICONS: { [key in IconName]: JSX.Element } = {
 // C O M P O N E N T
 export const AnyIcon: React.FC<IconProps> = ({
   className,
+  hasContrastColor = false,
   icon = 'menu',
-  size = 'sm'
+  size = 'small'
 }) => {
   return (
-    <i className={`icon ${className} ${size}`} style={styles}>
+    <Box
+      className={`icon ${className} ${size} ${
+        hasContrastColor && 'contrastColor'
+      }`}
+      sx={styles}
+    >
       {ICONS[icon]}
-    </i>
+    </Box>
   )
 }
 
 const styles = {
-  width: 4,
-  height: 4,
+  width: 16,
+  height: 16,
+  maxWidth: 16,
+  maxHeight: 16,
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+  color: 'text.primary',
+  transition: '200ms all ease-in-out',
+
+  '&.contrastColor': {
+    color: 'primary.contrastText'
+  },
 
   '& svg': {
     width: 'inherit',
     height: 'inherit',
-    maxWidth: 4,
-    maxHeight: 4
+    color: 'inherit',
+    maxWidth: 'inherit',
+    maxHeight: 'inherit'
+  },
+
+  '&.xsmall': {
+    width: 8,
+    height: 8,
+    maxWidth: 8,
+    maxHeight: 8
+  },
+
+  '&.small': {
+    width: 12,
+    height: 12,
+    maxWidth: 12,
+    maxHeight: 12
+  },
+
+  '&.large': {
+    width: 20,
+    height: 20,
+    maxWidth: 20,
+    maxHeight: 20
+  },
+
+  '&.xlarge': {
+    width: 24,
+    height: 24,
+    maxWidth: 24,
+    maxHeight: 24
   }
 }

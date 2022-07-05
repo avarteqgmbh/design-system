@@ -45,15 +45,6 @@ export default {
         defaultValue: { summary: -1 }
       }
     },
-    blurOnSelect: {
-      control: { type: 'select' },
-      options: ['mouse', 'touch', false],
-      defaultValue: 'false',
-      table: {
-        type: { summary: 'select' },
-        defaultValue: { summary: 'false' }
-      }
-    },
     autoHighlight: {
       control: { type: 'boolean' },
       defaultValue: false,

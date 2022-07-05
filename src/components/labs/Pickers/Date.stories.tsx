@@ -1,15 +1,16 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { DateRange } from '@mui/lab/DateRangePicker'
+import { DatePickerProps, DateTimePickerProps } from '@mui/x-date-pickers'
+import { DateRange, DateRangePickerProps } from '@mui/x-date-pickers-pro'
 import { TextField } from '../../index'
 
 import { DatePicker } from './Date'
 import { DateTimePicker as DsDateTimePicker } from './DateTime'
 import {
-  DateRangePicker as DsDateRangePicker,
-  DatetimeProps
+  DateRangePicker as DsDateRangePicker
 } from './DateRange'
+import { TextFieldProps } from '@mui/material'
 
 export default {
   title: 'Lab/DateTime',
@@ -24,7 +25,7 @@ export default {
   }
 }
 
-export const BasicDatePicker: Story<DatetimeProps> = (args) => {
+export const BasicDatePicker: Story<DatePickerProps<unknown, Date>> = (args) => {
   const [value, setValue] = React.useState<Date | null>(new Date())
 
   return (
@@ -42,7 +43,7 @@ export const BasicDatePicker: Story<DatetimeProps> = (args) => {
   )
 }
 
-export const DateTimePicker: Story<DatetimeProps> = (args) => {
+export const DateTimePicker: Story<DateTimePickerProps<unknown, Date>> = (args) => {
   const [value, setValue] = React.useState<Date | null>(new Date())
 
   return (
@@ -60,7 +61,7 @@ export const DateTimePicker: Story<DatetimeProps> = (args) => {
   )
 }
 
-export const DateRangePicker: Story<DatetimeProps> = (args) => {
+export const DateRangePicker: Story<DateRangePickerProps<unknown, Date>> = (args) => {
   const getInitialDateFilters = (): DateRange<Date> => {
     const thirtyDaysInMilliSeconds = 30 * 24 * 60 * 60000
     const from = new Date(Date.now() - thirtyDaysInMilliSeconds)
@@ -80,12 +81,30 @@ export const DateRangePicker: Story<DatetimeProps> = (args) => {
   return (
     <DsDateRangePicker
       {...args}
-      dateRange={dates}
-      onChange={(dateRange): void => {
+      onChange={(dateRange: DateRange<Date>): void => {
         const valid = isDateRangeValid(dateRange)
         if (valid) {
           setDates(dateRange)
         }
+      }}
+      startText='Von'
+      endText='Bis'
+      value={dates}
+      toolbarTitle='Wähle einen Zeitraum'
+      renderInput={(
+        startProps: TextFieldProps,
+        endProps: TextFieldProps
+      ): JSX.Element => {
+        return (
+          <>
+            <TextField
+              {...startProps}
+              label='Von'
+              sx={{ marginRight: 4 }}
+            />
+            <TextField {...endProps} label='Bis' />
+          </>
+        )
       }}
     />
   )

@@ -1,7 +1,8 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 import { ChipProps } from '@mui/material'
-import { Check, Delete } from '@mui/icons-material'
+import Check from '@mui/icons-material/Check'
+import Delete from '@mui/icons-material/Delete'
 
 import { Chip } from './Chip'
 import { Avatar } from '../Avatar/Avatar'

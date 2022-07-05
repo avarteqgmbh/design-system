@@ -43,6 +43,8 @@ export function QuickSearch(props: QuickSearchProps): JSX.Element {
               size='small'
               style={{ visibility: value ? 'visible' : 'hidden' }}
               onClick={clearSearch}
+              background={false}
+              border={false}
             >
               <ClearIcon fontSize='small' />
             </IconButton>
@@ -57,6 +59,8 @@ export function QuickSearch(props: QuickSearchProps): JSX.Element {
         onClick={(): void => {
           onClick(value)
         }}
+        background={false}
+        border={false}
       >
         <SearchIcon fontSize='medium' />
       </IconButton>

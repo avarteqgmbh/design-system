@@ -1,51 +1,48 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from 'react'
 import {
   TextField as MuiTextField,
   TextFieldProps as MuiTextFieldProps
 } from '@mui/material'
-import { Theme } from '../../../theme/types'
+import { styled } from '@mui/material/styles'
 
-export function TextField(props: MuiTextFieldProps): JSX.Element {
-  const { variant = 'outlined', sx } = props
+export const TextField: React.FC<MuiTextFieldProps> = (props) => {
+  const { variant = 'outlined' } = props
 
-  return (
-    <MuiTextField
-      // @ts-ignore
-      sx={{ ...sx, ...styles }}
-      variant={variant}
-      {...props}
-    />
-  )
+  return <StyledMuiTextField variant={variant} {...props} />
 }
 
-const styles = {
-  bgcolor: 'inherit',
-  borderRadius: (theme: Theme): string => {
-    return `${theme.radius.medium}px`
-  },
-
-  '& .MuiFilledInput-root': {
-    borderRadius: (theme: Theme): string => {
-      return `${theme.radius.medium}px`
+const StyledMuiTextField = styled(MuiTextField)(({ theme }) => {
+  return {
+    borderRadius: theme.radius.medium,
+    '& svg': {
+      color: theme.palette.text.primary
     },
-    overflow: 'hidden',
-    '&:before': {
-      opacity: 0
-    }
-  },
-
-  '& .MuiInputLabel-root': {
-    color: 'text.secondary',
-
-    '&.Mui-focused': {
-      color: 'primary.main'
-    }
-  },
-
-  '&:hover': {
+    '& .MuiInput-underline': {
+      '&:before': {
+        borderColor: theme.palette.background.border
+      }
+    },
+    '& .MuiOutlinedInput-root': {
+      backgroundColor: theme.palette.background.input
+    },
+    '& .MuiFilledInput-root': {
+      backgroundColor: theme.palette.background.input,
+      borderRadius: theme.radius.medium,
+      overflow: 'hidden',
+      '&:before': {
+        opacity: 0
+      }
+    },
     '& .MuiInputLabel-root': {
-      color: 'text.primary'
+      color: theme.palette.text.secondary,
+      '&.Mui-focused': {
+        color: theme.palette.primary.main
+      }
+    },
+    '&:hover': {
+      '& .MuiInputLabel-root': {
+        color: theme.palette.text.primary
+      }
     }
   }
-}
+})

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { useState } from 'react'
 import {
   GridColumnResizeParams,
@@ -19,7 +21,6 @@ export function useLocalStorage<T>(key: string, initialValue: T): any {
       return item ? JSON.parse(item) : initialValue
     } catch (error) {
       // If error also return initialValue
-      console.log(error)
       return initialValue
     }
   })
@@ -37,7 +38,6 @@ export function useLocalStorage<T>(key: string, initialValue: T): any {
       window.localStorage.setItem(key, JSON.stringify(valueToStore))
     } catch (error) {
       // A more advanced implementation would handle the error case
-      console.log(error)
     }
   }
   return [storedValue, setValue] as const
@@ -46,9 +46,7 @@ export function useLocalStorage<T>(key: string, initialValue: T): any {
 // RegisterLocalStorageEvents
 export function RegisterLocalStorageEvents(
   dsApiRef: GridApiRef,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   tableConfig: any,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   setTableConfig: any
 ): void {
   dsApiRef.current.subscribeEvent(

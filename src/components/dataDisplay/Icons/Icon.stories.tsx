@@ -1,13 +1,14 @@
 import React from 'react'
 import { Story } from '@storybook/react'
-import { IconButtonProps, SvgIconProps } from '@mui/material'
-import { AccessAlarm } from '@mui/icons-material'
+import { SvgIconProps, IconProps } from '@mui/material'
+import AccessAlarm from '@mui/icons-material/AccessAlarm'
 
-import { IconButton as MUIIconButton } from './IconButton'
+import { Icon as MUIIcon } from './Icon'
+import { IconButton as MUIIconButton, IconButtonProps } from './IconButton'
 import { SvgIcon as MUISvgIcon } from './SvgIcon'
 
 export default {
-  title: 'Data Display/Icon',
+  title: 'Data Display/Icons & IconButton',
   component: MUIIconButton,
   argTypes: {
     onClick: {
@@ -27,8 +28,12 @@ export default {
   }
 }
 
-const IconButtonTemplate: Story<IconButtonProps> = (args) => {
-  return <MUIIconButton {...args} />
+const IconTemplate: Story<IconProps> = (args) => {
+  return (
+    <MUIIcon {...args}>
+      <AccessAlarm />
+    </MUIIcon>
+  )
 }
 
 const SvgIconTemplate: Story<SvgIconProps> = (args) => {
@@ -39,12 +44,20 @@ const SvgIconTemplate: Story<SvgIconProps> = (args) => {
   )
 }
 
-export const IconButton = IconButtonTemplate.bind({})
-IconButton.args = {
-  children: <AccessAlarm />
+const IconButtonTemplate: Story<IconButtonProps> = (args) => {
+  return <MUIIconButton {...args} />
 }
+
+
+export const Icon = IconTemplate.bind({})
 
 export const SvgIcon = SvgIconTemplate.bind({})
 SvgIcon.args = {
   color: 'primary'
 }
+
+export const IconButton = IconButtonTemplate.bind({})
+IconButton.args = {
+  children: <AccessAlarm />
+}
+
