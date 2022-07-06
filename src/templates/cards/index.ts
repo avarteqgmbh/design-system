@@ -18,6 +18,7 @@ import {
 } from './VerticalProductCard/VerticalProductCard'
 import { AmountInput } from './AmountInput'
 import { Points } from './Points'
+import { ThousandSeparator } from './ThousandSeparator'
 import { OrderItem, OrderItemProps } from './OrderStatusCard/OrderItem'
 import {
   OrderStatusCard,
@@ -33,6 +34,7 @@ export {
   VerticalProductCard,
   AmountInput,
   Points,
+  ThousandSeparator,
   OrderItem,
   OrderStatusCard
 }

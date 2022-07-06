@@ -11,6 +11,7 @@ export {
   VerticalProductCard,
   AmountInput,
   Points,
+  ThousandSeparator,
   OrderItem,
   OrderStatusCard
 } from './cards/index'

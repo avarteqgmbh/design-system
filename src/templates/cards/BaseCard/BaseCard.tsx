@@ -1,9 +1,10 @@
 import React from 'react'
 import { styled } from '@mui/material/styles'
-import { Box, Typography, Chip } from '../../../components'
+import { Box, Typography, Chip, Avatar } from '../../../components'
 
 export interface Tag {
   primary?: boolean
+  hidden?: boolean
   title: string
 }
 
@@ -14,6 +15,10 @@ export interface CardProps {
   hoverAnimation?: boolean
   image?: string
   tags?: Tag[]
+  avatar?: {
+    name: string
+    src: string
+  }
   maxWidth?: number
   onClick: () => void
   children?: React.ReactNode
@@ -27,6 +32,7 @@ export const BaseCard: React.FC<CardProps> = (props) => {
     hoverAnimation = true,
     image,
     tags,
+    avatar,
     onClick,
     children,
     maxWidth = 450
@@ -47,11 +53,11 @@ export const BaseCard: React.FC<CardProps> = (props) => {
         }
       }}
     >
-      {image && (
-        <Box className='imageWrapper'>
+      <Box className='imageWrapper'>
+        {image && (
           <Box className='image' sx={{ backgroundImage: `url(${image})` }} />
-        </Box>
-      )}
+        )}
+      </Box>
       <Box sx={{ p: 4 }}>
         <Box className='subtitleWrapper'>
           {subtitle && (
@@ -63,14 +69,19 @@ export const BaseCard: React.FC<CardProps> = (props) => {
             <Box className='tagsWrapper'>
               {tags.map((item) => {
                 return (
-                  <Chip
-                    label={item.title}
-                    size='small'
-                    sx={{ ml: 2 }}
-                    color={item.primary ? 'primary' : 'default'}
-                  />
+                  !item.hidden && (
+                    <Chip
+                      label={item.title}
+                      size='small'
+                      sx={{ ml: 2 }}
+                      color={item.primary ? 'primary' : 'secondary'}
+                    />
+                  )
                 )
               })}
+              {avatar && (
+                <Avatar alt={avatar.name} src={avatar.src} sx={{ ml: 2 }} />
+              )}
             </Box>
           )}
         </Box>
@@ -99,7 +110,8 @@ const StyledBaseCard = styled(Box)(({ theme }) => {
     '& .imageWrapper': {
       width: '100%',
       height: 180,
-      overflow: 'hidden'
+      overflow: 'hidden',
+      backgroundImage: theme.palette.background.gradient
     },
     '& .image': {
       transition: '200ms all ease-in-out',
@@ -118,8 +130,7 @@ const StyledBaseCard = styled(Box)(({ theme }) => {
     '& .tagsWrapper': {
       display: 'flex',
       justifyContent: 'space-between',
-      alignItems: 'center',
-      marginBottom: theme.spacing(2)
+      alignItems: 'center'
     }
   }
 })

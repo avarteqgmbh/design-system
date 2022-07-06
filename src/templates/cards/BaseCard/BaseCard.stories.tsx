@@ -41,3 +41,19 @@ Default.args = {
     { primary: false, title: 'TKG' }
   ]
 }
+
+export const WithAvatar = Template.bind({})
+Default.args = {
+  title: 'Title with Avatar',
+  subtitle: '12.04.2022',
+  description: 'LoremIpsum',
+  image:
+    'https://images.pexels.com/photos/2468056/pexels-photo-2468056.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+  tags: [
+    { primary: true, title: 'Neu' }
+  ],
+  avatar: {
+    name: 'Max Muster',
+    src: 'https://mui.com/static/images/avatar/1.jpg'
+  }
+}

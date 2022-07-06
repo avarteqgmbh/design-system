@@ -11,16 +11,25 @@ import {
   TextField
 } from '../../components'
 
+interface breadcrumb {
+  label: string
+  href: string
+  onClick?: () => void
+}
+
 export interface SearchHeroProps {
   bgImage?: string
-  breadcrumbs?: {
-    label: string
-    href: string
-    onClick?: () => void
-  }[]
-  search: boolean
-  searchPlaceholder: string
-  onSearchButtonClick: () => void
+  breadcrumbs?: breadcrumb[]
+  customBreadcrumbs?: React.ReactNode
+  children?: React.ReactNode
+  height?: number
+  search?: boolean
+  searchValue?: string
+  searchPlaceholder?: string
+  onSearchValueChange?: (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void
+  onSearchButtonClick?: () => void
   title: string
 }
 
@@ -28,14 +37,21 @@ export const SearchHero: React.FC<SearchHeroProps> = (props) => {
   const {
     bgImage,
     breadcrumbs,
+    customBreadcrumbs,
+    children,
+    height = 400,
     title,
-    search,
+    search = false,
+    searchValue,
+    onSearchValueChange,
     searchPlaceholder = 'Suche...',
     onSearchButtonClick
   } = props
 
   return (
-    <StyledSearchHero sx={{ backgroundImage: bgImage && `url(${bgImage})` }}>
+    <StyledSearchHero
+      sx={{ backgroundImage: bgImage && `url(${bgImage})`, height }}
+    >
       {breadcrumbs && (
         <Breadcrumbs>
           {breadcrumbs.map((item) => {
@@ -51,6 +67,7 @@ export const SearchHero: React.FC<SearchHeroProps> = (props) => {
           })}
         </Breadcrumbs>
       )}
+      {customBreadcrumbs}
       <Typography variant='h2' mt={2} mb={4}>
         {title}
       </Typography>
@@ -59,7 +76,9 @@ export const SearchHero: React.FC<SearchHeroProps> = (props) => {
           <TextField
             fullWidth
             color='secondary'
+            value={searchValue}
             placeholder={searchPlaceholder}
+            onChange={onSearchValueChange}
             InputProps={{
               endAdornment: (
                 <InputAdornment position='end'>
@@ -76,6 +95,7 @@ export const SearchHero: React.FC<SearchHeroProps> = (props) => {
           />
         )}
       </Box>
+      {children}
     </StyledSearchHero>
   )
 }
@@ -87,7 +107,6 @@ const StyledSearchHero = styled(Box)(({ theme }) => {
     justifyContent: 'center',
     alignItems: 'center',
     backgroundImage: theme.palette.background.gradient,
-    height: 400,
     width: '100%'
   }
 })

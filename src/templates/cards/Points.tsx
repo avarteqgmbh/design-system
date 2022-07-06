@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { AnyIcon, Box, Skeleton, Typography } from '../../components'
+import { ThousandSeparator } from './ThousandSeparator'
 
 interface Props {
   points?: number
@@ -29,7 +30,7 @@ export const Points = ({ points, size = 'small' }: Props): JSX.Element => {
         ml={1}
         sx={{ fontSize: height }}
       >
-        {(points && points) || <Skeleton />}
+        {(points && <ThousandSeparator number={points} />) || <Skeleton />}
       </Typography>
     </Box>
   )
