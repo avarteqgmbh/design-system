@@ -50,7 +50,7 @@ Restart your terminal afterwards. Then run:
 To use MUI premium components like the `XGrid` or `DateRangePicker` you need to add a .env file to your root directory and add your MUI License key like this:
 
 ```
-REACT_APP_MUI_LICENSE="..."
+REACT_APP_MUI_LICENSE_KEY="..."
 ```
 
 Find license key in 1Password as _MUI License key_, if you don't have access pm DL.

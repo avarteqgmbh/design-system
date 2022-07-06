@@ -13,9 +13,9 @@ import {
   GridToolbarDensitySelector,
   GridCsvExportOptions,
   useGridApiRef,
-  GridApiRef,
-  LicenseInfo
+  GridApiRef
 } from '@mui/x-data-grid-pro'
+import { LicenseInfo } from '@mui/x-license-pro'
 import { GRID_DE_LOCALE_TEXT } from './locales'
 import { QuickSearch } from './QuickSearch'
 import {
@@ -24,7 +24,7 @@ import {
   LoadLocalStorage
 } from './localStorageHelper'
 
-LicenseInfo.setLicenseKey(process.env.REACT_APP_MUI_LICENSE || '')
+LicenseInfo.setLicenseKey(process.env.REACT_APP_MUI_LICENSE_KEY || '')
 
 export interface XGridProps extends DataGridProProps {
   customApiRef: GridApiRef
