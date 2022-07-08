@@ -59,6 +59,10 @@ export type { MobileUserNavProps } from './MobileHeader/MobileUserNav'
 export type { Category, MobileShopNavProps } from './MobileHeader/MobileShopNav'
 export type { MobileShopNavItemProps } from './MobileHeader/MobileShopNav/MobileShopNavItem'
 
+// Hero
+export { Hero } from './Hero/Hero'
+export type { HeroProps } from './Hero/Hero'
+
 // Footer
 export { Footer } from './Footer/Footer'
 export type { Link as FooterLink, FooterProps } from './Footer/Footer'
@@ -70,9 +74,9 @@ export type { LanguageSelectProps } from './LanguageSelect/LanguageSelect'
 // Modal
 export { Modal } from './Modal/Modal'
 
-// Search Hero
-export { SearchHero } from './SearchHero/SearchHero'
-export type { SearchHeroProps } from './SearchHero/SearchHero'
+// Search
+export { Search } from './Search/Search'
+export type { SearchProps } from './Search/Search'
 
 // Slider
 export { Slider } from './Slider/Slider'

@@ -34,6 +34,11 @@ export function QuickSearch(props: QuickSearchProps): JSX.Element {
         onChange={(event): void => {
           return setValue(event.target.value)
         }}
+        onKeyPress={(event): void => {
+          if (event.key === 'Enter' && onClick) {
+            onClick(value)
+          }
+        }}
         placeholder='Suchen…'
         InputProps={{
           endAdornment: (
