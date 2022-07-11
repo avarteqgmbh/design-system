@@ -78,9 +78,6 @@ const classes = {
     alignItems: 'center',
     justifyContent: 'space-between',
     minHeight: 40,
-    borderStyle: 'solid',
-    borderWidth: 1,
-    borderColor: 'background.border',
     bgcolor: 'background.light',
     overflow: 'hidden',
     p: 0,
@@ -89,6 +86,9 @@ const classes = {
       bgcolor: 'primary.main',
       borderColor: 'primary.dark',
       color: 'primary.contrastText',
+      '&:hover': {
+        bgcolor: 'primary.dark'
+      },
       '& .button': {
         bgcolor: 'primary.dark'
       },
