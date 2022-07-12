@@ -4,8 +4,6 @@ import {
   AvatarProps as MuiAvatarProps
 } from '@mui/material'
 import { Badge } from '../Badge/Badge'
-// import EditIcon from '@mui/icons-material/Edit'
-// import { IconButton } from '../Icons/IconButton'
 
 export interface AvatarProps extends MuiAvatarProps {
   badge?: boolean | undefined
