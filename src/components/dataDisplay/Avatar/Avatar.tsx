@@ -4,19 +4,24 @@ import {
   AvatarProps as MuiAvatarProps
 } from '@mui/material'
 import { Badge } from '../Badge/Badge'
+// import EditIcon from '@mui/icons-material/Edit'
+// import { IconButton } from '../Icons/IconButton'
 
 export interface AvatarProps extends MuiAvatarProps {
   badge?: boolean | undefined
+  badgeContent?: React.ReactNode
 }
 
 export function Avatar(props: AvatarProps): JSX.Element {
-  const { badge = false } = props
+  const { badge = false, badgeContent } = props
 
-  return badge ? (
+  return badge || badgeContent ? (
     <Badge
       overlap='circular'
+      hideBadgeWrapper={!!badgeContent}
       anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-      variant='dot'
+      variant={badgeContent ? 'standard' : 'dot'}
+      badgeContent={badgeContent && badgeContent}
     >
       <MuiAvatar {...props} />
     </Badge>
