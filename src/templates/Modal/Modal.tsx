@@ -13,7 +13,7 @@ import { Box, Button, Dialog, MobileStepper } from '../../components'
 export interface SlideItem {
   image?: string
   title: string
-  description: string
+  description?: string
   actions?: JSX.Element
 }
 
