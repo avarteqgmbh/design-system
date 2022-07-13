@@ -56,11 +56,11 @@ export const BaseHeader = (props: BaseHeaderProps): JSX.Element => {
   return (
     <Box
       sx={{
-        ...sx,
         position: 'relative',
         bgcolor: 'background.paper',
         width: '100%',
-        boxShadow: 1
+        boxShadow: 1,
+        ...sx
       }}
     >
       {metaNav && metaNav}
