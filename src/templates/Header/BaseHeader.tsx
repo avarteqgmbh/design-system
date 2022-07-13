@@ -1,4 +1,6 @@
 import React from 'react'
+
+import { SxProps } from '@mui/material'
 import { Box } from '../../components'
 import { MainMenuItem } from '../MainMenuItem/MainMenuItem'
 
@@ -18,6 +20,7 @@ export interface BaseHeaderProps {
   metaNav?: React.ReactNode
   quickLinks?: Link[]
   userMenu?: React.ReactNode
+  sx?: SxProps
 }
 
 export const BaseHeader = (props: BaseHeaderProps): JSX.Element => {
@@ -28,19 +31,13 @@ export const BaseHeader = (props: BaseHeaderProps): JSX.Element => {
     mainLinks,
     metaNav,
     quickLinks,
-    userMenu
+    userMenu,
+    sx
   } = props
 
   const densityValue = { small: 3, medium: 4, large: 5 }
 
   const classes = {
-    root: {
-      position: 'relative',
-      bgcolor: 'background.paper',
-      width: '100%',
-      boxShadow: 1
-    },
-
     baseHeaderWrapper: {
       color: 'text.primary',
       display: 'flex',
@@ -57,9 +54,17 @@ export const BaseHeader = (props: BaseHeaderProps): JSX.Element => {
   }
 
   return (
-    <Box sx={classes.root}>
+    <Box
+      sx={{
+        ...sx,
+        position: 'relative',
+        bgcolor: 'background.paper',
+        width: '100%',
+        boxShadow: 1
+      }}
+    >
       {metaNav && metaNav}
-      <Box sx={classes.baseHeaderWrapper}>
+      <Box sx={classes.baseHeaderWrapper} className='baseHeaderWrapper'>
         {logo && (
           <Box
             sx={{
@@ -86,7 +91,7 @@ export const BaseHeader = (props: BaseHeaderProps): JSX.Element => {
               />
             )
           })}
-        <Box sx={classes.quickLinks}>
+        <Box sx={classes.quickLinks} className='quickLinks'>
           {quickLinks &&
             quickLinks.map((link) => {
               return (
