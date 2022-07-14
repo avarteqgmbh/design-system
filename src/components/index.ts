@@ -101,6 +101,13 @@ import {
   Snackbar
 } from './feedback/index'
 
+import {
+  DialogTitle,
+  DialogActions,
+  DialogContent,
+  DialogContentText
+} from '@mui/material'
+
 import { onClickOutsideHook } from './utils'
 
 export {
@@ -202,5 +209,6 @@ export {
   Skeleton,
   Snackbar
 }
+export { DialogTitle, DialogActions, DialogContent, DialogContentText }
 
 export { onClickOutsideHook }
