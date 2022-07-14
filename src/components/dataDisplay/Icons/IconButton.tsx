@@ -60,8 +60,7 @@ export const IconButton: React.FC<IconButtonProps> = (props) => {
 
 const StyleIconButton = styled(MuiIconButton)(({ theme }) => {
   return {
-    color: theme.palette.text.primary,
-    backgroundColor: 'transparent',
+    // color: theme.palette.text.primary,
     '&.borderRadius-small': {
       borderRadius: theme.radius.small
     },
@@ -69,14 +68,24 @@ const StyleIconButton = styled(MuiIconButton)(({ theme }) => {
       borderRadius: theme.radius.medium
     },
     '&.withBackground': {
-      backgroundColor: theme.palette.background.light
+      color: theme.palette.text.primary,
+      backgroundColor: theme.palette.background.light,
+      '&:hover': {
+        backgroundColor: theme.palette.background.medium
+      }
+    },
+    '&.MuiIconButton-colorPrimary': {
+      '&.withBackground': {
+        color: theme.palette.primary.contrastText,
+        backgroundColor: theme.palette.primary.main,
+        '&:hover': {
+          backgroundColor: theme.palette.primary.dark
+        }
+      }
     },
     '&.withBorder': {
       border: '1px solid',
       borderColor: theme.palette.background.border
-    },
-    '&:hover': {
-      backgroundColor: theme.palette.background.medium
     }
   }
 })
