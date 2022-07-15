@@ -60,7 +60,6 @@ export const IconButton: React.FC<IconButtonProps> = (props) => {
 
 const StyleIconButton = styled(MuiIconButton)(({ theme }) => {
   return {
-    // color: theme.palette.text.primary,
     '&.borderRadius-small': {
       borderRadius: theme.radius.small
     },
