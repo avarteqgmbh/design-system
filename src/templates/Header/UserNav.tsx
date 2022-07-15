@@ -10,10 +10,10 @@ export interface UserMenuItems {
 }
 
 export interface UserMenuItem {
-  id: number
+  id?: number
   label: string
-  icon: React.ReactNode
-  endIcon: React.ReactNode
+  icon?: React.ReactNode
+  endIcon?: React.ReactNode
   onClick?: () => void
 }
 
@@ -24,7 +24,8 @@ export interface UserNavprops {
   fullName: string
   points: string
   children?: React.ReactNode[]
-  userMenu: UserMenuItems[]
+  userMenu?: UserMenuItems[]
+  userMenuSlot?: React.ReactNode
 }
 
 export const UserNav = (props: UserNavprops): JSX.Element => {
@@ -36,7 +37,8 @@ export const UserNav = (props: UserNavprops): JSX.Element => {
     fullName,
     points,
     children,
-    userMenu
+    userMenu,
+    userMenuSlot
   } = props
 
   const onClick = (): void => {
@@ -88,43 +90,48 @@ export const UserNav = (props: UserNavprops): JSX.Element => {
               </Box>
             )}
           </Box>
-
-          {userMenu.map((item) => {
-            return (
-              <Box key={item.label}>
-                <Box
-                  sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    my: 3
-                  }}
-                >
-                  <Divider
-                    textAlign='left'
-                    sx={{ flexGrow: 1, opacity: 0.5, borderColor: 'text.hint' }}
+          {userMenu &&
+            userMenu.map((item) => {
+              return (
+                <Box key={item.label}>
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      my: 3
+                    }}
                   >
-                    {item.label && <Typography>{item.label}</Typography>}
-                  </Divider>
-                </Box>
-                {item.items.map((listItem) => {
-                  return (
-                    <MainMenuItem
-                      key={listItem.id}
-                      onClick={(): void => {
-                        return listItem.onClick && listItem.onClick()
+                    <Divider
+                      textAlign='left'
+                      sx={{
+                        flexGrow: 1,
+                        opacity: 0.5,
+                        borderColor: 'text.hint'
                       }}
-                      size='medium'
-                      density={3}
-                      orientation='vertical'
-                      startIcon={listItem.icon}
-                      endIcon={listItem.endIcon && listItem.endIcon}
-                      label={listItem.label}
-                    />
-                  )
-                })}
-              </Box>
-            )
-          })}
+                    >
+                      {item.label && <Typography>{item.label}</Typography>}
+                    </Divider>
+                  </Box>
+                  {item.items.map((listItem) => {
+                    return (
+                      <MainMenuItem
+                        key={listItem.label}
+                        onClick={(): void => {
+                          return listItem.onClick && listItem.onClick()
+                        }}
+                        size='medium'
+                        density={3}
+                        orientation='vertical'
+                        startIcon={listItem.icon && listItem.icon}
+                        endIcon={listItem.endIcon && listItem.endIcon}
+                        label={listItem.label}
+                      />
+                    )
+                  })}
+                </Box>
+              )
+            })}
+          {userMenuSlot}
         </Box>
       )}
     </StyledUserNav>

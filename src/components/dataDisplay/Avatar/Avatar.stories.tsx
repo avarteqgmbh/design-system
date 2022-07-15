@@ -2,7 +2,9 @@ import React from 'react'
 import { Story } from '@storybook/react'
 import { AvatarProps } from '@mui/material'
 import FolderIcon from '@mui/icons-material/Folder'
+import EditIcon from '@mui/icons-material/Edit'
 
+import { IconButton } from '../Icons/IconButton'
 import { Avatar } from './Avatar'
 import { AvatarGroup } from './AvatarGroup'
 
@@ -37,6 +39,12 @@ Letter.args = {
 export const Icon = Template.bind({})
 Icon.args = {
   children: <FolderIcon />
+}
+
+export const WithBadgeContent = Template.bind({})
+WithBadgeContent.args = {
+  sx: { width: 120, height: 120 },
+  badgeContent: <IconButton size='small'><EditIcon /></IconButton>
 }
 
 export const Group: Story<AvatarProps> = (args) => {

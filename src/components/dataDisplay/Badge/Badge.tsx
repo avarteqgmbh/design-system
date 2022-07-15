@@ -4,16 +4,29 @@ import { styled } from '@mui/material/styles'
 
 export interface BadgeProps extends MuiBadgeProps {
   size?: 'small' | 'medium' | 'large'
+  hideBadgeWrapper?: boolean
 }
 
 export const Badge: React.FC<BadgeProps> = (props) => {
-  const { color = 'primary', size = 'small' } = props
+  const { color = 'primary', size = 'small', hideBadgeWrapper = false } = props
 
-  return <StyledMuiBadge className={size} color={color} {...props} />
+  return (
+    <StyledMuiBadge
+      className={`${size} ${hideBadgeWrapper && 'hideBadgeWrapper'}`}
+      color={color}
+      {...props}
+    />
+  )
 }
 
 const StyledMuiBadge = styled(MuiBadge)(({ theme }) => {
   return {
+    '&.hideBadgeWrapper': {
+      '& .MuiBadge-badge': {
+        background: 'none',
+        border: 0
+      }
+    },
     '& .MuiBadge-dot': {
       height: '10px',
       minWidth: '10px',
