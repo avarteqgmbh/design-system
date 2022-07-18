@@ -72,6 +72,7 @@ export const BaseCard: React.FC<CardProps> = (props) => {
                   !item.hidden && (
                     <Chip
                       label={item.title}
+                      key={item.title}
                       size='small'
                       sx={{ ml: 2 }}
                       color={item.primary ? 'primary' : 'secondary'}

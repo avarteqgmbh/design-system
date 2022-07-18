@@ -5,6 +5,7 @@ import {
   IconButtonProps as MuiIconButtonProps
 } from '@mui/material'
 import { styled } from '@mui/material/styles'
+import { removeKeysFromProps } from '../../../util'
 
 export interface IconButtonProps extends MuiIconButtonProps {
   badge?: boolean
@@ -21,6 +22,13 @@ export const IconButton: React.FC<IconButtonProps> = (props) => {
     background = true,
     borderRadius = 'full'
   } = props
+
+  const muiProps = removeKeysFromProps(props as Record<string, unknown>, [
+    'background',
+    'border',
+    'borderRadius',
+    'badge'
+  ])
 
   return badge ? (
     <Badge
@@ -39,7 +47,7 @@ export const IconButton: React.FC<IconButtonProps> = (props) => {
           ${background && 'withBackground'} 
           ${border && 'withBorder'}
         `}
-        {...props}
+        {...muiProps}
       >
         {children}
       </StyleIconButton>
@@ -51,7 +59,7 @@ export const IconButton: React.FC<IconButtonProps> = (props) => {
         ${background && 'withBackground'} 
         ${border && 'withBorder'}
       `}
-      {...props}
+      {...muiProps}
     >
       {children}
     </StyleIconButton>

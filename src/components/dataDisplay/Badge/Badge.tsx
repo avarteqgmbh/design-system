@@ -1,6 +1,7 @@
 import React from 'react'
 import { Badge as MuiBadge, BadgeProps as MuiBadgeProps } from '@mui/material'
 import { styled } from '@mui/material/styles'
+import { removeKeysFromProps } from '../../../util'
 
 export interface BadgeProps extends MuiBadgeProps {
   size?: 'small' | 'medium' | 'large'
@@ -10,11 +11,16 @@ export interface BadgeProps extends MuiBadgeProps {
 export const Badge: React.FC<BadgeProps> = (props) => {
   const { color = 'primary', size = 'small', hideBadgeWrapper = false } = props
 
+  const muiProps = removeKeysFromProps(props as Record<string, unknown>, [
+    'size',
+    'hideBadgeWrapper'
+  ])
+
   return (
     <StyledMuiBadge
       className={`${size} ${hideBadgeWrapper && 'hideBadgeWrapper'}`}
       color={color}
-      {...props}
+      {...muiProps}
     />
   )
 }

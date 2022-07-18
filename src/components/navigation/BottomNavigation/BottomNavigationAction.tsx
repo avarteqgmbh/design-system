@@ -3,6 +3,7 @@ import MuiBottomNavigationAction, {
   BottomNavigationActionProps as MuiBottomNavigationActionProps
 } from '@mui/material/BottomNavigationAction'
 import { styled } from '@mui/material/styles'
+import { removeKeysFromProps } from '../../../util'
 
 export interface BottomNavigationActionProps
   extends MuiBottomNavigationActionProps {
@@ -14,8 +15,15 @@ const BottomNavigationAction: React.FC<BottomNavigationActionProps> = (
 ) => {
   const { counter } = props
 
+  const muiProps = removeKeysFromProps(props as Record<string, unknown>, [
+    'counter'
+  ])
+
   return (
-    <StyledBottomNavigation className={counter ? 'counter' : ''} {...props} />
+    <StyledBottomNavigation
+      className={counter ? 'counter' : ''}
+      {...muiProps}
+    />
   )
 }
 
