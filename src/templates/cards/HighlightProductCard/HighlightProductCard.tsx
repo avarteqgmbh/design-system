@@ -52,7 +52,12 @@ export const HighlightProductCard: React.FC<HighlightProductCardProps> = (
         )}
         <Typography
           variant='h4'
-          sx={{ mt: 2, mb: { xs: 2, sm: 4 }, fontSize: { xs: 14, sm: 32 } }}
+          sx={{
+            mt: 2,
+            mb: { xs: 2, sm: 4 },
+            fontSize: { xs: 14, sm: 32 },
+            textAlign: 'center'
+          }}
           color='common.white'
         >
           {title}
