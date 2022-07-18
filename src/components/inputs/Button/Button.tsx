@@ -12,7 +12,7 @@ const StyledButton = styled(MuiButton)(({ theme }) => {
   return {
     display: 'flex',
     textTransform: 'none',
-    padding: theme.spacing(3, 5),
+    padding: theme.spacing(3, 4),
     fontWeight: 'bold',
     borderRadius: theme.radius.button,
     boxShadow: 'none',
