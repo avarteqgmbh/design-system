@@ -35,7 +35,9 @@ export const HighlightProductCard: React.FC<HighlightProductCardProps> = (
           },
           justifyContent: { xs: 'flex-end', sm: 'center' },
           opacity: { xs: 1, sm: 0 },
-          transform: { xs: 'none', sm: 'translateY(20px)' }
+          transform: { xs: 'none', sm: 'translateY(20px)' },
+          maxWidth: { md: 480 },
+          px: 4
         }}
       >
         {subtitle && (
@@ -125,7 +127,8 @@ const StyledHighlightProductCard = styled(Box)(({ theme }) => {
       width: '100%',
       display: 'flex',
       flexDirection: 'column',
-      alignItems: 'center'
+      alignItems: 'center',
+      margin: '0 auto'
     }
   }
 })
