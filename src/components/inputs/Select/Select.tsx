@@ -12,7 +12,7 @@ export interface SelectProps extends Omit<MuiSelectProps, 'onChange'> {
 export function Select(props: SelectProps): JSX.Element {
   const { variant = 'outlined', sx } = props
 
-  return <MuiSelect sx={{ ...sx, ...styles }} variant={variant} {...props} />
+  return <MuiSelect variant={variant} {...props} sx={{ ...styles, ...sx }} />
 }
 
 export type { SelectChangeEvent }

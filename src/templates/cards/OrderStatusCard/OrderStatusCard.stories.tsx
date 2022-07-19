@@ -27,7 +27,7 @@ export default {
 
 const Template: Story<OrderStatusCardProps> = (args) => {
   return (
-    <Container maxWidth='sm'>
+    <Container maxWidth='sm' sx={{mt: 4}}>
       <OrderStatusCard {...args} />
     </Container>
   )

@@ -4,7 +4,7 @@ import { Slider as MuiSlider, SliderProps } from '@mui/material'
 export function Slider(props: SliderProps): JSX.Element {
   const { sx } = props
 
-  return <MuiSlider sx={{ ...sx, ...styles }} {...props} />
+  return <MuiSlider {...props} sx={{ ...styles, ...sx }} />
 }
 
 const styles = {

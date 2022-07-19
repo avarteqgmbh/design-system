@@ -6,7 +6,7 @@ import {
 
 export function MobileStepper(props: MuiMobileStepperProps): JSX.Element {
   const { sx } = props
-  return <MuiMobileStepper sx={{ ...sx, ...styles }} {...props} />
+  return <MuiMobileStepper {...props} sx={{ ...styles, ...sx }} />
 }
 
 const styles = {

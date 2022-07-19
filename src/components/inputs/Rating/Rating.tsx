@@ -4,7 +4,7 @@ import { RatingProps } from '@mui/lab'
 
 export function Rating(props: RatingProps): JSX.Element {
   const { sx } = props
-  return <MuiRating sx={{ ...sx, ...styles }} {...props} />
+  return <MuiRating {...props} sx={{ ...styles, ...sx }} />
 }
 
 const styles = {
