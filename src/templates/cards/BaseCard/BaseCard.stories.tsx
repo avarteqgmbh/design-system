@@ -43,7 +43,7 @@ Default.args = {
 }
 
 export const WithAvatar = Template.bind({})
-Default.args = {
+WithAvatar.args = {
   title: 'Title with Avatar',
   subtitle: '12.04.2022',
   description: 'LoremIpsum',

@@ -4,7 +4,7 @@ import MuiAccordion, { AccordionProps } from '@mui/material/Accordion'
 export function Accordion(props: AccordionProps): JSX.Element {
   const { sx } = props
 
-  return <MuiAccordion {...props} sx={{ ...styles, ...sx }} />
+  return <MuiAccordion sx={{ ...styles, ...sx }} {...props} />
 }
 
 const styles = {
