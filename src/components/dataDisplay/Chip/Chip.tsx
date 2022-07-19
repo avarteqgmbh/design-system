@@ -17,6 +17,9 @@ const StyledMuiChip = styled(MuiChip)(({ theme }) => {
     '&.rounded': {
       borderRadius: '100px'
     },
+    '&.MuiChip-colorDefault': {
+      backgroundColor: theme.palette.background.medium
+    },
     borderRadius: theme.radius.button
   }
 })
