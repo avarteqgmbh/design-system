@@ -1,4 +1,5 @@
 import React from 'react'
+import TextTruncate from 'react-text-truncate'
 import { styled } from '@mui/material/styles'
 import { Box, Typography, Chip, Avatar } from '../../../components'
 
@@ -87,7 +88,7 @@ export const BaseCard: React.FC<CardProps> = (props) => {
           )}
         </Box>
         <Typography variant='h6' mb={1}>
-          {title}
+          <TextTruncate line={3} truncateText='…' text={title} />
         </Typography>
         {description && (
           <Typography variant='body2' color='text.secondary'>

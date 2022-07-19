@@ -90,6 +90,24 @@ const StyleIconButton = styled(MuiIconButton)(({ theme }) => {
         }
       }
     },
+    '&.MuiIconButton-colorError': {
+      '&.withBackground': {
+        color: theme.palette.primary.contrastText,
+        backgroundColor: theme.palette.error.main,
+        '&:hover': {
+          backgroundColor: theme.palette.error.dark
+        }
+      }
+    },
+    '&.MuiIconButton-colorSuccess': {
+      '&.withBackground': {
+        color: theme.palette.primary.contrastText,
+        backgroundColor: theme.palette.success.main,
+        '&:hover': {
+          backgroundColor: theme.palette.success.dark
+        }
+      }
+    },
     '&.withBorder': {
       border: '1px solid',
       borderColor: theme.palette.background.border

@@ -1,4 +1,5 @@
 import React from 'react'
+import TextTruncate from 'react-text-truncate'
 import { styled } from '@mui/material/styles'
 import { Box, Typography } from '../../../components'
 
@@ -60,7 +61,7 @@ export const HighlightProductCard: React.FC<HighlightProductCardProps> = (
           }}
           color='common.white'
         >
-          {title}
+          <TextTruncate line={3} truncateText='…' text={title} />
         </Typography>
         <Box sx={{ display: { xs: 'none', sm: 'block' } }}>{children}</Box>
       </Box>
