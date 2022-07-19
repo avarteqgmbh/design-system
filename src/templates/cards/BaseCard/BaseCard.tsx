@@ -19,7 +19,7 @@ export interface CardProps {
     name: string
     src: string
   }
-  maxWidth?: number
+  maxWidth?: number | string
   onClick: () => void
   children?: React.ReactNode
 }
@@ -44,7 +44,7 @@ export const BaseCard: React.FC<CardProps> = (props) => {
       }}
       sx={{
         boxShadow: 1,
-        maxWidth: maxWidth || '100%',
+        maxWidth,
         '&:hover': {
           transform: hoverAnimation ? 'translateY(-4px)' : '',
           '& .image': {
@@ -74,18 +74,22 @@ export const BaseCard: React.FC<CardProps> = (props) => {
                       label={item.title}
                       size='small'
                       sx={{ ml: 2 }}
-                      color={item.primary ? 'primary' : 'secondary'}
+                      color={item.primary ? 'primary' : 'default'}
                     />
                   )
                 )
               })}
               {avatar && (
-                <Avatar alt={avatar.name} src={avatar.src} sx={{ ml: 2 }} />
+                <Avatar
+                  alt={avatar.name}
+                  src={avatar.src}
+                  sx={{ ml: 2, height: 32, width: 32 }}
+                />
               )}
             </Box>
           )}
         </Box>
-        <Typography variant='h6' mb={1}>
+        <Typography variant='subtitle2' mb={1}>
           {title}
         </Typography>
         {description && (
