@@ -34,6 +34,7 @@ Default.args = {
   title: 'Title',
   subtitle: '12.04.2022',
   description: 'LoremIpsum',
+  maxWidth: '100%',
   image:
     'https://images.pexels.com/photos/2468056/pexels-photo-2468056.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
   tags: [

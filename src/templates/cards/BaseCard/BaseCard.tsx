@@ -1,6 +1,7 @@
 import React from 'react'
 import { styled } from '@mui/material/styles'
 import { Box, Typography, Chip, Avatar } from '../../../components'
+import { BoxProps } from '@mui/material'
 
 export interface Tag {
   primary?: boolean
@@ -8,7 +9,7 @@ export interface Tag {
   title: string
 }
 
-export interface CardProps {
+export interface CardProps extends BoxProps {
   title: string
   subtitle?: string
   description?: string
@@ -19,7 +20,6 @@ export interface CardProps {
     name: string
     src: string
   }
-  maxWidth?: number | string
   onClick: () => void
   children?: React.ReactNode
 }
@@ -35,7 +35,7 @@ export const BaseCard: React.FC<CardProps> = (props) => {
     avatar,
     onClick,
     children,
-    maxWidth = 450
+    sx
   } = props
   return (
     <StyledBaseCard
@@ -44,13 +44,13 @@ export const BaseCard: React.FC<CardProps> = (props) => {
       }}
       sx={{
         boxShadow: 1,
-        maxWidth,
         '&:hover': {
           transform: hoverAnimation ? 'translateY(-4px)' : '',
           '& .image': {
             transform: hoverAnimation ? 'scale(1.05)' : ''
           }
-        }
+        },
+        ...sx
       }}
     >
       <Box className='imageWrapper'>
@@ -111,6 +111,7 @@ const StyledBaseCard = styled(Box)(({ theme }) => {
     transition: '200ms all ease-in-out',
     cursor: 'pointer',
     height: '100%',
+    maxWidth: 450,
     '& .imageWrapper': {
       width: '100%',
       height: 180,
