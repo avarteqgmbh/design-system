@@ -84,8 +84,13 @@ export const UserNav = (props: UserNavprops): JSX.Element => {
             <Typography variant='h6'>{fullName}</Typography>
             {children && (
               <Box className='userMenuDialogChildrenWrapper'>
-                {children.map((item): React.ReactNode => {
-                  return <Box ml={3}>{item}</Box>
+                {children.map((item, index): React.ReactNode => {
+                  return (
+                    // eslint-disable-next-line react/no-array-index-key
+                    <Box ml={3} key={index}>
+                      {item}
+                    </Box>
+                  )
                 })}
               </Box>
             )}

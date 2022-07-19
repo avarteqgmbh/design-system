@@ -71,7 +71,11 @@ export const Auth: React.FC<AuthProps> = ({
               {actions && (
                 <Box display='flex'>
                   {actions.map((action) => {
-                    return <Box ml={4}>{action}</Box>
+                    return (
+                      <Box ml={4} key={action.key}>
+                        {action}
+                      </Box>
+                    )
                   })}
                 </Box>
               )}
