@@ -33,6 +33,7 @@ export const MetaNav = (props: MetaNavProps): JSX.Element => {
         {mainLinks.map((link) => {
           return (
             <MainMenuItem
+              key={link.label}
               density={density}
               size='small'
               label={link.label}
@@ -49,6 +50,7 @@ export const MetaNav = (props: MetaNavProps): JSX.Element => {
         {quickLinks.map((link) => {
           return (
             <MainMenuItem
+              key={link.label}
               density={density}
               size='small'
               label={link.label}

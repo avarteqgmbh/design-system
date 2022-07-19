@@ -80,6 +80,7 @@ export const BaseHeader = (props: BaseHeaderProps): JSX.Element => {
           mainLinks.map((link) => {
             return (
               <MainMenuItem
+                key={link.label}
                 startIcon={link.icon}
                 label={link.label}
                 active={link.active}
@@ -96,6 +97,7 @@ export const BaseHeader = (props: BaseHeaderProps): JSX.Element => {
             quickLinks.map((link) => {
               return (
                 <MainMenuItem
+                  key={link.label}
                   startIcon={link.icon}
                   label={link.label}
                   active={link.active}

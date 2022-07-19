@@ -94,6 +94,7 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
               return (
                 <Chip
                   label={item}
+                  key={item}
                   size='small'
                   sx={{
                     mr: { xs: 1, sm: 2 },

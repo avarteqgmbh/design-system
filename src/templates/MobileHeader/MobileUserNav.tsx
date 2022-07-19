@@ -46,7 +46,7 @@ export const MobileUserNav: React.FC<MobileUserNavProps> = ({
 
       {userMenu.map((item) => {
         return (
-          <Box mb={5}>
+          <Box mb={5} key={item.label}>
             <Divider textAlign='left'>
               {item.label && <Typography>{item.label}</Typography>}
             </Divider>
