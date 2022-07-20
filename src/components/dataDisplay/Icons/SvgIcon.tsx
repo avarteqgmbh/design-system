@@ -5,7 +5,7 @@ export function SvgIcon(props: SvgIconProps): JSX.Element {
   const { children, sx } = props
 
   return (
-    <MuiSvgIcon sx={{ ...sx, ...styles }} {...props}>
+    <MuiSvgIcon {...props} sx={{ ...styles, ...sx }}>
       {children}
     </MuiSvgIcon>
   )

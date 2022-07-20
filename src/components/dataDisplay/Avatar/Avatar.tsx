@@ -4,14 +4,20 @@ import {
   AvatarProps as MuiAvatarProps
 } from '@mui/material'
 import { Badge } from '../Badge/Badge'
+import { removeKeysFromProps } from '../../../util'
 
 export interface AvatarProps extends MuiAvatarProps {
   badge?: boolean | undefined
   badgeContent?: React.ReactNode
 }
 
-export function Avatar(props: AvatarProps): JSX.Element {
+export const Avatar = (props: AvatarProps): JSX.Element => {
   const { badge = false, badgeContent } = props
+
+  const muiProps = removeKeysFromProps(props as Record<string, unknown>, [
+    'badge',
+    'badgeContent'
+  ])
 
   return badge || badgeContent ? (
     <Badge
@@ -21,9 +27,9 @@ export function Avatar(props: AvatarProps): JSX.Element {
       variant={badgeContent ? 'standard' : 'dot'}
       badgeContent={badgeContent && badgeContent}
     >
-      <MuiAvatar {...props} />
+      <MuiAvatar {...muiProps} />
     </Badge>
   ) : (
-    <MuiAvatar {...props} />
+    <MuiAvatar {...muiProps} />
   )
 }

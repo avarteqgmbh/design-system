@@ -18,12 +18,13 @@ export const Slider = (props: SliderProps): JSX.Element => {
         // autoPlay
         infiniteLoop
         stopOnHover
+        showThumbs={false}
         showArrows={false}
         showStatus={false}
       >
         {slides &&
           slides.map((slide) => {
-            return <Slide fullWidth={fullWidth} {...slide} />
+            return <Slide fullWidth={fullWidth} key={slide.title} {...slide} />
           })}
       </Carousel>
     </Box>

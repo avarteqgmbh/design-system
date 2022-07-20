@@ -5,5 +5,7 @@ import {
 } from '@mui/material'
 
 export function Container(props: MuiContainerProps): JSX.Element {
-  return <MuiContainer {...props} />
+  const { sx } = props
+
+  return <MuiContainer {...props} sx={{ px: 4, ...sx }} />
 }

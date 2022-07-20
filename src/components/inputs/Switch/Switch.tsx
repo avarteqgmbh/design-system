@@ -3,6 +3,7 @@ import {
   Switch as MuiSwitch,
   SwitchProps as MuiSwitchProps
 } from '@mui/material'
+import { removeKeysFromProps } from '../../../util'
 
 export interface SwitchProps extends MuiSwitchProps {
   inline?: boolean | undefined
@@ -11,11 +12,15 @@ export interface SwitchProps extends MuiSwitchProps {
 export function Switch(props: SwitchProps): JSX.Element {
   const { inline, sx } = props
 
+  const muiProps = removeKeysFromProps(props as Record<string, unknown>, [
+    'inline'
+  ])
+
   return (
     <MuiSwitch
       className={inline ? 'inline' : ''}
-      sx={{ ...sx, ...styles }}
-      {...props}
+      {...muiProps}
+      sx={{ ...styles, ...sx }}
     />
   )
 }

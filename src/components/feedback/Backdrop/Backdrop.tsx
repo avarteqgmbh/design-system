@@ -13,9 +13,9 @@ export function Backdrop(props: BackdropProps): JSX.Element {
 
   return (
     <MuiBackdrop
-      className={primary ? 'primary' : ''}
-      sx={{ ...sx, ...styles }}
       {...props}
+      className={primary ? 'primary' : ''}
+      sx={{ ...styles, ...sx }}
     />
   )
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import TextTruncate from 'react-text-truncate'
 import { styled } from '@mui/material/styles'
 import { Box, Typography } from '../../../components'
 
@@ -35,7 +36,9 @@ export const HighlightProductCard: React.FC<HighlightProductCardProps> = (
           },
           justifyContent: { xs: 'flex-end', sm: 'center' },
           opacity: { xs: 1, sm: 0 },
-          transform: { xs: 'none', sm: 'translateY(20px)' }
+          transform: { xs: 'none', sm: 'translateY(20px)' },
+          maxWidth: { md: 480 },
+          px: 4
         }}
       >
         {subtitle && (
@@ -50,10 +53,15 @@ export const HighlightProductCard: React.FC<HighlightProductCardProps> = (
         )}
         <Typography
           variant='h4'
-          sx={{ mt: 2, mb: { xs: 2, sm: 4 }, fontSize: { xs: 14, sm: 32 } }}
+          sx={{
+            mt: 2,
+            mb: { xs: 2, sm: 4 },
+            fontSize: { xs: 14, sm: 32 },
+            textAlign: 'center'
+          }}
           color='common.white'
         >
-          {title}
+          <TextTruncate line={3} truncateText='…' text={title} />
         </Typography>
         <Box sx={{ display: { xs: 'none', sm: 'block' } }}>{children}</Box>
       </Box>
@@ -125,7 +133,8 @@ const StyledHighlightProductCard = styled(Box)(({ theme }) => {
       width: '100%',
       display: 'flex',
       flexDirection: 'column',
-      alignItems: 'center'
+      alignItems: 'center',
+      margin: '0 auto'
     }
   }
 })
