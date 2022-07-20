@@ -43,7 +43,7 @@ export const VerticalProductCard: React.FC<VerticalProductCardProps> = (
         className='contentWrapper'
         sx={{
           flexDirection: { xs: 'column', sm: 'row' },
-          mb: { xs: 4, sm: 0 }
+          mb: 4
         }}
       >
         <Box

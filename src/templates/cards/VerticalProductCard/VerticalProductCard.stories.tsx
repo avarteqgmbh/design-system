@@ -1,6 +1,6 @@
 import React from 'react'
 import { Story } from '@storybook/react'
-import { Box, Button } from '../../../index'
+import { Box, Button, Grid } from '../../../index'
 import Delete from '@mui/icons-material/Delete'
 import Favorite from '@mui/icons-material/Favorite'
 import { withDesign } from 'storybook-addon-designs'
@@ -34,23 +34,31 @@ const Template: Story<VerticalProductCardProps> = (args) => {
   return (
     <Box sx={{ maxWidth: 700 }}>
       <VerticalProductCard {...args}>
-        <Button
-          variant='text'
-          color='secondary'
-          size='small'
-          startIcon={<Delete />}
-        >
-          <span>Löschen</span>
-        </Button>
-        <Button
-          variant='contained'
-          color='secondary'
-          size='small'
-          sx={{ mb: { xs: 2, sm: 0 } }}
-          startIcon={<Favorite />}
-        >
-          <span>In den Warenkorb</span>
-        </Button>
+        <Grid container spacing={5}>
+          <Grid item xs={6}>
+            <Button
+              fullWidth
+              variant='text'
+              color='secondary'
+              size='small'
+              startIcon={<Delete />}
+            >
+              <span>Löschen</span>
+            </Button>
+          </Grid>
+          <Grid item xs={6}>
+            <Button
+              fullWidth
+              variant='contained'
+              color='secondary'
+              size='small'
+              sx={{ mb: { xs: 2, sm: 0 } }}
+              startIcon={<Favorite />}
+            >
+              <span>In den Warenkorb</span>
+            </Button>
+          </Grid>
+        </Grid>
       </VerticalProductCard>
     </Box>
   )
