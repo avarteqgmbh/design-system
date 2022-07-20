@@ -34,7 +34,7 @@ export const BasicDatePicker: Story<DatePickerProps<unknown, Date>> = (args) => 
       label='Basic Date Picker'
       value={value}
       onChange={(newValue): void => {
-        setValue(newValue as React.SetStateAction<Date>)
+        setValue(newValue as React.SetStateAction<Date | null>)
       }}
       renderInput={(params): React.ReactElement => {
         return <TextField {...params} />
@@ -52,7 +52,7 @@ export const DateTimePicker: Story<DateTimePickerProps<unknown, Date>> = (args) 
       label='Date Time Picker'
       value={value}
       onChange={(newValue): void => {
-        setValue(newValue as React.SetStateAction<Date>)
+        setValue(newValue as React.SetStateAction<Date | null>)
       }}
       renderInput={(params): React.ReactElement => {
         return <TextField {...params} />

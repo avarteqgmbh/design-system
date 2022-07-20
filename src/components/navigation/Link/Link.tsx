@@ -8,7 +8,7 @@ export interface LinkProps extends MuiLinkProps {
 export function Link(props: LinkProps): JSX.Element {
   const { sx } = props
 
-  return <MuiLink sx={{ ...sx, ...styles }} {...props} />
+  return <MuiLink {...props} sx={{ ...styles, ...sx }} />
 }
 
 const styles = {

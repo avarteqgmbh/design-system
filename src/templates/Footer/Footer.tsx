@@ -62,16 +62,18 @@ export const Footer = (props: FooterProps): JSX.Element => {
       }
     },
     defaultFooterWrapper: {
-      width: extended ? 1200 : '100%',
-      p: 5,
       display: 'flex',
+      flexDirection: { xs: 'column', md: 'row' },
       justifyContent: 'space-between',
-      alignItems: 'center'
+      alignItems: 'center',
+      width: extended ? 1200 : '100%',
+      p: 5
     },
     defaultFooterLink: {
       transition: 'all ease-in-out 200ms',
       cursor: 'pointer',
-      ml: 4
+      mx: { xs: 3, md: 0 },
+      ml: { xs: 3, md: 6 }
     },
     linkStyles: {
       color: 'text.secondary',
@@ -116,7 +118,7 @@ export const Footer = (props: FooterProps): JSX.Element => {
         </Box>
       )}
       <Box sx={classes.defaultFooterWrapper}>
-        <Typography variant='body2' color='text.disabled'>
+        <Typography variant='body2' color='text.disabled' mb={{ xs: 2, md: 0 }}>
           {copyright}
         </Typography>
         <Box sx={{ display: 'flex' }}>

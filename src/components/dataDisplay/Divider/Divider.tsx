@@ -5,7 +5,7 @@ import { Theme } from '../../../theme/types'
 export function Divider(props: DividerProps): JSX.Element {
   const { sx } = props
 
-  return <MuiDivider sx={{ ...sx, ...styles }} {...props} />
+  return <MuiDivider {...props} sx={{ ...styles, ...sx }} />
 }
 
 const styles = {

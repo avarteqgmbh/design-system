@@ -8,7 +8,7 @@ export function ListItemIcon(props: ListItemIconProps): JSX.Element {
   const { children, sx } = props
 
   return (
-    <MuiListItemIcon sx={{ ...sx, ...styles }} {...props}>
+    <MuiListItemIcon {...props} sx={{ ...styles, ...sx }}>
       {children}
     </MuiListItemIcon>
   )

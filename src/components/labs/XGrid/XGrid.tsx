@@ -117,8 +117,8 @@ export function XGrid(props: XGridProps): JSX.Element {
         autoHeight={autoHeight}
         autoPageSize={autoHeight}
         components={toolbar ? { Toolbar: CustomToolbar } : {}}
-        sx={{ ...sx, ...styles }}
         {...props}
+        sx={{ ...styles, ...sx }}
       />
     </>
   )

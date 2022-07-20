@@ -7,8 +7,8 @@ export function Pagination(props: PaginationProps): JSX.Element {
 
   return (
     <MuiPagination
+      sx={{ ...styles, ...sx }}
       {...props}
-      sx={{ ...sx, ...styles }}
       variant={variant}
       color={color}
     />

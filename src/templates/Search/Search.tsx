@@ -24,7 +24,7 @@ export const Search: React.FC<SearchProps> = (props) => {
   } = props
 
   return (
-    <Box sx={{ minWidth: 460, ...sx }}>
+    <Box sx={{ minWidth: { xs: '90%', sm: 460 }, ...sx }}>
       <TextField
         fullWidth
         color='secondary'

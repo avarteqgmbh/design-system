@@ -7,7 +7,7 @@ import {
 export function ListItemText(props: ListItemTextProps): JSX.Element {
   const { sx } = props
 
-  return <MuiListItemText sx={{ ...sx, ...styles }} {...props} />
+  return <MuiListItemText {...props} sx={{ ...styles, ...sx }} />
 }
 
 const styles = {

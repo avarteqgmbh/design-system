@@ -9,7 +9,7 @@ export type AutocompleteProps = MuiAutocompleteProps<unknown, true, true, true>
 export function Autocomplete(props: AutocompleteProps): JSX.Element {
   const { sx } = props
 
-  return <MuiAutocomplete sx={{ ...styles, ...sx }} {...props} />
+  return <MuiAutocomplete {...props} sx={{ ...styles, ...sx }} />
 }
 
 const styles = {
