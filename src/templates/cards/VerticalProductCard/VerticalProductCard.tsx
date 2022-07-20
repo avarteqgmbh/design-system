@@ -85,7 +85,7 @@ export const VerticalProductCard: React.FC<VerticalProductCardProps> = (
           </Box>
         </Box>
       </Box>
-      <Box className='footer'>{children}</Box>
+      {children}
     </StyledVerticalProductCard>
   )
 }
@@ -121,12 +121,6 @@ const StyledVerticalProductCard = styled(Box)(({ theme }) => {
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center'
-    },
-    '& .footer': {
-      display: 'flex',
-      justifyContent: 'space-between',
-      flexDirection: { xs: 'column-reverse', sm: 'row' },
-      marginTop: theme.spacing(5)
     }
   }
 })
