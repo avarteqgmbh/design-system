@@ -2,6 +2,7 @@ import React from 'react'
 import TextTruncate from 'react-text-truncate'
 import { styled } from '@mui/material/styles'
 import { Box, Typography, Chip, Avatar } from '../../../components'
+import { BoxProps } from '@mui/material'
 
 export interface Tag {
   primary?: boolean
@@ -9,7 +10,7 @@ export interface Tag {
   title: string
 }
 
-export interface CardProps {
+export interface CardProps extends BoxProps {
   title: string
   subtitle?: string
   description?: string
@@ -20,7 +21,6 @@ export interface CardProps {
     name: string
     src: string
   }
-  maxWidth?: number
   onClick: () => void
   children?: React.ReactNode
 }
@@ -36,7 +36,7 @@ export const BaseCard: React.FC<CardProps> = (props) => {
     avatar,
     onClick,
     children,
-    maxWidth = 450
+    sx
   } = props
   return (
     <StyledBaseCard
@@ -45,13 +45,13 @@ export const BaseCard: React.FC<CardProps> = (props) => {
       }}
       sx={{
         boxShadow: 1,
-        maxWidth: maxWidth || '100%',
         '&:hover': {
           transform: hoverAnimation ? 'translateY(-4px)' : '',
           '& .image': {
             transform: hoverAnimation ? 'scale(1.05)' : ''
           }
-        }
+        },
+        ...sx
       }}
     >
       <Box className='imageWrapper'>
@@ -76,18 +76,22 @@ export const BaseCard: React.FC<CardProps> = (props) => {
                       key={item.title}
                       size='small'
                       sx={{ ml: 2 }}
-                      color={item.primary ? 'primary' : 'secondary'}
+                      color={item.primary ? 'primary' : 'default'}
                     />
                   )
                 )
               })}
               {avatar && (
-                <Avatar alt={avatar.name} src={avatar.src} sx={{ ml: 2 }} />
+                <Avatar
+                  alt={avatar.name}
+                  src={avatar.src}
+                  sx={{ ml: 2, height: 32, width: 32 }}
+                />
               )}
             </Box>
           )}
         </Box>
-        <Typography variant='h6' mb={1}>
+        <Typography variant='subtitle2' mb={1}>
           <TextTruncate line={3} truncateText='…' text={title} />
         </Typography>
         {description && (
@@ -109,6 +113,7 @@ const StyledBaseCard = styled(Box)(({ theme }) => {
     transition: '200ms all ease-in-out',
     cursor: 'pointer',
     height: '100%',
+    maxWidth: 450,
     '& .imageWrapper': {
       width: '100%',
       height: 180,
