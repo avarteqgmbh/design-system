@@ -26,7 +26,7 @@ export default {
 }
 
 const Template: Story<CardProps> = (args) => {
-  return <BaseCard {...args} />
+  return <BaseCard {...args} sx={{ maxWidth: 450 }} />
 }
 
 export const Default = Template.bind({})

@@ -113,7 +113,6 @@ const StyledBaseCard = styled(Box)(({ theme }) => {
     transition: '200ms all ease-in-out',
     cursor: 'pointer',
     height: '100%',
-    maxWidth: 450,
     '& .imageWrapper': {
       width: '100%',
       height: 180,
