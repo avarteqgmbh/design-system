@@ -1,6 +1,6 @@
 import React from 'react'
 import TextTruncate from 'react-text-truncate'
-import { styled } from '@mui/material/styles'
+import { styled, SxProps } from '@mui/material/styles'
 import { Points } from '../Points'
 import { Box, Typography, Chip } from '../../../components'
 import { AmountInput } from '../AmountInput'
@@ -19,6 +19,7 @@ export interface VerticalProductCardProps {
   onAdd: () => void
   onRemove: () => void
   children: React.ReactNode
+  sx?: SxProps
 }
 
 export const VerticalProductCard: React.FC<VerticalProductCardProps> = (
@@ -34,11 +35,12 @@ export const VerticalProductCard: React.FC<VerticalProductCardProps> = (
     onClick,
     onAdd,
     onRemove,
-    children
+    children,
+    sx
   } = props
 
   return (
-    <StyledVerticalProductCard sx={{ boxShadow: 1 }}>
+    <StyledVerticalProductCard sx={{ boxShadow: 1, ...sx }}>
       <Box
         className='contentWrapper'
         sx={{

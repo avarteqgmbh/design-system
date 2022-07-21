@@ -70,6 +70,6 @@ Default.args = {
   image:
     'https://s3-eu-west-1.amazonaws.com/bum-stage/articles/1315051-thumb_medium-BM-018235_1.jpg',
   points: 1200,
-  // tags: ['Auf Lager', 'Varianten verfügbar'],
+  tags: ['Auf Lager', 'Varianten verfügbar'],
   variant: { label: 'Variante:', value: 'Space-Gray' }
 }
