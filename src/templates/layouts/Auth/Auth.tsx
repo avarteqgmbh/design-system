@@ -1,5 +1,5 @@
 import React from 'react'
-import { styled } from '@mui/material/styles'
+import { styled, SxProps } from '@mui/material/styles'
 import { Box, Container } from '../../../components'
 
 export type LayoutVariant = 'background' | 'center' | 'left' | 'right'
@@ -11,6 +11,7 @@ export interface AuthProps {
   footer?: JSX.Element
   logo?: JSX.Element
   variant: LayoutVariant
+  sx?: SxProps
 }
 
 export const Auth: React.FC<AuthProps> = ({
@@ -19,7 +20,8 @@ export const Auth: React.FC<AuthProps> = ({
   bgImage,
   footer,
   logo,
-  variant = 'center'
+  variant = 'center',
+  sx
 }) => {
   // If no bgImage is set, the center layout falls back to background for better container width.
   if (!bgImage && variant === 'center') {
@@ -34,7 +36,8 @@ export const Auth: React.FC<AuthProps> = ({
           '&.background, &.left, &.right': {
             backgroundImage: bgImage && `url(${bgImage})`
           }
-        }
+        },
+        ...sx
       }}
       className={variant}
     >
