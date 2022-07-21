@@ -7,7 +7,17 @@ import {
 export function Dialog(props: MuiDialogProps): JSX.Element {
   const { sx } = props
 
-  return <MuiDialog {...props} sx={{ ...styles, ...sx }} />
+  return (
+    <MuiDialog
+      BackdropProps={{
+        sx: {
+          backdropFilter: 'blur(6px)'
+        }
+      }}
+      {...props}
+      sx={{ ...styles, ...sx }}
+    />
+  )
 }
 
 const styles = {
