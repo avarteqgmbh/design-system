@@ -18,11 +18,11 @@ export const MenuItem: React.FC<MenuItemProps> = (props) => {
 const StyledMuiMenuItem = styled(MuiMenuItem)(({ theme }) => {
   return {
     background: 'transparent',
-    padding: 2,
+    padding: theme.spacing(2, 4),
     borderRadius: theme.radius.small,
     '& .MuiListItemIcon-root': {
       minWidth: 'auto',
-      marginRight: 2,
+      marginRight: theme.spacing(2),
       color: theme.palette.text.primary
     }
   }
