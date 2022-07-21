@@ -10,12 +10,12 @@ export interface VerticalProductCardProps {
   image: string
   points?: number
   amount: number
-  tags: string[]
-  variant: {
+  tags?: string[]
+  variant?: {
     label: string
     value: string
   }
-  onClick: () => void
+  onClick?: () => void
   onAdd: () => void
   onRemove: () => void
   children: React.ReactNode
@@ -54,7 +54,7 @@ export const VerticalProductCard: React.FC<VerticalProductCardProps> = (
             mb: { xs: 4, sm: 0 }
           }}
           onClick={(): void => {
-            return onClick()
+            return onClick && onClick()
           }}
         >
           <img src={image} alt={title} />
@@ -63,14 +63,24 @@ export const VerticalProductCard: React.FC<VerticalProductCardProps> = (
           <Typography variant='h6' sx={{ fontSize: 16 }}>
             <TextTruncate line={2} truncateText='…' text={title} />
           </Typography>
-          <Typography variant='body2' color='text.secondary' mb={2}>
-            {variant.label} {variant.value}
-          </Typography>
-          {tags.map((tag) => {
-            return (
-              <Chip key={tag} label={tag} size='small' sx={{ mr: 2, mb: 2 }} />
-            )
-          })}
+          {variant && (
+            <Typography variant='body2' color='text.secondary'>
+              {variant.label} {variant.value}
+            </Typography>
+          )}
+          <Box className='tagsWrapper'>
+            {tags &&
+              tags.map((tag) => {
+                return (
+                  <Chip
+                    key={tag}
+                    label={tag}
+                    size='small'
+                    sx={{ mr: 2, mb: 2 }}
+                  />
+                )
+              })}
+          </Box>
           <Box className='pointsWrapper'>
             <Points points={points} />
             <AmountInput
@@ -116,6 +126,9 @@ const StyledVerticalProductCard = styled(Box)(({ theme }) => {
         maxHeight: 64,
         maxWidth: 64
       }
+    },
+    '& .tagsWrapper': {
+      marginTop: theme.spacing(2)
     },
     '& .pointsWrapper': {
       display: 'flex',
