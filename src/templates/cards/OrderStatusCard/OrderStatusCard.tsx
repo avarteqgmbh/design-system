@@ -1,5 +1,6 @@
 import React from 'react'
 import ExpandMore from '@mui/icons-material/ExpandMore'
+import { SxProps } from '@mui/material'
 import { Points } from '../Points'
 import { OrderItem, OrderItemProps } from './OrderItem'
 import {
@@ -34,6 +35,7 @@ export interface OrderStatusCardProps {
     phone: string
   }
   orderItems: OrderItemProps[]
+  sx?: SxProps
 }
 
 export const OrderStatusCard: React.FC<OrderStatusCardProps> = (props) => {
@@ -44,12 +46,13 @@ export const OrderStatusCard: React.FC<OrderStatusCardProps> = (props) => {
     orderAddress,
     orderItems,
     points,
-    pointsInfoLabel
+    pointsInfoLabel,
+    sx
   } = props
   const [tooltipOpen, setTooltipOpen] = React.useState(false)
 
   return (
-    <Accordion disableGutters sx={{ bgcolor: 'background.medium' }}>
+    <Accordion disableGutters sx={{ bgcolor: 'background.medium', ...sx }}>
       <AccordionSummary
         sx={{ px: 4 }}
         expandIcon={<ExpandMore />}
@@ -71,6 +74,7 @@ export const OrderStatusCard: React.FC<OrderStatusCardProps> = (props) => {
               alignItems: 'center',
               height: '100%'
             }}
+            className='releasedDateInfo'
           >
             <Typography variant='body2' color='text.secondary'>
               {releasedDate.label}:
@@ -121,6 +125,7 @@ export const OrderStatusCard: React.FC<OrderStatusCardProps> = (props) => {
                 bgcolor: 'background.paper',
                 zIndex: 1
               }}
+              className='orderAddressInfo'
             >
               <Typography>
                 {orderAddress.firstName} {orderAddress.lastName}

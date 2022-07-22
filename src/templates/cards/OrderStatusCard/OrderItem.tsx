@@ -1,5 +1,5 @@
 import React from 'react'
-import { styled } from '@mui/material/styles'
+import { styled, SxProps } from '@mui/material/styles'
 import { Points } from '../Points'
 import { Button, Box, Typography } from '../../../components'
 
@@ -23,6 +23,7 @@ export interface OrderItemProps {
   onImageClick?: () => void
   onClick?: () => void
   trackingLabel?: string
+  sx?: SxProps
 }
 
 export const OrderItem: React.FC<OrderItemProps> = (props) => {
@@ -36,11 +37,12 @@ export const OrderItem: React.FC<OrderItemProps> = (props) => {
     sendAt,
     onImageClick,
     onClick,
-    trackingLabel
+    trackingLabel,
+    sx
   } = props
 
   return (
-    <StyledOrderItem>
+    <StyledOrderItem sx={sx}>
       {backgroundImage ? (
         <Box className='image' sx={{ backgroundImage: `url(${image})` }} />
       ) : (
